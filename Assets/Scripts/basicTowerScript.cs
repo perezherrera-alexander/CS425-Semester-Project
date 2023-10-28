@@ -48,7 +48,13 @@ public class basicTowerScript : MonoBehaviour
 
     void Shoot()
     {
-        Instantiate(stingerPrefab, firePoint.position, firePoint.rotation);
+        GameObject stinger = (GameObject)Instantiate(stingerPrefab, firePoint.position, firePoint.rotation);
+        stingerScript sting = stinger.GetComponent<stingerScript>();
+
+        if (sting != null)
+        {
+            sting.Seek(target);
+        }
     }
     void UpdateTarget()
     {

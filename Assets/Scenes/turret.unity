@@ -245,7 +245,7 @@ Transform:
   m_GameObject: {fileID: 538088256}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.017752303, w: 0.99984246}
-  m_LocalPosition: {x: 11.92, y: 0.35, z: 6}
+  m_LocalPosition: {x: 11.92, y: 0.35, z: 11.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -513,6 +513,10 @@ PrefabInstance:
       propertyPath: stingerPrefab
       value: 
       objectReference: {fileID: 8813856010085298334, guid: 220ceee3f05f4304ab37f164e16469d6, type: 3}
+    - target: {fileID: 8755519099717131826, guid: 90b93a43ba47fa34280cd56ef8ad78a3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.01
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
