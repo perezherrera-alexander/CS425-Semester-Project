@@ -30,6 +30,7 @@ public class stingerScript : MonoBehaviour
         }
 
         transform.Translate (dir.normalized * distancePerFrame, Space.World);
+        transform.LookAt(target);
     }
 
     void targetHit()
