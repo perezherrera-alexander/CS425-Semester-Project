@@ -1,12 +1,14 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class stingerScript : MonoBehaviour
+public class mortarProjectile : MonoBehaviour
 {
 
     private Transform target;
 
-    public float speed = 30f;
-    public void Seek( Transform newTarget)
+    public float speed = 5f;
+    public void Seek(Transform newTarget)
     {
         target = newTarget;
     }
@@ -23,13 +25,13 @@ public class stingerScript : MonoBehaviour
         Vector3 dir = target.position - transform.position;
         float distancePerFrame = speed * Time.deltaTime;
 
-        if(dir.magnitude <= distancePerFrame)
+        if (dir.magnitude <= distancePerFrame)
         {
             targetHit();
             return;
         }
 
-        transform.Translate (dir.normalized * distancePerFrame, Space.World);
+        transform.Translate(dir.normalized * distancePerFrame, Space.World);
     }
 
     void targetHit()

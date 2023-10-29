@@ -12,21 +12,29 @@ public class basicTowerScript : MonoBehaviour
     public float fireRate = 1f;
     private float fireCountdown = 0f;
 
-    public GameObject stingerPrefab;
+    public GameObject projectilePrefab;
     public Transform firePoint;
 
     public Transform part;
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("UpdateTarget", 0, 0.5f);
+        Invoke();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        if(target == null)
+        track();
+
+    }
+    public virtual void Invoke()
+    {
+        InvokeRepeating("UpdateTarget", 0, 0.5f);
+    }
+    public void track()
+    {
+        if (target == null)
         {
             return;
         }
@@ -45,16 +53,9 @@ public class basicTowerScript : MonoBehaviour
         fireCountdown -= Time.deltaTime;
     }
 
-
-    void Shoot()
+    public virtual void Shoot()
     {
-        GameObject stinger = (GameObject)Instantiate(stingerPrefab, firePoint.position, firePoint.rotation);
-        stingerScript sting = stinger.GetComponent<stingerScript>();
-
-        if (sting != null)
-        {
-            sting.Seek(target);
-        }
+        Debug.Log("shooting");
     }
     void UpdateTarget()
     {
