@@ -10,7 +10,7 @@ public class baseEnemyScript : MonoBehaviour
     float health = 5;
     // Start is called before the first frame update
     void Start(){
-        target = Wayfind.waypoints[0];
+        target = Path.waypoints[0];
     }
 
     public void reduceHealth(float damage)
@@ -49,13 +49,13 @@ public class baseEnemyScript : MonoBehaviour
     }
 
     void GetNextWaypoint(){
-        if (wavepointIndex >= Wayfind.waypoints.Length - 1){
+        if (wavepointIndex >= Path.waypoints.Length - 1){
             //decrement player health according to
             Destroy(gameObject);
             return;
         }
 
         wavepointIndex++;
-        target = Wayfind.waypoints[wavepointIndex];
+        target = Path.waypoints[wavepointIndex];
     }
 }

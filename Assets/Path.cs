@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Wayfind : MonoBehaviour
+public class Path : MonoBehaviour
 {
     public static Transform[] waypoints;
 
