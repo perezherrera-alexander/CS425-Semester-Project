@@ -4,7 +4,9 @@ public class stingerScript : MonoBehaviour
 {
 
     private Transform target;
+    public Collider objCollider;
 
+    public float directDamage = 1f;
     public float speed = 30f;
     public void Seek( Transform newTarget)
     {
@@ -35,6 +37,18 @@ public class stingerScript : MonoBehaviour
 
     void targetHit()
     {
+
         Destroy(gameObject);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+            other.GetComponent<baseEnemyScript>().reduceHealth(directDamage);
+            //Debug.Log(other.GetComponent<baseEnemyScript>().getHealth());
+        }
+    }
+
+
 }
