@@ -9,8 +9,7 @@ public class baseEnemyScript : MonoBehaviour
 
     float health = 5;
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start(){
         target = Wayfind.waypoints[0];
     }
 
