@@ -26,7 +26,7 @@ public class baseEnemyScript : MonoBehaviour
         return health;
     }
 
-    private void healthCheck()
+    public void healthCheck()
     {
         if (health <= 0)
         {
@@ -37,11 +37,11 @@ public class baseEnemyScript : MonoBehaviour
     // Movement
     public float speed = 10f;
 
-    private Transform target;
+    public Transform target;
 
-    private int wavepointIndex = 0;
+    public int wavepointIndex = 0;
 
-    void Update () {
+    public void Update () {
         healthCheck();
         Vector3 direction = target.position - transform.position;
         transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);
@@ -51,7 +51,7 @@ public class baseEnemyScript : MonoBehaviour
         }
     }
 
-    void GetNextWaypoint(){
+    public void GetNextWaypoint(){
         if (wavepointIndex >= Path.waypoints.Length - 1){
             //decrement player health according to
             Destroy(gameObject);
