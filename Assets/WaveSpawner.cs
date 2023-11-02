@@ -18,7 +18,7 @@ public class WaveSpawner : MonoBehaviour
 
     public TextMeshProUGUI waveCountDownText;
 
-    private int WaveNumber = 0;
+    public int WaveNumber = 0;
 
 
     // Update is called once per frame
@@ -37,7 +37,6 @@ public class WaveSpawner : MonoBehaviour
 
     IEnumerator SpawnWave()
     {
-        WaveNumber++;
 
         for (int i = 0; i < WaveNumber; i++)
         {
