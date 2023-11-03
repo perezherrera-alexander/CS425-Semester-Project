@@ -7,12 +7,10 @@ public class TowerPlacement : MonoBehaviour
     [SerializeField] private Camera PlayerCamera;
     private GameObject CurrentPlacingTower;
 
-
-
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -34,8 +32,8 @@ public class TowerPlacement : MonoBehaviour
         }
     }
 
-    public void PlaceTower (GameObject tower)
+    public void PlaceTower(GameObject tower)
     {
-        CurrentPlacingTower = Instantiate (tower, Vector3.zero, Quaternion.identity);
+        CurrentPlacingTower = Instantiate(tower, Vector3.zero, Quaternion.identity);
     }
 }

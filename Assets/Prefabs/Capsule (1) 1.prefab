@@ -123,7 +123,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectCollider: {fileID: 7763760684195204612}
   ob: {fileID: 3044658786881914495}
-  speed: 10
+  GoldWorth: 0
+  model: {fileID: 8151178167211293097}
+  health: 5
+  speed: 5
   target: {fileID: 0}
   wavepointIndex: 0
 --- !u!54 &3745548172108193058
