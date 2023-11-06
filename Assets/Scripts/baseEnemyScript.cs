@@ -17,7 +17,7 @@ public class baseEnemyScript : MonoBehaviour
 
     // float health = 5;
     // Start is called before the first frame update
-    void Start(){
+    public void Start(){
 
         PlayerStatistics = FindObjectOfType<PlayerStats>();
         target = Path.waypoints[0];
@@ -50,7 +50,7 @@ public class baseEnemyScript : MonoBehaviour
 
     public int wavepointIndex = 0;
 
-    public void Update () {
+    public virtual void Update (){
         healthCheck();
         Vector3 direction = target.position - transform.position;
         transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);
