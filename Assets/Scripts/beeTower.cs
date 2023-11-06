@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class beeTower : basicTowerScript
 {
-
+    public int BuildCost = 1;
     // Start is called before the first frame update
 
     void Start()
     {
         Invoke();
-
     }
 
     // Update is called once per frame
