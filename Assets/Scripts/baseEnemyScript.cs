@@ -70,4 +70,9 @@ public class baseEnemyScript : MonoBehaviour
         wavepointIndex++;
         target = Path.waypoints[wavepointIndex];
     }
+
+    public void slowDown(float slowFactor)
+    {
+        speed = speed * (1f - slowFactor);
+    }
 }

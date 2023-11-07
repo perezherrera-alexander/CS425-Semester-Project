@@ -16,6 +16,7 @@ public class basicTowerScript : MonoBehaviour
     public Transform firePoint;
 
     public Transform part;
+    public int BuildCost;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +33,7 @@ public class basicTowerScript : MonoBehaviour
     {
         InvokeRepeating("UpdateTarget", 0, 0.5f);
     }
-    public void track()
+    public virtual void track()
     {
         if (target == null)
         {

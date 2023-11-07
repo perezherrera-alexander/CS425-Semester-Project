@@ -27,5 +27,9 @@ public class beeTower : basicTowerScript
         {
             sting.Seek(target);
         }
+        else if (sting.exists && target == null)
+        {
+
+        }
     }
 }
