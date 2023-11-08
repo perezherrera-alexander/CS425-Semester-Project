@@ -6,6 +6,7 @@ public class TowerPlacement : MonoBehaviour
 {
     [SerializeField] private Camera PlayerCamera;
     private GameObject CurrentPlacingTower;
+    private string towerName;
 
     // Start is called before the first frame update
     void Start()
@@ -27,13 +28,19 @@ public class TowerPlacement : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0))
             {
+                // Call the ActivateTower function of the tower's script
+                if(towerName == "beeTurret 1") CurrentPlacingTower.transform.GetChild(1).gameObject.GetComponent<beeTower>().ActivateTower();
+                else if(towerName == "mortarTurret") CurrentPlacingTower.transform.GetChild(1).gameObject.GetComponent<mortarTower>().ActivateTower();
+                else if(towerName == "tetherTower") CurrentPlacingTower.transform.GetChild(1).gameObject.GetComponent<tetherTower>().ActivateTower();
+                else Debug.Log("Tower name not found");
                 CurrentPlacingTower = null;
             }
         }
     }
 
-    public void PlaceTower(GameObject tower)
+    public void PlaceTower(GameObject tower, string towerNombre)
     {
+        towerName = towerNombre; // Save the name of the tower's prefab so we can later call it's script
         CurrentPlacingTower = Instantiate(tower, Vector3.zero, Quaternion.identity);
     }
 }

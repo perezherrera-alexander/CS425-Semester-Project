@@ -16,6 +16,8 @@ public class basicTowerScript : MonoBehaviour
     public Transform firePoint;
 
     public Transform part;
+    public int BuildCost;
+    protected bool isActive = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +34,7 @@ public class basicTowerScript : MonoBehaviour
     {
         InvokeRepeating("UpdateTarget", 0, 0.5f);
     }
-    public void track()
+    public virtual void track()
     {
         if (target == null)
         {
@@ -59,6 +61,10 @@ public class basicTowerScript : MonoBehaviour
     }
     void UpdateTarget()
     {
+        if(isActive == false) // If the tower is not active (hasn't been placed yet), don't do anything
+        {
+            return;
+        }
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
         float shortestDistance = Mathf.Infinity;
         GameObject closeEnemy = null;
@@ -87,5 +93,10 @@ public class basicTowerScript : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, range);
+    }
+
+    public void ActivateTower()
+    {
+        isActive = true;
     }
 }

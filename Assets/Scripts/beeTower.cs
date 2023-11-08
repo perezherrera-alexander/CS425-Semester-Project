@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class beeTower : basicTowerScript
 {
-    public int BuildCost = 1;
     // Start is called before the first frame update
 
     void Start()
@@ -26,6 +25,10 @@ public class beeTower : basicTowerScript
         if (sting != null)
         {
             sting.Seek(target);
+        }
+        else if (sting.exists && target == null)
+        {
+
         }
     }
 }
