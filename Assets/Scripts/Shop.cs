@@ -22,7 +22,7 @@ public class ShopScript : MonoBehaviour
         {
             // Deduct the money and call the PlaceTower function
             PlayerStatistics.AddMoney(-towerCost);
-            towerPlacement.PlaceTower(BeeTowerPrefab);
+            towerPlacement.PlaceTower(BeeTowerPrefab, "beeTurret 1"); // Pass along the prefab's name so we know which script to call later in TowerPlacement.cs
         }
         else
         {
@@ -41,7 +41,7 @@ public class ShopScript : MonoBehaviour
         {
             // Deduct the money and call the PlaceTower function
             PlayerStatistics.AddMoney(-towerCost);
-            towerPlacement.PlaceTower(MortarTowerPrefab);
+            towerPlacement.PlaceTower(MortarTowerPrefab, "mortarTurret");
         }
         else
         {
@@ -60,7 +60,7 @@ public class ShopScript : MonoBehaviour
         {
             // Deduct the money and call the PlaceTower function
             PlayerStatistics.AddMoney(-towerCost);
-            towerPlacement.PlaceTower(TetherTowerPrefab);
+            towerPlacement.PlaceTower(TetherTowerPrefab, "tetherTower");
         }
         else
         {
