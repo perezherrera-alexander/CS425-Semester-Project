@@ -1,39 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TowerPlacement : MonoBehaviour
 {
     [SerializeField] private Camera PlayerCamera;
     private GameObject CurrentPlacingTower;
+    private GameObject Tower;
     private string towerName;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        Tower = CurrentPlacingTower;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (CurrentPlacingTower != null)
+        if (Tower != null)
         {
             Ray CameraRay = PlayerCamera.ScreenPointToRay(Input.mousePosition);
+            RaycastHit HitInfo;
 
-            if (Physics.Raycast(CameraRay, out RaycastHit HitInfo, 100f))
+            if (Physics.Raycast(CameraRay, out HitInfo, 100f))
             {
-                CurrentPlacingTower.transform.position = HitInfo.point;
+                Tower.transform.position = HitInfo.point;
             }
 
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && HitInfo.collider.CompareTag("Floor"))
             {
+                Tower.GetComponentInParent<BoxCollider>().enabled = true;
                 // Call the ActivateTower function of the tower's script
-                if(towerName == "beeTurret 1") CurrentPlacingTower.transform.GetChild(1).gameObject.GetComponent<beeTower>().ActivateTower();
-                else if(towerName == "mortarTurret") CurrentPlacingTower.transform.GetChild(1).gameObject.GetComponent<mortarTower>().ActivateTower();
-                else if(towerName == "tetherTower") CurrentPlacingTower.transform.GetChild(1).gameObject.GetComponent<tetherTower>().ActivateTower();
+                if (towerName == "beeTurret 1") Tower.transform.GetChild(1).gameObject.GetComponent<beeTower>().ActivateTower();
+                else if(towerName == "mortarTurret") Tower.transform.GetChild(1).gameObject.GetComponent<mortarTower>().ActivateTower();
+                else if(towerName == "tetherTower") Tower.transform.GetChild(1).gameObject.GetComponent<tetherTower>().ActivateTower();
                 else Debug.Log("Tower name not found");
-                CurrentPlacingTower = null;
+                Tower = null;
             }
         }
     }
@@ -41,6 +45,6 @@ public class TowerPlacement : MonoBehaviour
     public void PlaceTower(GameObject tower, string towerNombre)
     {
         towerName = towerNombre; // Save the name of the tower's prefab so we can later call it's script
-        CurrentPlacingTower = Instantiate(tower, Vector3.zero, Quaternion.identity);
+        Tower = GameObject.Instantiate(tower, Vector3.zero, Quaternion.identity);
     }
 }

@@ -55,4 +55,10 @@ public class PauseMenu : MonoBehaviour
         Debug.Log("Loading Pause Menu......");
         SceneManager.LoadScene("Main");
     }
+
+    public void RestartLevel ()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1.0f;
+    }
 }

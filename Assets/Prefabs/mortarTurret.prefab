@@ -175,6 +175,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8498090487305360091}
+  - component: {fileID: -4528755822291944787}
+  - component: {fileID: 151695168761988285}
   m_Layer: 0
   m_Name: mortarTurret
   m_TagString: Mortar
@@ -199,6 +201,40 @@ Transform:
   - {fileID: 3675580445339813525}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &-4528755822291944787
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4802165041365209427}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &151695168761988285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4802165041365209427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef50a542e3fd9db46ab3321dbc44b145, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Tower: {fileID: 4523785247842222936, guid: 44ca905f64b4c264aa43e22bee7ae0f6, type: 3}
 --- !u!1 &5261764329016443868
 GameObject:
   m_ObjectHideFlags: 0
