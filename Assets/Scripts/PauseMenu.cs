@@ -6,12 +6,14 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public bool GameIsPaused = false;
+    public bool SettingsStatus = false;
     public GameObject PauseMenuUI;
+    public GameObject SettingsMenuUI;
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && SettingsStatus == false)
         {
             if (GameIsPaused)
             {
@@ -38,22 +40,26 @@ public class PauseMenu : MonoBehaviour
         GameIsPaused = true;
     }
 
-    public void LoadSettings ()
+    public void LoadSettings()
     {
         Debug.Log("Loading Settings......");
-        SceneManager.LoadScene("Settings");
+        PauseMenuUI.SetActive(false);
+        SettingsMenuUI.SetActive(true);
+        SettingsStatus = true;
+    }
+
+    public void ExitSettings()
+    {
+        Debug.Log("Exiting Settings......");
+        PauseMenuUI.SetActive(true);
+        SettingsMenuUI.SetActive(false);
+        SettingsStatus = false;
     }
 
     public void QuitGame ()
     {
         Debug.Log("Quitting game......");
         Application.Quit();
-    }
-
-    public void ExitSettings ()
-    {
-        Debug.Log("Loading Pause Menu......");
-        SceneManager.LoadScene("Main");
     }
 
     public void RestartLevel ()

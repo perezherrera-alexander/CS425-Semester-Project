@@ -1,14 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using static Unity.PlasticSCM.Editor.WebApi.CredentialsResponse;
+using UnityEngine.UI;
 
 public class SelectTower : MonoBehaviour
 {
-    public GameObject Tower; // Reference to the canvas panel prefab
+    public GameObject towerCanvasPrefab;
+    public Text towerInfoText;
 
-    private GameObject towerCanvasInstance; // Instance of the canvas panel
+    private GameObject selectedTower;
+    private GameObject towerCanvasInstance;
+    private bool towerSelected = false;
 
     private void OnMouseDown()
     {
@@ -18,27 +18,83 @@ public class SelectTower : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
             {
-                ToggleTowerCanvas(Tower);
+                // Check if the clicked object is a tower and not placed through the shop
+                if (hit.collider.CompareTag("Bee") || hit.collider.CompareTag("Mortar") || hit.collider.CompareTag("Tether"))
+                {
+                    ToggleTowerCanvas(hit.collider.gameObject);
+                }
             }
         }
     }
 
-    private void ToggleTowerCanvas(GameObject towerCanvasPrefab)
+    private void ToggleTowerCanvas(GameObject tower)
     {
         if (towerCanvasInstance == null)
         {
+            selectedTower = tower;
+            towerSelected = true;
+
             // Instantiate the tower canvas prefab
             towerCanvasInstance = Instantiate(towerCanvasPrefab) as GameObject;
 
             // Set the position of the canvas (optional: set it relative to the tower's position)
-            towerCanvasInstance.transform.position = transform.position;
+            towerCanvasInstance.transform.position = selectedTower.transform.position;
 
-            // Customize additional settings if needed
+            // Attach UI elements or handle UI logic directly
+            Text canvasText = towerCanvasInstance.GetComponentInChildren<Text>();
+            if (canvasText != null)
+            {
+                // Set tower information in the UI text
+                canvasText.text = "Tower Info: " + selectedTower.name;
+            }
+
+            // Example: Add a button for tower deletion
+            Button deleteButton = towerCanvasInstance.GetComponentInChildren<Button>();
+            if (deleteButton != null)
+            {
+                Debug.Log("ENTERED");
+                deleteButton.onClick.AddListener(DeleteSelectedTower);
+            }
+
         }
         else
         {
-            // Destroy the canvas if it already exists
             Destroy(towerCanvasInstance);
+        }
+    }
+
+    public void DeleteSelectedTower()
+    {
+        // Check if a tower is selected through player interaction before trying to delete
+        if (towerSelected && selectedTower != null)
+        {
+
+            basicTowerScript towerScript = selectedTower.GetComponentInChildren<basicTowerScript>();
+
+            if (towerScript != null)
+            {
+                // Access the BuildCost directly
+                int towerCost = towerScript.BuildCost;
+
+                // Access PlayerStats
+                PlayerStats playerStats = PlayerStats.Instance;
+
+                if (playerStats != null)
+                {
+                    // Access the addMoney function or any other function in PlayerStats
+                    playerStats.AddMoney(towerCost);
+                }
+
+                // ... rest of the code ...
+            }
+
+            Debug.Log("Deleting tower through player interaction.");
+            Destroy(selectedTower);
+            towerSelected = false;
+            selectedTower = null;
+
+            // Destroy the canvas after a short delay
+            Destroy(towerCanvasInstance, 0.1f); // Adjust the delay as needed
         }
     }
 }
