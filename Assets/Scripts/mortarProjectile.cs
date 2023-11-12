@@ -74,35 +74,6 @@ public class mortarProjectile : MonoBehaviour
 
     }
 
-    private void targetHit()
-    {
-
-        if (bounces > 0)
-        {
-            Debug.Log("In bounce");
-            Debug.Log(bounces);
-            bounces -= 1;
-            findNewTarget();
-            startPos = transform.position;
-
-            float distance = Vector3.Distance(startPos, target.position);
-
-            arcHeight = (float)(arcHeight * (0.10 * distance));
-
-
-            step = speed / distance;
-            
-        }
-        else if (bounces == 0)
-        {
-            shockWave();
-            Destroy(gameObject);
-            exists = false;
-        }
-
-        return;  
-        
-    }
 
 
     private void OnTriggerEnter(Collider other)
@@ -157,14 +128,6 @@ public class mortarProjectile : MonoBehaviour
         }
     }
 
-    /*private void OnTriggerEnter(Collider other)
-    {
-        if (other.GetComponent<baseEnemyScript>())
-        {
-            other.GetComponent<baseEnemyScript>().reduceHealth(directDamage);
-            //Debug.Log(other.GetComponent<baseEnemyScript>().getHealth());
-        }
-    }*/
 
     void findNewTarget()
     {
