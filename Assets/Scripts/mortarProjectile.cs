@@ -8,18 +8,19 @@ public class mortarProjectile : MonoBehaviour
 
     private Transform target;
 
-    public float speed = 5f;
+    public float speed = 10f;
     public float arcHeight = 1.0f;
     public float blastRadius = 3f;
     private float radius = 50f;
 
     Vector3 startPos;
-    Transform posOfTarget;
+    Vector3 posOfTarget;
     float step;
     float progress = 0f;
 
-    //float directDamage = 2f;
+    float directDamage = 2f;
     float splashDamage = 2.5f;
+    float bounces = 1f;
 
     bool exists = false;
 
@@ -27,7 +28,7 @@ public class mortarProjectile : MonoBehaviour
     public void Seek(Transform newTarget)
     {
         target = newTarget;
-        posOfTarget = target;
+        posOfTarget = target.position;
     }
 
     void Start()
@@ -47,24 +48,10 @@ public class mortarProjectile : MonoBehaviour
     {
         if (target == null)
         {
-            if (exists)
-            {
-                findNewTarget();
-                startPos = transform.position;
 
-                float distance = Vector3.Distance(startPos, target.position);
-
-                arcHeight = (float)(arcHeight * (0.10 * distance));
-
-
-                step = speed / distance;
-
-            }
-            else
-            {
                 Destroy(gameObject);
                 return;
-            }
+            
         }
 
         exists = true;
@@ -82,29 +69,53 @@ public class mortarProjectile : MonoBehaviour
 
         transform.position = nextPos;
 
-        if (dir.magnitude <= distancePerFrame)
-        {
-            
-            targetHit();
-            return;
-        }
 
-        //transform.Translate(dir.normalized * distancePerFrame, Space.World);
+        transform.Translate(dir.normalized * distancePerFrame, Space.World);
 
     }
 
-    private void targetHit()
-    {
-        
-        Destroy(gameObject);
-        shockWave();
-        exists = false;
 
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Enemy")
+        {
+            other.GetComponent<baseEnemyScript>().reduceHealth(directDamage);
+        }
+
+        if (bounces > 0)
+        {
+
+            bounces -= 1;
+            findNewTarget();
+            if(target == null)
+            {
+                shockWave();
+                Destroy(gameObject);
+                exists = false;
+            }
+            startPos = transform.position;
+
+            float distance = Vector3.Distance(startPos, target.position);
+
+            arcHeight = (float)(arcHeight * (0.10 * distance));
+
+
+            step = speed / distance;
+            progress = 0;
+
+        }
+        else if (bounces == 0)
+        {
+            shockWave();
+            Destroy(gameObject);
+            exists = false;
+        }
     }
 
     private void shockWave()
     {
-        Collider[] colliders = Physics.OverlapSphere(target.position, blastRadius);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, blastRadius);
 
         foreach(Collider c in colliders)
         {
@@ -117,14 +128,6 @@ public class mortarProjectile : MonoBehaviour
         }
     }
 
-    /*private void OnTriggerEnter(Collider other)
-    {
-        if (other.GetComponent<baseEnemyScript>())
-        {
-            other.GetComponent<baseEnemyScript>().reduceHealth(directDamage);
-            //Debug.Log(other.GetComponent<baseEnemyScript>().getHealth());
-        }
-    }*/
 
     void findNewTarget()
     {
@@ -134,11 +137,18 @@ public class mortarProjectile : MonoBehaviour
 
         foreach (GameObject enemy in enemies)
         {
-            float enemyDistance = Vector3.Distance(transform.position, enemy.transform.position);
-            if (enemyDistance < shortDis)
+            if (enemy.transform.position == target.position)
             {
-                shortDis = enemyDistance;
-                closeEnemy = enemy;
+                
+            }
+            else
+            {
+                float enemyDistance = Vector3.Distance(transform.position, enemy.transform.position);
+                if (enemyDistance < shortDis)
+                {
+                    shortDis = enemyDistance;
+                    closeEnemy = enemy;
+                }
             }
         }
 

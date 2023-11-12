@@ -12,6 +12,7 @@ public class stingerScript : MonoBehaviour
 
     public float radius = 50f;
     public bool exists = false;
+    private float bounce = 2f;
     public void Seek( Transform newTarget)
     {
         target = newTarget;
@@ -41,11 +42,7 @@ public class stingerScript : MonoBehaviour
         float distancePerFrame = speed * Time.deltaTime;
         exists = true;
 
-        if(dir.magnitude <= distancePerFrame)
-        {
-            targetHit();
-            return;
-        }
+
 
         move(dir, distancePerFrame);
     }
@@ -56,12 +53,6 @@ public class stingerScript : MonoBehaviour
         transform.LookAt(target);
     }
 
-    void targetHit()
-    {
-
-        Destroy(gameObject);
-        exists = false;
-    }
 
     void findNewTarget()
     {
@@ -77,6 +68,7 @@ public class stingerScript : MonoBehaviour
                 shortDis = enemyDistance;
                 closeEnemy = enemy;
             }
+            
         }
 
         if (closeEnemy != null && shortDis <= radius)
@@ -95,6 +87,10 @@ public class stingerScript : MonoBehaviour
             exists = false;
             //Debug.Log(other.GetComponent<baseEnemyScript>().getHealth());
         }
+
+        
+
+        
     }
 
 

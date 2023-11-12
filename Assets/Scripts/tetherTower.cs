@@ -6,7 +6,7 @@ public class tetherTower : basicTowerScript
 {
     public LineRenderer laser;
 
-    private float dot = 0.1f;
+    private float dot = 0.5f;
     private float slowDownFactor = 0.5f;
     // Start is called before the first frame update
     void Start()
@@ -40,12 +40,15 @@ public class tetherTower : basicTowerScript
 
     public override void Shoot()
     {
-        target.GetComponent<baseEnemyScript>().reduceHealth(dot);
-        target.GetComponent<baseEnemyScript>().slowDown(slowDownFactor);
-
         if (!laser.enabled)
             laser.enabled = true;
         laser.SetPosition(0, firePoint.position);
         laser.SetPosition(1, target.position);
+
+        float damagePerFrame = dot * Time.deltaTime;
+        target.GetComponent<baseEnemyScript>().reduceHealth(damagePerFrame);
+        //target.GetComponent<baseEnemyScript>().slowDown(slowDownFactor);
+
+
     }
 }
