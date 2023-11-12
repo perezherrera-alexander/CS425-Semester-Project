@@ -76,6 +76,7 @@ public class basicTowerScript : MonoBehaviour
             {
                 shortestDistance = enemyDistance;
                 closeEnemy = enemy;
+                closeEnemy.GetComponent<baseEnemyScript>().getHealth();
             }
         }
 
