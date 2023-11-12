@@ -66,7 +66,7 @@ public class baseEnemyScript : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        transform.LookAt(Path.waypoints[wavepointIndex], Vector3.left);
+        transform.LookAt(Path.waypoints[wavepointIndex]);
         wavepointIndex++;
         target = Path.waypoints[wavepointIndex];
     }
