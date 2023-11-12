@@ -73,6 +73,6 @@ public class baseEnemyScript : MonoBehaviour
 
     public void slowDown(float slowFactor)
     {
-        speed = speed * (1f - slowFactor);
+        speed = speed * slowFactor;
     }
 }
