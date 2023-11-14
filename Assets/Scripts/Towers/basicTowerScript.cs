@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class basicTowerScript : MonoBehaviour
@@ -18,10 +19,17 @@ public class basicTowerScript : MonoBehaviour
     public Transform part;
     public int BuildCost;
     protected bool isActive = false;
+
+    public string targeting = "close";
+    private List<baseEnemyScript> targets = new(); 
+
+    //public SphereCollider radius;
     // Start is called before the first frame update
     void Start()
     {
         Invoke();
+        //makeSphere();
+
     }
 
     // Update is called once per frame
@@ -65,6 +73,41 @@ public class basicTowerScript : MonoBehaviour
         {
             return;
         }
+
+        switch (targeting)
+        {
+            case "first":
+                firstTargeting();
+                break;
+
+            case "last":
+                lastTargeting();
+                break;
+
+            case "close":
+                closeTargeting();
+                break;
+
+            case "strong":
+                strongTargeting();
+                break;
+
+        }
+
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, range);
+    }
+
+    public void changingTargeting(string targets)
+    {
+        targeting = targets;
+    }
+    private void closeTargeting()
+    {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
         float shortestDistance = Mathf.Infinity;
         GameObject closeEnemy = null;
@@ -76,7 +119,6 @@ public class basicTowerScript : MonoBehaviour
             {
                 shortestDistance = enemyDistance;
                 closeEnemy = enemy;
-                closeEnemy.GetComponent<baseEnemyScript>().getHealth();
             }
         }
 
@@ -90,14 +132,124 @@ public class basicTowerScript : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmosSelected()
+    private void lastTargeting()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, range);
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
+        float shortestDistance = Mathf.Infinity;
+        GameObject lastEnemy = null;
+
+      
+        int length = enemies.Length;
+        lastEnemy = enemies[length - 1];
+        shortestDistance = Vector3.Distance(transform.position, lastEnemy.transform.position);
+        
+
+        if (lastEnemy != null && shortestDistance <= range)
+        {
+            target = lastEnemy.transform;
+        }
+        else
+        {
+            target = null;
+        }
     }
 
+    private void firstTargeting()
+    {
+        /*GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
+        float shortestDistance = Mathf.Infinity;
+        GameObject firstEnemy = null;
+
+
+       
+        firstEnemy = enemies[0];
+        shortestDistance = Vector3.Distance(transform.position, firstEnemy.transform.position);
+        
+
+        if (firstEnemy != null && shortestDistance <= range)
+        {
+            target = firstEnemy.transform;
+        }
+        else
+        {
+            target = null;
+        }*/
+        Collider[] colliders = Physics.OverlapSphere(transform.position, range, LayerMask.GetMask("enemy"));
+        if (colliders.Length > 0) {
+           
+            foreach (Collider collider in colliders)
+            {
+                if (collider.GetComponent<baseEnemyScript>())
+                {
+                    target = colliders.First().transform;
+                    
+                }
+
+            }
+        }
+        else
+        {
+            target = null;
+        }
+    }
+
+    private void strongTargeting()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
+        float shortestDistance = Mathf.Infinity;
+        float enemyHealth = 0;
+        GameObject strongEnemy = null;
+
+        foreach (GameObject enemy in enemies)
+        {
+            if (enemy.GetComponent<baseEnemyScript>().getHealth() > enemyHealth)
+            {
+                enemyHealth = enemy.GetComponent<baseEnemyScript>().getHealth();
+                strongEnemy = enemy;
+            }
+            shortestDistance = Vector3.Distance(transform.position, strongEnemy.transform.position);
+        }
+
+        if (strongEnemy != null && shortestDistance <= range)
+        {
+            target = strongEnemy.transform;
+        }
+        else
+        {
+            enemyHealth = 0;
+            target = null;
+        }
+    }
     public void ActivateTower()
     {
         isActive = true;
+    }
+
+    /*public void makeSphere()
+    {
+        radius = transform.GetComponent<SphereCollider>();
+        radius.radius = range;
+    }*/
+
+    private void OnTriggerEnter(Collider other)
+    {
+
+        if(other.gameObject.tag == "Enemy")
+        {
+            targets.Add(other.GetComponent<baseEnemyScript>());
+            UpdateTarget();
+
+        }
+        
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+   
+        if (other.gameObject.tag == "Enemy")
+        {
+            targets.Remove(other.GetComponent<baseEnemyScript>());
+            UpdateTarget();
+        }
     }
 }

@@ -195,6 +195,7 @@ GameObject:
   - component: {fileID: 5656544548732101470}
   - component: {fileID: 3410738226811135015}
   - component: {fileID: 6919832244800713231}
+  - component: {fileID: 7225595310421357425}
   m_Layer: 0
   m_Name: Rotate
   m_TagString: Untagged
@@ -239,6 +240,7 @@ MonoBehaviour:
   firePoint: {fileID: 6967021129643549021}
   part: {fileID: 5656544548732101470}
   BuildCost: 3
+  targeting: close
   laser: {fileID: 6919832244800713231}
 --- !u!120 &6919832244800713231
 LineRenderer:
@@ -344,6 +346,27 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!135 &7225595310421357425
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8232536046226721084}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Radius: 0.6047418
+  m_Center: {x: -6.3505025, y: 0.01699999, z: 0.1670067}
 --- !u!1 &8885642004756025243
 GameObject:
   m_ObjectHideFlags: 0

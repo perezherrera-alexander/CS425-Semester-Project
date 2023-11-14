@@ -14,6 +14,8 @@ public class tetherTower : basicTowerScript
     void Start()
     {
         Invoke();
+        targeting = "close";
+        //makeSphere();
     }
 
     // Update is called once per frame

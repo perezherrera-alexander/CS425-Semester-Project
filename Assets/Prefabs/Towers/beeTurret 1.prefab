@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8693818432863801687}
   - component: {fileID: 7400135258397423591}
+  - component: {fileID: 7100916763429720930}
   m_Layer: 0
   m_Name: Rotate
   m_TagString: Untagged
@@ -49,11 +50,33 @@ MonoBehaviour:
   target: {fileID: 0}
   range: 20
   enemyTag: Enemy
-  fireRate: 1
+  fireRate: 2
   projectilePrefab: {fileID: 8813856010085298334, guid: 220ceee3f05f4304ab37f164e16469d6, type: 3}
   firePoint: {fileID: 8696081521169240300}
   part: {fileID: 8693818432863801687}
   BuildCost: 1
+  targeting: close
+--- !u!135 &7100916763429720930
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802555056923156642}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &971902319036964014
 GameObject:
   m_ObjectHideFlags: 0

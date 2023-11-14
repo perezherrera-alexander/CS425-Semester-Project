@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class mortarTower : basicTowerScript
 {
+    
     // Start is called before the first frame update
 
     void Start()
     {
         Invoke();
+        targeting = "close";
+        //makeSphere();
     }
 
     // Update is called once per frame

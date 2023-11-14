@@ -9,11 +9,14 @@ public class beeTower : basicTowerScript
     void Start()
     {
         Invoke();
+        targeting = "close";
+        //makeSphere();
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         track();
     }
 

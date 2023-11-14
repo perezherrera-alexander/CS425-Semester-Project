@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5655821817586505824}
   - component: {fileID: 4946104485561349104}
   - component: {fileID: 5879902461866522793}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: fast-weak
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ MonoBehaviour:
   GoldWorth: 1
   model: {fileID: 6432939074762129627}
   health: 2
-  speed: 5
+  speed: 10
   target: {fileID: 0}
   wavepointIndex: 0
 --- !u!54 &5879902461866522793
