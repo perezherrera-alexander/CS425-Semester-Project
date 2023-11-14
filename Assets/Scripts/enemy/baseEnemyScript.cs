@@ -70,6 +70,13 @@ public class baseEnemyScript : MonoBehaviour
         wavepointIndex++;
         target = Path.waypoints[wavepointIndex];
     }
+    public void knockback(Vector3 direction, float force)
+    {
+       wavepointIndex = wavepointIndex - 1;
+       target = Path.waypoints[wavepointIndex];
+
+    }
+
 
     public void slowDown(float slowFactor)
     {
