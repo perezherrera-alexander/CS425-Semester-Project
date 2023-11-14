@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using UnityEngine;
 
 public class basicTowerScript : MonoBehaviour
@@ -21,9 +22,9 @@ public class basicTowerScript : MonoBehaviour
     protected bool isActive = false;
 
     public string targeting = "close";
-    private List<baseEnemyScript> targets = new(); 
+    public List<baseEnemyScript> targets = new(); 
 
-    //public SphereCollider radius;
+    public SphereCollider radius;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +37,7 @@ public class basicTowerScript : MonoBehaviour
     void Update()
     {
         track();
+        listPrune();
 
     }
     public virtual void Invoke()
@@ -73,6 +75,8 @@ public class basicTowerScript : MonoBehaviour
         {
             return;
         }
+
+
 
         switch (targeting)
         {
@@ -174,7 +178,8 @@ public class basicTowerScript : MonoBehaviour
         {
             target = null;
         }*/
-        Collider[] colliders = Physics.OverlapSphere(transform.position, range, LayerMask.GetMask("enemy"));
+
+        /*Collider[] colliders = Physics.OverlapSphere(transform.position, range, LayerMask.GetMask("enemy"));
         if (colliders.Length > 0) {
            
             foreach (Collider collider in colliders)
@@ -186,6 +191,14 @@ public class basicTowerScript : MonoBehaviour
                 }
 
             }
+        }
+        else
+        {
+            target = null;
+        }*/
+        if (targets.Count > 0)
+        {
+            target = targets.First().transform;
         }
         else
         {
@@ -223,13 +236,21 @@ public class basicTowerScript : MonoBehaviour
     public void ActivateTower()
     {
         isActive = true;
+        radius.GetComponent<Collider>().enabled = true;
+
     }
 
-    /*public void makeSphere()
+    public void makeSphere()
     {
         radius = transform.GetComponent<SphereCollider>();
-        radius.radius = range;
-    }*/
+        radius.radius = range * 0.5f;
+    }
+
+    public void listPrune()
+    {
+        targets.RemoveAll(item => item == null);
+        
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -237,7 +258,7 @@ public class basicTowerScript : MonoBehaviour
         if(other.gameObject.tag == "Enemy")
         {
             targets.Add(other.GetComponent<baseEnemyScript>());
-            UpdateTarget();
+
 
         }
         
@@ -249,7 +270,7 @@ public class basicTowerScript : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             targets.Remove(other.GetComponent<baseEnemyScript>());
-            UpdateTarget();
+
         }
     }
 }

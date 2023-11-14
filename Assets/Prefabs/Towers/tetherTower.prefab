@@ -240,6 +240,7 @@ MonoBehaviour:
   part: {fileID: 5656544548732101470}
   BuildCost: 3
   targeting: close
+  radius: {fileID: 0}
   laser: {fileID: 6919832244800713231}
 --- !u!120 &6919832244800713231
 LineRenderer:
@@ -360,7 +361,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3

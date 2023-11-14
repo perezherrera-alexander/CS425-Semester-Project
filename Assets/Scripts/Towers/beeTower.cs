@@ -11,7 +11,7 @@ public class beeTower : basicTowerScript
     {
         Invoke();
         targeting = "close";
-        //makeSphere();
+        makeSphere();
     }
 
     // Update is called once per frame
@@ -19,6 +19,7 @@ public class beeTower : basicTowerScript
     {
         
         track();
+        listPrune();
     }
 
     public override void Shoot()
