@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class stingerScript : MonoBehaviour
 {
-
+#pragma warning disable 0414
     private Transform target;
     private Transform lastKnown;
     public Collider objCollider;
@@ -13,6 +13,7 @@ public class stingerScript : MonoBehaviour
     public float radius = 50f;
     public bool exists = false;
     private float bounce = 2f;
+#pragma warning restore 0414
     public void Seek( Transform newTarget)
     {
         target = newTarget;

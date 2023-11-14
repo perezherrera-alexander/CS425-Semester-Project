@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class tetherTower : basicTowerScript
 {
+#pragma warning disable 0414
     public LineRenderer laser;
 
     private float dot = 0.5f;
     private float slowDownFactor = 0.5f;
+#pragma warning restore 0414
     // Start is called before the first frame update
     void Start()
     {
