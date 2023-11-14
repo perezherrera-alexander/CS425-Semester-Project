@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class mortarProjectile : MonoBehaviour
 {
-
+#pragma warning disable 0414
     private Transform target;
 
     public float speed = 10f;
@@ -23,6 +22,7 @@ public class mortarProjectile : MonoBehaviour
     float bounces = 1f;
 
     bool exists = false;
+#pragma warning restore 0414
 
 
     public void Seek(Transform newTarget)
