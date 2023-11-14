@@ -9,10 +9,13 @@ public class PlayerStats : MonoBehaviour
     // Singleton instance
     public static PlayerStats Instance;
 
+    public int Morale = 100;
+
 
     private void Start()
     {
         CurrentMoney = StartingMoney;
+
     }
 
     private void Awake()
@@ -36,5 +39,10 @@ public class PlayerStats : MonoBehaviour
     public int GetMoney ()
     {
         return CurrentMoney;
+    }
+
+    public void ReduceMoral(int MoraleLost)
+    {
+        Morale += MoraleLost;
     }
 }

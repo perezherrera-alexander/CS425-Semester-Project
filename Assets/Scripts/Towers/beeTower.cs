@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class beeTower : basicTowerScript
 {
+    public static string Name = "Bee Tower";
     // Start is called before the first frame update
 
     void Start()

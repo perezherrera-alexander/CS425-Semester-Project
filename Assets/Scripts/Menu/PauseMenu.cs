@@ -56,10 +56,10 @@ public class PauseMenu : MonoBehaviour
         SettingsStatus = false;
     }
 
-    public void QuitGame ()
+    public void QuittoMainMenu ()
     {
-        Debug.Log("Quitting game......");
-        Application.Quit();
+        Debug.Log("Quitting to Main Menu......");
+        SceneManager.LoadScene("Main Menu");
     }
 
     public void RestartLevel ()

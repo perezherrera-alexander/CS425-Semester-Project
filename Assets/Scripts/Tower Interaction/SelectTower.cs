@@ -1,14 +1,18 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class SelectTower : MonoBehaviour
 {
     public GameObject towerCanvasPrefab;
-    public Text towerInfoText;
 
     private GameObject selectedTower;
     private GameObject towerCanvasInstance;
     private bool towerSelected = false;
+
+    //public TextMeshProUGUI towernameUI;
+    private string towerName = "ttt";
 
     private void OnMouseDown()
     {
@@ -29,10 +33,13 @@ public class SelectTower : MonoBehaviour
 
     private void ToggleTowerCanvas(GameObject tower)
     {
+
         if (towerCanvasInstance == null)
         {
             selectedTower = tower;
             towerSelected = true;
+
+            basicTowerScript towerScript = selectedTower.GetComponentInChildren<basicTowerScript>();
 
             // Instantiate the tower canvas prefab
             towerCanvasInstance = Instantiate(towerCanvasPrefab) as GameObject;
@@ -40,13 +47,25 @@ public class SelectTower : MonoBehaviour
             // Set the position of the canvas (optional: set it relative to the tower's position)
             towerCanvasInstance.transform.position = selectedTower.transform.position;
 
-            // Attach UI elements or handle UI logic directly
-            Text canvasText = towerCanvasInstance.GetComponentInChildren<Text>();
-            if (canvasText != null)
+
+            if (towerScript != null)
             {
-                // Set tower information in the UI text
-                canvasText.text = "Tower Info: " + selectedTower.name;
+                Type scriptType = towerScript.GetType();
+
+                string scriptName = scriptType.Name;
+
+                Debug.Log(scriptName);
             }
+
+            
+            TMP_Text output = towerCanvasInstance.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>();
+            output.text = "Tower Name: " + GetOriginalPrefabName(selectedTower);
+
+
+
+            Debug.Log (towerName);
+            
+            
 
             // Example: Add a button for tower deletion
             Button deleteButton = towerCanvasInstance.GetComponentInChildren<Button>();
@@ -96,5 +115,21 @@ public class SelectTower : MonoBehaviour
             // Destroy the canvas after a short delay
             Destroy(towerCanvasInstance, 0.1f); // Adjust the delay as needed
         }
+    }
+
+    private string GetOriginalPrefabName(GameObject tower)
+    {
+        if (tower != null)
+        {
+            // Check if the tower has a "(Clone)" suffix
+            if (tower.name.EndsWith("(Clone)"))
+            {
+                // Remove the "(Clone)" suffix and return the original name
+                return tower.name.Replace("(Clone)", "").Trim();
+            }
+        }
+
+        // Return the current tower name if it doesn't have a "(Clone)" suffix
+        return tower.name;
     }
 }
