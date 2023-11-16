@@ -322,7 +322,8 @@ MonoBehaviour:
   part: {fileID: 3675580445339813525}
   BuildCost: 2
   targeting: close
-  radius: {fileID: 0}
+  targets: []
+  radius: {fileID: 6492938086072917355}
 --- !u!135 &6492938086072917355
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -340,7 +341,7 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}

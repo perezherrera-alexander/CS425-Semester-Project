@@ -195,7 +195,7 @@ GameObject:
   - component: {fileID: 3410738226811135015}
   - component: {fileID: 6919832244800713231}
   - component: {fileID: 7225595310421357425}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Rotate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -240,6 +240,7 @@ MonoBehaviour:
   part: {fileID: 5656544548732101470}
   BuildCost: 3
   targeting: close
+  targets: []
   radius: {fileID: 0}
   laser: {fileID: 6919832244800713231}
 --- !u!120 &6919832244800713231
