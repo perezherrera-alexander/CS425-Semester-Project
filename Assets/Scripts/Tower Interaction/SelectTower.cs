@@ -28,7 +28,7 @@ public class SelectTower : MonoBehaviour
             }
         }
     }
-
+    
     private void ToggleTowerCanvas(GameObject tower)
     {
 
@@ -59,9 +59,7 @@ public class SelectTower : MonoBehaviour
 
             }
 
-
-
-            // Example: Add a button for tower deletion
+            // Add a button for tower deletion
             Button deleteButton = towerCanvasInstance.GetComponentInChildren<Button>();
             if (deleteButton != null)
             {
