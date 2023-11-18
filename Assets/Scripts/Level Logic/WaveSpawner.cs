@@ -16,7 +16,9 @@ public class WaveSpawner : MonoBehaviour
 
     public float EnemyTimeSeperation = 0.5f;
 
-    private float countDown = 2;
+    private float countDown = 0;
+
+    private float timer = 2;
 
     public TextMeshProUGUI waveCountDownText;
 
@@ -26,15 +28,16 @@ public class WaveSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (countDown <= 0)
+        if (timer <= 0)
         {
             StartCoroutine(SpawnWave());
-            countDown = timeBetweenWaves;
+            timer = timeBetweenWaves;
         }
 
-        //waveCountDownText.text = Mathf.Ceil(countDown).ToString();
+        waveCountDownText.text = "Wave: " + Mathf.Ceil(countDown).ToString() + " / 20";
 
-        countDown -= Time.deltaTime;
+        timer -= Time.deltaTime;
+        countDown += Time.deltaTime;
     }
 
     IEnumerator SpawnWave()
