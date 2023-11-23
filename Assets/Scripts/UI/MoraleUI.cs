@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class EvolutionPointsUI : MonoBehaviour
+public class MoraleUI : MonoBehaviour
 {
-    public TextMeshProUGUI EvolutionPointsTotal;
+    public TextMeshProUGUI CurrentMorale;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -24,14 +24,14 @@ public class EvolutionPointsUI : MonoBehaviour
 
             if (playerStats != null)
             {
-                int CurrentEvolutionPointsTotal = playerStats.GetMoney();
+                int CurrentMoralescore = playerStats.GetMorale();
 
-                EvolutionPointsTotal.text = "Evolution Points: " + Mathf.Ceil(CurrentEvolutionPointsTotal).ToString();
+                CurrentMorale.text = "Morale: " + Mathf.Ceil(CurrentMoralescore).ToString();
             }
             else
-                Debug.Log("THIS SHIT ALSO EMPTY!!");
+                Debug.Log("playerstats empty");
         }
         else
-            Debug.Log("THIS SHIT EMPTY!!!");
+            Debug.Log("playerstatsobject empty");
     }
 }

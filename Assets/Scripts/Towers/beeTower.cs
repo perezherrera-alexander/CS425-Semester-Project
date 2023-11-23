@@ -4,7 +4,25 @@ using UnityEngine;
 
 public class beeTower : basicTowerScript
 {
-    public static string Name = "Bee Tower";
+    // Property to override the TowerName in the base class
+    public override string TowerName => "Bee Tower";
+
+    // Make the prefab reference static
+    public static beeTower Instance;
+
+
+
+
+    private void Awake()
+    {
+        Instance = this;
+        base.Awake();  // Call the base class's Awake method
+        Debug.Log(TowerName);
+        base.ActivateTower();
+    }
+
+
+
     // Start is called before the first frame update
 
     void Start()

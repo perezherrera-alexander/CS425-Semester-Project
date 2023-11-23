@@ -25,6 +25,29 @@ public class basicTowerScript : MonoBehaviour
     public List<baseEnemyScript> targets = new(); 
 
     public SphereCollider radius;
+
+
+
+    // Virtual property that can be overridden by derived classes
+    public virtual string TowerName => "Default Tower";
+
+
+
+
+
+
+
+    public void Awake()
+    {
+        SaveLoadManager.towers.Add(this);
+        Debug.Log(TowerName);
+    }
+
+    public void OnDestroy()
+    {
+        SaveLoadManager.towers.Remove(this);
+    }
+
     // Start is called before the first frame update
     void Start()
     {

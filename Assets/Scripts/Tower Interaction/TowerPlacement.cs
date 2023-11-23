@@ -46,4 +46,9 @@ public class TowerPlacement : MonoBehaviour
         towerName = towerNombre; // Save the name of the tower's prefab so we can later call it's script
         Tower = GameObject.Instantiate(tower, Vector3.zero, Quaternion.identity);
     }
+
+    public void LoadTower (GameObject tower, Vector3 position)
+    {
+        GameObject.Instantiate(tower, position, Quaternion.identity);
+    }
 }
