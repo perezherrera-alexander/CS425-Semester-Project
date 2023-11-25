@@ -9,10 +9,14 @@ public class TowerPlacement : MonoBehaviour
     private GameObject Tower;
     private string towerName;
 
+    [SerializeField]
+    TowerManager towerManager;
+
     // Start is called before the first frame update
     void Start()
     {
         Tower = CurrentPlacingTower;
+        towerManager = GameObject.FindObjectOfType<TowerManager>();
     }
 
     // Update is called once per frame
@@ -32,9 +36,16 @@ public class TowerPlacement : MonoBehaviour
             {
                 Tower.GetComponentInParent<BoxCollider>().enabled = true;
                 // Call the ActivateTower function of the tower's script
-                if (towerName == "beeTurret 1") Tower.transform.GetChild(1).gameObject.GetComponent<beeTower>().ActivateTower();
-                else if(towerName == "mortarTurret") Tower.transform.GetChild(1).gameObject.GetComponent<mortarTower>().ActivateTower();
-                else if(towerName == "tetherTower") Tower.transform.GetChild(1).gameObject.GetComponent<tetherTower>().ActivateTower();
+                if (towerName == "beeTurret 1")
+                {
+                    Tower.transform.GetChild(1).gameObject.GetComponent<beeTower>().ActivateTower();
+                    string ID = Tower.transform.GetChild(1).gameObject.GetComponent<beeTower>().GenerateId().ToString();
+
+                    Vector3 pos = Tower.transform.position;
+                    towerManager.AddTower(ID, pos);
+                }
+                else if (towerName == "mortarTurret") Tower.transform.GetChild(1).gameObject.GetComponent<mortarTower>().ActivateTower();
+                else if (towerName == "tetherTower") Tower.transform.GetChild(1).gameObject.GetComponent<tetherTower>().ActivateTower();
                 else Debug.Log("Tower name not found");
                 Tower = null;
             }
@@ -43,12 +54,8 @@ public class TowerPlacement : MonoBehaviour
 
     public void PlaceTower(GameObject tower, string towerNombre)
     {
+
         towerName = towerNombre; // Save the name of the tower's prefab so we can later call it's script
         Tower = GameObject.Instantiate(tower, Vector3.zero, Quaternion.identity);
-    }
-
-    public void LoadTower (GameObject tower, Vector3 position)
-    {
-        GameObject.Instantiate(tower, position, Quaternion.identity);
     }
 }

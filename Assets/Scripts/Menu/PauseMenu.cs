@@ -10,6 +10,13 @@ public class PauseMenu : MonoBehaviour
     public GameObject PauseMenuUI;
     public GameObject SettingsMenuUI;
 
+    SaveLoadManager saveLoadManager;
+
+    void Start()
+    {
+        saveLoadManager = GameObject.FindObjectOfType<SaveLoadManager>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -66,5 +73,17 @@ public class PauseMenu : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Time.timeScale = 1.0f;
+    }
+
+    public void SaveGame ()
+    {
+        Debug.Log("Saving game state");
+        saveLoadManager.Save();
+    }
+
+    public void LoadGame ()
+    {
+        Debug.Log("Loading game state");
+        saveLoadManager.Load();
     }
 }

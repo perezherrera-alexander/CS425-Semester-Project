@@ -1,25 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
-public class beeTower : basicTowerScript
+public class beeTower : basicTowerScript//, ISaveable
 {
-    // Property to override the TowerName in the base class
-    public override string TowerName => "Bee Tower";
-
-    // Make the prefab reference static
-    public static beeTower Instance;
-
+    [SerializeField]
+    public string towerName = "Bee Tower";
+    [SerializeField]
+    public float[] towerPosition;
 
 
-
-    private void Awake()
-    {
-        Instance = this;
-        base.Awake();  // Call the base class's Awake method
-        Debug.Log(TowerName);
-        base.ActivateTower();
-    }
+    public string id;
 
 
 
@@ -54,4 +47,46 @@ public class beeTower : basicTowerScript
 
         }
     }
+
+
+    [ContextMenu("Generate ID")]
+    public string GenerateId()
+    {
+        id = Guid.NewGuid().ToString();
+        return id;
+    }
+
+    /*
+
+    public object CaptureState()
+    {
+        towerPosition = new float[] { transform.position.x, transform.position.y, transform.position.z };
+        Debug.Log("Managed to capture state for tower");
+        return new SaveData
+        {
+            TowerName = towerName,
+            TowerPosition = towerPosition,
+        };
+    }
+
+    public void RestoreState(object state)
+    {
+        var saveData = (SaveData)state;
+
+        towerName = saveData.TowerName;
+        // Retrieve the position from the float array
+        Vector3 loadedPosition = new Vector3(saveData.TowerPosition[0], saveData.TowerPosition[1], saveData.TowerPosition[2]);
+        towerPosition[0] = loadedPosition.x;
+        towerPosition[1] = loadedPosition.y;
+        towerPosition[2] = loadedPosition.z;
+    }
+
+    [Serializable]
+    private struct SaveData
+    {
+        public string TowerName;
+        public float[] TowerPosition;
+    }
+
+    */
 }

@@ -58,6 +58,9 @@ MonoBehaviour:
   targeting: close
   targets: []
   radius: {fileID: 7100916763429720930}
+  towerName: Bee Tower
+  towerPosition: []
+  id: 
 --- !u!135 &7100916763429720930
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -191,6 +194,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerCanvasPrefab: {fileID: 1042973311252548879, guid: d96e12da61bc0ef4191677328bdf07f1, type: 3}
+  TowerID: 
+  towerManager: {fileID: 0}
 --- !u!1 &2238100983459650171
 GameObject:
   m_ObjectHideFlags: 0

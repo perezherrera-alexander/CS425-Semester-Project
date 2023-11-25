@@ -5,146 +5,70 @@ using System.Collections.Generic;
 
 public class SaveLoadManager : MonoBehaviour
 {
-    const string player_path = "/player.data";
-    const string tower_path = "/tower.data";
-    const string tower_count_path = "/tower.count";
+    private string SavePath => $"{Application.persistentDataPath}/save.txt";
 
-
-    [SerializeField]
-    GameObject beeTurretPrefab;
-
-    // List to store all towers
-    public static List<basicTowerScript> towers = new List<basicTowerScript>();
-
-
-
-    public static void SaveStats(PlayerStats stats)
+    [ContextMenu("Save")]
+    public void Save ()
     {
-        BinaryFormatter formatter = new BinaryFormatter();
-
-        string path = Application.persistentDataPath + player_path;
-
-        FileStream file = new FileStream(path, FileMode.Create);
-
-        PlayerData data = new PlayerData(stats);
-
-        formatter.Serialize(file, data);
-
-        file.Close();
+        var State = LoadFile();
+        CaptureState(State);
+        SaveFile(State);
     }
 
-    public static PlayerData loadStats()
+    [ContextMenu("Load")]
+    public void Load ()
     {
-        string path = Application.persistentDataPath + player_path;
+        var State = LoadFile();
+        RestoreState(State);
+    }
 
-        if (File.Exists(path))
+    private void SaveFile (object state)
+    {
+        using (var stream = File.Open(SavePath, FileMode.Create))
         {
-            BinaryFormatter formatter = new BinaryFormatter();
-
-            FileStream file = new FileStream(path, FileMode.Open);
-
-            PlayerData data = formatter.Deserialize(file) as PlayerData;
-
-            file.Close();
-
-            return data;
-        }
-        else
-        {
-            Debug.LogError("Save file not found in " + path);
-
-            return null;
+            var formatter = new BinaryFormatter();
+            formatter.Serialize(stream, state);
         }
     }
 
-    public void SaveTower()
+    private Dictionary<string, object> LoadFile()
     {
-        Debug.Log("ANYONE HOME?");
-        BinaryFormatter formatter = new BinaryFormatter();
-
-        string path = Application.persistentDataPath + tower_path;
-
-        string countpath = Application.persistentDataPath + tower_count_path;
-
-        FileStream countfile = new FileStream(countpath, FileMode.Create);
-
-        formatter.Serialize(countfile, towers.Count);
-
-        countfile.Close();
-
-        for (int i = 0; i < towers.Count; i++)
+        if (!File.Exists(SavePath))
         {
-            string filePath = path + i.ToString(); // Use ToString to convert index to string
-
-            FileStream file = new FileStream(filePath, FileMode.Create);
-
-            TurretData data = new TurretData(towers[i]);
-
-            formatter.Serialize(file, data);
-
-            file.Close();
-
-            Debug.Log(towers.Count);
-
-            Debug.Log(towers[i]);
+            return new Dictionary<string, object>();
         }
 
+        using (FileStream file = File.Open(SavePath, FileMode.Open))
+        {
+            var formatter = new BinaryFormatter();
+            return (Dictionary<string, object>)formatter.Deserialize(file);
+        }
     }
 
-    public void LoadTower()
+
+
+
+
+
+
+
+
+    private void CaptureState (Dictionary<string, object> state)
     {
-        Debug.Log("I opened");
-
-        BinaryFormatter formatter = new BinaryFormatter();
-
-        string path = Application.persistentDataPath + tower_path;
-
-        string countpath = Application.persistentDataPath + tower_count_path;
-
-        int towercount = 0;
-
-        if (File.Exists(countpath))
+        foreach (var saveable in FindObjectsOfType<SaveableEntity>())
         {
-            FileStream countfile = new FileStream(countpath, FileMode.Open);
-
-            towercount = (int)formatter.Deserialize(countfile);
-
-            Debug.Log(towercount);
-
-            countfile.Close();
+            state[saveable.Id] = saveable.CaptureState();
         }
-        else
-        {
-            Debug.LogError("Path not found in " + countpath);
-        }
+    }
 
-        for (int i = 0; i < towercount; i++)
+    private void RestoreState (Dictionary<string, object> state)
+    {
+        foreach (var saveable in FindObjectsOfType<SaveableEntity>())
         {
-            string filePath = path + i.ToString(); // Use ToString to convert index to string
-
-            if (File.Exists(filePath))
+            if (state.TryGetValue(saveable.Id, out object value))
             {
-                Debug.Log("IM IN");
-                FileStream file = new FileStream(filePath, FileMode.Open);
-
-                TurretData data = formatter.Deserialize(file) as TurretData;
-
-                file.Close();
-
-                Vector3 position = new Vector3(data.Position[0], data.Position[1], data.Position[2]);
-
-                Debug.Log(data.TurretName);
-
-                if (data.TurretName == "Rotate")
-                {
-                    Instantiate(beeTurretPrefab, position, Quaternion.identity);
-                }
-            }
-            else
-            {
-                Debug.LogError("Path not found in " + filePath);
+                saveable.RestoreState(value);
             }
         }
-
     }
 }

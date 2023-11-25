@@ -10,7 +10,16 @@ public class SelectTower : MonoBehaviour
     private GameObject selectedTower;
     private GameObject towerCanvasInstance;
     private bool towerSelected = false;
+    public string TowerID;
 
+    [SerializeField]
+    TowerManager towerManager;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        towerManager = GameObject.FindObjectOfType<TowerManager>();
+    }
 
     private void OnMouseDown()
     {
@@ -80,6 +89,9 @@ public class SelectTower : MonoBehaviour
         {
 
             basicTowerScript towerScript = selectedTower.GetComponentInChildren<basicTowerScript>();
+            TowerID = selectedTower.transform.GetChild(1).gameObject.GetComponent<beeTower>().id;
+            Debug.Log(TowerID);
+            towerManager.RemoveTower(TowerID);
 
             if (towerScript != null)
             {

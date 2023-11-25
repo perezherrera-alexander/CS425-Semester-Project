@@ -1,14 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStats : MonoBehaviour
+public class PlayerStats : MonoBehaviour, ISaveable
 {
     // Singleton instance
     public static PlayerStats Instance;
 
-    public int Morale = 100;
-    public int CurrentEvolutionPoints = 20;
+    [SerializeField]
+    public int Morale;
+    [SerializeField]
+    public int CurrentEvolutionPoints;
 
     private void Awake()
     {
@@ -16,6 +19,8 @@ public class PlayerStats : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            Morale = 100;
+            CurrentEvolutionPoints = 20;
         }
         else
         {
@@ -49,16 +54,28 @@ public class PlayerStats : MonoBehaviour
         return this;
     }
 
-    public void SavePlayer ()
+
+    public object CaptureState ()
     {
-        SaveLoadManager.SaveStats(this);
+        return new SaveData
+        {
+            CurrentEvolutionPoints = CurrentEvolutionPoints,
+            Morale = Morale
+        };
     }
 
-    public void LoadPlayer ()
+    public void RestoreState (object state)
     {
-        PlayerData data = SaveLoadManager.loadStats();
+        var saveData = (SaveData)state;
 
-        CurrentEvolutionPoints = data.EvolutionPoints;
-        Morale = data.Morale;
+        CurrentEvolutionPoints = saveData.CurrentEvolutionPoints;
+        Morale = saveData.Morale;
+    }
+
+    [Serializable]
+    private struct SaveData
+    {
+        public int CurrentEvolutionPoints;
+        public int Morale;
     }
 }
