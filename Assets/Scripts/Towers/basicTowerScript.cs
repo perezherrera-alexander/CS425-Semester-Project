@@ -241,7 +241,6 @@ public class basicTowerScript : MonoBehaviour
         isActive = true;
         radius.GetComponent<Collider>().enabled = false;
         // If this gets set to true, for some reason the Mortart tower gets a very large sphere collide that prevents placing any other towers near it.
-
     }
 
     public void makeSphere()

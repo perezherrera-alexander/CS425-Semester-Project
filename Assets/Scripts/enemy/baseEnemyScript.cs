@@ -40,6 +40,7 @@ public class baseEnemyScript : MonoBehaviour
         {
             PlayerStatistics.AddMoney(GoldWorth);
             Destroy(ob);
+            PlayerStats.Instance.AddEnemiesKilled();
             return;
         }
     }

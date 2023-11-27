@@ -13,6 +13,8 @@ public class PlayerStats : MonoBehaviour, ISaveable
     [SerializeField]
     public int CurrentEvolutionPoints;
 
+    private int enemiesKilled = 0;
+
     private void Awake()
     {
         // Ensure only one instance exists
@@ -46,6 +48,21 @@ public class PlayerStats : MonoBehaviour, ISaveable
     public int GetMorale ()
     {
         return Morale;
+    }
+
+    public int GetEnemiesKilled()
+    {
+        return enemiesKilled;
+    }
+
+    public void ResetEnemiesKilled()
+    {
+        enemiesKilled = 0;
+    }
+
+    public void AddEnemiesKilled()
+    {
+        enemiesKilled++;
     }
 
 
