@@ -235,6 +235,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerCanvasPrefab: {fileID: 1042973311252548879, guid: d96e12da61bc0ef4191677328bdf07f1, type: 3}
+  TowerID: 
+  towerManager: {fileID: 0}
 --- !u!1 &5261764329016443868
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,7 +325,7 @@ MonoBehaviour:
   BuildCost: 2
   targeting: close
   targets: []
-  radius: {fileID: 6492938086072917355}
+  radius: {fileID: 0}
 --- !u!135 &6492938086072917355
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -341,7 +343,7 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}

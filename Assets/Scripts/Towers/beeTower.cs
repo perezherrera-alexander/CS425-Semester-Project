@@ -6,10 +6,7 @@ using UnityEngine.UIElements;
 
 public class beeTower : basicTowerScript//, ISaveable
 {
-    [SerializeField]
-    public string towerName = "Bee Tower";
-    [SerializeField]
-    public float[] towerPosition;
+    [SerializeField] public float[] towerPosition;
 
 
     public string id;
@@ -20,6 +17,7 @@ public class beeTower : basicTowerScript//, ISaveable
 
     void Start()
     {
+        towerName = "Bee Tower";
         Invoke();
         targeting = "close";
         makeSphere();

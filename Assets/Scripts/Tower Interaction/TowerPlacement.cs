@@ -36,17 +36,15 @@ public class TowerPlacement : MonoBehaviour
             {
                 Tower.GetComponentInParent<BoxCollider>().enabled = true;
                 // Call the ActivateTower function of the tower's script
+                Tower.transform.GetComponentInChildren<basicTowerScript>().ActivateTower(); // We don't actually need the towername, we can just do it this way
                 if (towerName == "beeTurret 1")
                 {
-                    Tower.transform.GetChild(1).gameObject.GetComponent<beeTower>().ActivateTower();
                     string ID = Tower.transform.GetChild(1).gameObject.GetComponent<beeTower>().GenerateId().ToString();
 
                     Vector3 pos = Tower.transform.position;
                     towerManager.AddTower(ID, pos);
                 }
-                else if (towerName == "mortarTurret") Tower.transform.GetChild(1).gameObject.GetComponent<mortarTower>().ActivateTower();
-                else if (towerName == "tetherTower") Tower.transform.GetChild(1).gameObject.GetComponent<tetherTower>().ActivateTower();
-                else Debug.Log("Tower name not found");
+                //else Debug.Log("Tower name not found");
                 Tower = null;
             }
         }
@@ -54,8 +52,8 @@ public class TowerPlacement : MonoBehaviour
 
     public void PlaceTower(GameObject tower, string towerNombre)
     {
-
         towerName = towerNombre; // Save the name of the tower's prefab so we can later call it's script
         Tower = GameObject.Instantiate(tower, Vector3.zero, Quaternion.identity);
+        Tower.GetComponentInChildren<SphereCollider>().enabled = false;
     }
 }

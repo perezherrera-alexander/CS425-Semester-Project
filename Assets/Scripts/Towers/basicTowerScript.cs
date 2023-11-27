@@ -26,11 +26,13 @@ public class basicTowerScript : MonoBehaviour
 
     public SphereCollider radius;
 
+    [System.NonSerialized] public string towerName;
+
     // Start is called before the first frame update
     void Start()
     {
         Invoke();
-        //makeSphere();
+        makeSphere();
 
     }
 
@@ -237,7 +239,8 @@ public class basicTowerScript : MonoBehaviour
     public void ActivateTower()
     {
         isActive = true;
-        radius.GetComponent<Collider>().enabled = true;
+        radius.GetComponent<Collider>().enabled = false;
+        // If this gets set to true, for some reason the Mortart tower gets a very large sphere collide that prevents placing any other towers near it.
 
     }
 

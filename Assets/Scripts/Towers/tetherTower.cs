@@ -13,9 +13,10 @@ public class tetherTower : basicTowerScript
     // Start is called before the first frame update
     void Start()
     {
+        towerName = "Tether Tower";
         Invoke();
         targeting = "close";
-        //makeSphere();
+        makeSphere();
     }
 
     // Update is called once per frame

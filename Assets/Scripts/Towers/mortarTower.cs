@@ -9,9 +9,10 @@ public class mortarTower : basicTowerScript
 
     void Start()
     {
+        towerName = "Mortar Tower";
         Invoke();
         targeting = "close";
-        //makeSphere();
+        makeSphere();
     }
 
     // Update is called once per frame
