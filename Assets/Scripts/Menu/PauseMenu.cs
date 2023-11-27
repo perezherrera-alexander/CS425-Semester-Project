@@ -77,8 +77,9 @@ public class PauseMenu : MonoBehaviour
 
     public void SaveGame ()
     {
+        string name = "TEST TEST";
         Debug.Log("Saving game state");
-        saveLoadManager.Save();
+        saveLoadManager.Save(name);
     }
 
     public void LoadGame ()

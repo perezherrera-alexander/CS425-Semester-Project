@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class tetherTower : basicTowerScript
 {
@@ -10,12 +11,14 @@ public class tetherTower : basicTowerScript
     private float dot = 0.5f;
     private float slowDownFactor = 0.5f;
 #pragma warning restore 0414
+
+    public string id;
+
     // Start is called before the first frame update
     void Start()
     {
         towerName = "Tether Tower";
         Invoke();
-        targeting = "close";
         makeSphere();
     }
 
@@ -55,5 +58,13 @@ public class tetherTower : basicTowerScript
         //target.GetComponent<baseEnemyScript>().slowDown(slowDownFactor);
 
 
+    }
+
+
+    [ContextMenu("Generate ID")]
+    public string GenerateId()
+    {
+        id = Guid.NewGuid().ToString();
+        return id;
     }
 }

@@ -21,7 +21,7 @@ public class basicTowerScript : MonoBehaviour
     public int BuildCost;
     private bool isActive = false;
 
-    public string targeting = "close";
+    public string targeting = "first";
     public List<baseEnemyScript> targets = new(); 
 
     public SphereCollider radius;
@@ -72,7 +72,7 @@ public class basicTowerScript : MonoBehaviour
     {
         Debug.Log("shooting");
     }
-    void UpdateTarget()
+    public void UpdateTarget()
     {
         if(isActive == false) // If the tower is not active (hasn't been placed yet), don't do anything
         {
@@ -239,8 +239,6 @@ public class basicTowerScript : MonoBehaviour
     public void ActivateTower()
     {
         isActive = true;
-        radius.GetComponent<Collider>().enabled = false;
-        // If this gets set to true, for some reason the Mortart tower gets a very large sphere collide that prevents placing any other towers near it.
     }
 
     public void makeSphere()

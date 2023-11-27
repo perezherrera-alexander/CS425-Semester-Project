@@ -35,16 +35,34 @@ public class TowerPlacement : MonoBehaviour
             if (Input.GetMouseButtonDown(0) && HitInfo.collider.CompareTag("Floor"))
             {
                 Tower.GetComponentInParent<BoxCollider>().enabled = true;
+                
+                Tower.transform.GetChild(1).GetComponentInChildren<SphereCollider>().enabled = true;
+
                 // Call the ActivateTower function of the tower's script
                 Tower.transform.GetComponentInChildren<basicTowerScript>().ActivateTower(); // We don't actually need the towername, we can just do it this way
-                if (towerName == "beeTurret 1")
+                if (towerName == "beeTurret")
                 {
                     string ID = Tower.transform.GetChild(1).gameObject.GetComponent<beeTower>().GenerateId().ToString();
 
                     Vector3 pos = Tower.transform.position;
-                    towerManager.AddTower(ID, pos);
+                    towerManager.AddTower(ID, pos, towerName);
                 }
-                //else Debug.Log("Tower name not found");
+
+                if (towerName == "mortarTurret")
+                {
+                    string ID = Tower.transform.GetChild(1).gameObject.GetComponent<mortarTower>().GenerateId().ToString();
+
+                    Vector3 pos = Tower.transform.position;
+                    towerManager.AddTower(ID, pos, towerName);
+                }
+
+                if (towerName == "tetherTower")
+                {
+                    string ID = Tower.transform.GetChild(1).gameObject.GetComponent<tetherTower>().GenerateId().ToString();
+
+                    Vector3 pos = Tower.transform.position;
+                    towerManager.AddTower(ID, pos, towerName);
+                }
                 Tower = null;
             }
         }
@@ -54,6 +72,5 @@ public class TowerPlacement : MonoBehaviour
     {
         towerName = towerNombre; // Save the name of the tower's prefab so we can later call it's script
         Tower = GameObject.Instantiate(tower, Vector3.zero, Quaternion.identity);
-        Tower.GetComponentInChildren<SphereCollider>().enabled = false;
     }
 }

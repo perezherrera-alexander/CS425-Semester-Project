@@ -1,17 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class mortarTower : basicTowerScript
 {
-    
-    // Start is called before the first frame update
 
+
+    public string id;
+
+
+    // Start is called before the first frame update
     void Start()
     {
         towerName = "Mortar Tower";
         Invoke();
-        targeting = "close";
         makeSphere();
     }
 
@@ -30,5 +33,13 @@ public class mortarTower : basicTowerScript
         {
             ball.Seek(target);
         }
+    }
+
+
+    [ContextMenu("Generate ID")]
+    public string GenerateId()
+    {
+        id = Guid.NewGuid().ToString();
+        return id;
     }
 }

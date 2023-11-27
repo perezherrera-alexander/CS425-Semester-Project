@@ -22,7 +22,7 @@ public class ShopScript : MonoBehaviour
         {
             // Deduct the money and call the PlaceTower function
             PlayerStatistics.AddMoney(-towerCost);
-            towerPlacement.PlaceTower(BeeTowerPrefab, "beeTurret 1"); // Pass along the prefab's name so we know which script to call later in TowerPlacement.cs
+            towerPlacement.PlaceTower(BeeTowerPrefab, "beeTurret"); // Pass along the prefab's name so we know which script to call later in TowerPlacement.cs
         }
         else
         {

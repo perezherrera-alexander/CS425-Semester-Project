@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2960,8 +2960,8 @@ MonoBehaviour:
   EnemyTimeSeperation: 0.5
   waveCountDownText: {fileID: 1988153091}
   levelCompleteText: {fileID: 2125177660}
-  EnemiesPerWave: 1
-  maxWaveAmount: 5
+  EnemiesPerWave: 0
+  maxWaveAmount: 0
 --- !u!4 &1798962333
 Transform:
   m_ObjectHideFlags: 0
@@ -3029,6 +3029,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BeeTowerPrefab: {fileID: 971902319036964014, guid: 6c1bcac6b019a5445a29397b2e5fbdbd, type: 3}
+  MortarTowerPrefab: {fileID: 4802165041365209427, guid: 6b391e1d30df3bf40982d80495c75b4a, type: 3}
+  TetherTowerPrefab: {fileID: 4697445435849318074, guid: d683e4508f9f8474e99a3210a2578de0, type: 3}
 --- !u!4 &1869343153 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5964268236289702475, guid: 81d094e2b60e4a747aaeea2543b44fb7, type: 3}
@@ -3496,7 +3498,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2125177659
 RectTransform:
   m_ObjectHideFlags: 0

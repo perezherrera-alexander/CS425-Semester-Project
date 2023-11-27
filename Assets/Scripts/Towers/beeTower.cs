@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class beeTower : basicTowerScript//, ISaveable
+public class beeTower : basicTowerScript
 {
     [SerializeField] public float[] towerPosition;
 
@@ -19,7 +19,6 @@ public class beeTower : basicTowerScript//, ISaveable
     {
         towerName = "Bee Tower";
         Invoke();
-        targeting = "close";
         makeSphere();
     }
 
@@ -53,38 +52,4 @@ public class beeTower : basicTowerScript//, ISaveable
         id = Guid.NewGuid().ToString();
         return id;
     }
-
-    /*
-
-    public object CaptureState()
-    {
-        towerPosition = new float[] { transform.position.x, transform.position.y, transform.position.z };
-        Debug.Log("Managed to capture state for tower");
-        return new SaveData
-        {
-            TowerName = towerName,
-            TowerPosition = towerPosition,
-        };
-    }
-
-    public void RestoreState(object state)
-    {
-        var saveData = (SaveData)state;
-
-        towerName = saveData.TowerName;
-        // Retrieve the position from the float array
-        Vector3 loadedPosition = new Vector3(saveData.TowerPosition[0], saveData.TowerPosition[1], saveData.TowerPosition[2]);
-        towerPosition[0] = loadedPosition.x;
-        towerPosition[1] = loadedPosition.y;
-        towerPosition[2] = loadedPosition.z;
-    }
-
-    [Serializable]
-    private struct SaveData
-    {
-        public string TowerName;
-        public float[] TowerPosition;
-    }
-
-    */
 }

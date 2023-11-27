@@ -7,9 +7,39 @@ public class SaveLoadManager : MonoBehaviour
 {
     private string SavePath => $"{Application.persistentDataPath}/save.txt";
 
-    [ContextMenu("Save")]
-    public void Save ()
+    private string CustomSavePath;
+
+    private string testname;
+
+    private void CustomSaveName (string name)
     {
+        CustomSavePath = $"{Application.persistentDataPath}/{name}.txt";
+    }
+
+    private void test()
+    {
+        testname = $"{Application.persistentDataPath}";
+    }
+
+
+    [ContextMenu("Save")]
+    public void Save (string SaveName)
+    {
+        // Create method to see all save files in directory
+        
+        /*
+        test();
+
+        string[] files = Directory.GetFiles(testname);
+
+        foreach (string file in files)
+        {
+            Debug.Log(file);
+        }
+        */
+
+
+        //CustomSaveName(SaveName);
         var State = LoadFile();
         CaptureState(State);
         SaveFile(State);
@@ -44,14 +74,6 @@ public class SaveLoadManager : MonoBehaviour
             return (Dictionary<string, object>)formatter.Deserialize(file);
         }
     }
-
-
-
-
-
-
-
-
 
     private void CaptureState (Dictionary<string, object> state)
     {
