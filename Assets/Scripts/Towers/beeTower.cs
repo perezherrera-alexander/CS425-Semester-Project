@@ -20,6 +20,7 @@ public class beeTower : basicTowerScript
         towerName = "Bee Tower";
         Invoke();
         makeSphere();
+        Debug.Log(targeting);
     }
 
     // Update is called once per frame

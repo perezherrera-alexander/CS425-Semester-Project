@@ -41,7 +41,6 @@ public class basicTowerScript : MonoBehaviour
     {
         track();
         listPrune();
-
     }
     public virtual void Invoke()
     {

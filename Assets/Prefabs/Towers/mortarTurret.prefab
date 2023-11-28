@@ -366,9 +366,10 @@ MonoBehaviour:
   firePoint: {fileID: 1287937084816428462}
   part: {fileID: 3675580445339813525}
   BuildCost: 2
-  targeting: close
+  targeting: first
   targets: []
   radius: {fileID: 0}
+  id: 
 --- !u!135 &6492938086072917355
 SphereCollider:
   m_ObjectHideFlags: 0

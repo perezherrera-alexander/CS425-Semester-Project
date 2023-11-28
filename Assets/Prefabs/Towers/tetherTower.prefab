@@ -284,10 +284,11 @@ MonoBehaviour:
   firePoint: {fileID: 6967021129643549021}
   part: {fileID: 5656544548732101470}
   BuildCost: 3
-  targeting: close
+  targeting: first
   targets: []
   radius: {fileID: 0}
   laser: {fileID: 6919832244800713231}
+  id: 
 --- !u!120 &6919832244800713231
 LineRenderer:
   serializedVersion: 2

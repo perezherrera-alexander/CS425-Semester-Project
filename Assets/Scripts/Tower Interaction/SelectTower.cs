@@ -89,9 +89,6 @@ public class SelectTower : MonoBehaviour
         {
 
             basicTowerScript towerScript = selectedTower.GetComponentInChildren<basicTowerScript>();
-            TowerID = selectedTower.transform.GetChild(1).gameObject.GetComponent<beeTower>().id;
-            Debug.Log(TowerID);
-            towerManager.RemoveTower(TowerID);
 
             if (towerScript != null)
             {
@@ -107,6 +104,40 @@ public class SelectTower : MonoBehaviour
                     playerStats.AddMoney(towerCost);
                 }
             }
+
+
+
+            if (towerScript != null)
+            {
+                Type scriptType = towerScript.GetType();
+
+                string scriptName = scriptType.Name;
+
+                Debug.Log(scriptName);
+
+                if (scriptName == "beeTower")
+                {
+                    TowerID = selectedTower.transform.GetChild(1).gameObject.GetComponent<beeTower>().id;
+                    Debug.Log(TowerID);
+                    towerManager.RemoveTower(TowerID);
+                }
+
+                if (scriptName == "mortarTower")
+                {
+                    TowerID = selectedTower.transform.GetChild(1).gameObject.GetComponent<mortarTower>().id;
+                    Debug.Log(TowerID);
+                    towerManager.RemoveTower(TowerID);
+                }
+
+                if (scriptName == "tetherTower")
+                {
+                    TowerID = selectedTower.transform.GetChild(1).gameObject.GetComponent<tetherTower>().id;
+                    Debug.Log(TowerID);
+                    towerManager.RemoveTower(TowerID);
+                }
+
+            }
+
 
             Debug.Log("Deleting tower through player interaction.");
             Destroy(selectedTower);
