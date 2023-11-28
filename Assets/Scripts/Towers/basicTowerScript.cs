@@ -22,7 +22,7 @@ public class basicTowerScript : MonoBehaviour
     private bool isActive = false;
 
     public string targeting = "first";
-    public List<baseEnemyScript> targets = new(); 
+    public List<baseEnemyScript> targets = new List<baseEnemyScript>(); 
 
     public SphereCollider radius;
 
@@ -141,7 +141,7 @@ public class basicTowerScript : MonoBehaviour
 
     private void lastTargeting()
     {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
+        /*GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
         float shortestDistance = Mathf.Infinity;
         GameObject lastEnemy = null;
 
@@ -154,6 +154,19 @@ public class basicTowerScript : MonoBehaviour
         if (lastEnemy != null && shortestDistance <= range)
         {
             target = lastEnemy.transform;
+        }
+        else
+        {
+            target = null;
+        }*/
+        listPrune();
+        if (targets.Count > 0)
+        {
+            if (targets.Last() != null)
+            {
+                target = targets.Last().transform;
+            }
+
         }
         else
         {
@@ -199,9 +212,14 @@ public class basicTowerScript : MonoBehaviour
         {
             target = null;
         }*/
+        listPrune();
         if (targets.Count > 0)
         {
-            target = targets.First().transform;
+            if(targets.First() != null)
+            {
+                target = targets.First().transform;
+            }
+            
         }
         else
         {
@@ -212,21 +230,21 @@ public class basicTowerScript : MonoBehaviour
     private void strongTargeting()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
-        float shortestDistance = Mathf.Infinity;
+        float enemyDistance = Mathf.Infinity;
         float enemyHealth = 0;
-        GameObject strongEnemy = null;
+        baseEnemyScript strongEnemy = null;
 
-        foreach (GameObject enemy in enemies)
+        foreach (baseEnemyScript enemy in targets)
         {
-            if (enemy.GetComponent<baseEnemyScript>().getHealth() > enemyHealth)
+            if (enemy.getHealth() > enemyHealth)
             {
-                enemyHealth = enemy.GetComponent<baseEnemyScript>().getHealth();
+                enemyHealth = enemy.getHealth();
                 strongEnemy = enemy;
             }
-            shortestDistance = Vector3.Distance(transform.position, strongEnemy.transform.position);
+            enemyDistance = Vector3.Distance(transform.position, strongEnemy.transform.position);
         }
 
-        if (strongEnemy != null && shortestDistance <= range)
+        if (strongEnemy != null && enemyDistance <= range)
         {
             target = strongEnemy.transform;
         }
@@ -258,7 +276,8 @@ public class basicTowerScript : MonoBehaviour
 
         if(other.gameObject.tag == "Enemy")
         {
-            targets.Add(other.GetComponent<baseEnemyScript>());
+            targets.Insert(0,other.GetComponent<baseEnemyScript>());
+            UpdateTarget();
 
 
         }
@@ -271,6 +290,7 @@ public class basicTowerScript : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             targets.Remove(other.GetComponent<baseEnemyScript>());
+            UpdateTarget();
 
         }
     }
