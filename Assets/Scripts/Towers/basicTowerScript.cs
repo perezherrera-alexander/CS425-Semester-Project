@@ -212,13 +212,16 @@ public class basicTowerScript : MonoBehaviour
             target = null;
         }*/
         listPrune();
-        if (targets.Count > 0)
+        if (targets.Count == 1)
         {
-            if(targets.First() != null)
-            {
-                target = targets.First().transform;
-            }
             
+                target = targets.First().transform;
+            
+            
+        }
+        if (targets.Count > 1)
+        {
+            target = targets.First().transform;
         }
         else
         {
@@ -275,7 +278,7 @@ public class basicTowerScript : MonoBehaviour
 
         if(other.gameObject.tag == "Enemy")
         {
-            targets.Insert(0,other.GetComponent<baseEnemyScript>());
+            targets.Add(other.GetComponent<baseEnemyScript>());
             UpdateTarget();
 
 
