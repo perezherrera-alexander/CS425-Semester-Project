@@ -212,14 +212,8 @@ public class basicTowerScript : MonoBehaviour
             target = null;
         }*/
         listPrune();
-        if (targets.Count == 1)
-        {
-            
-                target = targets.First().transform;
-            
-            
-        }
-        if (targets.Count > 1)
+
+        if (targets.Count > 0)
         {
             target = targets.First().transform;
         }
