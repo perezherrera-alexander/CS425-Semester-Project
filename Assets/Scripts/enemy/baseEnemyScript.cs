@@ -65,6 +65,7 @@ public class baseEnemyScript : MonoBehaviour
         if (wavepointIndex >= Path.waypoints.Length - 1){
             //decrement player health according to
             Destroy(gameObject);
+            PlayerStats.Instance.AddEnemiesKilled();
             return;
         }
         transform.LookAt(Path.waypoints[wavepointIndex]);
