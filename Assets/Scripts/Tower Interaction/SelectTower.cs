@@ -22,6 +22,8 @@ public class SelectTower : MonoBehaviour
     [SerializeField]
     private PauseMenu pauseMenu;
 
+    public Material highlightMaterial;
+    private Material originalTowerMaterial;
 
 
     private void Awake()
@@ -76,6 +78,8 @@ public class SelectTower : MonoBehaviour
             selectedTower = tower;
             towerSelected = true;
 
+            HighlightSelectedTower(selectedTower);
+
             basicTowerScript towerScript = selectedTower.GetComponentInChildren<basicTowerScript>();
 
             // Instantiate the tower canvas prefab
@@ -108,6 +112,7 @@ public class SelectTower : MonoBehaviour
         }
         else
         {
+            ResetSelectedTowerColor();
             Destroy(towerCanvasInstance);
         }
     }
@@ -176,6 +181,32 @@ public class SelectTower : MonoBehaviour
 
             // Destroy the canvas after a short delay
             Destroy(towerCanvasInstance, 0.1f); // Adjust the delay as needed
+        }
+    }
+
+    private void ResetSelectedTowerColor ()
+    {
+        if (selectedTower != null)
+        {
+            Renderer[] childRenderers = selectedTower.GetComponentsInChildren<Renderer>();
+            foreach (Renderer childRenderer in childRenderers)
+            {
+                // Reset the color of the previously selected tower for each child
+                childRenderer.material = originalTowerMaterial;
+            }
+        }
+    }
+
+    private void HighlightSelectedTower(GameObject tower)
+    {
+        Renderer[] childRenderers = tower.GetComponentsInChildren<Renderer>();
+        foreach (Renderer childRenderer in childRenderers)
+        {
+            // Store the original material to reset it later
+            originalTowerMaterial = childRenderer.material;
+
+            // Apply the highlight material
+            childRenderer.material = highlightMaterial;
         }
     }
 }
