@@ -9,20 +9,50 @@ public class SelectTower : MonoBehaviour
 
     private GameObject selectedTower;
     private GameObject towerCanvasInstance;
+    private SelectTower SelecttTwerInstance;
     private bool towerSelected = false;
     public string TowerID;
 
     [SerializeField]
-    TowerManager towerManager;
+    private TowerManager towerManager;
+
+    [SerializeField]
+    private TowerPlacement towerPlacement;
+
+    [SerializeField]
+    private PauseMenu pauseMenu;
+
+
+
+    private void Awake()
+    {
+        // Ensure only one instance exists
+        if (SelecttTwerInstance == null)
+        {
+            SelecttTwerInstance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         towerManager = GameObject.FindObjectOfType<TowerManager>();
+        towerPlacement = FindObjectOfType<TowerPlacement>();
+        pauseMenu = FindObjectOfType<PauseMenu>();
     }
 
     private void OnMouseDown()
     {
+        if (towerPlacement.IsPlacingTower || pauseMenu.GameIsPaused)
+        {
+            return;
+        }
+
+
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);

@@ -9,6 +9,7 @@ public class PauseMenu : MonoBehaviour
     public bool SettingsStatus = false;
     public GameObject PauseMenuUI;
     public GameObject SettingsMenuUI;
+    public GameObject SaveNameUI;
 
     SaveLoadManager saveLoadManager;
 
@@ -75,11 +76,17 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1.0f;
     }
 
-    public void SaveGame ()
+    public void EnterSaveGame ()
     {
-        string name = "TEST TEST";
-        Debug.Log("Saving game state");
-        saveLoadManager.Save(name);
+        saveLoadManager.Save();
+
+        //SaveNameUI.SetActive(true);
+    }
+
+    public void ExitSaveGame()
+    {
+
+        SaveNameUI.SetActive(false);
     }
 
     public void LoadGame ()

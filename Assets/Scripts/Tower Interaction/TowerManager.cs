@@ -94,7 +94,10 @@ public class TowerManager : MonoBehaviour, ISaveable
         GameObject towerPrefab = Instantiate(tower, position, Quaternion.identity);
 
         towerPrefab.GetComponentInParent<BoxCollider>().enabled = true;
+        towerPrefab.transform.GetChild(1).GetComponentInChildren<SphereCollider>().enabled = true;
         towerPrefab.transform.GetComponentInChildren<basicTowerScript>().ActivateTower();
+
+        Debug.Log("activating tower and setting sphere collider");
 
         return towerPrefab;
     }

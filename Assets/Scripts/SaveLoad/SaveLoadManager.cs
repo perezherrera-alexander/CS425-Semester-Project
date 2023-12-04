@@ -11,6 +11,8 @@ public class SaveLoadManager : MonoBehaviour
 
     private string testname;
 
+    //PlayerStats playerStats;
+
     private void CustomSaveName (string name)
     {
         CustomSavePath = $"{Application.persistentDataPath}/{name}.txt";
@@ -23,7 +25,7 @@ public class SaveLoadManager : MonoBehaviour
 
 
     [ContextMenu("Save")]
-    public void Save (string SaveName)
+    public void Save ()
     {
         // Create method to see all save files in directory
         
@@ -65,6 +67,7 @@ public class SaveLoadManager : MonoBehaviour
     {
         if (!File.Exists(SavePath))
         {
+            Debug.Log("DOESNT EXIST");
             return new Dictionary<string, object>();
         }
 

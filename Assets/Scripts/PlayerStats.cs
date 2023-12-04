@@ -15,6 +15,8 @@ public class PlayerStats : MonoBehaviour, ISaveable
 
     private int enemiesKilled = 0;
 
+    //private string CustomSaveName;
+
     private void Awake()
     {
         // Ensure only one instance exists
@@ -65,6 +67,17 @@ public class PlayerStats : MonoBehaviour, ISaveable
         enemiesKilled++;
     }
 
+    /*
+    public void SetSaveName (string name)
+    {
+        CustomSaveName = name;
+    }
+
+    public string GetSaveName ()
+    {
+        return CustomSaveName;
+    }
+    */
 
     public PlayerStats GetPlayerStats ()
     {

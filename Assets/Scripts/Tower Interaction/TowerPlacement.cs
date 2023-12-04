@@ -12,6 +12,9 @@ public class TowerPlacement : MonoBehaviour
     [SerializeField]
     TowerManager towerManager;
 
+    // Property to check if a tower is currently being placed
+    public bool IsPlacingTower { get { return Tower != null; } }
+
     // Start is called before the first frame update
     void Start()
     {
