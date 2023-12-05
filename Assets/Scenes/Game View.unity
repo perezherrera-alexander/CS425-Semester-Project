@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2963,12 +2963,12 @@ MonoBehaviour:
   enemyPrefab2: {fileID: 6432939074762129627, guid: 515b45a214e5bdc4ba9effce6d6d0195, type: 3}
   SpawnPoint: {fileID: 5964268236289702475, guid: 81d094e2b60e4a747aaeea2543b44fb7, type: 3}
   timeBetweenWaves: 2
-  EnemyTimeSeperation: 0.5
+  EnemyTimeSeperation: 2
   waveCountDownText: {fileID: 1988153091}
   levelCompleteText: {fileID: 2125177660}
-  EnemiesPerWave: 0
+  EnemiesPerWave: 5
   currentWaveCount: 1
-  maxWaveAmount: 100
+  maxWaveAmount: 10
   gameState: 0
 --- !u!4 &1798962333
 Transform:

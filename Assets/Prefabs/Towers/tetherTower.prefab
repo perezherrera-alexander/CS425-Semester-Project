@@ -265,6 +265,7 @@ Transform:
   m_Children:
   - {fileID: 6967021129643549021}
   - {fileID: 2365090410381963772}
+  - {fileID: 1114980081182651683}
   m_Father: {fileID: 2105687942617211647}
   m_LocalEulerAnglesHint: {x: 0, y: -719.08, z: 0}
 --- !u!114 &3410738226811135015
@@ -500,3 +501,65 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1001 &1756789592494591663
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5656544548732101470}
+    m_Modifications:
+    - target: {fileID: 1664197342355094412, guid: 841478899781e794f80815c4244aee5b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1664197342355094412, guid: 841478899781e794f80815c4244aee5b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1664197342355094412, guid: 841478899781e794f80815c4244aee5b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1664197342355094412, guid: 841478899781e794f80815c4244aee5b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1664197342355094412, guid: 841478899781e794f80815c4244aee5b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1664197342355094412, guid: 841478899781e794f80815c4244aee5b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1664197342355094412, guid: 841478899781e794f80815c4244aee5b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1664197342355094412, guid: 841478899781e794f80815c4244aee5b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1664197342355094412, guid: 841478899781e794f80815c4244aee5b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1664197342355094412, guid: 841478899781e794f80815c4244aee5b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3975382800676708411, guid: 841478899781e794f80815c4244aee5b, type: 3}
+      propertyPath: m_Name
+      value: Tower Particle System
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 841478899781e794f80815c4244aee5b, type: 3}
+--- !u!4 &1114980081182651683 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1664197342355094412, guid: 841478899781e794f80815c4244aee5b, type: 3}
+  m_PrefabInstance: {fileID: 1756789592494591663}
+  m_PrefabAsset: {fileID: 0}

@@ -37,6 +37,7 @@ public class TowerPlacement : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0) && HitInfo.collider.CompareTag("Floor"))
             {
+                CreatePlacementEffect();
                 Tower.GetComponentInParent<BoxCollider>().enabled = true;
                 
                 Tower.transform.GetChild(1).GetComponentInChildren<SphereCollider>().enabled = true;
@@ -75,5 +76,19 @@ public class TowerPlacement : MonoBehaviour
     {
         towerName = towerNombre; // Save the name of the tower's prefab so we can later call it's script
         Tower = GameObject.Instantiate(tower, Vector3.zero, Quaternion.identity);
+        Tower.transform.GetChild(1).GetComponentInChildren<ParticleSystem>().Stop();
+    }
+
+    private void CreatePlacementEffect()
+    {
+        Tower.transform.GetChild(1).GetChild(2).GetComponent<ParticleSystem>().Play();
+        // Stop the particle system atfer 3 seconds
+        StartCoroutine(StopParticleEffect(Tower.transform.GetChild(1).GetChild(2).GetComponent<ParticleSystem>()));
+    }
+
+    IEnumerator StopParticleEffect(ParticleSystem particleSystem)
+    {
+        yield return new WaitForSeconds(3f);
+        particleSystem.Stop();
     }
 }
