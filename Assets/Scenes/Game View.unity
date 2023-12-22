@@ -2940,6 +2940,7 @@ GameObject:
   - component: {fileID: 1798962335}
   - component: {fileID: 1798962337}
   - component: {fileID: 1798962336}
+  - component: {fileID: 1798962338}
   m_Layer: 0
   m_Name: Game Master
   m_TagString: Untagged
@@ -3039,6 +3040,22 @@ MonoBehaviour:
   BeeTowerPrefab: {fileID: 971902319036964014, guid: 6c1bcac6b019a5445a29397b2e5fbdbd, type: 3}
   MortarTowerPrefab: {fileID: 4802165041365209427, guid: 6b391e1d30df3bf40982d80495c75b4a, type: 3}
   TetherTowerPrefab: {fileID: 4697445435849318074, guid: d683e4508f9f8474e99a3210a2578de0, type: 3}
+--- !u!114 &1798962338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1798962331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a07cc0002722cb3449af74e3e3783c34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TowerPanelPrefab: {fileID: 1042973311252548879, guid: d96e12da61bc0ef4191677328bdf07f1, type: 3}
+  TowerPanelInstance: {fileID: 0}
+  SelectedTower: {fileID: 0}
+  highlightMaterial: {fileID: 2100000, guid: a53b2680213cc1247a0b68e5bad45a7f, type: 2}
 --- !u!4 &1869343153 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5964268236289702475, guid: 81d094e2b60e4a747aaeea2543b44fb7, type: 3}
