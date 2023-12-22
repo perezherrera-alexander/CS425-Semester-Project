@@ -10,7 +10,7 @@ public class TowerPlacement : MonoBehaviour
     private string towerName;
 
     [SerializeField]
-    TowerManager towerManager;
+    TowerSaveLoadManager towerSaveLoadManager;
 
     // Property to check if a tower is currently being placed
     public bool IsPlacingTower { get { return Tower != null; } }
@@ -19,7 +19,7 @@ public class TowerPlacement : MonoBehaviour
     void Start()
     {
         Tower = CurrentPlacingTower;
-        towerManager = GameObject.FindObjectOfType<TowerManager>();
+        towerSaveLoadManager = GameObject.FindObjectOfType<TowerSaveLoadManager>();
     }
 
     // Update is called once per frame
@@ -49,7 +49,7 @@ public class TowerPlacement : MonoBehaviour
                     string ID = Tower.transform.GetChild(1).gameObject.GetComponent<beeTower>().GenerateId().ToString();
 
                     Vector3 pos = Tower.transform.position;
-                    towerManager.AddTower(ID, pos, towerName);
+                    towerSaveLoadManager.AddTower(ID, pos, towerName);
                 }
 
                 if (towerName == "mortarTurret")
@@ -57,7 +57,7 @@ public class TowerPlacement : MonoBehaviour
                     string ID = Tower.transform.GetChild(1).gameObject.GetComponent<mortarTower>().GenerateId().ToString();
 
                     Vector3 pos = Tower.transform.position;
-                    towerManager.AddTower(ID, pos, towerName);
+                    towerSaveLoadManager.AddTower(ID, pos, towerName);
                 }
 
                 if (towerName == "tetherTower")
@@ -65,7 +65,7 @@ public class TowerPlacement : MonoBehaviour
                     string ID = Tower.transform.GetChild(1).gameObject.GetComponent<tetherTower>().GenerateId().ToString();
 
                     Vector3 pos = Tower.transform.position;
-                    towerManager.AddTower(ID, pos, towerName);
+                    towerSaveLoadManager.AddTower(ID, pos, towerName);
                 }
                 Tower = null;
             }

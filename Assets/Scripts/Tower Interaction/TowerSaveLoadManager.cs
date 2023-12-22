@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TowerManager : MonoBehaviour, ISaveable
+public class TowerSaveLoadManager : MonoBehaviour, ISaveable
 {
     public GameObject BeeTowerPrefab;
     public GameObject MortarTowerPrefab;

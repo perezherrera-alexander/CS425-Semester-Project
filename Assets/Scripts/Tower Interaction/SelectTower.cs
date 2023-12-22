@@ -2,10 +2,12 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using System.Linq;
 
 public class SelectTower : MonoBehaviour
 {
     public GameObject towerCanvasPrefab;
+    public Material highlightMaterial;
 
     private GameObject selectedTower;
     private GameObject towerCanvasInstance;
@@ -14,7 +16,7 @@ public class SelectTower : MonoBehaviour
     public string TowerID;
 
     [SerializeField]
-    private TowerManager towerManager;
+    private TowerSaveLoadManager towerSaveLoadManager;
 
     [SerializeField]
     private TowerPlacement towerPlacement;
@@ -22,9 +24,7 @@ public class SelectTower : MonoBehaviour
     [SerializeField]
     private PauseMenu pauseMenu;
 
-    public Material highlightMaterial;
-    private Material originalTowerMaterial;
-
+    private Material[] originalMaterials;
 
     private void Awake()
     {
@@ -42,7 +42,7 @@ public class SelectTower : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        towerManager = GameObject.FindObjectOfType<TowerManager>();
+        towerSaveLoadManager = GameObject.FindObjectOfType<TowerSaveLoadManager>();
         towerPlacement = FindObjectOfType<TowerPlacement>();
         pauseMenu = FindObjectOfType<PauseMenu>();
     }
@@ -53,7 +53,6 @@ public class SelectTower : MonoBehaviour
         {
             return;
         }
-
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -69,37 +68,32 @@ public class SelectTower : MonoBehaviour
             }
         }
     }
-    
+
     private void ToggleTowerCanvas(GameObject tower)
     {
-
         if (towerCanvasInstance == null)
         {
             selectedTower = tower;
             towerSelected = true;
 
-            HighlightSelectedTower(selectedTower);
+            SetSelectedTowerMaterial();
 
             basicTowerScript towerScript = selectedTower.GetComponentInChildren<basicTowerScript>();
 
-            // Instantiate the tower canvas prefab
+
             towerCanvasInstance = Instantiate(towerCanvasPrefab) as GameObject;
 
-            // Set the position of the canvas (optional: set it relative to the tower's position)
-            towerCanvasInstance.transform.position = selectedTower.transform.position;
 
+            towerCanvasInstance.transform.position = selectedTower.transform.position;
 
             if (towerScript != null)
             {
                 Type scriptType = towerScript.GetType();
-
                 string scriptName = scriptType.Name;
-
                 Debug.Log(scriptName);
 
                 TMP_Text output = towerCanvasInstance.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>();
                 output.text = "Tower Name: " + scriptName;
-
             }
 
             // Add a button for tower deletion
@@ -108,11 +102,11 @@ public class SelectTower : MonoBehaviour
             {
                 deleteButton.onClick.AddListener(DeleteSelectedTower);
             }
-
         }
         else
         {
-            ResetSelectedTowerColor();
+            SetDeselectedTowerMaterial();
+
             Destroy(towerCanvasInstance);
         }
     }
@@ -122,57 +116,47 @@ public class SelectTower : MonoBehaviour
         // Check if a tower is selected through player interaction before trying to delete
         if (towerSelected && selectedTower != null)
         {
-
             basicTowerScript towerScript = selectedTower.GetComponentInChildren<basicTowerScript>();
 
             if (towerScript != null)
             {
-                // Access the BuildCost directly
                 int towerCost = towerScript.BuildCost;
 
-                // Access PlayerStats
                 PlayerStats playerStats = PlayerStats.Instance;
 
                 if (playerStats != null)
                 {
-                    // Access the addMoney function or any other function in PlayerStats
                     playerStats.AddMoney(towerCost);
                 }
             }
 
-
-
             if (towerScript != null)
             {
                 Type scriptType = towerScript.GetType();
-
                 string scriptName = scriptType.Name;
-
                 Debug.Log(scriptName);
 
                 if (scriptName == "beeTower")
                 {
                     TowerID = selectedTower.transform.GetChild(1).gameObject.GetComponent<beeTower>().id;
                     Debug.Log(TowerID);
-                    towerManager.RemoveTower(TowerID);
+                    towerSaveLoadManager.RemoveTower(TowerID);
                 }
 
                 if (scriptName == "mortarTower")
                 {
                     TowerID = selectedTower.transform.GetChild(1).gameObject.GetComponent<mortarTower>().id;
                     Debug.Log(TowerID);
-                    towerManager.RemoveTower(TowerID);
+                    towerSaveLoadManager.RemoveTower(TowerID);
                 }
 
                 if (scriptName == "tetherTower")
                 {
                     TowerID = selectedTower.transform.GetChild(1).gameObject.GetComponent<tetherTower>().id;
                     Debug.Log(TowerID);
-                    towerManager.RemoveTower(TowerID);
+                    towerSaveLoadManager.RemoveTower(TowerID);
                 }
-
             }
-
 
             Debug.Log("Deleting tower through player interaction.");
             Destroy(selectedTower);
@@ -184,29 +168,28 @@ public class SelectTower : MonoBehaviour
         }
     }
 
-    private void ResetSelectedTowerColor ()
+    private void SetSelectedTowerMaterial()
     {
-        if (selectedTower != null)
+        // Store the original materials of the tower's children, excluding the Tower Particle System
+        Renderer[] childRenderers = selectedTower.GetComponentsInChildren<Renderer>().Where(r => r.gameObject.name != "Tower Particle System").ToArray();
+        originalMaterials = new Material[childRenderers.Length];
+        for (int i = 0; i < childRenderers.Length; i++)
         {
-            Renderer[] childRenderers = selectedTower.GetComponentsInChildren<Renderer>();
-            foreach (Renderer childRenderer in childRenderers)
-            {
-                // Reset the color of the previously selected tower for each child
-                childRenderer.material = originalTowerMaterial;
-            }
+            originalMaterials[i] = childRenderers[i].material;
+        }
+
+        foreach (Renderer childRenderer in childRenderers)
+        {
+            childRenderer.material = highlightMaterial;
         }
     }
 
-    private void HighlightSelectedTower(GameObject tower)
+    private void SetDeselectedTowerMaterial()
     {
-        Renderer[] childRenderers = tower.GetComponentsInChildren<Renderer>();
-        foreach (Renderer childRenderer in childRenderers)
+        Renderer[] childRenderers = selectedTower.GetComponentsInChildren<Renderer>().Where(r => r.gameObject.name != "Tower Particle System").ToArray();
+        for (int i = 0; i < childRenderers.Length; i++)
         {
-            // Store the original material to reset it later
-            originalTowerMaterial = childRenderer.material;
-
-            // Apply the highlight material
-            childRenderer.material = highlightMaterial;
+            childRenderers[i].material = originalMaterials[i];
         }
     }
 }
