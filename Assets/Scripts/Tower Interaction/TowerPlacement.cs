@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class TowerPlacement : MonoBehaviour
 {
-    [SerializeField] private Camera PlayerCamera;
+    [SerializeField]
+    private Camera PlayerCamera;
     private GameObject CurrentPlacingTower;
     private GameObject Tower;
     private string towerName;

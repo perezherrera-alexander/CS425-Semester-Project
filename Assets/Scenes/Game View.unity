@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 61087254}
   - component: {fileID: 61087253}
   - component: {fileID: 61087252}
+  - component: {fileID: 61087256}
   m_Layer: 5
   m_Name: Open/Close Shop
   m_TagString: Untagged
@@ -271,6 +272,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 61087250}
   m_CullTransparentMesh: 1
+--- !u!114 &61087256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61087250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f96ef687d660c56459e006a3996b2650, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerCamera: {fileID: 1643746015}
+  towerSaveLoadManager: {fileID: 0}
 --- !u!1 &244055985
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,7 +331,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 236122407423475549, guid: d707cc21f6808b74ba582652c496ba85, type: 3}
       propertyPath: m_Name
-      value: Waypoint (5)
+      value: Waypoint (6)
       objectReference: {fileID: 0}
     - target: {fileID: 7952800049935336121, guid: d707cc21f6808b74ba582652c496ba85, type: 3}
       propertyPath: m_LocalScale.x
@@ -500,7 +515,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 236122407423475549, guid: d707cc21f6808b74ba582652c496ba85, type: 3}
       propertyPath: m_Name
-      value: Waypoint (8)
+      value: Waypoint (9)
       objectReference: {fileID: 0}
     - target: {fileID: 7952800049935336121, guid: d707cc21f6808b74ba582652c496ba85, type: 3}
       propertyPath: m_LocalScale.x
@@ -569,7 +584,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 236122407423475549, guid: d707cc21f6808b74ba582652c496ba85, type: 3}
       propertyPath: m_Name
-      value: Waypoint (4)
+      value: Waypoint (5)
       objectReference: {fileID: 0}
     - target: {fileID: 7952800049935336121, guid: d707cc21f6808b74ba582652c496ba85, type: 3}
       propertyPath: m_LocalScale.x
@@ -803,11 +818,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7952800049935336121, guid: d707cc21f6808b74ba582652c496ba85, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 2.47
       objectReference: {fileID: 0}
     - target: {fileID: 7952800049935336121, guid: d707cc21f6808b74ba582652c496ba85, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 14.22
       objectReference: {fileID: 0}
     - target: {fileID: 7952800049935336121, guid: d707cc21f6808b74ba582652c496ba85, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1289,7 +1304,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 236122407423475549, guid: d707cc21f6808b74ba582652c496ba85, type: 3}
       propertyPath: m_Name
-      value: Waypoint (1)
+      value: Waypoint (2)
       objectReference: {fileID: 0}
     - target: {fileID: 7952800049935336121, guid: d707cc21f6808b74ba582652c496ba85, type: 3}
       propertyPath: m_LocalScale.x
@@ -1358,7 +1373,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 236122407423475549, guid: d707cc21f6808b74ba582652c496ba85, type: 3}
       propertyPath: m_Name
-      value: Waypoint (9)
+      value: Waypoint (10)
       objectReference: {fileID: 0}
     - target: {fileID: 7952800049935336121, guid: d707cc21f6808b74ba582652c496ba85, type: 3}
       propertyPath: m_LocalScale.x
@@ -1664,7 +1679,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 236122407423475549, guid: d707cc21f6808b74ba582652c496ba85, type: 3}
       propertyPath: m_Name
-      value: Waypoint (7)
+      value: Waypoint (8)
       objectReference: {fileID: 0}
     - target: {fileID: 7952800049935336121, guid: d707cc21f6808b74ba582652c496ba85, type: 3}
       propertyPath: m_LocalScale.x
@@ -2422,7 +2437,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 236122407423475549, guid: d707cc21f6808b74ba582652c496ba85, type: 3}
       propertyPath: m_Name
-      value: Waypoint (6)
+      value: Waypoint (7)
       objectReference: {fileID: 0}
     - target: {fileID: 7952800049935336121, guid: d707cc21f6808b74ba582652c496ba85, type: 3}
       propertyPath: m_LocalScale.x
@@ -2601,7 +2616,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 236122407423475549, guid: d707cc21f6808b74ba582652c496ba85, type: 3}
       propertyPath: m_Name
-      value: Waypoint (3)
+      value: Waypoint (4)
       objectReference: {fileID: 0}
     - target: {fileID: 7952800049935336121, guid: d707cc21f6808b74ba582652c496ba85, type: 3}
       propertyPath: m_LocalScale.x
@@ -2762,7 +2777,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 236122407423475549, guid: d707cc21f6808b74ba582652c496ba85, type: 3}
       propertyPath: m_Name
-      value: Waypoint (2)
+      value: Waypoint (3)
       objectReference: {fileID: 0}
     - target: {fileID: 7952800049935336121, guid: d707cc21f6808b74ba582652c496ba85, type: 3}
       propertyPath: m_LocalScale.x
@@ -2960,8 +2975,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dcada2d496e5c645adf2023d367ab20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab1: {fileID: 6130528710246470312, guid: 80e00850dee1cc74091883d895fc8b04, type: 3}
-  enemyPrefab2: {fileID: 6432939074762129627, guid: 515b45a214e5bdc4ba9effce6d6d0195, type: 3}
+  enemyPrefab1: {fileID: 6968686765002025932, guid: 68946bc38dbe17344a2f5ecfa12fdff8, type: 3}
+  enemyPrefab2: {fileID: 2316506665245494890, guid: 70022aab04a3d2746830400f0ed90128, type: 3}
   SpawnPoint: {fileID: 5964268236289702475, guid: 81d094e2b60e4a747aaeea2543b44fb7, type: 3}
   timeBetweenWaves: 2
   EnemyTimeSeperation: 2
@@ -3056,6 +3071,8 @@ MonoBehaviour:
   TowerPanelInstance: {fileID: 0}
   SelectedTower: {fileID: 0}
   highlightMaterial: {fileID: 2100000, guid: a53b2680213cc1247a0b68e5bad45a7f, type: 2}
+  TowerID: 
+  towerSaveLoadManager: {fileID: 0}
 --- !u!4 &1869343153 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5964268236289702475, guid: 81d094e2b60e4a747aaeea2543b44fb7, type: 3}
@@ -3782,20 +3799,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 250144174983930886}
   m_CullTransparentMesh: 1
---- !u!114 &1087284686121848044
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3996545970005670908}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f96ef687d660c56459e006a3996b2650, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerCamera: {fileID: 1643746015}
-  towerSaveLoadManager: {fileID: 0}
 --- !u!1 &1109847142562243296
 GameObject:
   m_ObjectHideFlags: 0
@@ -4058,7 +4061,6 @@ GameObject:
   - component: {fileID: 5034805164590023575}
   - component: {fileID: 3345166372114245699}
   - component: {fileID: 3774886668618188120}
-  - component: {fileID: 1087284686121848044}
   - component: {fileID: 7367923939366102920}
   m_Layer: 5
   m_Name: Shop
@@ -4492,7 +4494,7 @@ MonoBehaviour:
   BeeTowerPrefab: {fileID: 971902319036964014, guid: 6c1bcac6b019a5445a29397b2e5fbdbd, type: 3}
   MortarTowerPrefab: {fileID: 4802165041365209427, guid: 6b391e1d30df3bf40982d80495c75b4a, type: 3}
   TetherTowerPrefab: {fileID: 4697445435849318074, guid: d683e4508f9f8474e99a3210a2578de0, type: 3}
-  towerPlacement: {fileID: 1087284686121848044}
+  towerPlacement: {fileID: 61087256}
   PlayerStatistics: {fileID: 1798962334}
 --- !u!1001 &7609242880059850134
 PrefabInstance:
@@ -4615,6 +4617,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 1621091408327815251, guid: 350a361b60835f34283d38c68554d0b8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4334526510452767002, guid: 350a361b60835f34283d38c68554d0b8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -4715,6 +4721,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 870567820}
+    - target: {fileID: 9154649220759878934, guid: 350a361b60835f34283d38c68554d0b8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 870567820}
+    - target: {fileID: 9154649220759878934, guid: 350a361b60835f34283d38c68554d0b8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SaveGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 9154649220759878934, guid: 350a361b60835f34283d38c68554d0b8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PauseMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -52,6 +52,7 @@ public class SaveLoadManager : MonoBehaviour
     {
         var State = LoadFile();
         RestoreState(State);
+
     }
 
     private void SaveFile (object state)

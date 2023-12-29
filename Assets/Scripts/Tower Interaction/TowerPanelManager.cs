@@ -18,6 +18,15 @@ public class TowerPanelManager : MonoBehaviour
 
     private bool PanelState = false;
 
+    public string TowerID;
+
+    [SerializeField]
+    private TowerSaveLoadManager towerSaveLoadManager;
+
+    private void Start()
+    {
+        towerSaveLoadManager = GameObject.FindObjectOfType<TowerSaveLoadManager>();
+    }
     private void Awake()
     {
         // Ensure only one instance exists
@@ -38,7 +47,7 @@ public class TowerPanelManager : MonoBehaviour
         {
             PanelState = true;
 
-            CloseTowerPanel(Tower);
+            CloseTowerPanel();
             SetDeselectedTowerMaterial();
 
             CurrentSelectedTower(Tower);
@@ -50,7 +59,7 @@ public class TowerPanelManager : MonoBehaviour
         else if (SelectedTower == Tower && PanelState == true)
         {
             PanelState = false;
-            CloseTowerPanel(Tower);
+            CloseTowerPanel();
             SetDeselectedTowerMaterial();
         }
         // Same tower selected, open tower panel and select tower
@@ -78,6 +87,7 @@ public class TowerPanelManager : MonoBehaviour
 
     private void OpenTowerPanel ()
     {
+
         basicTowerScript towerScript = SelectedTower.GetComponentInChildren<basicTowerScript>();
 
         TowerPanelInstance = Instantiate(TowerPanelPrefab) as GameObject;
@@ -93,11 +103,82 @@ public class TowerPanelManager : MonoBehaviour
             TMP_Text output = TowerPanelInstance.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>();
             output.text = "Tower Name: " + scriptName;
         }
+
+        // Add a button for tower deletion
+        Button deleteButton = TowerPanelInstance.transform.GetChild(0).GetChild(0).GetComponent<Button>();
+        if (deleteButton != null)
+        {
+            deleteButton.onClick.AddListener(DeleteSelectedTower);
+        }
+
+        // Add a button for tower panel close
+        Button deleteButton2 = TowerPanelInstance.transform.GetChild(0).GetChild(4).GetChild(0).GetComponent<Button>();
+        if (deleteButton2 != null)
+        {
+            deleteButton2.onClick.AddListener(DeleteTowerPanel);
+        }
     }
 
-    private void CloseTowerPanel (GameObject Tower)
+    private void CloseTowerPanel ()
     {
         Destroy(TowerPanelInstance);
+    }
+
+    private void DeleteTowerPanel()
+    {
+        PanelState = false;
+        SetDeselectedTowerMaterial();
+        Destroy(TowerPanelInstance);
+    }
+
+    public void DeleteSelectedTower()
+    {
+        basicTowerScript towerScript = SelectedTower.GetComponentInChildren<basicTowerScript>();
+
+        if (towerScript != null)
+        {
+            int towerCost = towerScript.BuildCost;
+
+            PlayerStats playerStats = PlayerStats.Instance;
+
+            if (playerStats != null)
+            {
+                playerStats.AddMoney(towerCost);
+            }
+        }
+
+        if (towerScript != null)
+        {
+            Type scriptType = towerScript.GetType();
+            string scriptName = scriptType.Name;
+            Debug.Log(scriptName);
+
+            if (scriptName == "beeTower")
+            {
+                TowerID = SelectedTower.transform.GetChild(1).gameObject.GetComponent<beeTower>().id;
+                Debug.Log(TowerID);
+                towerSaveLoadManager.RemoveTower(TowerID);
+            }
+
+            if (scriptName == "mortarTower")
+            {
+                TowerID = SelectedTower.transform.GetChild(1).gameObject.GetComponent<mortarTower>().id;
+                Debug.Log(TowerID);
+                towerSaveLoadManager.RemoveTower(TowerID);
+            }
+
+            if (scriptName == "tetherTower")
+            {
+                TowerID = SelectedTower.transform.GetChild(1).gameObject.GetComponent<tetherTower>().id;
+                Debug.Log(TowerID);
+                towerSaveLoadManager.RemoveTower(TowerID);
+            }
+        }
+
+        Debug.Log("Deleting tower through player interaction.");
+        Destroy(SelectedTower);
+        Destroy(TowerPanelInstance);
+        SelectedTower = null;
     }
 
     private void GetOriginalMaterial()

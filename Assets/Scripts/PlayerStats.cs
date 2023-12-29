@@ -67,18 +67,6 @@ public class PlayerStats : MonoBehaviour, ISaveable
         enemiesKilled++;
     }
 
-    /*
-    public void SetSaveName (string name)
-    {
-        CustomSaveName = name;
-    }
-
-    public string GetSaveName ()
-    {
-        return CustomSaveName;
-    }
-    */
-
     public PlayerStats GetPlayerStats ()
     {
         return this;

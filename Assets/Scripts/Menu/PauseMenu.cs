@@ -76,22 +76,23 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1.0f;
     }
 
-    public void EnterSaveGame ()
+    public void SaveGame ()
     {
         saveLoadManager.Save();
-
-        //SaveNameUI.SetActive(true);
     }
 
-    public void ExitSaveGame()
+    public void LoadGame()
     {
-
-        SaveNameUI.SetActive(false);
+        SceneManager.sceneLoaded += OnSceneLoaded; // Subscribe to the sceneLoaded event
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public void LoadGame ()
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log("Loading game state");
+        Debug.Log("Scene loaded");
+        Time.timeScale = 1.0f;
+        GameIsPaused = false;
         saveLoadManager.Load();
+        SceneManager.sceneLoaded -= OnSceneLoaded; // Unsubscribe to the event to avoid multiple calls
     }
 }

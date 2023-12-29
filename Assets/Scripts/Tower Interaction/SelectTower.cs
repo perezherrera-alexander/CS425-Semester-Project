@@ -7,11 +7,6 @@ using System.Linq;
 public class SelectTower : MonoBehaviour
 {
     public GameObject towerCanvasPrefab;
-    private GameObject selectedTower;
-    public string TowerID;
-
-    [SerializeField]
-    private TowerSaveLoadManager towerSaveLoadManager;
 
     [SerializeField]
     private TowerPlacement towerPlacement;
@@ -22,14 +17,19 @@ public class SelectTower : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        towerSaveLoadManager = GameObject.FindObjectOfType<TowerSaveLoadManager>();
         towerPlacement = FindObjectOfType<TowerPlacement>();
         pauseMenu = FindObjectOfType<PauseMenu>();
     }
 
     private void OnMouseDown()
     {
-        if (towerPlacement.IsPlacingTower || pauseMenu.GameIsPaused)
+        Debug.Log(towerPlacement.IsPlacingTower);
+        if (towerPlacement.IsPlacingTower)
+        {
+            return;
+        }
+
+        if (pauseMenu.GameIsPaused)
         {
             return;
         }
@@ -57,54 +57,5 @@ public class SelectTower : MonoBehaviour
         {
             towerPanelManager.ToggleTowerPanel(tower);
         }
-    }
-
-    public void DeleteSelectedTower()
-    {
-        basicTowerScript towerScript = selectedTower.GetComponentInChildren<basicTowerScript>();
-
-        if (towerScript != null)
-        {
-            int towerCost = towerScript.BuildCost;
-
-            PlayerStats playerStats = PlayerStats.Instance;
-
-            if (playerStats != null)
-            {
-                playerStats.AddMoney(towerCost);
-            }
-        }
-
-        if (towerScript != null)
-        {
-            Type scriptType = towerScript.GetType();
-            string scriptName = scriptType.Name;
-            Debug.Log(scriptName);
-
-            if (scriptName == "beeTower")
-            {
-                TowerID = selectedTower.transform.GetChild(1).gameObject.GetComponent<beeTower>().id;
-                Debug.Log(TowerID);
-                towerSaveLoadManager.RemoveTower(TowerID);
-            }
-
-            if (scriptName == "mortarTower")
-            {
-                TowerID = selectedTower.transform.GetChild(1).gameObject.GetComponent<mortarTower>().id;
-                Debug.Log(TowerID);
-                towerSaveLoadManager.RemoveTower(TowerID);
-            }
-
-            if (scriptName == "tetherTower")
-            {
-                TowerID = selectedTower.transform.GetChild(1).gameObject.GetComponent<tetherTower>().id;
-                Debug.Log(TowerID);
-                towerSaveLoadManager.RemoveTower(TowerID);
-            }
-        }
-
-        Debug.Log("Deleting tower through player interaction.");
-        Destroy(selectedTower);
-        selectedTower = null;
     }
 }
