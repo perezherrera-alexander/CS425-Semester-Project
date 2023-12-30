@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 using System;
 
-public class WaveSpawner : MonoBehaviour
+public class WaveSpawner : MonoBehaviour, ISaveable
 {
     public Transform enemyPrefab1;
 
@@ -113,5 +113,26 @@ public class WaveSpawner : MonoBehaviour
             Instantiate(enemyPrefab1, SpawnPoint.position, SpawnPoint.rotation);
         else if (enemyType == 1)
             Instantiate(enemyPrefab2, SpawnPoint.position, SpawnPoint.rotation);
+    }
+
+    public object CaptureState ()
+    {
+        return new SaveData
+        {
+            currentWaveCount = currentWaveCount
+        };
+    }
+
+    public void RestoreState (object state)
+    {
+        var saveData = (SaveData)state;
+
+        currentWaveCount = saveData.currentWaveCount;
+    }
+
+    [Serializable]
+    private struct SaveData
+    {
+        public int currentWaveCount;
     }
 }

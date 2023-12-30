@@ -2,10 +2,12 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using System.Reflection;
 
 
 public class TowerPanelManager : MonoBehaviour
 {
+    basicTowerScript BasicTowerScript;
     private static TowerPanelManager instance;
     public static TowerPanelManager Instance { get { return instance; } }
 
@@ -26,6 +28,9 @@ public class TowerPanelManager : MonoBehaviour
     private void Start()
     {
         towerSaveLoadManager = GameObject.FindObjectOfType<TowerSaveLoadManager>();
+        BasicTowerScript = GameObject.FindObjectOfType<basicTowerScript>();
+
+        
     }
     private void Awake()
     {
@@ -40,7 +45,7 @@ public class TowerPanelManager : MonoBehaviour
         }
     }
 
-    public void ToggleTowerPanel (GameObject Tower)
+    public void ToggleTowerPanel(GameObject Tower)
     {
         // New tower selected, close previous tower panel and select new tower and open new panel
         if (SelectedTower != null && SelectedTower != Tower)
@@ -80,12 +85,12 @@ public class TowerPanelManager : MonoBehaviour
         }
     }
 
-    private void CurrentSelectedTower (GameObject Tower)
+    private void CurrentSelectedTower(GameObject Tower)
     {
         SelectedTower = Tower;
     }
 
-    private void OpenTowerPanel ()
+    private void OpenTowerPanel()
     {
 
         basicTowerScript towerScript = SelectedTower.GetComponentInChildren<basicTowerScript>();
@@ -93,6 +98,13 @@ public class TowerPanelManager : MonoBehaviour
         TowerPanelInstance = Instantiate(TowerPanelPrefab) as GameObject;
 
         TowerPanelInstance.transform.position = SelectedTower.transform.position;
+
+        // Add a dropdown for tower targeting
+        TMP_Dropdown dropdown = TowerPanelInstance.transform.GetChild(0).GetChild(2).GetChild(0).GetComponent<TMP_Dropdown>();
+        // Add a button for tower deletion
+        Button deleteButton = TowerPanelInstance.transform.GetChild(0).GetChild(0).GetComponent<Button>();
+        // Add a button for tower panel close
+        Button deleteButton2 = TowerPanelInstance.transform.GetChild(0).GetChild(4).GetChild(0).GetComponent<Button>();
 
         if (towerScript != null)
         {
@@ -102,24 +114,44 @@ public class TowerPanelManager : MonoBehaviour
 
             TMP_Text output = TowerPanelInstance.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>();
             output.text = "Tower Name: " + scriptName;
+
+            if (scriptName == "beeTower")
+            {
+                Debug.Log("Saved targeting option is : " + SelectedTower.transform.GetChild(1).gameObject.GetComponent<beeTower>().targetingint);
+                dropdown.value = SelectedTower.transform.GetChild(1).gameObject.GetComponent<beeTower>().targetingint;
+                Debug.Log("Targting option is :" + dropdown.value);
+            }
+
+            if (scriptName == "mortarTower")
+            {
+                dropdown.value = SelectedTower.transform.GetChild(1).gameObject.GetComponent<mortarTower>().targetingint;
+            }
+
+            if (scriptName == "tetherTower")
+            {
+                dropdown.value = SelectedTower.transform.GetChild(1).gameObject.GetComponent<tetherTower>().targetingint;
+            }
         }
 
-        // Add a button for tower deletion
-        Button deleteButton = TowerPanelInstance.transform.GetChild(0).GetChild(0).GetComponent<Button>();
         if (deleteButton != null)
         {
             deleteButton.onClick.AddListener(DeleteSelectedTower);
         }
 
-        // Add a button for tower panel close
-        Button deleteButton2 = TowerPanelInstance.transform.GetChild(0).GetChild(4).GetChild(0).GetComponent<Button>();
         if (deleteButton2 != null)
         {
             deleteButton2.onClick.AddListener(DeleteTowerPanel);
         }
+
+        if (dropdown != null)
+        {
+            Debug.Log("Listening");
+            dropdown.onValueChanged.RemoveListener(TowerTargeting);
+            dropdown.onValueChanged.AddListener(TowerTargeting);
+        }
     }
 
-    private void CloseTowerPanel ()
+    private void CloseTowerPanel()
     {
         Destroy(TowerPanelInstance);
     }
@@ -207,6 +239,71 @@ public class TowerPanelManager : MonoBehaviour
         for (int i = 0; i < childRenderers.Length; i++)
         {
             childRenderers[i].material = originalMaterials[i];
+        }
+    }
+
+    public void TowerTargeting(int selectedindex)
+    {
+        Debug.Log("Entered tower targeting");
+        basicTowerScript towerScript = SelectedTower.GetComponentInChildren<basicTowerScript>();
+
+        Debug.Log(selectedindex);
+        switch (selectedindex)
+        {
+            case 0:
+                towerScript.GetComponentInChildren<basicTowerScript>().targeting = "first";
+                UpdateTowerInfo(selectedindex);
+                break;
+
+            case 1:
+                towerScript.GetComponentInChildren<basicTowerScript>().targeting = "last";
+                UpdateTowerInfo(selectedindex);
+                break;
+
+            case 2:
+                towerScript.GetComponentInChildren<basicTowerScript>().targeting = "close";
+                UpdateTowerInfo(selectedindex);
+                break;
+
+            case 3:
+                towerScript.GetComponentInChildren<basicTowerScript>().targeting = "strong";
+                UpdateTowerInfo(selectedindex);
+                break;
+        }
+
+    }
+
+    private void UpdateTowerInfo(int selectedindex)
+    {
+        basicTowerScript towerScript = SelectedTower.GetComponentInChildren<basicTowerScript>();
+        string TowerID;
+
+        if (towerScript != null)
+        {
+            Type scriptType = towerScript.GetType();
+            string scriptName = scriptType.Name;
+            Debug.Log(scriptName);
+
+            if (scriptName == "beeTower")
+            {
+                SelectedTower.transform.GetChild(1).gameObject.GetComponent<beeTower>().targetingint = selectedindex;
+                TowerID = SelectedTower.transform.GetChild(1).gameObject.GetComponent<beeTower>().id;
+                towerSaveLoadManager.UpdateTargetingint(TowerID, selectedindex);
+            }
+
+            if (scriptName == "mortarTower")
+            {
+                SelectedTower.transform.GetChild(1).gameObject.GetComponent<mortarTower>().targetingint = selectedindex;
+                TowerID = SelectedTower.transform.GetChild(1).gameObject.GetComponent<mortarTower>().id;
+                towerSaveLoadManager.UpdateTargetingint(TowerID, selectedindex);
+            }
+
+            if (scriptName == "tetherTower")
+            {
+                SelectedTower.transform.GetChild(1).gameObject.GetComponent<tetherTower>().targetingint = selectedindex;
+                TowerID = SelectedTower.transform.GetChild(1).gameObject.GetComponent<tetherTower>().id;
+                towerSaveLoadManager.UpdateTargetingint(TowerID, selectedindex);
+            }
         }
     }
 }

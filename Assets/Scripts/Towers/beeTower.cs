@@ -11,7 +11,7 @@ public class beeTower : basicTowerScript
 
     public string id;
 
-
+    public int targetingint = 0;
 
     // Start is called before the first frame update
 
@@ -20,6 +20,21 @@ public class beeTower : basicTowerScript
         towerName = "Bee Tower";
         Invoke();
         makeSphere();
+        switch (targetingint)
+        {
+            case 0:
+                targeting = "first";
+                break;
+            case 1:
+                targeting = "last";
+                break;
+            case 2:
+                targeting = "close";
+                break;
+            case 3:
+                targeting = "strong";
+                break;
+        }
         Debug.Log(targeting);
     }
 

@@ -23,7 +23,7 @@ public class SelectTower : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Debug.Log(towerPlacement.IsPlacingTower);
+        //Debug.Log(towerPlacement.IsPlacingTower);
         if (towerPlacement.IsPlacingTower)
         {
             return;

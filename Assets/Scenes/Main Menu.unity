@@ -300,8 +300,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1270188051}
-        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+      - m_Target: {fileID: 1270188052}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: LoadSettings
         m_Mode: 1
         m_Arguments:
@@ -1151,7 +1151,7 @@ GameObject:
   - component: {fileID: 1270188049}
   - component: {fileID: 1270188048}
   - component: {fileID: 1270188050}
-  - component: {fileID: 1270188051}
+  - component: {fileID: 1270188052}
   m_Layer: 5
   m_Name: ButtonContainer
   m_TagString: Untagged
@@ -1245,7 +1245,7 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &1270188051
+--- !u!114 &1270188052
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1254,12 +1254,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1270188046}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1cb3db08585da6438f18cc2f7d2c45e, type: 3}
+  m_Script: {fileID: 11500000, guid: 13f503948a984f3448023ba2bf4248e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameIsPaused: 0
   SettingsStatus: 0
-  PauseMenuUI: {fileID: 7513249528019449206, guid: 350a361b60835f34283d38c68554d0b8, type: 3}
   SettingsMenuUI: {fileID: 2072945857}
 --- !u!1 &1386368449
 GameObject:
@@ -1652,10 +1650,14 @@ PrefabInstance:
     - target: {fileID: 7772497309489422663, guid: 920e0e11675b21e44b7a29f8e7caed45, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1270188051}
+      objectReference: {fileID: 1270188052}
     - target: {fileID: 7772497309489422663, guid: 920e0e11675b21e44b7a29f8e7caed45, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ExitSettings
+      objectReference: {fileID: 0}
+    - target: {fileID: 7772497309489422663, guid: 920e0e11675b21e44b7a29f8e7caed45, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MainMenu, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

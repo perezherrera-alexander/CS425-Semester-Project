@@ -8,6 +8,8 @@ public class meleeTower : basicTowerScript
 
     private float attackRate = 0f;
     private float coolDown = 0f;
+
+    public int targetingint;
     // Start is called before the first frame update
     void Start()
     {

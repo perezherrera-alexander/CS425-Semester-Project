@@ -495,11 +495,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 265261473}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &318800841 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5474076508309648104, guid: 350a361b60835f34283d38c68554d0b8, type: 3}
-  m_PrefabInstance: {fileID: 7820978055895390347}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &410102535 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7952800049935336121, guid: d707cc21f6808b74ba582652c496ba85, type: 3}
@@ -1563,7 +1558,6 @@ MonoBehaviour:
   SettingsStatus: 0
   PauseMenuUI: {fileID: 5205113000348308177}
   SettingsMenuUI: {fileID: 1873020922}
-  SaveNameUI: {fileID: 318800841}
 --- !u!1 &905129516
 GameObject:
   m_ObjectHideFlags: 0
@@ -2529,8 +2523,8 @@ Transform:
   m_GameObject: {fileID: 1553119695}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 50, y: -0.5, z: 50}
-  m_LocalScale: {x: 150, y: 1, z: 150}
+  m_LocalPosition: {x: 36.1, y: -0.5, z: 39.2}
+  m_LocalScale: {x: 200, y: 1, z: 200}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 945260149}

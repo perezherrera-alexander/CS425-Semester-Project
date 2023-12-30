@@ -9,6 +9,7 @@ public class TowerPlacement : MonoBehaviour
     private GameObject CurrentPlacingTower;
     private GameObject Tower;
     private string towerName;
+    private int targetint;
 
     [SerializeField]
     TowerSaveLoadManager towerSaveLoadManager;
@@ -48,25 +49,25 @@ public class TowerPlacement : MonoBehaviour
                 if (towerName == "beeTurret")
                 {
                     string ID = Tower.transform.GetChild(1).gameObject.GetComponent<beeTower>().GenerateId().ToString();
-
+                    targetint = Tower.transform.GetChild(1).gameObject.GetComponent<beeTower>().targetingint;
                     Vector3 pos = Tower.transform.position;
-                    towerSaveLoadManager.AddTower(ID, pos, towerName);
+                    towerSaveLoadManager.AddTower(ID, pos, towerName, targetint);
                 }
 
                 if (towerName == "mortarTurret")
                 {
                     string ID = Tower.transform.GetChild(1).gameObject.GetComponent<mortarTower>().GenerateId().ToString();
-
+                    targetint = Tower.transform.GetChild(1).gameObject.GetComponent<mortarTower>().targetingint;
                     Vector3 pos = Tower.transform.position;
-                    towerSaveLoadManager.AddTower(ID, pos, towerName);
+                    towerSaveLoadManager.AddTower(ID, pos, towerName, targetint);
                 }
 
                 if (towerName == "tetherTower")
                 {
                     string ID = Tower.transform.GetChild(1).gameObject.GetComponent<tetherTower>().GenerateId().ToString();
-
+                    targetint = Tower.transform.GetChild(1).gameObject.GetComponent<tetherTower>().targetingint;
                     Vector3 pos = Tower.transform.position;
-                    towerSaveLoadManager.AddTower(ID, pos, towerName);
+                    towerSaveLoadManager.AddTower(ID, pos, towerName, targetint);
                 }
                 Tower = null;
             }
