@@ -64,6 +64,9 @@ public class baseEnemyScript : MonoBehaviour
     public void GetNextWaypoint(){
         if (wavepointIndex >= Path.waypoints.Length - 1){
             //decrement player health according to
+            float EnemyHealth = getHealth();
+            int MoraleLost = (int)EnemyHealth;
+            PlayerStats.Instance.ReduceMorale(MoraleLost);
             Destroy(gameObject);
             PlayerStats.Instance.AddEnemiesKilled();
             return;

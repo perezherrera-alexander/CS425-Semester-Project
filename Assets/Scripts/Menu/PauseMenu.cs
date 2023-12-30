@@ -65,6 +65,7 @@ public class PauseMenu : MonoBehaviour
 
     public void QuittoMainMenu ()
     {
+        Time.timeScale = 1.0f;
         Debug.Log("Quitting to Main Menu......");
         SceneManager.LoadScene("Main Menu");
     }
