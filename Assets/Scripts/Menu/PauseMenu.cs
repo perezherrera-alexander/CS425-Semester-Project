@@ -95,4 +95,10 @@ public class PauseMenu : MonoBehaviour
         saveLoadManager.Load();
         SceneManager.sceneLoaded -= OnSceneLoaded; // Unsubscribe to the event to avoid multiple calls
     }
+
+    public void WorldMap()
+    {
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene("World Map");
+    }
 }

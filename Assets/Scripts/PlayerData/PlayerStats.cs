@@ -5,13 +5,14 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour, ISaveable
 {
+    public PlayerData playerData;
     // Singleton instance
-    public static PlayerStats Instance;
+    public static PlayerStats Instance { get; private set; }
 
     [SerializeField]
-    public int Morale;
+    public int Morale = 100;
     [SerializeField]
-    public int CurrentEvolutionPoints;
+    public int CurrentEvolutionPoints = 20;
 
     private int enemiesKilled = 0;
 
@@ -22,14 +23,25 @@ public class PlayerStats : MonoBehaviour, ISaveable
         // Ensure only one instance exists
         if (Instance == null)
         {
+            Morale = playerData.Morale;
+            CurrentEvolutionPoints = playerData.EvolutionPoints;
             Instance = this;
-            Morale = 100;
-            CurrentEvolutionPoints = 20;
         }
         else
         {
             Destroy(gameObject);
         }
+    }
+
+
+    public void Update()
+    {
+        int morale = GetMorale();
+        int evolutionPoints = GetMoney();
+        int enemiesKilled = GetEnemiesKilled();
+
+        playerData.UpdateStats(morale, evolutionPoints, enemiesKilled);
+
     }
 
     public void AddMoney (int MoneyGained)

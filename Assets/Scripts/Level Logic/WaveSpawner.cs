@@ -7,6 +7,8 @@ using System;
 
 public class WaveSpawner : MonoBehaviour, ISaveable
 {
+    public PlayerData PlayerData;
+
     public Transform enemyPrefab1;
 
     public Transform enemyPrefab2;
@@ -85,7 +87,10 @@ public class WaveSpawner : MonoBehaviour, ISaveable
             {
                 // Load the next level
                 Debug.Log("Loading Next Level");
-                UnityEngine.SceneManagement.SceneManager.LoadScene("Game View 1");
+                PlayerData.UpdateData(true);
+                PlayerData.WorldsCompleted[PlayerData.NumberOfWorldsCompleted] = PlayerData.CurrentWorld;
+                PlayerData.NumberOfWorldsCompleted += 1;
+                UnityEngine.SceneManagement.SceneManager.LoadScene("World Map");
             }
 
         }

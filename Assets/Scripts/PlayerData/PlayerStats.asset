@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 691a31792b0691b4f934fbfb5ba8fa83, type: 3}
+  m_Name: PlayerStats
+  m_EditorClassIdentifier: 
+  Morale: 81
+  MoraleDuringWorld: 81
+  EvolutionPoints: 73
+  EvolutionPointsDuringWorld: 73
+  EnemiesKilled: 0
+  EnemiesKilledDuringWorld: 0
+  NumberOfWorldsCompleted: 0
+  CurrentWorld: World1
+  WorldsCompleted: []
+  LevelCompleted: 1
+  TowersObtained: 3
+  Towers:
+  - {fileID: 971902319036964014, guid: 6c1bcac6b019a5445a29397b2e5fbdbd, type: 3}
+  - {fileID: 4802165041365209427, guid: 6b391e1d30df3bf40982d80495c75b4a, type: 3}
+  - {fileID: 4697445435849318074, guid: d683e4508f9f8474e99a3210a2578de0, type: 3}
