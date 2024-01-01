@@ -11,23 +11,10 @@ public class MapManager : MonoBehaviour
 
     void Start()
     {
-        if (PlayerData.LevelCompleted == true)
+        for (int i = 0; i < PlayerData.NumberOfWorldsCompleted; i++)
         {
-            for (int i = 0; i < PlayerData.NumberOfWorldsCompleted; i++)
-            {
-                worldName = PlayerData.WorldsCompleted[i];
-                trackLevelsCompleted.CompletedLevel(worldName);
-            }
-
-            PlayerData.LevelCompleted = false;
-        }
-        else
-        {
-            for (int i = 0; i < PlayerData.NumberOfWorldsCompleted; i++)
-            {
-                worldName = PlayerData.WorldsCompleted[i];
-                trackLevelsCompleted.CompletedLevel(worldName);
-            }
+            worldName = PlayerData.WorldsCompleted[i];
+            trackLevelsCompleted.CompletedLevel(worldName);
         }
     }
 

@@ -6,65 +6,53 @@ using UnityEngine.SceneManagement;
 public class LevelSelect : MonoBehaviour
 {
     public PlayerData playerData;
-
-    private void Start()
-    {
-        
-    }
+    public ValidWorlds validWorlds;
 
     public void StartWorld1 ()
     {
         string WorldName = "World1";
-        playerData.CurrentWorld = WorldName;
-        SceneManager.LoadScene("Game View");
+        validWorlds.SelectingValidWorlds(WorldName);
     }
 
     public void StartWorld2 ()
     {
         string WorldName = "World2";
-        playerData.CurrentWorld = WorldName;
-        SceneManager.LoadScene("Game View 1");
+        validWorlds.SelectingValidWorlds(WorldName);
     }
 
     public void StartWorld3 ()
     {
         string WorldName = "World3";
-        playerData.CurrentWorld = WorldName;
-        SceneManager.LoadScene("Game View 2");
+        validWorlds.SelectingValidWorlds(WorldName);
     }
 
     public void StartWorld4 ()
     {
         string WorldName = "World4";
-        playerData.CurrentWorld = WorldName;
-        SceneManager.LoadScene("Game View 3");
+        validWorlds.SelectingValidWorlds(WorldName);
     }
 
     public void StartWorld5 ()
     {
         string WorldName = "World5";
-        playerData.CurrentWorld = WorldName;
-        SceneManager.LoadScene("Game View 4");
+        validWorlds.SelectingValidWorlds(WorldName);
     }
 
     public void StartWorld6 ()
     {
         string WorldName = "World6";
-        playerData.CurrentWorld = WorldName;
-        SceneManager.LoadScene("Game View 5");
+        validWorlds.SelectingValidWorlds(WorldName);
     }
 
     public void StartWorld7 ()
     {
         string WorldName = "World7";
-        playerData.CurrentWorld = WorldName;
-        SceneManager.LoadScene("Game View 6");
+        validWorlds.SelectingValidWorlds(WorldName);
     }
 
     public void StartWorld8 ()
     {
         string WorldName = "World8";
-        playerData.CurrentWorld = WorldName;
-        SceneManager.LoadScene("Game View 7");
+        validWorlds.SelectingValidWorlds(WorldName);
     }
 }

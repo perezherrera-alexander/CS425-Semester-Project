@@ -18,8 +18,6 @@ public class PlayerData : ScriptableObject
     public string CurrentWorld = "";
     public string[] WorldsCompleted;
 
-    public bool LevelCompleted = false;
-
     public int TowersObtained = 3;
     public GameObject[] Towers;
 
@@ -37,8 +35,6 @@ public class PlayerData : ScriptableObject
             Morale = MoraleDuringWorld;
             EvolutionPoints = EvolutionPointsDuringWorld;
             EnemiesKilled = EnemiesKilledDuringWorld;
-
-            LevelCompleted = true;
         }
     }
 

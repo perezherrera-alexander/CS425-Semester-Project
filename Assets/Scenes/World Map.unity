@@ -1518,6 +1518,7 @@ GameObject:
   - component: {fileID: 656516592}
   - component: {fileID: 656516593}
   - component: {fileID: 656516594}
+  - component: {fileID: 656516595}
   m_Layer: 0
   m_Name: Map
   m_TagString: Untagged
@@ -1573,6 +1574,7 @@ MonoBehaviour:
   - World6
   - World7
   - World8
+  completed: 0000000000000000
 --- !u!114 &656516593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1586,6 +1588,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: 5e3cd046013d0654b91f369ecf77ee21, type: 2}
+  validWorlds: {fileID: 656516595}
 --- !u!114 &656516594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1600,6 +1603,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerData: {fileID: 11400000, guid: 5e3cd046013d0654b91f369ecf77ee21, type: 2}
   trackLevelsCompleted: {fileID: 656516592}
+  worldName: 
+--- !u!114 &656516595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 656516590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e915982f442536b4b817f6f48227c6c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerData: {fileID: 11400000, guid: 5e3cd046013d0654b91f369ecf77ee21, type: 2}
+  trackLevelsCompleted: {fileID: 656516592}
+  SceneName:
+  - Game View
+  - Game View 1
+  - Game View 2
+  - Game View 3
+  - Game View 4
+  - Game View 5
+  - Game View 6
+  - Game View 7
 --- !u!1 &695384807
 GameObject:
   m_ObjectHideFlags: 0
