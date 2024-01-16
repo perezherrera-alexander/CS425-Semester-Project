@@ -20,11 +20,11 @@ public class MoraleUI : MonoBehaviour
 
         if (playerStatsObject != null)
         {
-            PlayerStats playerStats = playerStatsObject.GetComponent<PlayerStats>();
+            PlayerStatistics playerStatistics = playerStatsObject.GetComponent<PlayerStatistics>();
 
-            if (playerStats != null)
+            if (playerStatistics != null)
             {
-                int CurrentMoralescore = playerStats.GetMorale();
+                int CurrentMoralescore = playerStatistics.GetMorale();
 
                 CurrentMorale.text = "Morale: " + Mathf.Ceil(CurrentMoralescore).ToString();
             }

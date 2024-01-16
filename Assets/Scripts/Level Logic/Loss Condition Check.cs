@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LossConditionCheck : MonoBehaviour
 {
-    PlayerStats playerStats;
+    PlayerStatistics playerStatistics;
 
     int CurrentMorale;
 
@@ -14,14 +14,14 @@ public class LossConditionCheck : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerStats = FindObjectOfType<PlayerStats>();
-        CurrentMorale = playerStats.GetMorale();
+        playerStatistics = FindObjectOfType<PlayerStatistics>();
+        CurrentMorale = playerStatistics.GetMorale();
     }
 
     // Update is called once per frame
     void Update()
     {
-        CurrentMorale = playerStats.GetMorale();
+        CurrentMorale = playerStatistics.GetMorale();
 
         if (CurrentMorale <= 0)
         {
