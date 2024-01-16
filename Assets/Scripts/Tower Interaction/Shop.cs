@@ -9,7 +9,7 @@ public class ShopScript : MonoBehaviour
     [SerializeField] private GameObject TetherTowerPrefab;
 
     [SerializeField] private TowerPlacement towerPlacement;
-    [SerializeField] private PlayerStats PlayerStatistics;
+    [SerializeField] private PlayerStatistics playerStatistics;
 
     public void PurchaseBeeTower()
     {
@@ -18,10 +18,10 @@ public class ShopScript : MonoBehaviour
         // Check if you have enough money to purchase the Bee Tower
         int towerCost = child.GetComponent<beeTower>().BuildCost;
 
-        if (PlayerStatistics.GetMoney() >= towerCost)
+        if (playerStatistics.GetMoney() >= towerCost)
         {
             // Deduct the money and call the PlaceTower function
-            PlayerStatistics.AddMoney(-towerCost);
+            playerStatistics.AddMoney(-towerCost);
             towerPlacement.PlaceTower(BeeTowerPrefab, "beeTurret"); // Pass along the prefab's name so we know which script to call later in TowerPlacement.cs
         }
         else
@@ -37,10 +37,10 @@ public class ShopScript : MonoBehaviour
         // Check if you have enough money to purchase the Bee Tower
         int towerCost = child.GetComponent<mortarTower>().BuildCost;
 
-        if (PlayerStatistics.GetMoney() >= towerCost)
+        if (playerStatistics.GetMoney() >= towerCost)
         {
             // Deduct the money and call the PlaceTower function
-            PlayerStatistics.AddMoney(-towerCost);
+            playerStatistics.AddMoney(-towerCost);
             towerPlacement.PlaceTower(MortarTowerPrefab, "mortarTurret");
         }
         else
@@ -56,10 +56,10 @@ public class ShopScript : MonoBehaviour
         // Check if you have enough money to purchase the Bee Tower
         int towerCost = child.GetComponent<tetherTower>().BuildCost;
 
-        if (PlayerStatistics.GetMoney() >= towerCost)
+        if (playerStatistics.GetMoney() >= towerCost)
         {
             // Deduct the money and call the PlaceTower function
-            PlayerStatistics.AddMoney(-towerCost);
+            playerStatistics.AddMoney(-towerCost);
             towerPlacement.PlaceTower(TetherTowerPrefab, "tetherTower");
         }
         else

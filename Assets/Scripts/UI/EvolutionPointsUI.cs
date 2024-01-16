@@ -20,11 +20,11 @@ public class EvolutionPointsUI : MonoBehaviour
 
         if (playerStatsObject != null)
         {
-            PlayerStats playerStats = playerStatsObject.GetComponent<PlayerStats>();
+            PlayerStatistics playerStatistics = playerStatsObject.GetComponent<PlayerStatistics>();
 
-            if (playerStats != null)
+            if (playerStatistics != null)
             {
-                int CurrentEvolutionPointsTotal = playerStats.GetMoney();
+                int CurrentEvolutionPointsTotal = playerStatistics.GetMoney();
 
                 EvolutionPointsTotal.text = "Evolution Points: " + Mathf.Ceil(CurrentEvolutionPointsTotal).ToString();
             }

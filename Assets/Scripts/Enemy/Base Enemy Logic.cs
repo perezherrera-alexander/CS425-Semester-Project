@@ -9,7 +9,7 @@ public class BaseEnemyLogic : MonoBehaviour
     public GameObject ob;
     public int GoldWorth;
 
-    private PlayerStats PlayerStatistics;
+    private PlayerStatistics PlayerStatistics;
 
     public Transform model;
 
@@ -19,7 +19,7 @@ public class BaseEnemyLogic : MonoBehaviour
     // Start is called before the first frame update
     public void Start(){
 
-        PlayerStatistics = FindObjectOfType<PlayerStats>();
+        PlayerStatistics = FindObjectOfType<PlayerStatistics>();
         target = Path.waypoints[0];
 
     }
@@ -40,7 +40,7 @@ public class BaseEnemyLogic : MonoBehaviour
         {
             PlayerStatistics.AddMoney(GoldWorth);
             Destroy(ob);
-            PlayerStats.Instance.AddEnemiesKilled();
+            PlayerStatistics.Instance.AddEnemiesKilled();
             return;
         }
     }
@@ -66,9 +66,9 @@ public class BaseEnemyLogic : MonoBehaviour
             //decrement player health according to
             float EnemyHealth = getHealth();
             int MoraleLost = (int)EnemyHealth;
-            PlayerStats.Instance.ReduceMorale(MoraleLost);
+            PlayerStatistics.Instance.ReduceMorale(MoraleLost);
             Destroy(gameObject);
-            PlayerStats.Instance.AddEnemiesKilled();
+            PlayerStatistics.Instance.AddEnemiesKilled();
             return;
         }
         transform.LookAt(Path.waypoints[wavepointIndex]);
@@ -77,8 +77,8 @@ public class BaseEnemyLogic : MonoBehaviour
     }
     public void knockback(Vector3 direction, float force)
     {
-       wavepointIndex = wavepointIndex - 1;
-       target = Path.waypoints[wavepointIndex];
+        wavepointIndex = wavepointIndex - 1;
+        target = Path.waypoints[wavepointIndex];
 
     }
 

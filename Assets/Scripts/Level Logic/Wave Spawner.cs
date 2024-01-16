@@ -59,10 +59,10 @@ public class WaveSpawner : MonoBehaviour
         else if(gameState == GameStates.WaveInProgress)
         {
             // Check if all enemies have been killed, if it isn't the last wave, go back to inbetween waves
-            if(PlayerStats.Instance.GetEnemiesKilled() >= EnemiesPerWave)
+            if(PlayerStatistics.Instance.GetEnemiesKilled() >= EnemiesPerWave)
             {
                 Debug.Log("Wave Complete!");
-                PlayerStats.Instance.ResetEnemiesKilled();
+                PlayerStatistics.Instance.ResetEnemiesKilled();
                 if(currentWaveCount >= maxWaveAmount)
                 {
                     Debug.Log("Level Complete!");

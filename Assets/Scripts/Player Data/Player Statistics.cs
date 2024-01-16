@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStats : MonoBehaviour, ISaveable
+public class PlayerStatistics : MonoBehaviour, ISaveable
 {
     public PlayerData playerData;
     // Singleton instance
-    public static PlayerStats Instance { get; private set; }
+    public static PlayerStatistics Instance { get; private set; }
 
     [SerializeField]
     public int Morale = 100;
@@ -79,7 +79,7 @@ public class PlayerStats : MonoBehaviour, ISaveable
         enemiesKilled++;
     }
 
-    public PlayerStats GetPlayerStats ()
+    public PlayerStatistics GetPlayerStats ()
     {
         return this;
     }
