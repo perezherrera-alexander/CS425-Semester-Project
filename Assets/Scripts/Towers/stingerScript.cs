@@ -83,10 +83,10 @@ public class stingerScript : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            other.GetComponent<baseEnemyScript>().reduceHealth(directDamage);
+            other.GetComponent<BaseEnemyLogic>().reduceHealth(directDamage);
             Destroy(gameObject);
             exists = false;
-            //Debug.Log(other.GetComponent<baseEnemyScript>().getHealth());
+            //Debug.Log(other.GetComponent<BaseEnemyLogic>().getHealth());
         }
 
         

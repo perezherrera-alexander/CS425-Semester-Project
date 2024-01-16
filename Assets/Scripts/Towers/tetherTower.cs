@@ -71,8 +71,8 @@ public class tetherTower : basicTowerScript
         laser.SetPosition(1, target.position);
 
         float damagePerFrame = dot * Time.deltaTime;
-        target.GetComponent<baseEnemyScript>().reduceHealth(damagePerFrame);
-        //target.GetComponent<baseEnemyScript>().slowDown(slowDownFactor);
+        target.GetComponent<BaseEnemyLogic>().reduceHealth(damagePerFrame);
+        //target.GetComponent<BaseEnemyLogic>().slowDown(slowDownFactor);
 
 
     }

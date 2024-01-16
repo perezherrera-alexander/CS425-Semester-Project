@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class fastEnemy : baseEnemyScript
+public class FastEnemy : BaseEnemyLogic
 {
     public override void Update(){
         healthCheck();
