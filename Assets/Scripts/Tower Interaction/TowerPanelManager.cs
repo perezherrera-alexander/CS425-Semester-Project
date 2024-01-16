@@ -171,7 +171,7 @@ public class TowerPanelManager : MonoBehaviour
         {
             int towerCost = towerScript.BuildCost;
 
-            PlayerStats playerStats = PlayerStats.Instance;
+            PlayerStatistics playerStats = PlayerStatistics.Instance;
 
             if (playerStats != null)
             {
