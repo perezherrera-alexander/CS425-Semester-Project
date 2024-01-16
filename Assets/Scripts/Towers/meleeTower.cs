@@ -53,8 +53,8 @@ public class meleeTower : basicTowerScript
     {
         if (other.gameObject.tag == "Enemy")
         {
-            other.GetComponent<baseEnemyScript>().reduceHealth(directDamage);
-            //Debug.Log(other.GetComponent<baseEnemyScript>().getHealth());
+            other.GetComponent<BaseEnemyLogic>().reduceHealth(directDamage);
+            //Debug.Log(other.GetComponent<BaseEnemyLogic>().getHealth());
         }
     }
 }

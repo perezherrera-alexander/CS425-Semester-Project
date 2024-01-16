@@ -80,7 +80,7 @@ public class mortarProjectile : MonoBehaviour
     {
         if(other.gameObject.tag == "Enemy")
         {
-            other.GetComponent<baseEnemyScript>().reduceHealth(directDamage);
+            other.GetComponent<BaseEnemyLogic>().reduceHealth(directDamage);
         }
 
         if (bounces > 0)
@@ -119,10 +119,10 @@ public class mortarProjectile : MonoBehaviour
 
         foreach(Collider c in colliders)
         {
-            if (c.GetComponent<baseEnemyScript>())
+            if (c.GetComponent<BaseEnemyLogic>())
             {
-                c.GetComponent<baseEnemyScript>().reduceHealth(splashDamage);
-                //Debug.Log(c.GetComponent<baseEnemyScript>().getHealth());
+                c.GetComponent<BaseEnemyLogic>().reduceHealth(splashDamage);
+                //Debug.Log(c.GetComponent<BaseEnemyLogic>().getHealth());
             }
             //Debug.Log("Enemy took splash damage");
         }

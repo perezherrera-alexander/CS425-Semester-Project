@@ -22,7 +22,7 @@ public class basicTowerScript : MonoBehaviour
     private bool isActive = false;
 
     public string targeting = "first";
-    public List<baseEnemyScript> targets = new List<baseEnemyScript>(); 
+    public List<BaseEnemyLogic> targets = new List<BaseEnemyLogic>(); 
 
     public SphereCollider radius;
 
@@ -199,7 +199,7 @@ public class basicTowerScript : MonoBehaviour
            
             foreach (Collider collider in colliders)
             {
-                if (collider.GetComponent<baseEnemyScript>())
+                if (collider.GetComponent<BaseEnemyLogic>())
                 {
                     target = colliders.First().transform;
                     
@@ -228,9 +228,9 @@ public class basicTowerScript : MonoBehaviour
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
         float enemyDistance = Mathf.Infinity;
         float enemyHealth = 0;
-        baseEnemyScript strongEnemy = null;
+        BaseEnemyLogic strongEnemy = null;
 
-        foreach (baseEnemyScript enemy in targets)
+        foreach (BaseEnemyLogic enemy in targets)
         {
             if (enemy.getHealth() > enemyHealth)
             {
@@ -272,7 +272,7 @@ public class basicTowerScript : MonoBehaviour
 
         if(other.gameObject.tag == "Enemy")
         {
-            targets.Add(other.GetComponent<baseEnemyScript>());
+            targets.Add(other.GetComponent<BaseEnemyLogic>());
             UpdateTarget();
 
 
@@ -285,7 +285,7 @@ public class basicTowerScript : MonoBehaviour
    
         if (other.gameObject.tag == "Enemy")
         {
-            targets.Remove(other.GetComponent<baseEnemyScript>());
+            targets.Remove(other.GetComponent<BaseEnemyLogic>());
             UpdateTarget();
 
         }

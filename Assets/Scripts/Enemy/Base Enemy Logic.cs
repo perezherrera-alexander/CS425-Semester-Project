@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class baseEnemyScript : MonoBehaviour
+public class BaseEnemyLogic : MonoBehaviour
 {
     public Collider objectCollider;
     public GameObject ob;
