@@ -8,26 +8,20 @@ public class PlayerStatistics : MonoBehaviour, ISaveable
     public PlayerData playerData;
     // Singleton instance
     public static PlayerStatistics Instance { get; private set; }
-
-    [SerializeField]
     public int Morale = 100;
-    [SerializeField]
     public int CurrentEvolutionPoints = 20;
-
     private int enemiesKilled = 0;
-
     //private string CustomSaveName;
-
     private void Awake()
     {
         // Ensure only one instance exists
-        if (Instance == null)
+        if (Instance == null) // If instance doesn't exist, create one
         {
             Morale = playerData.Morale;
             CurrentEvolutionPoints = playerData.EvolutionPoints;
             Instance = this;
         }
-        else
+        else // Otherwise destroy the existing instance
         {
             Destroy(gameObject);
         }
@@ -79,13 +73,13 @@ public class PlayerStatistics : MonoBehaviour, ISaveable
         enemiesKilled++;
     }
 
-    public PlayerStatistics GetPlayerStats ()
+    public PlayerStatistics GetPlayerStats()
     {
         return this;
     }
 
 
-    public object CaptureState ()
+    public object CaptureState()
     {
         return new SaveData
         {
@@ -94,7 +88,7 @@ public class PlayerStatistics : MonoBehaviour, ISaveable
         };
     }
 
-    public void RestoreState (object state)
+    public void RestoreState(object state)
     {
         var saveData = (SaveData)state;
 

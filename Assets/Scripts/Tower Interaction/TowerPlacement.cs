@@ -4,32 +4,28 @@ using UnityEngine;
 
 public class TowerPlacement : MonoBehaviour
 {
-    [SerializeField]
-    private Camera PlayerCamera;
+    [SerializeField] private Camera playerCamera;
     private GameObject CurrentPlacingTower;
     private GameObject Tower;
     private string towerName;
     private int targetint;
 
-    [SerializeField]
-    TowerSaveLoadManager towerSaveLoadManager;
+    [SerializeField] TowerSaveLoadManager towerSaveLoadManager;
 
     // Property to check if a tower is currently being placed
     public bool IsPlacingTower { get { return Tower != null; } }
 
-    // Start is called before the first frame update
     void Start()
     {
         Tower = CurrentPlacingTower;
         towerSaveLoadManager = GameObject.FindObjectOfType<TowerSaveLoadManager>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Tower != null)
         {
-            Ray CameraRay = PlayerCamera.ScreenPointToRay(Input.mousePosition);
+            Ray CameraRay = playerCamera.ScreenPointToRay(Input.mousePosition);
             RaycastHit HitInfo;
 
             if (Physics.Raycast(CameraRay, out HitInfo, 100f))
@@ -46,6 +42,7 @@ public class TowerPlacement : MonoBehaviour
 
                 // Call the ActivateTower function of the tower's script
                 Tower.transform.GetComponentInChildren<basicTowerScript>().ActivateTower(); // We don't actually need the towername, we can just do it this way
+                // Except I guess we need to do it this way for save data purposes. There has to be a better way, this should be revisited.
                 if (towerName == "beeTurret")
                 {
                     string ID = Tower.transform.GetChild(1).gameObject.GetComponent<beeTower>().GenerateId().ToString();
@@ -74,16 +71,16 @@ public class TowerPlacement : MonoBehaviour
         }
     }
 
-    public void PlaceTower(GameObject tower, string towerNombre)
+    public void PlaceTower(GameObject towerToPlace, string nameOfTower)
     {
-        towerName = towerNombre; // Save the name of the tower's prefab so we can later call it's script
-        Tower = GameObject.Instantiate(tower, Vector3.zero, Quaternion.identity);
+        towerName = nameOfTower; // Save the name of the tower's prefab so we can later call it's script
+        Tower = GameObject.Instantiate(towerToPlace, Vector3.zero, Quaternion.identity);
         Tower.transform.GetChild(1).GetComponentInChildren<ParticleSystem>().Stop();
     }
 
     private void CreatePlacementEffect()
     {
-        Tower.transform.GetChild(1).GetChild(2).GetComponent<ParticleSystem>().Play();
+        Tower.transform.GetChild(1).GetChild(2).GetComponent<ParticleSystem>().Play(); // We must do this song and dance to grab the particle component
         // Stop the particle system atfer 3 seconds
         StartCoroutine(StopParticleEffect(Tower.transform.GetChild(1).GetChild(2).GetComponent<ParticleSystem>()));
     }
