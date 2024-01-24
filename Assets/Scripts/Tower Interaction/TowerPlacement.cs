@@ -41,12 +41,12 @@ public class TowerPlacement : MonoBehaviour
                 Tower.transform.GetChild(1).GetComponentInChildren<SphereCollider>().enabled = true;
 
                 // Call the ActivateTower function of the tower's script
-                Tower.transform.GetComponentInChildren<basicTowerScript>().ActivateTower(); // We don't actually need the towername, we can just do it this way
+                Tower.transform.GetComponentInChildren<BaseTowerLogic>().ActivateTower(); // We don't actually need the towername, we can just do it this way
                 // Except I guess we need to do it this way for save data purposes. There has to be a better way, this should be revisited.
                 if (towerName == "beeTurret")
                 {
-                    string ID = Tower.transform.GetChild(1).gameObject.GetComponent<beeTower>().GenerateId().ToString();
-                    targetint = Tower.transform.GetChild(1).gameObject.GetComponent<beeTower>().targetingint;
+                    string ID = Tower.transform.GetChild(1).gameObject.GetComponent<BeeTower>().GenerateId().ToString();
+                    targetint = Tower.transform.GetChild(1).gameObject.GetComponent<BeeTower>().targetingint;
                     Vector3 pos = Tower.transform.position;
                     towerSaveLoadManager.AddTower(ID, pos, towerName, targetint);
                 }

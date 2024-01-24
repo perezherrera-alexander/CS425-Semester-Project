@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 using UnityEngine;
 
-public class basicTowerScript : MonoBehaviour
+public class BaseTowerLogic : MonoBehaviour
 {
     public Transform target;
     public float range = 20;

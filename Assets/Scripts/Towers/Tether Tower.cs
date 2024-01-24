@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class tetherTower : basicTowerScript
+public class tetherTower : BaseTowerLogic
 {
 #pragma warning disable 0414
     public LineRenderer laser;

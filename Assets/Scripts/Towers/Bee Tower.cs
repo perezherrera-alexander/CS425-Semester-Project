@@ -4,16 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class beeTower : basicTowerScript
+public class BeeTower : BaseTowerLogic
 {
-    [SerializeField] public float[] towerPosition;
-
+    public float[] towerPosition;
 
     public string id;
 
     public int targetingint = 0;
-
-    // Start is called before the first frame update
 
     void Start()
     {
@@ -35,10 +32,9 @@ public class beeTower : basicTowerScript
                 targeting = "strong";
                 break;
         }
-        Debug.Log(targeting);
+        Debug.Log("Targetting Type: " + targeting);
     }
 
-    // Update is called once per frame
     void Update()
     {
         

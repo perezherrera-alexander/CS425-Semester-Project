@@ -7,7 +7,7 @@ using System.Reflection;
 
 public class TowerPanelManager : MonoBehaviour
 {
-    basicTowerScript BasicTowerScript;
+    BaseTowerLogic BaseTowerLogic;
     private static TowerPanelManager instance;
     public static TowerPanelManager Instance { get { return instance; } }
 
@@ -28,7 +28,7 @@ public class TowerPanelManager : MonoBehaviour
     private void Start()
     {
         towerSaveLoadManager = GameObject.FindObjectOfType<TowerSaveLoadManager>();
-        BasicTowerScript = GameObject.FindObjectOfType<basicTowerScript>();
+        BaseTowerLogic = GameObject.FindObjectOfType<BaseTowerLogic>();
 
         
     }
@@ -93,7 +93,7 @@ public class TowerPanelManager : MonoBehaviour
     private void OpenTowerPanel()
     {
 
-        basicTowerScript towerScript = SelectedTower.GetComponentInChildren<basicTowerScript>();
+        BaseTowerLogic towerScript = SelectedTower.GetComponentInChildren<BaseTowerLogic>();
 
         TowerPanelInstance = Instantiate(TowerPanelPrefab) as GameObject;
 
@@ -115,10 +115,10 @@ public class TowerPanelManager : MonoBehaviour
             TMP_Text output = TowerPanelInstance.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>();
             output.text = "Tower Name: " + scriptName;
 
-            if (scriptName == "beeTower")
+            if (scriptName == "BeeTower")
             {
-                Debug.Log("Saved targeting option is : " + SelectedTower.transform.GetChild(1).gameObject.GetComponent<beeTower>().targetingint);
-                dropdown.value = SelectedTower.transform.GetChild(1).gameObject.GetComponent<beeTower>().targetingint;
+                Debug.Log("Saved targeting option is : " + SelectedTower.transform.GetChild(1).gameObject.GetComponent<BeeTower>().targetingint);
+                dropdown.value = SelectedTower.transform.GetChild(1).gameObject.GetComponent<BeeTower>().targetingint;
                 Debug.Log("Targting option is :" + dropdown.value);
             }
 
@@ -165,7 +165,7 @@ public class TowerPanelManager : MonoBehaviour
 
     public void DeleteSelectedTower()
     {
-        basicTowerScript towerScript = SelectedTower.GetComponentInChildren<basicTowerScript>();
+        BaseTowerLogic towerScript = SelectedTower.GetComponentInChildren<BaseTowerLogic>();
 
         if (towerScript != null)
         {
@@ -185,9 +185,9 @@ public class TowerPanelManager : MonoBehaviour
             string scriptName = scriptType.Name;
             Debug.Log(scriptName);
 
-            if (scriptName == "beeTower")
+            if (scriptName == "BeeTower")
             {
-                TowerID = SelectedTower.transform.GetChild(1).gameObject.GetComponent<beeTower>().id;
+                TowerID = SelectedTower.transform.GetChild(1).gameObject.GetComponent<BeeTower>().id;
                 Debug.Log(TowerID);
                 towerSaveLoadManager.RemoveTower(TowerID);
             }
@@ -245,28 +245,28 @@ public class TowerPanelManager : MonoBehaviour
     public void TowerTargeting(int selectedindex)
     {
         Debug.Log("Entered tower targeting");
-        basicTowerScript towerScript = SelectedTower.GetComponentInChildren<basicTowerScript>();
+        BaseTowerLogic towerScript = SelectedTower.GetComponentInChildren<BaseTowerLogic>();
 
         Debug.Log(selectedindex);
         switch (selectedindex)
         {
             case 0:
-                towerScript.GetComponentInChildren<basicTowerScript>().targeting = "first";
+                towerScript.GetComponentInChildren<BaseTowerLogic>().targeting = "first";
                 UpdateTowerInfo(selectedindex);
                 break;
 
             case 1:
-                towerScript.GetComponentInChildren<basicTowerScript>().targeting = "last";
+                towerScript.GetComponentInChildren<BaseTowerLogic>().targeting = "last";
                 UpdateTowerInfo(selectedindex);
                 break;
 
             case 2:
-                towerScript.GetComponentInChildren<basicTowerScript>().targeting = "close";
+                towerScript.GetComponentInChildren<BaseTowerLogic>().targeting = "close";
                 UpdateTowerInfo(selectedindex);
                 break;
 
             case 3:
-                towerScript.GetComponentInChildren<basicTowerScript>().targeting = "strong";
+                towerScript.GetComponentInChildren<BaseTowerLogic>().targeting = "strong";
                 UpdateTowerInfo(selectedindex);
                 break;
         }
@@ -275,7 +275,7 @@ public class TowerPanelManager : MonoBehaviour
 
     private void UpdateTowerInfo(int selectedindex)
     {
-        basicTowerScript towerScript = SelectedTower.GetComponentInChildren<basicTowerScript>();
+        BaseTowerLogic towerScript = SelectedTower.GetComponentInChildren<BaseTowerLogic>();
         string TowerID;
 
         if (towerScript != null)
@@ -284,10 +284,10 @@ public class TowerPanelManager : MonoBehaviour
             string scriptName = scriptType.Name;
             Debug.Log(scriptName);
 
-            if (scriptName == "beeTower")
+            if (scriptName == "BeeTower")
             {
-                SelectedTower.transform.GetChild(1).gameObject.GetComponent<beeTower>().targetingint = selectedindex;
-                TowerID = SelectedTower.transform.GetChild(1).gameObject.GetComponent<beeTower>().id;
+                SelectedTower.transform.GetChild(1).gameObject.GetComponent<BeeTower>().targetingint = selectedindex;
+                TowerID = SelectedTower.transform.GetChild(1).gameObject.GetComponent<BeeTower>().id;
                 towerSaveLoadManager.UpdateTargetingint(TowerID, selectedindex);
             }
 
