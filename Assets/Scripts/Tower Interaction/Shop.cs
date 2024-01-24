@@ -16,7 +16,7 @@ public class ShopScript : MonoBehaviour
         Transform child = BeeTowerPrefab.transform.Find("Rotate");
 
         // Check if you have enough money to purchase the Bee Tower
-        int towerCost = child.GetComponent<beeTower>().BuildCost;
+        int towerCost = child.GetComponent<BeeTower>().BuildCost;
 
         if (playerStatistics.GetMoney() >= towerCost)
         {

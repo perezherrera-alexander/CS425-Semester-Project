@@ -40,9 +40,9 @@ public class TowerSaveLoadManager : MonoBehaviour, ISaveable
             {
                 GameObject instantiateTower = InstantiateTowerPrefab(new Vector3(towerData.TowerPosition[0], towerData.TowerPosition[1], towerData.TowerPosition[2]), BeeTowerPrefab);
 
-                instantiateTower.GetComponentInChildren<beeTower>().id = towerData.TowerID;
+                instantiateTower.GetComponentInChildren<BeeTower>().id = towerData.TowerID;
 
-                instantiateTower.GetComponentInChildren<beeTower>().targetingint = towerData.Targetingoption;
+                instantiateTower.GetComponentInChildren<BeeTower>().targetingint = towerData.Targetingoption;
             }
 
             if (towerData.TowerName == "mortarTurret")
@@ -75,7 +75,7 @@ public class TowerSaveLoadManager : MonoBehaviour, ISaveable
 
         towerPrefab.GetComponentInParent<BoxCollider>().enabled = true;
         towerPrefab.transform.GetChild(1).GetComponentInChildren<SphereCollider>().enabled = true;
-        towerPrefab.transform.GetComponentInChildren<basicTowerScript>().ActivateTower();
+        towerPrefab.transform.GetComponentInChildren<BaseTowerLogic>().ActivateTower();
 
         Debug.Log("activating tower and setting sphere collider");
 
