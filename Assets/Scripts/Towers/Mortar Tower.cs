@@ -43,7 +43,7 @@ public class mortarTower : BaseTowerLogic
 
     public override void Shoot()
     {
-        GameObject ball1 = (GameObject)Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+        GameObject ball1 = (GameObject)Instantiate(projectilePrefab, locationToFireFrom.position, locationToFireFrom.rotation);
         mortarProjectile ball = ball1.GetComponent<mortarProjectile>();
 
         if (ball != null)

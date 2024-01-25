@@ -7,24 +7,19 @@ using UnityEngine;
 public class BaseTowerLogic : MonoBehaviour
 {
     public Transform target;
-    public float range = 20;
-
+    public float targettingRange = 20;
     public string enemyTag = "Enemy";
-
     public float fireRate = 1f;
-    private float fireCountdown = 0f;
-
+    private float fireCountdown = 0f; // Cooldown between shots
     public GameObject projectilePrefab;
-    public Transform firePoint;
-
-    public Transform part;
-    public int BuildCost;
+    public Transform locationToFireFrom;
+    public Transform barrelToRotate;
+    public int buildCost;
     private bool isActive = false;
-
+    public TargettingTypes targetingType = TargettingTypes.First;
     public string targeting = "first";
     public List<BaseEnemyLogic> targets = new List<BaseEnemyLogic>(); 
-
-    public SphereCollider radius;
+    protected SphereCollider proximitySphere;
 
     [System.NonSerialized] public string towerName;
 
@@ -33,6 +28,9 @@ public class BaseTowerLogic : MonoBehaviour
     {
         Invoke();
         makeSphere();
+        // I thought it was weired we had both targettingRadius and a sphere collider that seemed to be made dynamically
+        // But turns out we are using targettingRadius to make a sphere of said radius so that way we can set the targetting radius in the inspector
+        // Making the sphere collider protected since there is no reason to mess with it in the inspector
 
     }
 
@@ -56,7 +54,7 @@ public class BaseTowerLogic : MonoBehaviour
         Vector3 dir = target.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(dir);
         Vector3 rotation = lookRotation.eulerAngles;
-        part.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+        barrelToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
 
         if (fireCountdown <= 0f)
         {
@@ -105,7 +103,7 @@ public class BaseTowerLogic : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, range);
+        Gizmos.DrawWireSphere(transform.position, targettingRange);
     }
 
     public void changingTargeting(string targets)
@@ -128,7 +126,7 @@ public class BaseTowerLogic : MonoBehaviour
             }
         }
 
-        if (closeEnemy != null && shortestDistance <= range)
+        if (closeEnemy != null && shortestDistance <= targettingRange)
         {
             target = closeEnemy.transform;
         }
@@ -240,7 +238,7 @@ public class BaseTowerLogic : MonoBehaviour
             enemyDistance = Vector3.Distance(transform.position, strongEnemy.transform.position);
         }
 
-        if (strongEnemy != null && enemyDistance <= range)
+        if (strongEnemy != null && enemyDistance <= targettingRange)
         {
             target = strongEnemy.transform;
         }
@@ -257,8 +255,8 @@ public class BaseTowerLogic : MonoBehaviour
 
     public void makeSphere()
     {
-        radius = transform.GetComponent<SphereCollider>();
-        radius.radius = range * 0.5f;
+        proximitySphere = transform.GetComponent<SphereCollider>();
+        proximitySphere.radius = targettingRange * 0.5f;
     }
 
     public void listPrune()

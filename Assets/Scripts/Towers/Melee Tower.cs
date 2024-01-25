@@ -32,12 +32,12 @@ public class meleeTower : BaseTowerLogic
         Vector3 dir = target.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(dir);
         Vector3 rotation = lookRotation.eulerAngles;
-        part.rotation = Quaternion.Euler(part.rotation.x, rotation.y, 0f);
+        barrelToRotate.rotation = Quaternion.Euler(barrelToRotate.rotation.x, rotation.y, 0f);
 
         if (attackRate <= 0f)
         {
             coolDown += Time.deltaTime;
-            part.rotation = Quaternion.Euler(90f, 0f, 0f);
+            barrelToRotate.rotation = Quaternion.Euler(90f, 0f, 0f);
             attackRate = 1f / fireRate;
             if(coolDown > 0)
             {

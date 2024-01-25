@@ -57,7 +57,7 @@ public class tetherTower : BaseTowerLogic
         Vector3 dir = target.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(dir);
         Vector3 rotation = lookRotation.eulerAngles;
-        part.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+        barrelToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
 
 
         Shoot();
@@ -67,7 +67,7 @@ public class tetherTower : BaseTowerLogic
     {
         if (!laser.enabled)
             laser.enabled = true;
-        laser.SetPosition(0, firePoint.position);
+        laser.SetPosition(0, locationToFireFrom.position);
         laser.SetPosition(1, target.position);
 
         float damagePerFrame = dot * Time.deltaTime;

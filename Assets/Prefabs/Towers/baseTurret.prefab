@@ -278,12 +278,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  range: 10
+  targettingRange: 20
   enemyTag: Enemy
   fireRate: 1
   projectilePrefab: {fileID: 0}
-  firePoint: {fileID: 0}
-  part: {fileID: 6661528310419365076}
+  locationToFireFrom: {fileID: 8755519099717131826}
+  barrelToRotate: {fileID: 6661528310419365076}
   BuildCost: 0
   targeting: close
   targets: []
