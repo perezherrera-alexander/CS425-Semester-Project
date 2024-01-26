@@ -101,11 +101,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerCanvasPrefab: {fileID: 1042973311252548879, guid: d96e12da61bc0ef4191677328bdf07f1, type: 3}
-  TowerID: 
-  towerManager: {fileID: 0}
   towerPlacement: {fileID: 0}
   pauseMenu: {fileID: 0}
-  highlightMaterial: {fileID: 2100000, guid: a53b2680213cc1247a0b68e5bad45a7f, type: 2}
 --- !u!23 &3351363950185042635
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -281,18 +278,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  range: 20
+  targettingRange: 20
   enemyTag: Enemy
   fireRate: 1
   projectilePrefab: {fileID: 0}
-  firePoint: {fileID: 6967021129643549021}
-  part: {fileID: 5656544548732101470}
+  locationToFireFrom: {fileID: 6967021129643549021}
+  barrelToRotate: {fileID: 5656544548732101470}
   BuildCost: 3
   targeting: first
   targets: []
   radius: {fileID: 0}
   laser: {fileID: 6919832244800713231}
   id: 
+  targetingint: 0
 --- !u!120 &6919832244800713231
 LineRenderer:
   serializedVersion: 2

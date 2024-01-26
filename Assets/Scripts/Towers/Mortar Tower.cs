@@ -17,7 +17,7 @@ public class mortarTower : BaseTowerLogic
     {
         towerName = "Mortar Tower";
         Invoke();
-        makeSphere();
+        MakeSphere();
         switch (targetingint)
         {
             case 0:
@@ -38,12 +38,12 @@ public class mortarTower : BaseTowerLogic
     // Update is called once per frame
     void Update()
     {
-        track();
+        Track();
     }
 
     public override void Shoot()
     {
-        GameObject ball1 = (GameObject)Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+        GameObject ball1 = (GameObject)Instantiate(projectilePrefab, locationToFireFrom.position, locationToFireFrom.rotation);
         mortarProjectile ball = ball1.GetComponent<mortarProjectile>();
 
         if (ball != null)

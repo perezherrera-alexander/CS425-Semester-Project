@@ -7,46 +7,42 @@ using UnityEngine;
 public class BaseTowerLogic : MonoBehaviour
 {
     public Transform target;
-    public float range = 20;
-
+    public float targettingRange = 20;
     public string enemyTag = "Enemy";
-
     public float fireRate = 1f;
-    private float fireCountdown = 0f;
-
+    private float fireCountdown = 0f; // Cooldown between shots
     public GameObject projectilePrefab;
-    public Transform firePoint;
-
-    public Transform part;
-    public int BuildCost;
+    public Transform locationToFireFrom;
+    public Transform barrelToRotate;
+    public int buildCost;
     private bool isActive = false;
-
+    public TargettingTypes targetingType = TargettingTypes.First;
     public string targeting = "first";
     public List<BaseEnemyLogic> targets = new List<BaseEnemyLogic>(); 
-
-    public SphereCollider radius;
-
-    [System.NonSerialized] public string towerName;
-
-    // Start is called before the first frame update
+    protected SphereCollider proximitySphere;
+    [System.NonSerialized] public string towerName; // Name of the tower as displayed in the UI and used to figure out what tower a gameObject is when it's not obvious.
+    // I feel like there has to be a better way to do this though
     void Start()
     {
         Invoke();
-        makeSphere();
+        MakeSphere();
+        // I thought it was weired we had both targettingRadius and a sphere collider that seemed to be made dynamically
+        // But turns out we are using targettingRadius to make a sphere of said radius so that way we can set the targetting radius in the inspector
+        // Making the sphere collider protected since there is no reason to mess with it in the inspector
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        track();
-        listPrune();
+        Track();
+        ListPrune();
     }
     public virtual void Invoke()
     {
         InvokeRepeating("UpdateTarget", 0, 0.5f);
     }
-    public virtual void track()
+    public virtual void Track()
     {
         if (target == null)
         {
@@ -56,7 +52,7 @@ public class BaseTowerLogic : MonoBehaviour
         Vector3 dir = target.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(dir);
         Vector3 rotation = lookRotation.eulerAngles;
-        part.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+        barrelToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
 
         if (fireCountdown <= 0f)
         {
@@ -83,19 +79,19 @@ public class BaseTowerLogic : MonoBehaviour
         switch (targeting)
         {
             case "first":
-                firstTargeting();
+                FirstTargeting();
                 break;
 
             case "last":
-                lastTargeting();
+                LastTargeting();
                 break;
 
             case "close":
-                closeTargeting();
+                CloseTargeting();
                 break;
 
             case "strong":
-                strongTargeting();
+                StrongTargeting();
                 break;
 
         }
@@ -105,14 +101,14 @@ public class BaseTowerLogic : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, range);
+        Gizmos.DrawWireSphere(transform.position, targettingRange);
     }
 
-    public void changingTargeting(string targets)
+    public void ChangingTargeting(string targets)
     {
         targeting = targets;
     }
-    private void closeTargeting()
+    private void CloseTargeting()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
         float shortestDistance = Mathf.Infinity;
@@ -128,7 +124,7 @@ public class BaseTowerLogic : MonoBehaviour
             }
         }
 
-        if (closeEnemy != null && shortestDistance <= range)
+        if (closeEnemy != null && shortestDistance <= targettingRange)
         {
             target = closeEnemy.transform;
         }
@@ -138,7 +134,7 @@ public class BaseTowerLogic : MonoBehaviour
         }
     }
 
-    private void lastTargeting()
+    private void LastTargeting()
     {
         /*GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
         float shortestDistance = Mathf.Infinity;
@@ -158,7 +154,7 @@ public class BaseTowerLogic : MonoBehaviour
         {
             target = null;
         }*/
-        listPrune();
+        ListPrune();
         if (targets.Count > 0)
         {
             if (targets.Last() != null)
@@ -173,7 +169,7 @@ public class BaseTowerLogic : MonoBehaviour
         }
     }
 
-    private void firstTargeting()
+    private void FirstTargeting()
     {
         /*GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
         float shortestDistance = Mathf.Infinity;
@@ -211,7 +207,7 @@ public class BaseTowerLogic : MonoBehaviour
         {
             target = null;
         }*/
-        listPrune();
+        ListPrune();
 
         if (targets.Count > 0)
         {
@@ -223,7 +219,7 @@ public class BaseTowerLogic : MonoBehaviour
         }
     }
 
-    private void strongTargeting()
+    private void StrongTargeting()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
         float enemyDistance = Mathf.Infinity;
@@ -240,7 +236,7 @@ public class BaseTowerLogic : MonoBehaviour
             enemyDistance = Vector3.Distance(transform.position, strongEnemy.transform.position);
         }
 
-        if (strongEnemy != null && enemyDistance <= range)
+        if (strongEnemy != null && enemyDistance <= targettingRange)
         {
             target = strongEnemy.transform;
         }
@@ -255,13 +251,13 @@ public class BaseTowerLogic : MonoBehaviour
         isActive = true;
     }
 
-    public void makeSphere()
+    public void MakeSphere()
     {
-        radius = transform.GetComponent<SphereCollider>();
-        radius.radius = range * 0.5f;
+        proximitySphere = transform.GetComponent<SphereCollider>();
+        proximitySphere.radius = targettingRange * 0.5f;
     }
 
-    public void listPrune()
+    public void ListPrune()
     {
         targets.RemoveAll(item => item == null);
         

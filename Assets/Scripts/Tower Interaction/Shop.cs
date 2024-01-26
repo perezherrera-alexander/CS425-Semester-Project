@@ -16,7 +16,7 @@ public class ShopScript : MonoBehaviour
         Transform child = BeeTowerPrefab.transform.Find("Rotate");
 
         // Check if you have enough money to purchase the Bee Tower
-        int towerCost = child.GetComponent<BeeTower>().BuildCost;
+        int towerCost = child.GetComponent<BeeTower>().buildCost;
 
         if (playerStatistics.GetMoney() >= towerCost)
         {
@@ -35,7 +35,7 @@ public class ShopScript : MonoBehaviour
         Transform child = MortarTowerPrefab.transform.Find("Rotate");
 
         // Check if you have enough money to purchase the Bee Tower
-        int towerCost = child.GetComponent<mortarTower>().BuildCost;
+        int towerCost = child.GetComponent<mortarTower>().buildCost;
 
         if (playerStatistics.GetMoney() >= towerCost)
         {
@@ -54,7 +54,7 @@ public class ShopScript : MonoBehaviour
         Transform child = TetherTowerPrefab.transform.Find("Rotate");
 
         // Check if you have enough money to purchase the Bee Tower
-        int towerCost = child.GetComponent<tetherTower>().BuildCost;
+        int towerCost = child.GetComponent<tetherTower>().buildCost;
 
         if (playerStatistics.GetMoney() >= towerCost)
         {

@@ -16,7 +16,7 @@ public class BeeTower : BaseTowerLogic
     {
         towerName = "Bee Tower";
         Invoke();
-        makeSphere();
+        MakeSphere();
         switch (targetingint)
         {
             case 0:
@@ -38,13 +38,13 @@ public class BeeTower : BaseTowerLogic
     void Update()
     {
         
-        track();
-        listPrune();
+        Track();
+        ListPrune();
     }
 
     public override void Shoot()
     {
-        GameObject stinger = (GameObject)Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+        GameObject stinger = (GameObject)Instantiate(projectilePrefab, locationToFireFrom.position, locationToFireFrom.rotation);
         stingerScript sting = stinger.GetComponent<stingerScript>();
 
         if (sting != null)
