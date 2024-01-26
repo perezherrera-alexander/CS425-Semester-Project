@@ -16,7 +16,7 @@ public class BeeTower : BaseTowerLogic
     {
         towerName = "Bee Tower";
         Invoke();
-        makeSphere();
+        MakeSphere();
         switch (targetingint)
         {
             case 0:
@@ -38,8 +38,8 @@ public class BeeTower : BaseTowerLogic
     void Update()
     {
         
-        track();
-        listPrune();
+        Track();
+        ListPrune();
     }
 
     public override void Shoot()

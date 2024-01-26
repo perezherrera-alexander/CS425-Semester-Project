@@ -21,7 +21,7 @@ public class tetherTower : BaseTowerLogic
     {
         towerName = "Tether Tower";
         Invoke();
-        makeSphere();
+        MakeSphere();
         switch (targetingint)
         {
             case 0:
@@ -42,10 +42,10 @@ public class tetherTower : BaseTowerLogic
     // Update is called once per frame
     void Update()
     {
-        track();
+        Track();
     }
 
-    public override void track()
+    public override void Track()
     {
         if (target == null)
         {

@@ -19,10 +19,10 @@ public class meleeTower : BaseTowerLogic
     // Update is called once per frame
     void Update()
     {
-        track();
+        Track();
     }
 
-    public override void track()
+    public override void Track()
     {
         if (target == null)
         {
