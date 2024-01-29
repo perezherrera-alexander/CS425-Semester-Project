@@ -6,18 +6,20 @@ using UnityEngine;
 
 public class BaseTowerLogic : MonoBehaviour
 {
-    public Transform target;
-    public float targettingRange = 20;
+    [Header("Tower Assembly")]
+    public Transform barrelToRotate;
+    public Transform locationToFireFrom;
+    public GameObject projectilePrefab;
     public string enemyTag = "Enemy";
+    [Header("Tower Stats")]
+    public int buildCost;
+    public float targettingRange = 20;
     public float fireRate = 1f;
     private float fireCountdown = 0f; // Cooldown between shots
-    public GameObject projectilePrefab;
-    public Transform locationToFireFrom;
-    public Transform barrelToRotate;
-    public int buildCost;
     private bool isActive = false;
-    public TargettingTypes targetingType = TargettingTypes.First;
-    public string targeting = "first";
+    [Header("Targeting")]
+    public Transform target;
+    public TargetingTypes targetingType = TargetingTypes.First;
     public List<BaseEnemyLogic> targets = new List<BaseEnemyLogic>(); 
     protected SphereCollider proximitySphere;
     [System.NonSerialized] public string towerName; // Name of the tower as displayed in the UI and used to figure out what tower a gameObject is when it's not obvious.
@@ -76,21 +78,21 @@ public class BaseTowerLogic : MonoBehaviour
 
 
 
-        switch (targeting)
+        switch (targetingType)
         {
-            case "first":
+            case TargetingTypes.First:
                 FirstTargeting();
                 break;
 
-            case "last":
+            case TargetingTypes.Last:
                 LastTargeting();
                 break;
 
-            case "close":
+            case TargetingTypes.Close:
                 CloseTargeting();
                 break;
 
-            case "strong":
+            case TargetingTypes.Strong:
                 StrongTargeting();
                 break;
 
@@ -104,10 +106,6 @@ public class BaseTowerLogic : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, targettingRange);
     }
 
-    public void ChangingTargeting(string targets)
-    {
-        targeting = targets;
-    }
     private void CloseTargeting()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);

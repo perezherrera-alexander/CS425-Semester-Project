@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8813856010085298334
+--- !u!1 &187628402303013486
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 558795032292461083}
-  - component: {fileID: 8679179401848957886}
-  - component: {fileID: 810603711359537129}
-  - component: {fileID: 3644064761090943550}
-  - component: {fileID: 6377835583887691257}
+  - component: {fileID: 6049037792807751872}
+  - component: {fileID: 2255446006544309588}
+  - component: {fileID: 3380360184992811168}
+  - component: {fileID: 6866666745521157254}
+  - component: {fileID: 8671637688989586666}
   m_Layer: 0
-  m_Name: _stinger_ (1)
+  m_Name: MortarTowerProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &558795032292461083
+--- !u!4 &6049037792807751872
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8813856010085298334}
+  m_GameObject: {fileID: 187628402303013486}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.40377, y: -0.00000023841858, z: -2.821994}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.9}
+  m_LocalPosition: {x: 9.744448, y: 1.1899081, z: 0.6255086}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &8679179401848957886
+--- !u!33 &2255446006544309588
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8813856010085298334}
+  m_GameObject: {fileID: 187628402303013486}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &810603711359537129
+--- !u!23 &3380360184992811168
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8813856010085298334}
+  m_GameObject: {fileID: 187628402303013486}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3ccd7be7fae024c4a91ccbdd88d8418b, type: 2}
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -85,28 +85,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &3644064761090943550
-MonoBehaviour:
+--- !u!135 &6866666745521157254
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8813856010085298334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cc2c2b179d5c704b912432f28593052, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objCollider: {fileID: 6377835583887691257}
-  directDamage: 1
-  speed: 30
---- !u!136 &6377835583887691257
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8813856010085298334}
+  m_GameObject: {fileID: 187628402303013486}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -118,8 +103,21 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.47916836
-  m_Height: 1.0093374
-  m_Direction: 2
-  m_Center: {x: 0, y: 0.0038693845, z: 0.0038005249}
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8671637688989586666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187628402303013486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e70c5a35d39994741967373b1877163e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 8.78
+  arcHeight: 5
+  blastRadius: 4

@@ -11,14 +11,14 @@ public class TowerSaveLoadManager : MonoBehaviour, ISaveable
 
     private Dictionary<string, TowerData> towerDictionary = new Dictionary<string, TowerData>();
 
-    public void AddTower(string towerID, Vector3 position, string name, int targetint)
+    public void AddTower(string towerID, Vector3 position, string name, TargetingTypes targetType)
     {
         towerDictionary[towerID] = new TowerData
         {
             TowerID = towerID,
             TowerPosition = new float[] { position.x, position.y, position.z },
             TowerName = name,
-            Targetingoption = targetint
+            TargetingOption = targetType
         };
 
         Debug.Log($"Added tower: {towerID} at position {position}, Tower Name: {name}");
@@ -42,7 +42,7 @@ public class TowerSaveLoadManager : MonoBehaviour, ISaveable
 
                 instantiateTower.GetComponentInChildren<BeeTower>().id = towerData.TowerID;
 
-                instantiateTower.GetComponentInChildren<BeeTower>().targetingint = towerData.Targetingoption;
+                instantiateTower.GetComponentInChildren<BeeTower>().targetingType = towerData.TargetingOption;
             }
 
             if (towerData.TowerName == "mortarTurret")
@@ -51,7 +51,7 @@ public class TowerSaveLoadManager : MonoBehaviour, ISaveable
 
                 instantiateTower.GetComponentInChildren<mortarTower>().id = towerData.TowerID;
 
-                instantiateTower.GetComponentInChildren<mortarTower>().targetingint = towerData.Targetingoption;
+                instantiateTower.GetComponentInChildren<mortarTower>().targetingType = towerData.TargetingOption;
             }
 
             if (towerData.TowerName == "tetherTower")
@@ -60,12 +60,12 @@ public class TowerSaveLoadManager : MonoBehaviour, ISaveable
 
                 instantiateTower.GetComponentInChildren<tetherTower>().id = towerData.TowerID;
 
-                instantiateTower.GetComponentInChildren<tetherTower>().targetingint = towerData.Targetingoption;
+                instantiateTower.GetComponentInChildren<tetherTower>().targetingType = towerData.TargetingOption;
 
             }
 
             Debug.Log($"Instantiated tower: {towerData.TowerID} at position {new Vector3(towerData.TowerPosition[0], towerData.TowerPosition[1], towerData.TowerPosition[2])}," +
-                      $"Tower Name: {towerData.TowerName}, targeting Option {towerData.Targetingoption}");
+                      $"Tower Name: {towerData.TowerName}, targeting Option {towerData.TargetingOption}");
         }
     }
 
@@ -82,17 +82,17 @@ public class TowerSaveLoadManager : MonoBehaviour, ISaveable
         return towerPrefab;
     }
 
-    public void UpdateTargetingint(string towerID, int UpdatedTargetingint)
+    public void UpdateTargetingType(string towerID, TargetingTypes UpdatedTargetingType)
     {
         if (towerDictionary.ContainsKey(towerID))
         {
             TowerData towerData = towerDictionary[towerID];
-            towerData.Targetingoption = UpdatedTargetingint;
+            towerData.TargetingOption = UpdatedTargetingType;
 
             // Replace the existing tower data in the dictionary
             towerDictionary[towerID] = towerData;
 
-            Debug.Log($"New targeting option for tower {towerID} is : {UpdatedTargetingint}");
+            Debug.Log($"New targeting option for tower {towerID} is : {UpdatedTargetingType}");
         }
         else
         {
@@ -113,7 +113,7 @@ public class TowerSaveLoadManager : MonoBehaviour, ISaveable
                 TowerID = towerdata.TowerID,
                 TowerPosition = towerdata.TowerPosition,
                 TowerName = towerdata.TowerName,
-                Targetingoption = towerdata.Targetingoption
+                TargetingOption = towerdata.TargetingOption
             };
             saveDataList.Add(saveTowerData);
         }
@@ -127,7 +127,7 @@ public class TowerSaveLoadManager : MonoBehaviour, ISaveable
         {
             towerDictionary[towerData.TowerID] = towerData;
             Debug.Log($"Restored tower: {towerData.TowerID} at position {new Vector3(towerData.TowerPosition[0], towerData.TowerPosition[1], towerData.TowerPosition[2])}," +
-                      $" Tower name: {towerData.TowerName}, Targeting Option: {towerData.Targetingoption}");
+                      $" Tower name: {towerData.TowerName}, Targeting Option: {towerData.TargetingOption}");
         }
 
         // Call to instantiate all saved towers back into the game
@@ -140,7 +140,7 @@ public class TowerSaveLoadManager : MonoBehaviour, ISaveable
         public string TowerID;
         public float[] TowerPosition;
         public string TowerName;
-        public int Targetingoption;
+        public TargetingTypes TargetingOption;
     }
 
     [Serializable]

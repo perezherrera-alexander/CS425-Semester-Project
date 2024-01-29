@@ -5,41 +5,19 @@ using System;
 
 public class tetherTower : BaseTowerLogic
 {
-#pragma warning disable 0414
     public LineRenderer laser;
-
     private float dot = 0.5f;
+    #pragma warning disable 0414
     private float slowDownFactor = 0.5f;
-#pragma warning restore 0414
-
+    #pragma warning restore 0414
     public string id;
-
-    public int targetingint;
-
-    // Start is called before the first frame update
     void Start()
     {
         towerName = "Tether Tower";
         Invoke();
         MakeSphere();
-        switch (targetingint)
-        {
-            case 0:
-                targeting = "first";
-                break;
-            case 1:
-                targeting = "last";
-                break;
-            case 2:
-                targeting = "close";
-                break;
-            case 3:
-                targeting = "strong";
-                break;
-        }
     }
 
-    // Update is called once per frame
     void Update()
     {
         Track();

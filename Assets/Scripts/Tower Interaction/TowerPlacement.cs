@@ -8,7 +8,7 @@ public class TowerPlacement : MonoBehaviour
     private GameObject CurrentPlacingTower;
     private GameObject Tower;
     private string towerName;
-    private int targetint;
+    private TargetingTypes savedTargettingType;
 
     [SerializeField] TowerSaveLoadManager towerSaveLoadManager;
 
@@ -46,25 +46,25 @@ public class TowerPlacement : MonoBehaviour
                 if (towerName == "beeTurret")
                 {
                     string ID = Tower.transform.GetChild(1).gameObject.GetComponent<BeeTower>().GenerateId().ToString();
-                    targetint = Tower.transform.GetChild(1).gameObject.GetComponent<BeeTower>().targetingint;
+                    savedTargettingType = Tower.transform.GetChild(1).gameObject.GetComponent<BeeTower>().targetingType;
                     Vector3 pos = Tower.transform.position;
-                    towerSaveLoadManager.AddTower(ID, pos, towerName, targetint);
+                    towerSaveLoadManager.AddTower(ID, pos, towerName, savedTargettingType);
                 }
 
                 if (towerName == "mortarTurret")
                 {
                     string ID = Tower.transform.GetChild(1).gameObject.GetComponent<mortarTower>().GenerateId().ToString();
-                    targetint = Tower.transform.GetChild(1).gameObject.GetComponent<mortarTower>().targetingint;
+                    savedTargettingType = Tower.transform.GetChild(1).gameObject.GetComponent<mortarTower>().targetingType;
                     Vector3 pos = Tower.transform.position;
-                    towerSaveLoadManager.AddTower(ID, pos, towerName, targetint);
+                    towerSaveLoadManager.AddTower(ID, pos, towerName, savedTargettingType);
                 }
 
                 if (towerName == "tetherTower")
                 {
                     string ID = Tower.transform.GetChild(1).gameObject.GetComponent<tetherTower>().GenerateId().ToString();
-                    targetint = Tower.transform.GetChild(1).gameObject.GetComponent<tetherTower>().targetingint;
+                    savedTargettingType = Tower.transform.GetChild(1).gameObject.GetComponent<tetherTower>().targetingType;
                     Vector3 pos = Tower.transform.position;
-                    towerSaveLoadManager.AddTower(ID, pos, towerName, targetint);
+                    towerSaveLoadManager.AddTower(ID, pos, towerName, savedTargettingType);
                 }
                 Tower = null;
             }
