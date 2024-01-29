@@ -3868,14 +3868,14 @@ MonoBehaviour:
   enemyPrefab1: {fileID: 6968686765002025932, guid: 68946bc38dbe17344a2f5ecfa12fdff8, type: 3}
   enemyPrefab2: {fileID: 2316506665245494890, guid: 70022aab04a3d2746830400f0ed90128, type: 3}
   SpawnPoint: {fileID: 5964268236289702475, guid: 81d094e2b60e4a747aaeea2543b44fb7, type: 3}
-  timeBetweenWaves: 2
-  EnemyTimeSeperation: 2
+  gameState: 0
+  enemiesPerWave: 6
+  currentWaveCount: 1
+  maxWaveCount: 10
+  timeBetweenWaves: 3
+  timeBetweenEnemySpawns: 0.5
   waveCountDownText: {fileID: 1988153091}
   levelCompleteText: {fileID: 2125177660}
-  EnemiesPerWave: 5
-  currentWaveCount: 1
-  maxWaveAmount: 5
-  gameState: 0
 --- !u!4 &1798962333
 Transform:
   m_ObjectHideFlags: 0
