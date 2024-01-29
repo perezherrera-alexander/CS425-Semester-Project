@@ -117,19 +117,19 @@ public class TowerPanelManager : MonoBehaviour
 
             if (scriptName == "BeeTower")
             {
-                Debug.Log("Saved targeting option is : " + SelectedTower.transform.GetChild(1).gameObject.GetComponent<BeeTower>().targetingint);
-                dropdown.value = SelectedTower.transform.GetChild(1).gameObject.GetComponent<BeeTower>().targetingint;
+                Debug.Log("Saved targeting option is : " + SelectedTower.transform.GetChild(1).gameObject.GetComponent<BeeTower>().targetingType);
+                dropdown.value = (int) SelectedTower.transform.GetChild(1).gameObject.GetComponent<BeeTower>().targetingType;
                 Debug.Log("Targting option is :" + dropdown.value);
             }
 
             if (scriptName == "mortarTower")
             {
-                dropdown.value = SelectedTower.transform.GetChild(1).gameObject.GetComponent<mortarTower>().targetingint;
+                dropdown.value = (int) SelectedTower.transform.GetChild(1).gameObject.GetComponent<mortarTower>().targetingType;
             }
 
             if (scriptName == "tetherTower")
             {
-                dropdown.value = SelectedTower.transform.GetChild(1).gameObject.GetComponent<tetherTower>().targetingint;
+                dropdown.value = (int) SelectedTower.transform.GetChild(1).gameObject.GetComponent<tetherTower>().targetingType;
             }
         }
 
@@ -242,38 +242,39 @@ public class TowerPanelManager : MonoBehaviour
         }
     }
 
-    public void TowerTargeting(int selectedindex)
+    public void TowerTargeting(int selectedTargetingType)
     {
+        TargetingTypes castedSelectedTargetingType = (TargetingTypes) selectedTargetingType;
         Debug.Log("Entered tower targeting");
         BaseTowerLogic towerScript = SelectedTower.GetComponentInChildren<BaseTowerLogic>();
 
-        Debug.Log(selectedindex);
-        switch (selectedindex)
+        Debug.Log(selectedTargetingType);
+        switch (selectedTargetingType)
         {
             case 0:
-                towerScript.GetComponentInChildren<BaseTowerLogic>().targeting = "first";
-                UpdateTowerInfo(selectedindex);
+                towerScript.GetComponentInChildren<BaseTowerLogic>().targetingType = TargetingTypes.First;
+                UpdateTowerInfo(castedSelectedTargetingType);
                 break;
 
             case 1:
-                towerScript.GetComponentInChildren<BaseTowerLogic>().targeting = "last";
-                UpdateTowerInfo(selectedindex);
+                towerScript.GetComponentInChildren<BaseTowerLogic>().targetingType = TargetingTypes.Last;
+                UpdateTowerInfo(castedSelectedTargetingType);
                 break;
 
             case 2:
-                towerScript.GetComponentInChildren<BaseTowerLogic>().targeting = "close";
-                UpdateTowerInfo(selectedindex);
+                towerScript.GetComponentInChildren<BaseTowerLogic>().targetingType = TargetingTypes.Close;
+                UpdateTowerInfo(castedSelectedTargetingType);
                 break;
 
             case 3:
-                towerScript.GetComponentInChildren<BaseTowerLogic>().targeting = "strong";
-                UpdateTowerInfo(selectedindex);
+                towerScript.GetComponentInChildren<BaseTowerLogic>().targetingType = TargetingTypes.Strong;
+                UpdateTowerInfo(castedSelectedTargetingType);
                 break;
         }
 
     }
 
-    private void UpdateTowerInfo(int selectedindex)
+    private void UpdateTowerInfo(TargetingTypes selectedTargetingType)
     {
         BaseTowerLogic towerScript = SelectedTower.GetComponentInChildren<BaseTowerLogic>();
         string TowerID;
@@ -286,23 +287,23 @@ public class TowerPanelManager : MonoBehaviour
 
             if (scriptName == "BeeTower")
             {
-                SelectedTower.transform.GetChild(1).gameObject.GetComponent<BeeTower>().targetingint = selectedindex;
+                SelectedTower.transform.GetChild(1).gameObject.GetComponent<BeeTower>().targetingType = selectedTargetingType;
                 TowerID = SelectedTower.transform.GetChild(1).gameObject.GetComponent<BeeTower>().id;
-                towerSaveLoadManager.UpdateTargetingint(TowerID, selectedindex);
+                towerSaveLoadManager.UpdateTargetingType(TowerID, selectedTargetingType);
             }
 
             if (scriptName == "mortarTower")
             {
-                SelectedTower.transform.GetChild(1).gameObject.GetComponent<mortarTower>().targetingint = selectedindex;
+                SelectedTower.transform.GetChild(1).gameObject.GetComponent<mortarTower>().targetingType = selectedTargetingType;
                 TowerID = SelectedTower.transform.GetChild(1).gameObject.GetComponent<mortarTower>().id;
-                towerSaveLoadManager.UpdateTargetingint(TowerID, selectedindex);
+                towerSaveLoadManager.UpdateTargetingType(TowerID, selectedTargetingType);
             }
 
             if (scriptName == "tetherTower")
             {
-                SelectedTower.transform.GetChild(1).gameObject.GetComponent<tetherTower>().targetingint = selectedindex;
+                SelectedTower.transform.GetChild(1).gameObject.GetComponent<tetherTower>().targetingType = selectedTargetingType;
                 TowerID = SelectedTower.transform.GetChild(1).gameObject.GetComponent<tetherTower>().id;
-                towerSaveLoadManager.UpdateTargetingint(TowerID, selectedindex);
+                towerSaveLoadManager.UpdateTargetingType(TowerID, selectedTargetingType);
             }
         }
     }

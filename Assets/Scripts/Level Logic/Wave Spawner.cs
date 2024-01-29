@@ -8,47 +8,39 @@ using System;
 public class WaveSpawner : MonoBehaviour
 {
     public PlayerData PlayerData;
-
+    [Header("Enemy Prefabs")]
     public Transform enemyPrefab1;
-
     public Transform enemyPrefab2;
-
     public Transform SpawnPoint;
-
-    public float timeBetweenWaves = 5f;
-
-    public float EnemyTimeSeperation = 0.5f;
-
-    //private float countDown = 0;
-
-    private float timer = 2;
-
-    public TextMeshProUGUI waveCountDownText;
-
-    public TextMeshProUGUI levelCompleteText;
-
-    public int EnemiesPerWave = 0;
-    public int currentWaveCount = 1;
-    public int maxWaveAmount = 0;
+    [Header("Wave Settings")]
     public GameStates gameState;
-
+    public int enemiesPerWave;
+    public int currentWaveCount;
+    public int maxWaveCount;
+    public float timeBetweenWaves;
+    public float timeBetweenEnemySpawns;
+    private float timeBetweenWavesTimer;
+    
+    [Header("UI")]
+    public TextMeshProUGUI waveCountDownText;
+    public TextMeshProUGUI levelCompleteText;
     void Start()
     {
         levelCompleteText.text = "";
-        timer = timeBetweenWaves;
+        timeBetweenWavesTimer = timeBetweenWaves;
     }
 
     void Update()
     {
         if(gameState == GameStates.InbetweenWaves)
         {
-            if(timer <= 0)
+            if(timeBetweenWavesTimer <= 0)
             {
                 gameState = GameStates.WaveStarting;
             }
             else
             {
-                timer -= Time.deltaTime;
+                timeBetweenWavesTimer -= Time.deltaTime;
             }
         }
         else if(gameState == GameStates.WaveStarting)
@@ -59,22 +51,22 @@ public class WaveSpawner : MonoBehaviour
         else if(gameState == GameStates.WaveInProgress)
         {
             // Check if all enemies have been killed, if it isn't the last wave, go back to inbetween waves
-            if(PlayerStatistics.Instance.GetEnemiesKilled() >= EnemiesPerWave)
+            if(PlayerStatistics.Instance.GetEnemiesKilled() >= enemiesPerWave)
             {
                 Debug.Log("Wave Complete!");
                 PlayerStatistics.Instance.ResetEnemiesKilled();
-                if(currentWaveCount >= maxWaveAmount)
+                if(currentWaveCount >= maxWaveCount)
                 {
                     Debug.Log("Level Complete!");
                     gameState = GameStates.LevelComplete;
-                    timer = timeBetweenWaves;
+                    timeBetweenWavesTimer = timeBetweenWaves;
                 }
                 else
                 {
                     Debug.Log("Next Wave!");
                     gameState = GameStates.InbetweenWaves;
                     currentWaveCount++;
-                    timer = timeBetweenWaves;
+                    timeBetweenWavesTimer = timeBetweenWaves;
                 }
             }
 
@@ -82,8 +74,8 @@ public class WaveSpawner : MonoBehaviour
         else if(gameState == GameStates.LevelComplete)
         {
             levelCompleteText.text = "Level Complete!";
-            timer -= Time.deltaTime;
-            if(timer <= 0)
+            timeBetweenWavesTimer -= Time.deltaTime;
+            if(timeBetweenWavesTimer <= 0)
             {
                 // Load the next level
                 Debug.Log("Loading Next Level");
@@ -95,16 +87,16 @@ public class WaveSpawner : MonoBehaviour
 
         }
 
-        waveCountDownText.text = "Wave: " + currentWaveCount + " / " + maxWaveAmount;
+        waveCountDownText.text = "Wave: " + currentWaveCount + " / " + maxWaveCount;
     }
 
     IEnumerator SpawnWave()
     {
 
-        for (int i = 0; i < EnemiesPerWave; i++)
+        for (int i = 0; i < enemiesPerWave; i++)
         {
             SpawnEnemy();
-            yield return new WaitForSeconds(EnemyTimeSeperation);
+            yield return new WaitForSeconds(timeBetweenEnemySpawns);
         }
         yield return null;
     }

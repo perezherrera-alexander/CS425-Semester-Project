@@ -5,12 +5,7 @@ using System;
 
 public class mortarTower : BaseTowerLogic
 {
-
-
     public string id;
-
-    public int targetingint;
-
 
     // Start is called before the first frame update
     void Start()
@@ -18,21 +13,6 @@ public class mortarTower : BaseTowerLogic
         towerName = "Mortar Tower";
         Invoke();
         MakeSphere();
-        switch (targetingint)
-        {
-            case 0:
-                targeting = "first";
-                break;
-            case 1:
-                targeting = "last";
-                break;
-            case 2:
-                targeting = "close";
-                break;
-            case 3:
-                targeting = "strong";
-                break;
-        }
     }
 
     // Update is called once per frame

@@ -6,33 +6,14 @@ using UnityEngine.UIElements;
 
 public class BeeTower : BaseTowerLogic
 {
-    public float[] towerPosition;
-
+    //public float[] towerPosition; // This variable is seeming unused
     public string id;
-
-    public int targetingint = 0;
-
     void Start()
     {
         towerName = "Bee Tower";
         Invoke();
         MakeSphere();
-        switch (targetingint)
-        {
-            case 0:
-                targeting = "first";
-                break;
-            case 1:
-                targeting = "last";
-                break;
-            case 2:
-                targeting = "close";
-                break;
-            case 3:
-                targeting = "strong";
-                break;
-        }
-        Debug.Log("Targetting Type: " + targeting);
+        Debug.Log("Targetting Type: " + targetingType);
     }
 
     void Update()
