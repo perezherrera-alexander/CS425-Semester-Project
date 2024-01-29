@@ -13,7 +13,8 @@ public class BaseTowerLogic : MonoBehaviour
     public string enemyTag = "Enemy";
     [Header("Tower Stats")]
     public int buildCost;
-    public float targettingRange = 20;
+    [Range(0f, 30f)]
+    public float targettingRange = 20f;
     public float fireRate = 1f;
     private float fireCountdown = 0f; // Cooldown between shots
     private bool isActive = false;

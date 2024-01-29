@@ -14,10 +14,15 @@ public class WaveSpawner : MonoBehaviour
     public Transform SpawnPoint;
     [Header("Wave Settings")]
     public GameStates gameState;
+    [Range(0, 10)]
     public int enemiesPerWave;
+    [Range(0, 10)]
     public int currentWaveCount;
+    [Range(1, 10)]
     public int maxWaveCount;
+    [Range(0f, 5f)]
     public float timeBetweenWaves;
+    [Range(0f, 2f)]
     public float timeBetweenEnemySpawns;
     private float timeBetweenWavesTimer;
     
