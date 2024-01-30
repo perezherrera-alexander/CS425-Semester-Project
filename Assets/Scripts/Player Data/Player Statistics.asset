@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 691a31792b0691b4f934fbfb5ba8fa83, type: 3}
   m_Name: Player Statistics
   m_EditorClassIdentifier: 
-  Morale: 81
+  Morale: 100
   MoraleDuringWorld: 81
   EvolutionPoints: 73
   EvolutionPointsDuringWorld: 73
@@ -21,7 +21,6 @@ MonoBehaviour:
   NumberOfWorldsCompleted: 0
   CurrentWorld: World1
   WorldsCompleted: []
-  LevelCompleted: 1
   TowersObtained: 3
   Towers:
   - {fileID: 971902319036964014, guid: 6c1bcac6b019a5445a29397b2e5fbdbd, type: 3}

@@ -62,7 +62,7 @@ public class BaseEnemyLogic : MonoBehaviour
     }
 
     public void GetNextWaypoint(){
-        if (wavepointIndex >= Path.waypoints.Length - 1){
+        if (wavepointIndex >= Path.waypoints.Length - 1){ // Enemy reaches end of path
             //decrement player health according to
             float EnemyHealth = getHealth();
             int MoraleLost = (int)EnemyHealth;
