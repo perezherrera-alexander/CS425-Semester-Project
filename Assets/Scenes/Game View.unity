@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4816,6 +4816,63 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1001 &923547664165202398
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3496186726202727201, guid: 6c1a92e71725f8e4d87187e45f71fa2e, type: 3}
+      propertyPath: m_Name
+      value: FlameTower
+      objectReference: {fileID: 0}
+    - target: {fileID: 5703649855149180145, guid: 6c1a92e71725f8e4d87187e45f71fa2e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 22.075657
+      objectReference: {fileID: 0}
+    - target: {fileID: 5703649855149180145, guid: 6c1a92e71725f8e4d87187e45f71fa2e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5703649855149180145, guid: 6c1a92e71725f8e4d87187e45f71fa2e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 32.589256
+      objectReference: {fileID: 0}
+    - target: {fileID: 5703649855149180145, guid: 6c1a92e71725f8e4d87187e45f71fa2e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5703649855149180145, guid: 6c1a92e71725f8e4d87187e45f71fa2e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5703649855149180145, guid: 6c1a92e71725f8e4d87187e45f71fa2e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5703649855149180145, guid: 6c1a92e71725f8e4d87187e45f71fa2e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5703649855149180145, guid: 6c1a92e71725f8e4d87187e45f71fa2e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5703649855149180145, guid: 6c1a92e71725f8e4d87187e45f71fa2e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5703649855149180145, guid: 6c1a92e71725f8e4d87187e45f71fa2e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6c1a92e71725f8e4d87187e45f71fa2e, type: 3}
 --- !u!222 &947659444787624220
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5861,3 +5918,4 @@ SceneRoots:
   - {fileID: 1798962333}
   - {fileID: 870567819}
   - {fileID: 1611373641}
+  - {fileID: 923547664165202398}
