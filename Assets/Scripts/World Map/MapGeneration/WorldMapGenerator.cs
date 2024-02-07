@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class WorldMapGenerator : MonoBehaviour
@@ -98,6 +99,12 @@ public class WorldMapGenerator : MonoBehaviour
         {
             Debug.Log("Button clicked at: " + col + ", " + row + " - No WorldNode component found");
         }
+
+        SceneManager.LoadScene("Game View");
+
+        string combineddata = string.Join(",", col, row);
+
+        playerData.CurrentWorld = combineddata;
     }
 
     // The function that finds and stores the connection of each current node for the next possible nodes

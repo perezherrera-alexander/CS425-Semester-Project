@@ -40,7 +40,7 @@ public class ValidWorlds : MonoBehaviour
             int row = int.Parse(SplitString[1]);
 
             Image buttonImages = WorldButtonsHolder[col, row].GetComponent<Image>();
-            buttonImages.color = Color.red;
+            buttonImages.color = Color.black;
         }
 
 
@@ -70,11 +70,6 @@ public class ValidWorlds : MonoBehaviour
                 }
             }
         }
-    }
-
-    public void ValidWorld ()
-    {
-
     }
 
     /*
