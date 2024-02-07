@@ -10,7 +10,7 @@ public class NewLevel : MonoBehaviour
         playerData.EvolutionPoints = 20;
         playerData.EnemiesKilled = 0;
         playerData.NumberOfWorldsCompleted = 0;
-        playerData.CurrentWorld = "World1";
+        playerData.CurrentWorld = "0,3";
         playerData.InitializeWorldsCompletedArray(100);
         SceneManager.LoadScene(sceneName);
     }

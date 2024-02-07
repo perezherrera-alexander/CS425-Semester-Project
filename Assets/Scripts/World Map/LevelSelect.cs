@@ -8,6 +8,7 @@ public class LevelSelect : MonoBehaviour
     public PlayerData playerData;
     public ValidWorlds validWorlds;
 
+    /*
     public void StartWorld1 ()
     {
         string WorldName = "World1";
@@ -55,4 +56,5 @@ public class LevelSelect : MonoBehaviour
         string WorldName = "World8";
         validWorlds.SelectingValidWorlds(WorldName);
     }
+    */
 }

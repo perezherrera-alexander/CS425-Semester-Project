@@ -87,7 +87,7 @@ public class WaveSpawner : MonoBehaviour
                 PlayerData.UpdateData(true);
                 PlayerData.WorldsCompleted[PlayerData.NumberOfWorldsCompleted] = PlayerData.CurrentWorld;
                 PlayerData.NumberOfWorldsCompleted += 1;
-                UnityEngine.SceneManagement.SceneManager.LoadScene("World Map");
+                UnityEngine.SceneManagement.SceneManager.LoadScene("World Map Generation");
             }
 
         }
