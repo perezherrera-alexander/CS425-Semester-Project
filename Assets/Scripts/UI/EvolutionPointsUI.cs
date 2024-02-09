@@ -26,7 +26,7 @@ public class EvolutionPointsUI : MonoBehaviour
             {
                 int CurrentEvolutionPointsTotal = playerStatistics.GetMoney();
 
-                EvolutionPointsTotal.text = "Evolution Points: " + Mathf.Ceil(CurrentEvolutionPointsTotal).ToString();
+                EvolutionPointsTotal.text = Mathf.Ceil(CurrentEvolutionPointsTotal).ToString();
             }
             else
                 Debug.Log("playerstats empty");
