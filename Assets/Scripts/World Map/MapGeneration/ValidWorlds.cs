@@ -40,7 +40,12 @@ public class ValidWorlds : MonoBehaviour
             int row = int.Parse(SplitString[1]);
 
             Image buttonImages = WorldButtonsHolder[col, row].GetComponent<Image>();
+            Button buttonComponent = WorldButtonsHolder[col, row].GetComponent<Button>();
             buttonImages.color = Color.black;
+
+            var DisabledColor = buttonComponent.colors;
+            DisabledColor.disabledColor = Color.white;
+            buttonComponent.colors = DisabledColor;
         }
 
 
@@ -65,51 +70,12 @@ public class ValidWorlds : MonoBehaviour
                     WorldNode adjacentNode = WorldButtonsHolder[newCol, newRow].GetComponent<WorldNode>();
 
                     Image buttonImage = WorldButtonsHolder[newCol, newRow].GetComponent<Image>();
+                    Button buttonComponent = WorldButtonsHolder[newCol, newRow].GetComponent<Button>();
 
                     buttonImage.color = Color.yellow;
+                    buttonComponent.interactable = true;
                 }
             }
         }
     }
-
-    /*
-    // Check if player is selecting a world already completed
-    public void SelectingValidWorlds(string worldName)
-    {
-        for (int i = 0; i < trackLevelsCompleted.WorldName.Length; i++)
-        {
-            if (worldName == trackLevelsCompleted.WorldName[i])
-            {
-                if (trackLevelsCompleted.completed[i] == true)
-                {
-                    Debug.Log("World has already been completed, select a new world to move forward");
-                    //OpenPanel();
-
-                }
-                else
-                {
-                    playerData.CurrentWorld = worldName;
-                    SceneManager.LoadScene(SceneName[i]);
-                }
-            }
-        }
-    }
-
-    public void OpenPanel()
-    {
-        InvalidWorldMessage.SetActive(true);
-
-        Button closePanelButton = InvalidWorldMessage.transform.GetChild(0).GetChild(1).GetComponent<Button>();
-
-        if (closePanelButton != null)
-        {
-            closePanelButton.onClick.AddListener(ClosePanel);
-        }
-    }
-
-    public void ClosePanel()
-    {
-        InvalidWorldMessage.SetActive(false);
-    }
-    */
 }

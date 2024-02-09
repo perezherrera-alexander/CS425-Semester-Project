@@ -39,6 +39,8 @@ public class GridLayoutBluePrint : MonoBehaviour
                 buttonComponent.enabled = false;
                 buttonImage.color = Color.gray;
 
+                buttonComponent.interactable = false;
+
                 WorldsInUseForMapGeneration[row, col] = false;
 
                 if (col == 0 && row == 3)
