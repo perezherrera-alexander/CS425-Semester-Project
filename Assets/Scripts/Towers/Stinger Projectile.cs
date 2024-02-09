@@ -83,7 +83,13 @@ public class stingerScript : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
+            //Reduce health of enemy
             other.GetComponent<BaseEnemyLogic>().reduceHealth(directDamage);
+                // //Duration of enemy slow
+                // other.GetComponent<BaseEnemyLogic>().slowDownTimer = 2f;
+                // //Slow factor
+                // other.GetComponent<BaseEnemyLogic>().slowFactor = 0.5f;
+            //Destroy projectile
             Destroy(gameObject);
             exists = false;
             //Debug.Log(other.GetComponent<BaseEnemyLogic>().getHealth());

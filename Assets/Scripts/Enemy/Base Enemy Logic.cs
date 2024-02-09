@@ -47,17 +47,32 @@ public class BaseEnemyLogic : MonoBehaviour
     // Movement
     public float speed = 10f;
 
+    public float slowFactor = 1;
+
+    public float slowDownTimer = 0;
+
     public Transform target;
 
     public int wavepointIndex = 0;
 
     public virtual void Update (){
         healthCheck();
+        effect_check();
+
         Vector3 direction = target.position - transform.position;
-        transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);
+        transform.Translate(direction.normalized * speed * slowFactor * Time.deltaTime, Space.World);
 
         if (Vector3.Distance(transform.position, target.position) <= 0.4f){
             GetNextWaypoint();
+        }
+    }
+
+    public virtual void effect_check()
+    {
+        if (slowDownTimer > 0){
+            slowDownTimer -= Time.deltaTime;
+        } else {
+            slowFactor = 1;
         }
     }
 
@@ -81,10 +96,9 @@ public class BaseEnemyLogic : MonoBehaviour
         target = Path.waypoints[wavepointIndex];
 
     }
-
-
-    public void slowDown(float slowFactor)
-    {
-        speed = speed * slowFactor;
-    }
+        // public void slowDown(float slow,float slowTimer)
+        // {
+        //     slowFactor = slow;
+        //     slowDownTimer = slowTimer;
+        // }
 }
