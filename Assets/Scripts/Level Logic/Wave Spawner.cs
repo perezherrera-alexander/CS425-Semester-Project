@@ -29,16 +29,19 @@ public class WaveSpawner : MonoBehaviour
     [Header("UI")]
     public TextMeshProUGUI waveCountDownText;
     public TextMeshProUGUI levelCompleteText;
+    public TextMeshProUGUI beginNextWaveText;
+    private bool loadNextLevelOnce = true;
     void Start()
     {
         levelCompleteText.text = "";
-        //timeBetweenWavesTimer = timeBetweenWaves;
     }
 
     void Update()
     {
+        
         if(gameState == GameStates.InbetweenWaves)
         {
+            beginNextWaveText.text = "Press SPACEBAR to begin next wave";
             if(Input.GetKeyDown(KeyCode.Space))
             {
                 gameState = GameStates.WaveStarting;
@@ -46,6 +49,7 @@ public class WaveSpawner : MonoBehaviour
         }
         else if(gameState == GameStates.WaveStarting)
         {
+            beginNextWaveText.text = "";
             StartCoroutine(SpawnWave());
             gameState = GameStates.WaveInProgress;
         }
@@ -73,8 +77,11 @@ public class WaveSpawner : MonoBehaviour
         else if(gameState == GameStates.LevelComplete)
         {
             levelCompleteText.text = "Level Complete!";
-
-            StartCoroutine(LoadNextLevel());
+            if(loadNextLevelOnce)
+            {
+                loadNextLevelOnce = false;
+                StartCoroutine(LoadNextLevel());
+            }
         }
 
         waveCountDownText.text = "Wave: " + currentWaveCount + " / " + maxWaveCount;
@@ -95,11 +102,12 @@ public class WaveSpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         // Load the next level
-        Debug.Log("Loading Next Level");
+
         PlayerData.UpdateData(true);
         PlayerData.WorldsCompleted[PlayerData.NumberOfWorldsCompleted] = PlayerData.CurrentWorld;
         PlayerData.NumberOfWorldsCompleted += 1;
-        UnityEngine.SceneManagement.SceneManager.LoadScene("World Map Generation");
+        Debug.Log("Loading Next Level (Go into code and change this to the next level)");
+        //UnityEngine.SceneManagement.SceneManager.LoadScene("World Map Generation");
     }
 
     void SpawnEnemy()
