@@ -300,7 +300,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1270188052}
+      - m_Target: {fileID: 1229762641}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: LoadSettings
         m_Mode: 1
@@ -1139,6 +1139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SettingsStatus: 0
   SettingsMenuUI: {fileID: 2072945857}
+  volumeSlider: {fileID: 1642295574}
 --- !u!1 &1270188046
 GameObject:
   m_ObjectHideFlags: 0
@@ -1151,7 +1152,6 @@ GameObject:
   - component: {fileID: 1270188049}
   - component: {fileID: 1270188048}
   - component: {fileID: 1270188050}
-  - component: {fileID: 1270188052}
   m_Layer: 5
   m_Name: ButtonContainer
   m_TagString: Untagged
@@ -1245,20 +1245,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &1270188052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1270188046}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13f503948a984f3448023ba2bf4248e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SettingsStatus: 0
-  SettingsMenuUI: {fileID: 2072945857}
 --- !u!1 &1386368449
 GameObject:
   m_ObjectHideFlags: 0
@@ -1563,6 +1549,14 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1378723648912686541, guid: 920e0e11675b21e44b7a29f8e7caed45, type: 3}
+      propertyPath: m_Value
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1824691905179367009, guid: 920e0e11675b21e44b7a29f8e7caed45, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1824691905179367009, guid: 920e0e11675b21e44b7a29f8e7caed45, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1576,8 +1570,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3613083365624145797, guid: 920e0e11675b21e44b7a29f8e7caed45, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3613083365624145797, guid: 920e0e11675b21e44b7a29f8e7caed45, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3613083365624145797, guid: 920e0e11675b21e44b7a29f8e7caed45, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3863489013842184801, guid: 920e0e11675b21e44b7a29f8e7caed45, type: 3}
       propertyPath: m_Pivot.x
@@ -1663,19 +1665,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1229762641}
-    - target: {fileID: 7772497309489422663, guid: 920e0e11675b21e44b7a29f8e7caed45, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ExitSettings
-      objectReference: {fileID: 0}
-    - target: {fileID: 7772497309489422663, guid: 920e0e11675b21e44b7a29f8e7caed45, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: MainMenu, Assembly-CSharp
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 920e0e11675b21e44b7a29f8e7caed45, type: 3}
+--- !u!114 &1642295574 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1378723648912686541, guid: 920e0e11675b21e44b7a29f8e7caed45, type: 3}
+  m_PrefabInstance: {fileID: 1642295573}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1740622153
 GameObject:
   m_ObjectHideFlags: 0
