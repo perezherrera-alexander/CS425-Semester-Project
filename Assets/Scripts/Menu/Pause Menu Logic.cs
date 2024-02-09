@@ -9,7 +9,6 @@ public class PauseMenu : MonoBehaviour
     public bool SettingsStatus = false;
     public GameObject PauseMenuUI;
     public GameObject SettingsMenuUI;
-
     SaveLoadManager saveLoadManager;
 
     void Start()
