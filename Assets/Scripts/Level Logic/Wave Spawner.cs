@@ -24,7 +24,7 @@ public class WaveSpawner : MonoBehaviour
     public float timeBetweenWaves;
     [Range(0f, 2f)]
     public float timeBetweenEnemySpawns;
-    private float timeBetweenWavesTimer;
+    //private float timeBetweenWavesTimer;
     
     [Header("UI")]
     public TextMeshProUGUI waveCountDownText;
@@ -32,20 +32,16 @@ public class WaveSpawner : MonoBehaviour
     void Start()
     {
         levelCompleteText.text = "";
-        timeBetweenWavesTimer = timeBetweenWaves;
+        //timeBetweenWavesTimer = timeBetweenWaves;
     }
 
     void Update()
     {
         if(gameState == GameStates.InbetweenWaves)
         {
-            if(timeBetweenWavesTimer <= 0)
+            if(Input.GetKeyDown(KeyCode.Space))
             {
                 gameState = GameStates.WaveStarting;
-            }
-            else
-            {
-                timeBetweenWavesTimer -= Time.deltaTime;
             }
         }
         else if(gameState == GameStates.WaveStarting)
@@ -64,14 +60,12 @@ public class WaveSpawner : MonoBehaviour
                 {
                     Debug.Log("Level Complete!");
                     gameState = GameStates.LevelComplete;
-                    timeBetweenWavesTimer = timeBetweenWaves;
                 }
                 else
                 {
                     Debug.Log("Next Wave!");
                     gameState = GameStates.InbetweenWaves;
                     currentWaveCount++;
-                    timeBetweenWavesTimer = timeBetweenWaves;
                 }
             }
 
@@ -79,17 +73,8 @@ public class WaveSpawner : MonoBehaviour
         else if(gameState == GameStates.LevelComplete)
         {
             levelCompleteText.text = "Level Complete!";
-            timeBetweenWavesTimer -= Time.deltaTime;
-            if(timeBetweenWavesTimer <= 0)
-            {
-                // Load the next level
-                Debug.Log("Loading Next Level");
-                PlayerData.UpdateData(true);
-                PlayerData.WorldsCompleted[PlayerData.NumberOfWorldsCompleted] = PlayerData.CurrentWorld;
-                PlayerData.NumberOfWorldsCompleted += 1;
-                UnityEngine.SceneManagement.SceneManager.LoadScene("World Map Generation");
-            }
 
+            StartCoroutine(LoadNextLevel());
         }
 
         waveCountDownText.text = "Wave: " + currentWaveCount + " / " + maxWaveCount;
@@ -104,6 +89,17 @@ public class WaveSpawner : MonoBehaviour
             yield return new WaitForSeconds(timeBetweenEnemySpawns);
         }
         yield return null;
+    }
+
+    IEnumerator LoadNextLevel()
+    {
+        yield return new WaitForSeconds(3f);
+        // Load the next level
+        Debug.Log("Loading Next Level");
+        PlayerData.UpdateData(true);
+        PlayerData.WorldsCompleted[PlayerData.NumberOfWorldsCompleted] = PlayerData.CurrentWorld;
+        PlayerData.NumberOfWorldsCompleted += 1;
+        UnityEngine.SceneManagement.SceneManager.LoadScene("World Map Generation");
     }
 
     void SpawnEnemy()
