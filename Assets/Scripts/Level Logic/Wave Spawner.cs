@@ -107,7 +107,7 @@ public class WaveSpawner : MonoBehaviour
         PlayerData.WorldsCompleted[PlayerData.NumberOfWorldsCompleted] = PlayerData.CurrentWorld;
         PlayerData.NumberOfWorldsCompleted += 1;
         Debug.Log("Loading Next Level (Go into code and change this to the next level)");
-        //UnityEngine.SceneManagement.SceneManager.LoadScene("World Map Generation");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("World Map Generation");
     }
 
     void SpawnEnemy()
