@@ -51,6 +51,10 @@ public class BaseEnemyLogic : MonoBehaviour
 
     public float slowDownTimer = 0;
 
+    //Damage over time effect
+    public float dotDamage = 0;
+    public float dotTimer = 0;
+
     public Transform target;
 
     public int wavepointIndex = 0;
@@ -73,6 +77,15 @@ public class BaseEnemyLogic : MonoBehaviour
             slowDownTimer -= Time.deltaTime;
         } else {
             slowFactor = 1;
+        }
+        damageOverTime();
+    }
+
+    public virtual void damageOverTime()
+    {
+        if (dotTimer > 0){
+            dotTimer -= Time.deltaTime;
+            reduceHealth(dotDamage * Time.deltaTime);
         }
     }
 

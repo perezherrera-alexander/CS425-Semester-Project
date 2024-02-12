@@ -89,6 +89,10 @@ public class stingerScript : MonoBehaviour
                 // other.GetComponent<BaseEnemyLogic>().slowDownTimer = 2f;
                 // //Slow factor
                 // other.GetComponent<BaseEnemyLogic>().slowFactor = 0.5f;
+            //Damage over time
+            other.GetComponent<BaseEnemyLogic>().dotDamage = 1;
+            other.GetComponent<BaseEnemyLogic>().dotTimer = 2f;
+
             //Destroy projectile
             Destroy(gameObject);
             exists = false;
