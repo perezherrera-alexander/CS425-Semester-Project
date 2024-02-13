@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -9,12 +10,14 @@ public class PauseMenu : MonoBehaviour
     public bool SettingsStatus = false;
     public GameObject PauseMenuUI;
     public GameObject SettingsMenuUI;
-
+    public Slider volumeSlider;
     SaveLoadManager saveLoadManager;
+
 
     void Start()
     {
         saveLoadManager = GameObject.FindObjectOfType<SaveLoadManager>();
+        volumeSlider.value = SettingsValues.gameVolume;
     }
 
     void Update()
@@ -30,6 +33,8 @@ public class PauseMenu : MonoBehaviour
                 Pause();
             }
         }
+        SettingsValues.gameVolume = (int)volumeSlider.value;
+        //Debug.Log("Volume: " + SettingsValues.gameVolume);
     }
 
     public void Resume ()

@@ -48,22 +48,50 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
     // Movement
     public float speed = 10f;
 
+    public float slowFactor = 1;
+
+    public float slowDownTimer = 0;
+
+    //Damage over time effect
+    public float dotDamage = 0;
+    public float dotTimer = 0;
+
     public Transform target;
 
     public int wavepointIndex = 0;
 
     public virtual void Update (){
         healthCheck();
+        effect_check();
+
         Vector3 direction = target.position - transform.position;
-        transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);
+        transform.Translate(direction.normalized * speed * slowFactor * Time.deltaTime, Space.World);
 
         if (Vector3.Distance(transform.position, target.position) <= 0.4f){
             GetNextWaypoint();
         }
     }
 
+    public virtual void effect_check()
+    {
+        if (slowDownTimer > 0){
+            slowDownTimer -= Time.deltaTime;
+        } else {
+            slowFactor = 1;
+        }
+        damageOverTime();
+    }
+
+    public virtual void damageOverTime()
+    {
+        if (dotTimer > 0){
+            dotTimer -= Time.deltaTime;
+            reduceHealth(dotDamage * Time.deltaTime);
+        }
+    }
+
     public void GetNextWaypoint(){
-        if (wavepointIndex >= Path.waypoints.Length - 1){
+        if (wavepointIndex >= Path.waypoints.Length - 1){ // Enemy reaches end of path
             //decrement player health according to
             float EnemyHealth = getHealth();
             int MoraleLost = (int)EnemyHealth;
@@ -82,6 +110,7 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
         target = Path.waypoints[wavepointIndex];
 
     }
+
 
 
     public void slowDown(float slowFactor)
@@ -113,3 +142,4 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
         data = null;
     }
 }
+

@@ -8,7 +8,10 @@ public class PlayerStatistics : MonoBehaviour, ISaveable
     public PlayerData playerData;
     // Singleton instance
     public static PlayerStatistics Instance { get; private set; }
-    public int Morale = 100;
+    //public HealthBar moraleBar;
+    public MoraleUI moraleBar;
+    public int MaxMorale = 100;
+    public int currentMorale = 100;
     public int CurrentEvolutionPoints = 20;
     private int enemiesKilled = 0;
     //private string CustomSaveName;
@@ -17,7 +20,7 @@ public class PlayerStatistics : MonoBehaviour, ISaveable
         // Ensure only one instance exists
         if (Instance == null) // If instance doesn't exist, create one
         {
-            Morale = playerData.Morale;
+            currentMorale = playerData.Morale;
             CurrentEvolutionPoints = playerData.EvolutionPoints;
             Instance = this;
         }
@@ -25,16 +28,18 @@ public class PlayerStatistics : MonoBehaviour, ISaveable
         {
             Destroy(gameObject);
         }
+        moraleBar.SetMaxMorale(MaxMorale);
     }
 
 
     public void Update()
     {
-        int morale = GetMorale();
+        int currentMorale = GetMorale();
+        moraleBar.SetMorale(currentMorale);
         int evolutionPoints = GetMoney();
         int enemiesKilled = GetEnemiesKilled();
 
-        playerData.UpdateStats(morale, evolutionPoints, enemiesKilled);
+        playerData.UpdateStats(currentMorale, evolutionPoints, enemiesKilled);
 
     }
 
@@ -50,12 +55,18 @@ public class PlayerStatistics : MonoBehaviour, ISaveable
 
     public void ReduceMorale(int MoraleLost)
     {
-        Morale -= MoraleLost;
+        currentMorale -= MoraleLost;
+
     }
 
     public int GetMorale ()
     {
-        return Morale;
+        return currentMorale;
+    }
+
+    public int GetMaxMorale()
+    {
+        return MaxMorale;
     }
 
     public int GetEnemiesKilled()
@@ -84,7 +95,7 @@ public class PlayerStatistics : MonoBehaviour, ISaveable
         return new SaveData
         {
             CurrentEvolutionPoints = CurrentEvolutionPoints,
-            Morale = Morale
+            currentMorale = currentMorale
         };
     }
 
@@ -93,13 +104,13 @@ public class PlayerStatistics : MonoBehaviour, ISaveable
         var saveData = (SaveData)state;
 
         CurrentEvolutionPoints = saveData.CurrentEvolutionPoints;
-        Morale = saveData.Morale;
+        currentMorale = saveData.currentMorale;
     }
 
     [Serializable]
     private struct SaveData
     {
         public int CurrentEvolutionPoints;
-        public int Morale;
+        public int currentMorale;
     }
 }

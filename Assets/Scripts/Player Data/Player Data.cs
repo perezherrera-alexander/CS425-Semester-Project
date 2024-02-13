@@ -5,9 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "PlayerStats", menuName = "PlayerStats")]
 public class PlayerData : ScriptableObject
 {
-    public int Morale = 100;
+    public int Morale;
     public int MoraleDuringWorld = 0;
-
     public int EvolutionPoints = 20;
     public int EvolutionPointsDuringWorld = 0;
 
