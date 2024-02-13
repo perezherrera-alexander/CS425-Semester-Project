@@ -57,8 +57,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 10.54, y: -0.27, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2354768281833958787}
   - {fileID: 6661528310419365076}
@@ -277,17 +277,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5575a7f8dc11be4685c247b15e5849d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  targettingRange: 20
-  enemyTag: Enemy
-  fireRate: 1
-  projectilePrefab: {fileID: 0}
-  locationToFireFrom: {fileID: 8755519099717131826}
   barrelToRotate: {fileID: 6661528310419365076}
-  BuildCost: 0
-  targeting: close
+  locationToFireFrom: {fileID: 8755519099717131826}
+  projectilePrefab: {fileID: 0}
+  enemyTag: Enemy
+  buildCost: 0
+  targettingRange: 20
+  fireRate: 1
+  target: {fileID: 0}
+  targetingType: 0
   targets: []
-  radius: {fileID: 0}
 --- !u!135 &8038024396609634895
 SphereCollider:
   m_ObjectHideFlags: 0

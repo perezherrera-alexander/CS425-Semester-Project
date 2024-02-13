@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class BaseEnemyLogic : MonoBehaviour
+public class BaseEnemyLogic : MonoBehaviour, Effectable
 {
+    private StatusEffects data;
     public Collider objectCollider;
     public GameObject ob;
     public int GoldWorth;
@@ -109,9 +110,36 @@ public class BaseEnemyLogic : MonoBehaviour
         target = Path.waypoints[wavepointIndex];
 
     }
-        // public void slowDown(float slow,float slowTimer)
-        // {
-        //     slowFactor = slow;
-        //     slowDownTimer = slowTimer;
-        // }
+
+
+
+    public void slowDown(float slowFactor)
+    {
+        speed = speed * slowFactor;
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.GetComponent<CapsuleCollider>())
+        {
+            if(other.GetComponent<FlameTower>() != null)
+            {
+                float damage = other.GetComponent<FlameTower>().getDamage();
+                float dmgFrame = damage * Time.deltaTime;
+                reduceHealth(dmgFrame);
+            }
+
+        }
+    }
+
+    public void applyEffect(StatusEffects effect)
+    {
+        this.data = effect;
+    }
+
+    public void removeEffect()
+    {
+        data = null;
+    }
 }
+

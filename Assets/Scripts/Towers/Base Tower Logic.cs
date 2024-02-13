@@ -17,7 +17,7 @@ public class BaseTowerLogic : MonoBehaviour
     public float targettingRange = 20f;
     public float fireRate = 1f;
     private float fireCountdown = 0f; // Cooldown between shots
-    private bool isActive = false;
+    public bool isActive = false;
     [Header("Targeting")]
     public Transform target;
     public TargetingTypes targetingType = TargetingTypes.First;
@@ -56,6 +56,7 @@ public class BaseTowerLogic : MonoBehaviour
         Quaternion lookRotation = Quaternion.LookRotation(dir);
         Vector3 rotation = lookRotation.eulerAngles;
         barrelToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+        //Justin C: This block of code helps the model of the tower point towards the selected target
 
         if (fireCountdown <= 0f)
         {
@@ -250,7 +251,7 @@ public class BaseTowerLogic : MonoBehaviour
         isActive = true;
     }
 
-    public void MakeSphere()
+    public virtual void MakeSphere()
     {
         proximitySphere = transform.GetComponent<SphereCollider>();
         proximitySphere.radius = targettingRange * 0.5f;
