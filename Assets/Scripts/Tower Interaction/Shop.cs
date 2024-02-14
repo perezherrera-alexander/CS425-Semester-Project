@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class ShopScript : MonoBehaviour
 {
+    [Header("Tower Prefabs")]
     [SerializeField] private GameObject BeeTowerPrefab;
     [SerializeField] private GameObject MortarTowerPrefab;
     [SerializeField] private GameObject TetherTowerPrefab;
-
+    [Header("Scripts")]
     [SerializeField] private TowerPlacement towerPlacement;
     [SerializeField] private PlayerStatistics playerStatistics;
 
