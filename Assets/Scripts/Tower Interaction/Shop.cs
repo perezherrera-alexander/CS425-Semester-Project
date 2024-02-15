@@ -12,6 +12,24 @@ public class ShopScript : MonoBehaviour
     [SerializeField] private TowerPlacement towerPlacement;
     [SerializeField] private PlayerStatistics playerStatistics;
 
+    public void PurchaseTower(string towerName)
+    {
+        if(towerName == "Test"){
+            Debug.Log("Shop cript successfully called from button click");
+        }
+        if (towerName == "BeeTower")
+        {
+            PurchaseBeeTower();
+        }
+        else if (towerName == "MortarTower")
+        {
+            PurchaseMortarTower();
+        }
+        else if (towerName == "TetherTower")
+        {
+            PurchaseTetherTower();
+        }
+    }
     public void PurchaseBeeTower()
     {
         Transform child = BeeTowerPrefab.transform.Find("Rotate");
