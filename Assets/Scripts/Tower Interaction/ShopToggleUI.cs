@@ -40,7 +40,16 @@ public class ShopUIController : MonoBehaviour
                 // Spawn the correct tower button in the row
                 if (towersLeftToSpawn > 0)
                 {
+                    //Debug.Log("tower reference: " + playerData.Towers[numberOfTowersUnlocked - towersLeftToSpawn]);
                     GameObject towerReference = playerData.Towers[numberOfTowersUnlocked - towersLeftToSpawn];
+                    Transform child = towerReference.transform.Find("Rotate");
+                    string towerName = towerReference.transform.GetComponentInChildren<BaseTowerLogic>().towerName;
+                    //string towerName = child.GetComponent<BaseTowerLogic>().name;
+                    int towerCost = child.GetComponent<BaseTowerLogic>().buildCost;
+                    Debug.Log("Tower name: " + towerName);
+                    Debug.Log("Tower cost: " + towerCost);
+                    //string towerName = towerReference.GetComponentInChildren<BaseTowerLogic>().towerName;
+
                     // Create the button
                     GameObject newButton = Instantiate(buttonTemplate, newRow.transform);
                     // Attach the button to the row
@@ -48,7 +57,7 @@ public class ShopUIController : MonoBehaviour
                     // Set the button's image to the tower's image
                     //newButton.GetComponent<Image>().sprite = towerReference.GetComponentInChildren<SpriteRenderer>().sprite;
                     // Set the button's onClick event to the correct tower's purchase function
-                    newButton.GetComponent<Button>().onClick.AddListener(delegate {ShopUI.GetComponent<ShopScript>().PurchaseTower("Test"); });
+                    newButton.GetComponent<Button>().onClick.AddListener(delegate {ShopUI.GetComponent<ShopScript>().PurchaseTower(towerName); });
                     // Decrement the number of towers left to spawn
                     towersLeftToSpawn--;
                 }

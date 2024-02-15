@@ -43,7 +43,7 @@ public class TowerPlacement : MonoBehaviour
                 // Call the ActivateTower function of the tower's script
                 Tower.transform.GetComponentInChildren<BaseTowerLogic>().ActivateTower(); // We don't actually need the towername, we can just do it this way
                 // Except I guess we need to do it this way for save data purposes. There has to be a better way, this should be revisited.
-                if (towerName == "beeTurret")
+                if (towerName == "Bee Tower")
                 {
                     string ID = Tower.transform.GetChild(1).gameObject.GetComponent<BeeTower>().GenerateId().ToString();
                     savedTargettingType = Tower.transform.GetChild(1).gameObject.GetComponent<BeeTower>().targetingType;
@@ -51,7 +51,7 @@ public class TowerPlacement : MonoBehaviour
                     towerSaveLoadManager.AddTower(ID, pos, towerName, savedTargettingType);
                 }
 
-                if (towerName == "mortarTurret")
+                if (towerName == "Mortar Tower")
                 {
                     string ID = Tower.transform.GetChild(1).gameObject.GetComponent<mortarTower>().GenerateId().ToString();
                     savedTargettingType = Tower.transform.GetChild(1).gameObject.GetComponent<mortarTower>().targetingType;
@@ -59,7 +59,7 @@ public class TowerPlacement : MonoBehaviour
                     towerSaveLoadManager.AddTower(ID, pos, towerName, savedTargettingType);
                 }
 
-                if (towerName == "tetherTower")
+                if (towerName == "Tether Tower")
                 {
                     string ID = Tower.transform.GetChild(1).gameObject.GetComponent<tetherTower>().GenerateId().ToString();
                     savedTargettingType = Tower.transform.GetChild(1).gameObject.GetComponent<tetherTower>().targetingType;

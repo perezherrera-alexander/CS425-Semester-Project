@@ -23,7 +23,7 @@ public class BaseTowerLogic : MonoBehaviour
     public TargetingTypes targetingType = TargetingTypes.First;
     public List<BaseEnemyLogic> targets = new List<BaseEnemyLogic>(); 
     protected SphereCollider proximitySphere;
-    [System.NonSerialized] public string towerName; // Name of the tower as displayed in the UI and used to figure out what tower a gameObject is when it's not obvious.
+    public string towerName; // Name of the tower as displayed in the UI and used to figure out what tower a gameObject is when it's not obvious.
     // I feel like there has to be a better way to do this though
     void Start()
     {
