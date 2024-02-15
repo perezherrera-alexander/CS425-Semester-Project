@@ -12,6 +12,22 @@ public class ShopScript : MonoBehaviour
     [SerializeField] private TowerPlacement towerPlacement;
     [SerializeField] private PlayerStatistics playerStatistics;
 
+    public void PurchaseTower(string towerName)
+    {
+        Debug.Log("Shop script called from button click with tower name: " + towerName);
+        if (towerName == "Bee Tower")
+        {
+            PurchaseBeeTower();
+        }
+        else if (towerName == "Mortar Tower")
+        {
+            PurchaseMortarTower();
+        }
+        else if (towerName == "Tether Tower")
+        {
+            PurchaseTetherTower();
+        }
+    }
     public void PurchaseBeeTower()
     {
         Transform child = BeeTowerPrefab.transform.Find("Rotate");
@@ -23,7 +39,7 @@ public class ShopScript : MonoBehaviour
         {
             // Deduct the money and call the PlaceTower function
             playerStatistics.AddMoney(-towerCost);
-            towerPlacement.PlaceTower(BeeTowerPrefab, "beeTurret"); // Pass along the prefab's name so we know which script to call later in TowerPlacement.cs
+            towerPlacement.PlaceTower(BeeTowerPrefab, "Bee Tower"); // Pass along the prefab's name so we know which script to call later in TowerPlacement.cs
         }
         else
         {
@@ -42,7 +58,7 @@ public class ShopScript : MonoBehaviour
         {
             // Deduct the money and call the PlaceTower function
             playerStatistics.AddMoney(-towerCost);
-            towerPlacement.PlaceTower(MortarTowerPrefab, "mortarTurret");
+            towerPlacement.PlaceTower(MortarTowerPrefab, "Morar Tower");
         }
         else
         {
@@ -61,7 +77,7 @@ public class ShopScript : MonoBehaviour
         {
             // Deduct the money and call the PlaceTower function
             playerStatistics.AddMoney(-towerCost);
-            towerPlacement.PlaceTower(TetherTowerPrefab, "tetherTower");
+            towerPlacement.PlaceTower(TetherTowerPrefab, "Tether Tower");
         }
         else
         {

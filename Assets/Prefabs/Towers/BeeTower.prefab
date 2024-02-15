@@ -48,20 +48,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68ab74d8be0c2b44eaddb2c13823381f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  targettingRange: 20
-  enemyTag: Enemy
-  fireRate: 2
-  projectilePrefab: {fileID: 8813856010085298334, guid: 220ceee3f05f4304ab37f164e16469d6, type: 3}
-  locationToFireFrom: {fileID: 8696081521169240300}
   barrelToRotate: {fileID: 8693818432863801687}
-  BuildCost: 1
-  targeting: first
+  locationToFireFrom: {fileID: 8696081521169240300}
+  projectilePrefab: {fileID: 8813856010085298334, guid: 220ceee3f05f4304ab37f164e16469d6, type: 3}
+  enemyTag: Enemy
+  buildCost: 0
+  targettingRange: 20
+  fireRate: 2
+  isActive: 0
+  target: {fileID: 0}
+  targetingType: 0
   targets: []
-  radius: {fileID: 7100916763429720930}
-  towerPosition: []
+  towerName: Bee Tower
   id: 
-  targetingint: 0
 --- !u!135 &7100916763429720930
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -95,6 +94,7 @@ GameObject:
   - component: {fileID: 2896548922392630323}
   - component: {fileID: -8038865074945649095}
   - component: {fileID: -7989821676528707142}
+  - component: {fileID: 6668856753415505112}
   m_Layer: 6
   m_Name: BeeTower
   m_TagString: Bee
@@ -102,16 +102,15 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6413173454229829892
-Transform:
+--- !u!224 &6413173454229829892
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 971902319036964014}
-  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.58, y: -0.27, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -119,6 +118,11 @@ Transform:
   - {fileID: 8693818432863801687}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 16.58, y: -0.27}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!65 &2896548922392630323
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -197,6 +201,14 @@ MonoBehaviour:
   towerCanvasPrefab: {fileID: 1042973311252548879, guid: d96e12da61bc0ef4191677328bdf07f1, type: 3}
   towerPlacement: {fileID: 0}
   pauseMenu: {fileID: 0}
+--- !u!222 &6668856753415505112
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 971902319036964014}
+  m_CullTransparentMesh: 1
 --- !u!1 &2238100983459650171
 GameObject:
   m_ObjectHideFlags: 0
