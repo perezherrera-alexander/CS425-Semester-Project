@@ -359,19 +359,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63ef7b4bf0d18c84ca0e88b0208e18f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  targettingRange: 20
-  enemyTag: Enemy
-  fireRate: 0.5
-  projectilePrefab: {fileID: 187628402303013486, guid: f1901cc58c89b0b438afba85b04d3f53, type: 3}
-  locationToFireFrom: {fileID: 1287937084816428462}
   barrelToRotate: {fileID: 3675580445339813525}
-  BuildCost: 2
-  targeting: first
+  locationToFireFrom: {fileID: 1287937084816428462}
+  projectilePrefab: {fileID: 187628402303013486, guid: f1901cc58c89b0b438afba85b04d3f53, type: 3}
+  enemyTag: Enemy
+  buildCost: 0
+  targettingRange: 20
+  fireRate: 0.5
+  isActive: 0
+  target: {fileID: 0}
+  targetingType: 0
   targets: []
-  radius: {fileID: 0}
+  towerName: Mortar Tower
   id: 
-  targetingint: 0
 --- !u!135 &6492938086072917355
 SphereCollider:
   m_ObjectHideFlags: 0

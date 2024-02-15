@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 7360195358696701647}
   - component: {fileID: 3351363950185042635}
   m_Layer: 6
-  m_Name: TetherTower
+  m_Name: tetherTower
   m_TagString: Tether
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -277,20 +277,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e0d8eb31c007d2499310267742c9228, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  targettingRange: 20
-  enemyTag: Enemy
-  fireRate: 1
-  projectilePrefab: {fileID: 0}
-  locationToFireFrom: {fileID: 6967021129643549021}
   barrelToRotate: {fileID: 5656544548732101470}
-  BuildCost: 3
-  targeting: first
+  locationToFireFrom: {fileID: 6967021129643549021}
+  projectilePrefab: {fileID: 0}
+  enemyTag: Enemy
+  buildCost: 0
+  targettingRange: 20
+  fireRate: 1
+  isActive: 0
+  target: {fileID: 0}
+  targetingType: 0
   targets: []
-  radius: {fileID: 0}
+  towerName: Tether Tower
   laser: {fileID: 6919832244800713231}
   id: 
-  targetingint: 0
 --- !u!120 &6919832244800713231
 LineRenderer:
   serializedVersion: 2
