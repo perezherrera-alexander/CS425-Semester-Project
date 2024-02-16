@@ -33,5 +33,12 @@ public class NewLevel : MonoBehaviour
             playerData.Towers[1] = towers[4];
             playerData.Towers[2] = towers[5];
         }
+        else {
+            Debug.Log("General not found or not yet implemented. Falling back to default towers.");
+            playerData.Towers[0] = towers[0];
+            playerData.Towers[1] = towers[1];
+            playerData.Towers[2] = towers[2];
+
+        }
     }
 }
