@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class PauseMenu : MonoBehaviour
     public GameObject PauseMenuUI;
     public GameObject SettingsMenuUI;
     public Slider volumeSlider;
+    public Slider musicSlider;
+    public TMP_Dropdown difficultyDropdown;
     SaveLoadManager saveLoadManager;
 
 
@@ -18,6 +21,9 @@ public class PauseMenu : MonoBehaviour
     {
         saveLoadManager = GameObject.FindObjectOfType<SaveLoadManager>();
         volumeSlider.value = SettingsValues.gameVolume;
+        musicSlider.value = SettingsValues.musicVolume;
+        difficultyDropdown.value = SettingsValues.difficulty;
+
     }
 
     void Update()
@@ -34,7 +40,8 @@ public class PauseMenu : MonoBehaviour
             }
         }
         SettingsValues.gameVolume = (int)volumeSlider.value;
-        //Debug.Log("Volume: " + SettingsValues.gameVolume);
+        SettingsValues.musicVolume = (int)musicSlider.value;
+        SettingsValues.difficulty = difficultyDropdown.value;
     }
 
     public void Resume ()
