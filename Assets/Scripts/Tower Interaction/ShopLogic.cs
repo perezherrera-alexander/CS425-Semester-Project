@@ -86,6 +86,7 @@ public class ShopLogic : MonoBehaviour
                     string towerName = towerReference.transform.GetComponentInChildren<BaseTowerLogic>().towerName;
 
                     int towerCost = towerChildWithScript.GetComponent<BaseTowerLogic>().buildCost;
+                    // Will update in the future to display tower stats such as range, cost, damage, etc. But for now towerCost goes unused.
 
                     // Create the button, attach it to the row and initialize it
                     GameObject newButton = Instantiate(shopButtonTemplate, newRow.transform);
