@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BaseTowerLogic : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class BaseTowerLogic : MonoBehaviour
     protected SphereCollider proximitySphere;
     public string towerName; // Name of the tower as displayed in the UI and used to figure out what tower a gameObject is when it's not obvious.
     // I feel like there has to be a better way to do this though
+    public Texture2D towerImage; // Image of the tower as displayed in the UI
     void Start()
     {
         Invoke();

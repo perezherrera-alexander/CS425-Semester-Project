@@ -91,6 +91,8 @@ public class ShopLogic : MonoBehaviour
                     GameObject newButton = Instantiate(shopButtonTemplate, newRow.transform);
                     newButton.transform.SetParent(newRow.transform);
                     // Set the button's image to the tower's image
+                    newButton.GetComponent<RawImage>().color = new Color(1, 1, 1, 1); // Button's default color is #717171 (for debugging) but is set to white at run time as otherwise the image is tinted.
+                    newButton.GetComponent<RawImage>().texture = towerReference.transform.GetComponentInChildren<BaseTowerLogic>().towerImage;
                     newButton.GetComponent<Button>().onClick.AddListener(delegate {PurchaseTower(towerName); });
 
                     towersLeftToSpawn--;
