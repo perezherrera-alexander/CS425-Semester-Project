@@ -14,7 +14,7 @@ public class ShopScript : MonoBehaviour
 
     public void PurchaseTower(string towerName)
     {
-        Debug.Log("Shop script called from button click with tower name: " + towerName);
+        //Debug.Log("Shop script called from button click with tower name: " + towerName);
         if (towerName == "Bee Tower")
         {
             PurchaseBeeTower();

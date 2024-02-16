@@ -13,10 +13,17 @@ public class ShopUIController : MonoBehaviour
     [SerializeField] private PlayerData playerData; 
     private float ShopUIWidth;
     private int numberOfTowersUnlocked = 0;
+    private float buttonXonClosedShop;
+    private float buttonYonClosedShop;
     
 
     public void Start()
     {
+        // Used to store the position of the shop button when the shop is closed
+        buttonXonClosedShop = ShopButton.transform.position.x;
+        buttonYonClosedShop = ShopButton.transform.position.y;
+
+        // Initialize variables to create the shop UI
         ShopUIWidth = ShopUI.GetComponent<RectTransform>().rect.width;
         numberOfTowersUnlocked = playerData.Towers.Length;
         int numberOfRowsNeeded = Mathf.CeilToInt((float)numberOfTowersUnlocked / 2);
@@ -46,8 +53,8 @@ public class ShopUIController : MonoBehaviour
                     string towerName = towerReference.transform.GetComponentInChildren<BaseTowerLogic>().towerName;
                     //string towerName = child.GetComponent<BaseTowerLogic>().name;
                     int towerCost = child.GetComponent<BaseTowerLogic>().buildCost;
-                    Debug.Log("Tower name: " + towerName);
-                    Debug.Log("Tower cost: " + towerCost);
+                    //Debug.Log("Tower name: " + towerName);
+                    //Debug.Log("Tower cost: " + towerCost);
                     //string towerName = towerReference.GetComponentInChildren<BaseTowerLogic>().towerName;
 
                     // Create the button
@@ -67,6 +74,25 @@ public class ShopUIController : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void Update()
+    {
+        // CHeck if an object exists in the scene with the tag "TowerPanel"
+        if (GameObject.FindWithTag("TowerPanel") != null)
+        {
+            // If it does, disable the shop UI
+            ShopHidden();
+        }
+        else {
+            if (Input.GetKeyDown(KeyCode.B))
+            {
+                ToggleShopUI();
+            }
+        }
+
+
+
     }
 
 
@@ -92,7 +118,7 @@ public class ShopUIController : MonoBehaviour
     public void ShopHidden ()
     {
         // Move it back when closing the shop
-        ShopButton.transform.position = new Vector3(ShopButton.transform.position.x + ShopUIWidth, ShopButton.transform.position.y, ShopButton.transform.position.z);
+        ShopButton.transform.position = new Vector3(buttonXonClosedShop, buttonYonClosedShop, ShopButton.transform.position.z);
         ShopUI.SetActive(false);
         ShopStatus = false;
     }
