@@ -7,13 +7,13 @@ public class EvolutionPointsUI : MonoBehaviour
 {
     public TextMeshProUGUI EvolutionPointsTotal;
 
-    // Start is called before the first frame update
+    // Evolution Points icon (the dna strand) attribution:
+    // DNA icon by Timothy Dilich from Noun Project CC BY 1.0
     void Start()
     {
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         GameObject playerStatsObject = GameObject.Find("Game Master");
