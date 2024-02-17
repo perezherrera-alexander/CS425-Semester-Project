@@ -145,8 +145,21 @@ public class ShopLogic : MonoBehaviour
         {
             PurchaseTetherTower();
         }
+        else if (towerName == "Fire Ant")
+        {
+            PurchaseFlameTower();
+        }
+        else if (towerName == "Army Ant")
+        {
+            PurchaseMeleeTower();
+        }
+        else if (towerName == "Wasp Tower")
+        {
+            PurchaseWaspTower();
+        }
         else {
-            Debug.Log("Tower name not recognized or not yet implemented.");
+            Debug.Log("Tower: " + towerName + " not found or not yet implemented. Defaulting to Bee Tower.");
+            PurchaseBeeTower();
         }
     }
     public void PurchaseBeeTower()
@@ -203,4 +216,59 @@ public class ShopLogic : MonoBehaviour
             Debug.Log("Not enough money to purchase the Tether Tower.");
         }
     }
+    public void PurchaseFlameTower()
+    {
+        Transform child = FlameTowerPrefab.transform.Find("Rotate");
+
+        // Check if you have enough money to purchase the Bee Tower
+        int towerCost = child.GetComponent<FlameTower>().buildCost;
+
+        if (playerStatistics.GetMoney() >= towerCost)
+        {
+            // Deduct the money and call the PlaceTower function
+            playerStatistics.AddMoney(-towerCost);
+            towerPlacement.PlaceTower(FlameTowerPrefab, "Flame Tower");
+        }
+        else
+        {
+            Debug.Log("Not enough money to purchase the Flame Tower.");
+        }
+    }
+    public void PurchaseMeleeTower()
+    {
+        Transform child = MeleeTowerPrefab.transform.Find("Rotate");
+
+        // Check if you have enough money to purchase the Bee Tower
+        int towerCost = child.GetComponent<meleeTower>().buildCost;
+
+        if (playerStatistics.GetMoney() >= towerCost)
+        {
+            // Deduct the money and call the PlaceTower function
+            playerStatistics.AddMoney(-towerCost);
+            towerPlacement.PlaceTower(MeleeTowerPrefab, "Melee Tower");
+        }
+        else
+        {
+            Debug.Log("Not enough money to purchase the Melee Tower.");
+        }
+    }
+    public void PurchaseWaspTower()
+    {
+        Transform child = WaspTowerPrefab.transform.Find("Rotate");
+
+        // Check if you have enough money to purchase the Bee Tower
+        int towerCost = child.GetComponent<StraightShooter>().buildCost;
+
+        if (playerStatistics.GetMoney() >= towerCost)
+        {
+            // Deduct the money and call the PlaceTower function
+            playerStatistics.AddMoney(-towerCost);
+            towerPlacement.PlaceTower(WaspTowerPrefab, "Wasp Tower");
+        }
+        else
+        {
+            Debug.Log("Not enough money to purchase the Wasp Tower.");
+        }
+    }
+
 }

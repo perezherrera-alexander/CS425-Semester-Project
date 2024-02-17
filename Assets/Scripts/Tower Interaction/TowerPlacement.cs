@@ -38,7 +38,8 @@ public class TowerPlacement : MonoBehaviour
                 CreatePlacementEffect();
                 Tower.GetComponentInParent<BoxCollider>().enabled = true;
                 
-                Tower.transform.GetChild(1).GetComponentInChildren<SphereCollider>().enabled = true;
+                //Tower.transform.GetChild(1).GetComponentInChildren<SphereCollider>().enabled = true;
+                Tower.transform.Find("Rotate").GetComponentInChildren<SphereCollider>().enabled = true;
 
                 // Call the ActivateTower function of the tower's script
                 Tower.transform.GetComponentInChildren<BaseTowerLogic>().ActivateTower(); // We don't actually need the towername, we can just do it this way
@@ -75,14 +76,16 @@ public class TowerPlacement : MonoBehaviour
     {
         towerName = nameOfTower; // Save the name of the tower's prefab so we can later call it's script
         Tower = GameObject.Instantiate(towerToPlace, Vector3.zero, Quaternion.identity);
-        Tower.transform.GetChild(1).GetComponentInChildren<ParticleSystem>().Stop();
+        //Tower.transform.GetChild(1).GetComponentInChildren<ParticleSystem>().Stop();
+        Tower.transform.Find("Rotate").Find("TowerParticleSystem").GetComponent<ParticleSystem>().Stop();
     }
 
     private void CreatePlacementEffect()
     {
-        Tower.transform.GetChild(1).GetChild(2).GetComponent<ParticleSystem>().Play(); // We must do this song and dance to grab the particle component
+        //Tower.transform.GetChild(1).GetChild(2).GetComponent<ParticleSystem>().Play(); // We must do this song and dance to grab the particle component
+        Tower.transform.Find("Rotate").Find("TowerParticleSystem").GetComponent<ParticleSystem>().Play();
         // Stop the particle system atfer 3 seconds
-        StartCoroutine(StopParticleEffect(Tower.transform.GetChild(1).GetChild(2).GetComponent<ParticleSystem>()));
+        StartCoroutine(StopParticleEffect(Tower.transform.Find("Rotate").Find("TowerParticleSystem").GetComponent<ParticleSystem>()));
     }
 
     IEnumerator StopParticleEffect(ParticleSystem particleSystem)
