@@ -83,11 +83,11 @@ MonoBehaviour:
   projectilePrefab: {fileID: 4943902595599502078, guid: 5ad18cf7bac346743a502a2b0de00ea2, type: 3}
   enemyTag: Enemy
   buildCost: 0
-  targettingRange: 19.9
+  targettingRange: 30
   fireRate: 1
-  isActive: 0
+  isActive: 1
   target: {fileID: 0}
-  targetingType: 0
+  targetingType: 2
   targets: []
   id: 
 --- !u!135 &533825567974674855
