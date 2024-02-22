@@ -6,6 +6,7 @@ public class mortarProjectile : MonoBehaviour
 {
 #pragma warning disable 0414
     private Transform target;
+    [SerializeField] StatusEffects data;
 
     public float speed = 10f;
     public float arcHeight = 1.0f;
@@ -80,7 +81,13 @@ public class mortarProjectile : MonoBehaviour
     {
         if(other.gameObject.tag == "Enemy")
         {
-            other.GetComponent<BaseEnemyLogic>().reduceHealth(directDamage);
+            var effect = other.GetComponent<Effectable>();
+
+            if (effect != null)
+            {
+                effect.applyEffect(data);
+            }
+            //other.GetComponent<BaseEnemyLogic>().reduceHealth(directDamage);
         }
 
         if (bounces > 0)
@@ -90,7 +97,7 @@ public class mortarProjectile : MonoBehaviour
             findNewTarget();
             if(target == null)
             {
-                shockWave();
+                //shockWave();
                 Destroy(gameObject);
                 exists = false;
             }
@@ -107,7 +114,7 @@ public class mortarProjectile : MonoBehaviour
         }
         else if (bounces == 0)
         {
-            shockWave();
+            //shockWave();
             Destroy(gameObject);
             exists = false;
         }
