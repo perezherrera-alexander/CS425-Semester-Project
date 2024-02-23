@@ -55,6 +55,7 @@ public class NewLevel : MonoBehaviour
         }
     }
 
+
     public void generalSelect(string generalName)
     {
         if(generalName == "Bee") {
