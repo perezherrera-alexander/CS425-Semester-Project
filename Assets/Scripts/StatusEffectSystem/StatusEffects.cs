@@ -11,6 +11,11 @@ public class StatusEffects : ScriptableObject
     public float movementPenalty;
     public float lifeTime;
 
+    public float initDotAmount;
+    public float initTickSpeed;
+    public float initMovementPenalty;
+    public float initLifeTime;
+
     public GameObject effectParticles;
 
 }

@@ -97,9 +97,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cc2c2b179d5c704b912432f28593052, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: cf5b96d5fd378684c9d5c350dfc8000b, type: 2}
   objCollider: {fileID: 6377835583887691257}
   directDamage: 1
   speed: 30
+  radius: 50
+  exists: 0
 --- !u!136 &6377835583887691257
 CapsuleCollider:
   m_ObjectHideFlags: 0
