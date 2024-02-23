@@ -12,7 +12,6 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
-  - OUTLINE_ON
   - UNDERLAY_ON
   m_InvalidKeywords: []
   m_LightmapFlags: 1
@@ -42,7 +41,7 @@ Material:
     - _PerspectiveFilter: 0.875
     - _ScaleRatioA: 0.9
     - _ScaleRatioB: 1
-    - _ScaleRatioC: 0.365625
+    - _ScaleRatioC: 0.4431818
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0
@@ -55,8 +54,8 @@ Material:
     - _TextureHeight: 1024
     - _TextureWidth: 1024
     - _UnderlayDilate: 1
-    - _UnderlayOffsetX: 1
-    - _UnderlayOffsetY: -1
+    - _UnderlayOffsetX: -0.13
+    - _UnderlayOffsetY: -0.65
     - _UnderlaySoftness: 0
     - _VertexOffsetX: 0
     - _VertexOffsetY: 0
