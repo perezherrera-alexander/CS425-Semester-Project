@@ -19,3 +19,13 @@ public enum Modifiers
     Damage,
     Cooldown
 }
+
+public enum Generals
+{
+    Bee,
+    Ant,
+    Wasp,
+    Beetle,
+    Dev
+
+}

@@ -64,7 +64,7 @@ public class ShopLogic : MonoBehaviour
     void InitializeShopUI(){
         // Initialize variables to create the shop UI
         shopUIWidth = shopPanel.GetComponent<RectTransform>().rect.width;
-        numberOfTowersUnlocked = playerData.Towers.Length;
+        numberOfTowersUnlocked = playerData.TowersObtained;
         int numberOfRowsNeeded = Mathf.CeilToInt((float)numberOfTowersUnlocked / 2);
         int towersLeftToSpawn = numberOfTowersUnlocked;
         GameObject shopCanvasChild = shopPanel.transform.GetChild(0).gameObject;
