@@ -5,6 +5,11 @@ public class NewLevel : MonoBehaviour
 {
     public PlayerData playerData;
     public GameObject[] towers;
+
+    public void Start()
+    {
+        playerData.activeModifier = Modifiers.None;
+    }
     public void goToScene(string sceneName)
     {
         playerData.Morale = 100;
@@ -18,7 +23,25 @@ public class NewLevel : MonoBehaviour
 
     public void runModifier(string modifierName)
     {
-
+        if(modifierName == "Money") {
+            playerData.activeModifier = Modifiers.Money;
+        } 
+        else if(modifierName == "Morale"){
+            playerData.activeModifier = Modifiers.Morale;
+        }
+        else if(modifierName == "Range"){
+            playerData.activeModifier = Modifiers.Range;
+        }
+        else if(modifierName == "Damage"){
+            playerData.activeModifier = Modifiers.Damage;
+        }
+        else if(modifierName == "Cooldown"){
+            playerData.activeModifier = Modifiers.Cooldown;
+        }
+        else {
+            Debug.Log("Modifier not found or not yet implemented.");
+            playerData.activeModifier = Modifiers.None;
+        }
     }
 
     public void generalSelect(string generalName)

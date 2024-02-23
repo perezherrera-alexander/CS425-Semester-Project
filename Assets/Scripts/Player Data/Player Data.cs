@@ -20,6 +20,8 @@ public class PlayerData : ScriptableObject
     public int TowersObtained = 3;
     public GameObject[] Towers;
 
+    public Modifiers activeModifier = Modifiers.None;
+
     public void UpdateStats(int morale, int evolutionPoints, int enemiesKilled)
     {
         MoraleDuringWorld = morale;
