@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;// Required when using Event data.
 
-public class ShopLogic : MonoBehaviour
+public class ShopLogic : MonoBehaviour, IPointerEnterHandler
 {
     [Header("Tower Prefabs")]
     [SerializeField] private GameObject BeeTowerPrefab;
@@ -40,6 +41,23 @@ public class ShopLogic : MonoBehaviour
         buttonYonClosedShop = openShopButton.transform.position.y;
 
         InitializeShopUI(); // Creates rows and populates them with buttons
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        //Debug.Log("The cursor entered the selectable UI element.");
+        //Debug.Log("The name is: " + eventData.button.name);
+        // print objects in hovered
+        //for(int i = 0; i < eventData.hovered.Count; i++)
+        //{
+        //    Debug.Log("Hovered object: " + eventData.hovered[i].name);
+        //}
+        //Debug.Log("Hovered object: " + eventData.pointerEnter.name);
+        GameObject hoveredObject = eventData.pointerEnter;
+        Debug.Log("Hovered object: " + hoveredObject.name);
+        
+        //if()
+        // Figure out which button was hovered over and display the tower's stats
     }
 
 
@@ -91,6 +109,7 @@ public class ShopLogic : MonoBehaviour
                     // Create the button, attach it to the row and initialize it
                     GameObject newButton = Instantiate(shopButtonTemplate, newRow.transform);
                     newButton.transform.SetParent(newRow.transform);
+                    newButton.name = towerName + " Button";
                     // Set the button's image to the tower's image
                     newButton.GetComponent<RawImage>().color = new Color(1, 1, 1, 1); // Button's default color is #717171 (for debugging) but is set to white at run time as otherwise the image is tinted.
                     newButton.GetComponent<RawImage>().texture = towerReference.transform.GetComponentInChildren<BaseTowerLogic>().towerImage;
