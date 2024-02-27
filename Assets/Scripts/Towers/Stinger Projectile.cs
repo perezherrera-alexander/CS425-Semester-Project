@@ -3,6 +3,7 @@ using UnityEngine;
 public class stingerScript : MonoBehaviour
 {
 #pragma warning disable 0414
+    [SerializeField] StatusEffects data;
     private Transform target;
     private Transform lastKnown;
     public Collider objCollider;
@@ -83,6 +84,7 @@ public class stingerScript : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
+
             //Reduce health of enemy
             other.GetComponent<BaseEnemyLogic>().reduceHealth(directDamage);
                 // //Duration of enemy slow
@@ -98,9 +100,21 @@ public class stingerScript : MonoBehaviour
 
 
             //Destroy projectile
+
+            var effect = other.GetComponent<Effectable>();
+
+            if (effect != null)
+            {
+                effect.applyEffect(data);
+            }
+
+            //other.GetComponent<BaseEnemyLogic>().reduceHealth(directDamage);
+
+
+
             Destroy(gameObject);
             exists = false;
-            //Debug.Log(other.GetComponent<BaseEnemyLogic>().getHealth());
+  
         }
 
         
