@@ -93,6 +93,10 @@ public class stingerScript : MonoBehaviour
             //other.GetComponent<BaseEnemyLogic>().dotDamage = 1;
             //other.GetComponent<BaseEnemyLogic>().dotTimer = 2f;
 
+            //knockback
+            //other.GetComponent<BaseEnemyLogic>().knockback(75);
+
+
             //Destroy projectile
             Destroy(gameObject);
             exists = false;

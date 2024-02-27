@@ -45,6 +45,8 @@ public class StandardProjectile : MonoBehaviour
             if(pierceAmount > 0)
             {
                 other.GetComponent<BaseEnemyLogic>().reduceHealth(damage);
+                //knockback
+                other.GetComponent<BaseEnemyLogic>().knockback(15);
                 pierceAmount = pierceAmount - 1;
             }
             else if(pierceAmount == 0) 
