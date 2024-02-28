@@ -9,7 +9,10 @@ public class StatusEffects : ScriptableObject
     public float dotAmount;
     public float tickSpeed;
     public float movementPenalty;
+    public float attackSpeedPenalty;
+    public float attackSpeedIncrease;
     public float lifeTime;
+    
 
     public float initDotAmount;
     public float initTickSpeed;

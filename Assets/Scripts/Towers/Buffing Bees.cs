@@ -1,0 +1,96 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class BuffingBees : BaseTowerLogic
+{
+    // Start is called before the first frame update
+    void Start()
+    {
+        towerName = "Bee Buffer";
+        enemyTag = "Bee";
+        fireRate = 0.2f;
+        Invoke();
+        MakeSphere();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        Track();
+    }
+
+    public override void Track()
+    {
+        if (target == null)
+        {
+            
+            return;
+        }
+
+        if(fireCountdown <= 0f)
+        {
+            Shoot();
+            fireCountdown = 1f / fireRate;
+        }
+
+        fireCountdown -= Time.deltaTime;
+    }
+
+    public override void Invoke()
+    {
+        InvokeRepeating("UpdateTarget", 0, 0.5f);
+    }
+
+    public override void UpdateTarget()
+    {
+        if(isActive == false)
+        {
+            return;
+        }
+
+        GameObject[] towers = GameObject.FindGameObjectsWithTag(enemyTag);
+        float shortestDistance = Mathf.Infinity;
+        GameObject unBuffed = null;
+
+        foreach (GameObject tower in towers)
+        {
+            
+            float towerDistance = Vector3.Distance(transform.position, tower.transform.position);
+            if (towerDistance < shortestDistance && tower.GetComponentInChildren<BaseTowerLogic>().isActive == true)
+            {
+
+                if (tower.GetComponentInChildren<BaseTowerLogic>().isBuffed == false)
+                {
+                    shortestDistance = towerDistance;
+                    unBuffed = tower;
+                    //Debug.Log(tower.GetComponentInChildren<BaseTowerLogic>().towerName);
+                    
+                }
+            }
+
+        }
+
+        if (unBuffed != null && shortestDistance <= 30f)
+        {
+            
+            target = unBuffed.transform;
+        }
+        else
+        {
+            target = null;
+        }
+    }
+
+    public override void Shoot()
+    {
+        
+        GameObject buff = (GameObject)Instantiate(projectilePrefab, locationToFireFrom.position, locationToFireFrom.rotation);
+        BuffBee bee = buff.GetComponent<BuffBee>();
+
+        if (bee != null)
+        {
+            bee.Seek(target);
+        }
+    }
+}
