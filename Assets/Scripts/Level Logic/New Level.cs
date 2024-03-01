@@ -6,6 +6,7 @@ public class NewLevel : MonoBehaviour
 {
     public PlayerData playerData;
     public GameObject[] towers;
+    private bool generalSelected = false;
     public void goToScene(string sceneName)
     {
         if(!generalSelected) {
