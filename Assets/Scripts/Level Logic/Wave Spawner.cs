@@ -24,7 +24,7 @@ public class WaveSpawner : MonoBehaviour
     public float timeBetweenWaves;
     [Range(0f, 2f)]
     public float timeBetweenEnemySpawns;
-    //private float timeBetweenWavesTimer;
+    private float timeBetweenWavesTimer;
     
     [Header("UI")]
     public TextMeshProUGUI waveCountDownText;
