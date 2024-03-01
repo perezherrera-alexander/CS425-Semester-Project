@@ -7,6 +7,14 @@ public class NewLevel : MonoBehaviour
     public PlayerData playerData;
     public GameObject[] towers;
     private bool generalSelected = false;
+    public Button defaultButton;
+
+    public void Start()
+    {
+        playerData.activeModifier = Modifiers.None;
+        defaultButton.Select();
+        defaultButton.onClick.Invoke();
+    }
     public void goToScene(string sceneName)
     {
         if(!generalSelected) {
@@ -54,11 +62,43 @@ public class NewLevel : MonoBehaviour
             playerData.Towers[0] = towers[0];
             playerData.Towers[1] = towers[1];
             playerData.Towers[2] = towers[2];
+            playerData.TowersObtained = 3;
+            playerData.activeGeneral = Generals.Bee;
+            generalSelected = true;
         } 
-        else if(generalName == "Wasp"){
+        else if(generalName == "Ant"){
             playerData.Towers[0] = towers[3];
             playerData.Towers[1] = towers[4];
-            playerData.Towers[2] = towers[5];
+            playerData.TowersObtained = 2;
+            playerData.activeGeneral = Generals.Ant;
+            generalSelected = true;
+        }
+        else if(generalName == "Wasp"){
+            playerData.Towers[0] = towers[5];
+            playerData.TowersObtained = 1;
+            playerData.activeGeneral = Generals.Wasp;
+            generalSelected = true;
+        }
+        else if(generalName == "Dev"){
+            playerData.Towers[0] = towers[0];
+            playerData.Towers[1] = towers[1];
+            playerData.Towers[2] = towers[2];
+            playerData.Towers[3] = towers[3];
+            playerData.Towers[4] = towers[4];
+            playerData.Towers[5] = towers[5];
+            playerData.Towers[6] = towers[6];
+            playerData.TowersObtained = 7;
+            playerData.activeGeneral = Generals.Dev;
+            generalSelected = true;
+        }
+        else {
+            Debug.Log("The " + generalName + " general is not found or not yet implemented. Defaulting to Bee general.");
+            playerData.Towers[0] = towers[0];
+            playerData.Towers[1] = towers[1];
+            playerData.Towers[2] = towers[2];
+            playerData.TowersObtained = 3;
+            playerData.activeGeneral = Generals.Bee;
+            generalSelected = true;
         }
     }
 }

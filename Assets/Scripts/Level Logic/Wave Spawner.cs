@@ -24,7 +24,7 @@ public class WaveSpawner : MonoBehaviour
     public float timeBetweenWaves;
     [Range(0f, 2f)]
     public float timeBetweenEnemySpawns;
-    private float timeBetweenWavesTimer;
+    //private float timeBetweenWavesTimer;
     
     [Header("UI")]
     public TextMeshProUGUI waveCountDownText;
@@ -77,15 +77,10 @@ public class WaveSpawner : MonoBehaviour
         else if(gameState == GameStates.LevelComplete)
         {
             levelCompleteText.text = "Level Complete!";
-            timeBetweenWaves -= Time.deltaTime;
-            if (timeBetweenWaves <= 0)
+            if(loadNextLevelOnce)
             {
-                // Load the next level
-                Debug.Log("Loading Next Level");
-                PlayerData.UpdateData(true);
-                PlayerData.WorldsCompleted[PlayerData.NumberOfWorldsCompleted] = PlayerData.CurrentWorld;
-                PlayerData.NumberOfWorldsCompleted += 1;
-                UnityEngine.SceneManagement.SceneManager.LoadScene("World Map Generation");
+                loadNextLevelOnce = false;
+                StartCoroutine(LoadNextLevel());
             }
         }
 
@@ -113,11 +108,6 @@ public class WaveSpawner : MonoBehaviour
         PlayerData.NumberOfWorldsCompleted += 1;
         Debug.Log("Loading Next Level (Go into code and change this to the next level)");
         UnityEngine.SceneManagement.SceneManager.LoadScene("World Map Generation");
-
-        if (PlayerData.NumberOfWorldsCompleted == 12)
-        {
-            UnityEngine.SceneManagement.SceneManager.LoadScene("Main Menu");
-        }
     }
 
     void SpawnEnemy()
