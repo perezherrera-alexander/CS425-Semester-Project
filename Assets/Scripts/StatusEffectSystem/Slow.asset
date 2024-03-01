@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c54399a78bffce040a277f2472f3db7b, type: 3}
+  m_Name: Slow
+  m_EditorClassIdentifier: 
+  Name: Slow
+  dotAmount: 0
+  tickSpeed: 0
+  movementPenalty: 0.25
+  lifeTime: 5
+  initDotAmount: 0
+  initTickSpeed: 0
+  initMovementPenalty: 0.25
+  initLifeTime: 5
+  effectParticles: {fileID: 1568022999436433690, guid: 59aefa96418d5e044aa5fdce2001b5d6, type: 3}

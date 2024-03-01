@@ -19,6 +19,8 @@ public class PlayerData : ScriptableObject
 
     public int TowersObtained = 3;
     public GameObject[] Towers;
+    public Generals activeGeneral = Generals.Bee;
+    public Modifiers activeModifier = Modifiers.None;
 
     public void UpdateStats(int morale, int evolutionPoints, int enemiesKilled)
     {

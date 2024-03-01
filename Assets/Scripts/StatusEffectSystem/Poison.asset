@@ -13,8 +13,12 @@ MonoBehaviour:
   m_Name: Poison
   m_EditorClassIdentifier: 
   Name: Poison
-  dotAmount: 2
+  dotAmount: 0.5
   tickSpeed: 1
   movementPenalty: 0
-  lifeTime: 4
-  effectParticles: {fileID: 0}
+  lifeTime: 5
+  initDotAmount: 0.5
+  initTickSpeed: 1
+  initMovementPenalty: 0
+  initLifeTime: 5
+  effectParticles: {fileID: 2197775855269863916, guid: 9268b75e1ec250d438869f6eab2e345a, type: 3}

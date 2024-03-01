@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
 public class BaseEnemyLogic : MonoBehaviour, Effectable
 {
     private StatusEffects data;
+    [SerializeField] List<StatusEffects> effects;
     public Collider objectCollider;
     public GameObject ob;
     public int GoldWorth;
@@ -16,13 +18,15 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
 
     public float health = 5;
 
+    private float curSpeed;
+    private bool isSlowed = false;
     // float health = 5;
     // Start is called before the first frame update
     public void Start(){
 
         PlayerStatistics = FindObjectOfType<PlayerStatistics>();
         target = Path.waypoints[0];
-
+        curSpeed = speed;
     }
 
     public void reduceHealth(float damage)
@@ -58,11 +62,18 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
 
     public Transform target;
 
-    public int wavepointIndex = 0;
+    public int waypointindex = 0;
 
     public virtual void Update (){
         healthCheck();
-        effect_check();
+
+
+        if(effects.Count > 0)
+        {
+            if (effects.First() != null) handleEffect();
+        }
+        
+        
 
         Vector3 direction = target.position - transform.position;
         transform.Translate(direction.normalized * speed * slowFactor * Time.deltaTime, Space.World);
@@ -91,7 +102,7 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
     }
 
     public void GetNextWaypoint(){
-        if (wavepointIndex >= Path.waypoints.Length - 1){ // Enemy reaches end of path
+        if (waypointindex >= Path.waypoints.Length - 1){ // Enemy reaches end of path
             //decrement player health according to
             float EnemyHealth = getHealth();
             int MoraleLost = (int)EnemyHealth;
@@ -100,15 +111,44 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
             PlayerStatistics.Instance.AddEnemiesKilled();
             return;
         }
-        transform.LookAt(Path.waypoints[wavepointIndex]);
-        wavepointIndex++;
-        target = Path.waypoints[wavepointIndex];
+        transform.LookAt(Path.waypoints[waypointindex]);
+        waypointindex++;
+        target = Path.waypoints[waypointindex];
     }
-    public void knockback(Vector3 direction, float force)
-    {
-        wavepointIndex = wavepointIndex - 1;
-        target = Path.waypoints[wavepointIndex];
+    public void knockback(int knockbackForce){
 
+        //Calculate the distance between the current position and the next waypoint
+
+        float travelDistance = 0;
+        //make waypointLengths an array of floats with the length of the number of waypoints
+        float[] waypointLengths = new float[waypointindex-1];
+        waypointLengths[0] = 0;
+        for (int i = 0; i < waypointindex-1; i++){
+            travelDistance += Vector3.Distance(Path.waypoints[i].position, Path.waypoints[i + 1].position);
+            waypointLengths[i] = travelDistance;
+        }
+        travelDistance += Vector3.Distance(Path.waypoints[waypointindex].position, transform.position);
+        float knockbackLength = knockbackForce * travelDistance * .01f;
+
+        Debug.Log("Distance: " + travelDistance);
+        Debug.Log("Knockback length: " + knockbackLength);
+        
+        //index of the last waypoint that holds a length less than the knockback length
+        int newIndex = 0;
+        for (int i = 0; i < waypointLengths.Length; i++){
+            if (knockbackLength < waypointLengths[i]){
+                newIndex = i-1;
+                waypointindex = i;
+                target = Path.waypoints[newIndex];
+                //Debug.Log("New Index: " + newIndex);
+                break;
+            }
+        }
+        Debug.Log("New Index: " + newIndex);
+        Debug.Log("Waypoint index: " + waypointindex);
+        Debug.Log("Length of new knockback length: " + waypointLengths[newIndex]);
+        
+        
     }
 
 
@@ -132,14 +172,120 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
         }
     }
 
+
     public void applyEffect(StatusEffects effect)
     {
-        this.data = effect;
+        //this.data = effect;
+        effects.Add(effect);
+        Instantiate(effect.effectParticles, transform);
+        effect.lifeTime = effect.initLifeTime;
+
+        
+
     }
 
-    public void removeEffect()
+
+    private float currentEffectTime = 0f;
+    private float lastTickTime = 0f;
+    public void removeEffect(int ind)
     {
-        data = null;
+        //data = null;
+        effects.RemoveAt(ind);
+        if (effects.Count == 0)
+        {
+            currentEffectTime = 0;
+            lastTickTime = 0;
+        }
+
+
+        
+    }
+
+    public void handleEffect()
+    {
+
+
+       
+        currentEffectTime += Time.deltaTime;
+        /*if (effects.Count > 1)
+        {
+            var effectCount = effects.Count;
+        }
+        if (currentEffectTime > effects.First().lifeTime) 
+            removeEffect(0);
+        if (effects.First() == null)
+            return;
+        if (effects.First().dotAmount != 0 && currentEffectTime > lastTickTime)
+        {
+            lastTickTime += effects.First().tickSpeed;
+            health -= effects.First().dotAmount;
+        }*/
+
+        var j = 0;
+        
+        if (effects.Count > 1)
+        {
+            foreach (StatusEffects effect in effects)
+            {
+                if (effects.Count < 1)
+                {
+                    break;
+                }
+                if (currentEffectTime > effect.lifeTime)
+                {
+                    if (effect.Name == "Slow")
+                    {
+                        isSlowed = false;
+                        speed = curSpeed;
+                    }
+                    removeEffect(j);
+                    break;
+                }
+                if (effects.Count == 0)
+                {
+                    return;
+                }
+                if (effect.dotAmount != 0 && currentEffectTime > lastTickTime)
+                {
+                    lastTickTime += effect.tickSpeed;
+                    health -= effect.dotAmount;
+                }
+                if (effect.movementPenalty != 0 && isSlowed != true)
+                {
+                    speed = speed * (1f - effect.movementPenalty);
+                    isSlowed = true;
+                }
+
+
+                j++;
+            }
+        }
+        else
+        {
+            if (currentEffectTime > effects.First().lifeTime)
+            {
+                if(effects.First().Name == "Slow")
+                {
+                    speed = curSpeed;
+                    isSlowed = false;
+                }
+                removeEffect(0);
+            }
+                
+            if (effects.Count == 0)
+                return;
+            if (effects.First().dotAmount != 0 && currentEffectTime > lastTickTime)
+            {
+                lastTickTime += effects.First().tickSpeed;
+                health -= effects.First().dotAmount;
+            }
+            if (effects.First().movementPenalty != 0 && isSlowed != true)
+            {
+                speed = speed * effects.First().movementPenalty;
+                isSlowed = true;
+            }
+        }
+
     }
 }
 

@@ -24,7 +24,7 @@ public class WaveSpawner : MonoBehaviour
     public float timeBetweenWaves;
     [Range(0f, 2f)]
     public float timeBetweenEnemySpawns;
-    //private float timeBetweenWavesTimer;
+    private float timeBetweenWavesTimer;
     
     [Header("UI")]
     public TextMeshProUGUI waveCountDownText;
@@ -80,8 +80,12 @@ public class WaveSpawner : MonoBehaviour
             timeBetweenWaves -= Time.deltaTime;
             if (timeBetweenWaves <= 0)
             {
-                loadNextLevelOnce = false;
-                StartCoroutine(LoadNextLevel());
+                // Load the next level
+                Debug.Log("Loading Next Level");
+                PlayerData.UpdateData(true);
+                PlayerData.WorldsCompleted[PlayerData.NumberOfWorldsCompleted] = PlayerData.CurrentWorld;
+                PlayerData.NumberOfWorldsCompleted += 1;
+                UnityEngine.SceneManagement.SceneManager.LoadScene("World Map Generation");
             }
         }
 

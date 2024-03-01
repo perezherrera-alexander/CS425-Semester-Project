@@ -18,7 +18,6 @@ public class BeeTower : BaseTowerLogic
 
     void Update()
     {
-        
         Track();
         ListPrune();
     }

@@ -9,3 +9,23 @@ public enum GameStates
     WaveInProgress,
     LevelComplete
 }
+
+public enum Modifiers
+{
+    None,
+    Money,
+    Morale, // Increase health
+    Range,
+    Damage,
+    Cooldown
+}
+
+public enum Generals
+{
+    Bee,
+    Ant,
+    Wasp,
+    Beetle,
+    Dev
+
+}
