@@ -45,19 +45,14 @@ public class ShopLogic : MonoBehaviour, IPointerEnterHandler
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        //Debug.Log("The cursor entered the selectable UI element.");
-        //Debug.Log("The name is: " + eventData.button.name);
-        // print objects in hovered
-        //for(int i = 0; i < eventData.hovered.Count; i++)
-        //{
-        //    Debug.Log("Hovered object: " + eventData.hovered[i].name);
-        //}
-        //Debug.Log("Hovered object: " + eventData.pointerEnter.name);
         GameObject hoveredObject = eventData.pointerEnter;
-        Debug.Log("Hovered object: " + hoveredObject.name);
-        
-        //if()
-        // Figure out which button was hovered over and display the tower's stats
+        //Debug.Log("Hovered object: " + hoveredObject.name);
+    
+
+        // TODO: 
+        // 1. Create Scriptable Objects for each tower and the those to buttons when created
+        // 2. Use this function (OnPointerEnter) to get a referene to the object of the button and subseqeuently the data in the scriptable object
+        // 3. Use that data to display the tower's stats in the shop UI
     }
 
 
