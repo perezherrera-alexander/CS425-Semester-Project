@@ -80,7 +80,7 @@ public class WaveSpawner : MonoBehaviour
         {
             levelCompleteText.text = "Level Complete!";
             timeBetweenWavesTimer -= Time.deltaTime;
-            if(timeBetweenWavesTimer <= 0)
+            if (timeBetweenWavesTimer <= 0 && PlayerData.NumberOfWorldsCompleted < 11)
             {
                 // Load the next level
                 Debug.Log("Loading Next Level");
@@ -88,6 +88,11 @@ public class WaveSpawner : MonoBehaviour
                 PlayerData.WorldsCompleted[PlayerData.NumberOfWorldsCompleted] = PlayerData.CurrentWorld;
                 PlayerData.NumberOfWorldsCompleted += 1;
                 UnityEngine.SceneManagement.SceneManager.LoadScene("World Map Generation");
+            }
+            else if (timeBetweenWavesTimer <= 0 && PlayerData.NumberOfWorldsCompleted >= 12)
+            {
+                Debug.Log("Loading Main Menu scene");
+                UnityEngine.SceneManagement.SceneManager.LoadScene("Main Menu");
             }
 
         }
