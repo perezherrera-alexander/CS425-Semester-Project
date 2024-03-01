@@ -77,7 +77,8 @@ public class WaveSpawner : MonoBehaviour
         else if(gameState == GameStates.LevelComplete)
         {
             levelCompleteText.text = "Level Complete!";
-            if(loadNextLevelOnce)
+            timeBetweenWavesTimer -= Time.deltaTime;
+            if (timeBetweenWavesTimer <= 0)
             {
                 loadNextLevelOnce = false;
                 StartCoroutine(LoadNextLevel());
