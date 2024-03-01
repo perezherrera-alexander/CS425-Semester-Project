@@ -100,24 +100,7 @@ public class WorldMapGenerator : MonoBehaviour
             Debug.Log("Button clicked at: " + col + ", " + row + " - No WorldNode component found");
         }
 
-        int World = UnityEngine.Random.Range(0, 8);
-        if (World == 0)
-            SceneManager.LoadScene("Game View");
-        else if (World == 1)
-            SceneManager.LoadScene("Game View 1");
-        else if (World == 2)
-            SceneManager.LoadScene("Game View 2");
-        else if (World == 3)
-            SceneManager.LoadScene("Game View 3");
-        else if (World == 4)
-            SceneManager.LoadScene("Game View 4");
-        else if (World == 5)
-            SceneManager.LoadScene("Game View 5");
-        else if (World == 6)
-            SceneManager.LoadScene("Game View 6");
-        else if (World == 7)
-            SceneManager.LoadScene("Game View 7");
-
+        SceneManager.LoadScene("Game View");
 
         string combineddata = string.Join(",", col, row);
 
