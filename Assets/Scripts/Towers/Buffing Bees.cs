@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class BuffingBees : BaseTowerLogic
 {
+    public string id;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +19,10 @@ public class BuffingBees : BaseTowerLogic
     // Update is called once per frame
     void Update()
     {
+        if (data != null)
+        {
+            handleEffect();
+        }
         Track();
     }
 
@@ -50,28 +56,34 @@ public class BuffingBees : BaseTowerLogic
         }
 
         GameObject[] towers = GameObject.FindGameObjectsWithTag(enemyTag);
-        float shortestDistance = Mathf.Infinity;
+        //float shortestDistance = Mathf.Infinity;
         GameObject unBuffed = null;
 
         foreach (GameObject tower in towers)
         {
             
             float towerDistance = Vector3.Distance(transform.position, tower.transform.position);
-            if (towerDistance < shortestDistance && tower.GetComponentInChildren<BaseTowerLogic>().isActive == true)
+
+            if (towerDistance < targettingRange && tower.GetComponentInChildren<BaseTowerLogic>().isActive == true)
             {
 
-                if (tower.GetComponentInChildren<BaseTowerLogic>().isBuffed == false)
+                if (tower.GetComponentInChildren<BaseTowerLogic>().getIsBuffed() == false)
                 {
-                    shortestDistance = towerDistance;
-                    unBuffed = tower;
-                    //Debug.Log(tower.GetComponentInChildren<BaseTowerLogic>().towerName);
-                    
+                    if (tower.GetComponentInChildren<BuffingBees>() != null)
+                    {
+
+                    }
+                    else
+                    {
+                        unBuffed = tower;
+                        break;
+                    }
+
                 }
             }
-
         }
 
-        if (unBuffed != null && shortestDistance <= 30f)
+        if (unBuffed != null)
         {
             
             target = unBuffed.transform;
@@ -92,5 +104,12 @@ public class BuffingBees : BaseTowerLogic
         {
             bee.Seek(target);
         }
+    }
+
+    [ContextMenu("Generate ID")]
+    public string GenerateId()
+    {
+        id = Guid.NewGuid().ToString();
+        return id;
     }
 }

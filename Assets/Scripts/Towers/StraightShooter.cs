@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 using static UnityEngine.Playables.AnimationPlayableUtilities;
 
 public class StraightShooter : BaseTowerLogic
@@ -14,12 +15,16 @@ public class StraightShooter : BaseTowerLogic
         Invoke();
         animate = GetComponentInChildren<Animator>();
         MakeSphere();
+        curAttackSpeed = fireRate;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(data != null)
+        {
+            handleEffect();
+        }
         Track();
         ListPrune();
     }
@@ -32,5 +37,12 @@ public class StraightShooter : BaseTowerLogic
         StandardProjectile sting = shot.GetComponent<StandardProjectile>();
         animate.SetBool("Attacking", false);
 
+    }
+
+    [ContextMenu("Generate ID")]
+    public string GenerateId()
+    {
+        id = Guid.NewGuid().ToString();
+        return id;
     }
 }

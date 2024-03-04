@@ -30,7 +30,9 @@ public class BaseTowerLogic : MonoBehaviour, Effectable
     [Header("Status Effects")]
     protected StatusEffects data;
 
-    private float curAttackSpeed;
+    public float curAttackSpeed;
+    private float currentEffectTime = 0f;
+    public bool isBuffed = false;
     void Start()
     {
         Invoke();
@@ -45,6 +47,10 @@ public class BaseTowerLogic : MonoBehaviour, Effectable
     // Update is called once per frame
     void Update()
     {
+        if(data != null)
+        {
+            handleEffect();
+        }
         Track();
         ListPrune();
     }
@@ -107,6 +113,11 @@ public class BaseTowerLogic : MonoBehaviour, Effectable
 
         }
 
+    }
+
+    public bool getIsBuffed()
+    {
+        return isBuffed;
     }
 
     private void OnDrawGizmosSelected()
@@ -300,9 +311,7 @@ public class BaseTowerLogic : MonoBehaviour, Effectable
         Instantiate(effect.effectParticles, transform);
     }
 
-    private float currentEffectTime = 0f;
-    //private float lastTickTime = 0f;
-    public bool isBuffed = false;
+
     public void removeEffect(int ind)
     {
         if(data.Name == "AttackSpeed")
@@ -322,6 +331,7 @@ public class BaseTowerLogic : MonoBehaviour, Effectable
         if(currentEffectTime > data.lifeTime)
         {
             removeEffect(0);
+            return;
         }
 
         if(data.attackSpeedIncrease != 0 && isBuffed != true)

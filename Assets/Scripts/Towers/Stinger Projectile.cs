@@ -8,7 +8,7 @@ public class stingerScript : MonoBehaviour
     private Transform lastKnown;
     public Collider objCollider;
 
-    public float directDamage = 1f;
+    public float directDamage = 0.5f;
     public float speed = 30f;
 
     public float radius = 50f;
@@ -91,7 +91,7 @@ public class stingerScript : MonoBehaviour
                 effect.applyEffect(data);
             }
 
-            //other.GetComponent<BaseEnemyLogic>().reduceHealth(directDamage);
+            other.GetComponent<BaseEnemyLogic>().reduceHealth(directDamage);
 
 
 

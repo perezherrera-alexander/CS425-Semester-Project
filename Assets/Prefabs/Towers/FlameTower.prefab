@@ -4905,7 +4905,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: ee46f73b1d3b42f4ba6200bd7540d265, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5052,12 +5052,15 @@ MonoBehaviour:
   buildCost: 0
   targettingRange: 13.1
   fireRate: 1
+  fireCountdown: 0
   isActive: 0
   target: {fileID: 0}
   targetingType: 0
   targets: []
   towerName: Fire Ant
   towerImage: {fileID: 2800000, guid: 1199d516af692654393706eee264fb80, type: 3}
+  curAttackSpeed: 0
+  isBuffed: 0
   id: 
   visual: {fileID: 4552716610829324739}
   fireArea: {fileID: 1725227877367609430}
@@ -9995,7 +9998,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6b5069992816b7b47933a7a237c1d218, type: 2}
+  - {fileID: 2100000, guid: 42b68338e43eba241b3992e8a5ec06c4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
