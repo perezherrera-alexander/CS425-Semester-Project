@@ -26,8 +26,8 @@ public class SwarmingBee : MonoBehaviour
     public void Circle(float time)
     {
         float x = Mathf.Cos(time);
-        float y = Mathf.Sin(time);
-        float z = transform.position.z;
+        float y = transform.position.y;
+        float z = Mathf.Sin(time);
         transform.position = new Vector3(x, y, z);
     }
 

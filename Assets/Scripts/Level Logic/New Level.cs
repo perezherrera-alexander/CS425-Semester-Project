@@ -8,6 +8,7 @@ public class NewLevel : MonoBehaviour
     public GameObject[] towers;
     private bool generalSelected = false;
     public Button defaultButton;
+    public string nameOfGen = null;
 
     public void Start()
     {
@@ -65,6 +66,8 @@ public class NewLevel : MonoBehaviour
             playerData.TowersObtained = 3;
             playerData.activeGeneral = Generals.Bee;
             generalSelected = true;
+            nameOfGen = generalName;
+
         } 
         else if(generalName == "Ant"){
             playerData.Towers[0] = towers[3];
@@ -72,12 +75,14 @@ public class NewLevel : MonoBehaviour
             playerData.TowersObtained = 2;
             playerData.activeGeneral = Generals.Ant;
             generalSelected = true;
+            nameOfGen = generalName;
         }
         else if(generalName == "Wasp"){
             playerData.Towers[0] = towers[5];
             playerData.TowersObtained = 1;
             playerData.activeGeneral = Generals.Wasp;
             generalSelected = true;
+            nameOfGen = generalName;
         }
         else if(generalName == "Dev"){
             playerData.Towers[0] = towers[0];
@@ -90,6 +95,7 @@ public class NewLevel : MonoBehaviour
             playerData.TowersObtained = 7;
             playerData.activeGeneral = Generals.Dev;
             generalSelected = true;
+            nameOfGen = generalName;
         }
         else {
             Debug.Log("The " + generalName + " general is not found or not yet implemented. Defaulting to Bee general.");
@@ -100,5 +106,10 @@ public class NewLevel : MonoBehaviour
             playerData.activeGeneral = Generals.Bee;
             generalSelected = true;
         }
+    }
+
+    public string getGeneralName()
+    {
+        return nameOfGen;
     }
 }
