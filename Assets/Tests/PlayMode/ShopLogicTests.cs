@@ -28,8 +28,7 @@ public class ShopLogicTests
         }
         else GameObject.GetComponent<ShopLogic>().ToggleShopUI();
 
-        // Use yield to skip a frame.
-        yield return null;
+        yield return null; // Use yield to skip a frame.
 
         // Use the Assert class to test conditions.
         Assert.IsTrue(GameObject.GetComponent<ShopLogic>().shopIsOpen);
@@ -38,7 +37,7 @@ public class ShopLogicTests
     [UnityTest]
     public IEnumerator PurchaseTowerFromShop()
     {
-        
+        // Find Shop Logic and make sure it exists
         var shopLogic = new GameObject();
         shopLogic = GameObject.Find("Shop Logic");
         if(shopLogic == null)
@@ -47,6 +46,7 @@ public class ShopLogicTests
             Assert.Fail();
         }
 
+        // Find Game Master and then its Player Statistics script
         var playerData = new GameObject();
         playerData = GameObject.Find("Game Master");
         if(playerData == null)
@@ -54,7 +54,6 @@ public class ShopLogicTests
             Debug.Log("Game Master GameObject not found");
             Assert.Fail();
         }
-
         var playerStatistics = playerData.GetComponent<PlayerStatistics>();
         if(playerStatistics == null)
         {
@@ -62,20 +61,19 @@ public class ShopLogicTests
             Assert.Fail();
         }
 
+        // Check the player's money before and after purchasing a tower
         var initialMoney = playerStatistics.GetMoney();
         shopLogic.GetComponent<ShopLogic>().PurchaseTower("Bee Tower");
         var finalMoney = playerStatistics.GetMoney();
 
-        // Use yield to skip a frame.
         yield return null;
-
-        // Use the Assert class to test conditions.
         Assert.AreNotEqual(initialMoney, finalMoney);
     }
 
     [TearDown]
     public void Teardown()
     {
+        // This isn't strictly necessary and Unity throws a warning when I use this function
         //SceneManager.UnloadSceneAsync("Game View");
     }
 }
