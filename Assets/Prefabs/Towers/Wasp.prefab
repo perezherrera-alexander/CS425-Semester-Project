@@ -86,12 +86,15 @@ MonoBehaviour:
   buildCost: 0
   targettingRange: 30
   fireRate: 1
-  isActive: 1
+  fireCountdown: 0
+  isActive: 0
   target: {fileID: 0}
-  targetingType: 2
+  targetingType: 0
   targets: []
   towerName: Wasp Tower
   towerImage: {fileID: 2800000, guid: 3ecfde93ea4b06c4e9dad945a69aaf22, type: 3}
+  curAttackSpeed: 0
+  isBuffed: 0
   id: 
 --- !u!135 &533825567974674855
 SphereCollider:
@@ -126,6 +129,7 @@ GameObject:
   - component: {fileID: 8558154863035504125}
   - component: {fileID: 7083405236031958153}
   - component: {fileID: 9142688026048279827}
+  - component: {fileID: 4085854274669178160}
   m_Layer: 6
   m_Name: Wasp
   m_TagString: Untagged
@@ -227,6 +231,33 @@ MonoBehaviour:
   towerCanvasPrefab: {fileID: 1042973311252548879, guid: d96e12da61bc0ef4191677328bdf07f1, type: 3}
   towerPlacement: {fileID: 0}
   pauseMenu: {fileID: 0}
+--- !u!54 &4085854274669178160
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5375419024465267202}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1001 &8124339759727574935
 PrefabInstance:
   m_ObjectHideFlags: 0

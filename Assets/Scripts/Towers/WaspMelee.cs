@@ -2,26 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using static UnityEngine.Playables.AnimationPlayableUtilities;
 
-public class meleeTower : BaseTowerLogic
-{
+public class WaspMelee : BaseTowerLogic
+{ 
+    public string id;
+    private Animator animate;
+
     private float directDamage = 5f;
-
     private float attackRate = 0f;
     private float coolDown = 0f;
-    private Animator animate;
-    public string id;
-    
-    
 
-    public int targetingint;
     // Start is called before the first frame update
     void Start()
     {
-        towerName = "Army Ant";
+        towerName = "Tarantula Wasp";
         Invoke();
         MakeSphere();
+        fireRate = 0.3f;
         curAttackSpeed = fireRate;
         animate = GetComponentInChildren<Animator>();
     }
@@ -54,7 +51,7 @@ public class meleeTower : BaseTowerLogic
             Shoot();
             coolDown += Time.deltaTime;
             attackRate = 1f / fireRate;
-            if(coolDown > 0)
+            if (coolDown > 0)
             {
 
             }
@@ -66,21 +63,11 @@ public class meleeTower : BaseTowerLogic
 
     public override void Shoot()
     {
-        //pending animation/sound/visual effects code
-        //animate.Play("Base Layer.New Animation");
+        //animate.SetBool("attack", true);
         target.GetComponent<BaseEnemyLogic>().reduceHealth(directDamage);
-
-
+        //animate.SetBool("attack", false);
     }
 
-    /*private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Enemy")
-        {
-            other.GetComponent<BaseEnemyLogic>().reduceHealth(directDamage);
-            //Debug.Log(other.GetComponent<BaseEnemyLogic>().getHealth());
-        }
-    }*/
     [ContextMenu("Generate ID")]
     public string GenerateId()
     {

@@ -13,20 +13,20 @@ public class mortarProjectile : MonoBehaviour
     public float blastRadius = 3f;
     private float radius = 50f;
 
-    Vector3 startPos;
-    Vector3 posOfTarget;
-    float step;
-    float progress = 0f;
+    protected Vector3 startPos;
+    protected Vector3 posOfTarget;
+    protected float step;
+    protected float progress = 0f;
 
-    float directDamage = 2f;
-    float splashDamage = 2.5f;
-    float bounces = 1f;
+    protected float directDamage = 2f;
+    protected float splashDamage = 2.5f;
+    protected float bounces = 1f;
 
     bool exists = false;
 #pragma warning restore 0414
 
 
-    public void Seek(Transform newTarget)
+    public virtual void Seek(Transform newTarget)
     {
         target = newTarget;
         posOfTarget = target.position;
@@ -120,7 +120,7 @@ public class mortarProjectile : MonoBehaviour
         }
     }
 
-    private void shockWave()
+    public void shockWave()
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, blastRadius);
 

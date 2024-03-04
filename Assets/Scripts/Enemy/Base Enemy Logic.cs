@@ -281,7 +281,7 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
             }
             if (effects.First().movementPenalty != 0 && isSlowed != true)
             {
-                speed = speed * effects.First().movementPenalty;
+                speed = speed * (1 - effects.First().movementPenalty);
                 isSlowed = true;
             }
         }

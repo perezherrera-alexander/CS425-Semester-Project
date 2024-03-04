@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c54399a78bffce040a277f2472f3db7b, type: 3}
+  m_Name: AttackSpeed
+  m_EditorClassIdentifier: 
+  Name: AttackSpeed
+  dotAmount: 0
+  tickSpeed: 0
+  movementPenalty: 0
+  attackSpeedPenalty: 0
+  attackSpeedIncrease: 0.25
+  lifeTime: 5
+  initDotAmount: 0
+  initTickSpeed: 0
+  initMovementPenalty: 0
+  initLifeTime: 0
+  effectParticles: {fileID: 3128708439243469076, guid: 644dc4a9036427e4dba1fe0dd3db80a5, type: 3}

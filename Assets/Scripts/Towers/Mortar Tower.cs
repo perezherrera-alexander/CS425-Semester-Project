@@ -13,11 +13,16 @@ public class mortarTower : BaseTowerLogic
         towerName = "Mortar Tower";
         Invoke();
         MakeSphere();
+        curAttackSpeed = fireRate;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (data != null)
+        {
+            handleEffect();
+        }
         Track();
     }
 

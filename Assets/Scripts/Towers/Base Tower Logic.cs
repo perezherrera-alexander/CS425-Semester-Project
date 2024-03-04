@@ -5,7 +5,7 @@ using System.Reflection;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BaseTowerLogic : MonoBehaviour
+public class BaseTowerLogic : MonoBehaviour, Effectable
 {
     [Header("Tower Assembly")]
     public Transform barrelToRotate;
@@ -17,7 +17,7 @@ public class BaseTowerLogic : MonoBehaviour
     [Range(0f, 30f)]
     public float targettingRange = 20f;
     public float fireRate = 1f;
-    private float fireCountdown = 0f; // Cooldown between shots
+    public float fireCountdown = 0f; // Cooldown between shots
     public bool isActive = false;
     [Header("Targeting")]
     public Transform target;
@@ -27,10 +27,17 @@ public class BaseTowerLogic : MonoBehaviour
     public string towerName; // Name of the tower as displayed in the UI and used to figure out what tower a gameObject is when it's not obvious.
     // I feel like there has to be a better way to do this though
     public Texture2D towerImage; // Image of the tower as displayed in the UI
+    [Header("Status Effects")]
+    protected StatusEffects data;
+
+    public float curAttackSpeed;
+    private float currentEffectTime = 0f;
+    public bool isBuffed = false;
     void Start()
     {
         Invoke();
         MakeSphere();
+        curAttackSpeed = fireRate;
         // I thought it was weired we had both targettingRadius and a sphere collider that seemed to be made dynamically
         // But turns out we are using targettingRadius to make a sphere of said radius so that way we can set the targetting radius in the inspector
         // Making the sphere collider protected since there is no reason to mess with it in the inspector
@@ -40,6 +47,10 @@ public class BaseTowerLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(data != null)
+        {
+            handleEffect();
+        }
         Track();
         ListPrune();
     }
@@ -73,7 +84,7 @@ public class BaseTowerLogic : MonoBehaviour
     {
         Debug.Log("shooting");
     }
-    public void UpdateTarget()
+    public virtual void UpdateTarget()
     {
         if(isActive == false) // If the tower is not active (hasn't been placed yet), don't do anything
         {
@@ -102,6 +113,11 @@ public class BaseTowerLogic : MonoBehaviour
 
         }
 
+    }
+
+    public bool getIsBuffed()
+    {
+        return isBuffed;
     }
 
     private void OnDrawGizmosSelected()
@@ -286,6 +302,42 @@ public class BaseTowerLogic : MonoBehaviour
             targets.Remove(other.GetComponent<BaseEnemyLogic>());
             UpdateTarget();
 
+        }
+    }
+
+    public void applyEffect(StatusEffects effect)
+    {
+        this.data = effect;
+        Instantiate(effect.effectParticles, transform);
+    }
+
+
+    public void removeEffect(int ind)
+    {
+        if(data.Name == "AttackSpeed")
+        {
+            fireRate = curAttackSpeed;
+            isBuffed = false;
+        }
+        data = null;
+        currentEffectTime = 0;
+        //lastTickTime = 0;
+    }
+
+    public void handleEffect()
+    {
+        currentEffectTime += Time.deltaTime;
+
+        if(currentEffectTime > data.lifeTime)
+        {
+            removeEffect(0);
+            return;
+        }
+
+        if(data.attackSpeedIncrease != 0 && isBuffed != true)
+        {
+            fireRate = fireRate * (1 + data.attackSpeedIncrease);
+            isBuffed = true;
         }
     }
 }
