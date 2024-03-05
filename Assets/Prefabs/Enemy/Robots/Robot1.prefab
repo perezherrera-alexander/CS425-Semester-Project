@@ -1230,6 +1230,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5488519009005837976}
+  - component: {fileID: 6303850263818543188}
   m_Layer: 0
   m_Name: Robot
   m_TagString: Untagged
@@ -1253,6 +1254,27 @@ Transform:
   - {fileID: 3087888192572059554}
   m_Father: {fileID: 1421825510826616930}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!95 &6303850263818543188
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5143377238665053218}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 55ba477db6a48da4ea7d309408582a71, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5168795068887059304
 GameObject:
   m_ObjectHideFlags: 0
@@ -1578,7 +1600,7 @@ GameObject:
   - component: {fileID: 7075202596244357676}
   m_Layer: 0
   m_Name: Robot1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
