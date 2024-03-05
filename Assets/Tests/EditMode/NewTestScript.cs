@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.TestTools;
 
 public class NewTestScript
 {
+    [SetUp]
 
-    // A Test behaves as an ordinary method
     [Test]
-    public void NewTestScriptSimplePasses()
+    public void Setup()
     {
-        // Use the Assert class to test conditions
-        Assert.AreEqual(1, 1); // This is just to test out how the test works
+        SceneManager.LoadScene("Game View");
     }
 }

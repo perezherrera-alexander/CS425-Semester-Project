@@ -110,6 +110,6 @@ public class PauseMenu : MonoBehaviour
     public void WorldMap()
     {
         Time.timeScale = 1.0f;
-        SceneManager.LoadScene("World Map");
+        SceneManager.LoadScene("World Map Generation");
     }
 }
