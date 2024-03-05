@@ -17,6 +17,8 @@ public class PlayerData : ScriptableObject
     public string CurrentWorld = "";
     public string[] WorldsCompleted;
 
+    public bool[,] LocationOfTowerUnlock;
+
     public int TowersObtained = 3;
     public GameObject[] Towers;
     public Generals activeGeneral = Generals.Bee;

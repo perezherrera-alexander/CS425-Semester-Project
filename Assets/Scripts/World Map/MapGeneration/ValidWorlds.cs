@@ -77,5 +77,28 @@ public class ValidWorlds : MonoBehaviour
                 }
             }
         }
-    }
+
+        for (int length = 0; length < playerData.NumberOfWorldsCompleted; length++)
+        {
+            // Iterate through all nodes in the grid
+            for (int col = 0; col < length; col++)
+            {
+                for (int row = 0; row < 7; row++)
+                {
+                    Image buttonImage = WorldButtonsHolder[col, col].GetComponent<Image>();
+                    Button buttonComponent = WorldButtonsHolder[col, col].GetComponent<Button>();
+
+                    buttonImage.color = Color.white;
+                    buttonComponent.enabled = true;
+
+                    var colors = buttonComponent.colors;
+                    var disabledColor = colors.disabledColor;
+                    disabledColor.a = 1;
+                    colors.disabledColor = disabledColor;
+                    buttonComponent.colors = colors;
+
+                    buttonComponent.interactable = false;
+                }
+            }
+        }
 }
