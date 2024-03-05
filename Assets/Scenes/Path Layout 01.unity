@@ -2539,8 +2539,8 @@ Transform:
   m_GameObject: {fileID: 465752036}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -614.2846, y: -308.035, z: 30.7606}
-  m_LocalScale: {x: 13.777253, y: 1, z: 3.2198007}
+  m_LocalPosition: {x: -614.2846, y: -308.035, z: 31.0115}
+  m_LocalScale: {x: 13.777253, y: 1, z: 3.7217677}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1065333632}
@@ -3387,8 +3387,8 @@ Transform:
   m_GameObject: {fileID: 662517678}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -602.203, y: -308.035, z: 24.6323}
-  m_LocalScale: {x: 12.55141, y: 1, z: 2.870074}
+  m_LocalPosition: {x: -602.203, y: -308.035, z: 25.0714}
+  m_LocalScale: {x: 12.55141, y: 1, z: 3.7483168}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1065333632}
@@ -3792,8 +3792,8 @@ Transform:
   m_GameObject: {fileID: 709718252}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -607.0619, y: -308.035, z: 18.6791}
-  m_LocalScale: {x: 2.834108, y: 1, z: 14.776576}
+  m_LocalPosition: {x: -606.6227, y: -308.035, z: 18.6791}
+  m_LocalScale: {x: 3.7123983, y: 1, z: 14.776576}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1065333632}
@@ -4556,8 +4556,8 @@ Transform:
   m_GameObject: {fileID: 879910773}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -597.563, y: -308.035, z: 42.1042}
-  m_LocalScale: {x: 3.271152, y: 1, z: 37.813885}
+  m_LocalPosition: {x: -597.8139, y: -308.035, z: 42.1042}
+  m_LocalScale: {x: 3.7729466, y: 1, z: 37.813885}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1065333632}
@@ -5577,8 +5577,8 @@ Transform:
   m_GameObject: {fileID: 1085447164}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -620.2312, y: -308.035, z: 63.4261}
-  m_LocalScale: {x: 3.4688337, y: 1, z: 23.223267}
+  m_LocalPosition: {x: -620.043, y: -308.035, z: 63.4261}
+  m_LocalScale: {x: 3.8449817, y: 1, z: 23.223267}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1065333632}
@@ -6072,8 +6072,8 @@ Transform:
   m_GameObject: {fileID: 1159385284}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -619.625, y: -308.035, z: 21.6557}
-  m_LocalScale: {x: 3.0963597, y: 1, z: 20.729246}
+  m_LocalPosition: {x: -619.2486, y: -308.035, z: 21.6557}
+  m_LocalScale: {x: 3.8490849, y: 1, z: 20.729246}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1065333632}
@@ -9229,8 +9229,8 @@ Transform:
   m_GameObject: {fileID: 1713236413}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -615.9598, y: -308.035, z: 53.6178}
-  m_LocalScale: {x: 12.01153, y: 1, z: 3.6069767}
+  m_LocalPosition: {x: -615.9598, y: -308.035, z: 53.806}
+  m_LocalScale: {x: 12.01153, y: 1, z: 3.9835453}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1065333632}
@@ -10607,8 +10607,8 @@ Transform:
   m_GameObject: {fileID: 1864782368}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -613.4091, y: -308.035, z: 12.8134}
-  m_LocalScale: {x: 15.528645, y: 1, z: 3.0447023}
+  m_LocalPosition: {x: -613.4091, y: -308.035, z: 13.1898}
+  m_LocalScale: {x: 15.528645, y: 1, z: 3.7976573}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1065333632}
@@ -10823,7 +10823,12 @@ MonoBehaviour:
   TetherTowerPrefab: {fileID: 4697445435849318074, guid: d683e4508f9f8474e99a3210a2578de0, type: 3}
   FlameTowerPrefab: {fileID: 3496186726202727201, guid: 6c1a92e71725f8e4d87187e45f71fa2e, type: 3}
   MeleeTowerPrefab: {fileID: 5638637389332727884, guid: 4e4f33efe7895774986c5a0f0a79ecce, type: 3}
+  MortarAntPrefab: {fileID: 0}
+  AttackBeePrefab: {fileID: 0}
+  BeeSwarmPrefab: {fileID: 0}
+  BuffingBeePrefab: {fileID: 0}
   WaspTowerPrefab: {fileID: 5375419024465267202, guid: 9615296694b34664ba234ff1db9775dd, type: 3}
+  WaspMeleePrefab: {fileID: 0}
   playerStatistics: {fileID: 1798962339}
   playerData: {fileID: 11400000, guid: 5e3cd046013d0654b91f369ecf77ee21, type: 2}
   shopIsOpen: 0
@@ -11901,8 +11906,8 @@ Transform:
   m_GameObject: {fileID: 2078791993}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -608.8129, y: -308.035, z: 36.4974}
-  m_LocalScale: {x: 2.8339808, y: 1, z: 14.693097}
+  m_LocalPosition: {x: -609.2521, y: -308.035, z: 36.4974}
+  m_LocalScale: {x: 3.7122316, y: 1, z: 14.693097}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1065333632}
