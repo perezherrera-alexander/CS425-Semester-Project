@@ -60,9 +60,9 @@ public class NewLevel : MonoBehaviour
     public void generalSelect(string generalName)
     {
         if(generalName == "Bee") {
-            playerData.Towers[0] = towers[0];
-            playerData.Towers[1] = towers[1];
-            playerData.Towers[2] = towers[2];
+            playerData.Towers[0] = towers[3];
+            playerData.Towers[1] = towers[4];
+            playerData.Towers[2] = towers[5];
             playerData.TowersObtained = 3;
             playerData.activeGeneral = Generals.Bee;
             generalSelected = true;
@@ -70,16 +70,18 @@ public class NewLevel : MonoBehaviour
 
         } 
         else if(generalName == "Ant"){
-            playerData.Towers[0] = towers[3];
-            playerData.Towers[1] = towers[4];
-            playerData.TowersObtained = 2;
+            playerData.Towers[0] = towers[6];
+            playerData.Towers[1] = towers[7];
+            playerData.Towers[2] = towers[8];
+            playerData.TowersObtained = 3;
             playerData.activeGeneral = Generals.Ant;
             generalSelected = true;
             nameOfGen = generalName;
         }
         else if(generalName == "Wasp"){
-            playerData.Towers[0] = towers[5];
-            playerData.TowersObtained = 1;
+            playerData.Towers[0] = towers[9];
+            playerData.Towers[1] = towers[10];
+            playerData.TowersObtained = 2;
             playerData.activeGeneral = Generals.Wasp;
             generalSelected = true;
             nameOfGen = generalName;
@@ -92,7 +94,12 @@ public class NewLevel : MonoBehaviour
             playerData.Towers[4] = towers[4];
             playerData.Towers[5] = towers[5];
             playerData.Towers[6] = towers[6];
-            playerData.TowersObtained = 7;
+            playerData.Towers[7] = towers[7];
+            playerData.Towers[8] = towers[8];
+            playerData.Towers[9] = towers[9];
+            playerData.Towers[10] = towers[10];
+            playerData.Towers[11] = towers[11];
+            playerData.TowersObtained = 12;
             playerData.activeGeneral = Generals.Dev;
             generalSelected = true;
             nameOfGen = generalName;
