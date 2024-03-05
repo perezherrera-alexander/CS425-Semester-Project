@@ -107,13 +107,14 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
             float EnemyHealth = getHealth();
             int MoraleLost = (int)EnemyHealth;
             PlayerStatistics.Instance.ReduceMorale(MoraleLost);
-            Destroy(gameObject);
+            
             PlayerStatistics.Instance.AddEnemiesKilled();
+            Destroy(gameObject);
             return;
         }
         transform.LookAt(Path.waypoints[waypointindex]);
-        waypointindex++;
         target = Path.waypoints[waypointindex];
+        waypointindex++;
     }
     public void knockback(int knockbackForce){
 
@@ -144,9 +145,9 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
                 break;
             }
         }
-        Debug.Log("New Index: " + newIndex);
-        Debug.Log("Waypoint index: " + waypointindex);
-        Debug.Log("Length of new knockback length: " + waypointLengths[newIndex]);
+        // Debug.Log("New Index: " + newIndex);
+        // Debug.Log("Waypoint index: " + waypointindex);
+        // Debug.Log("Length of new knockback length: " + waypointLengths[newIndex]);
         
         
     }
