@@ -35,35 +35,8 @@ public class ShopLogicTests
         Assert.IsTrue(GameObject.GetComponent<ShopLogic>().shopIsOpen);
     }
 
-    // [UnityTest]
-    // public IEnumerator CheckEnemyMovesOnPath()
-    // {
-    //     // check if the drone exists
-    //     var drone = new GameObject();
-    //     drone = GameObject.Find("Drone");
-    //     if(drone == null)
-    //     {
-    //         Debug.Log("Drone not found");
-    //         Assert.Fail();
-    //     }
-        
-
-    // }
-
-    //Test that the waypoints object has more than one waypoint in it
-    [UnityTest]
-    public IEnumerator CheckWaypoints()
-    {
-        var path = new GameObject();
-        path = GameObject.Find("Path");
-        if(path == null)
-        {
-            Debug.Log("Path not found");
-            Assert.Fail();
-        }
-        yield return null;
-        Assert.Greater(Path.waypoints.Length, 8);
-    }
+    
+    
 
     [UnityTest]
     public IEnumerator PurchaseTowerFromShop()

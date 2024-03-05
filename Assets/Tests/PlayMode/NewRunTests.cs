@@ -73,6 +73,36 @@ public class NewRunTests
         
     }
 
+    //Test that the waypoints object has more than one waypoint in it
+    [UnityTest]
+    public IEnumerator CheckWaypoints()
+    {
+        var menu = new GameObject();
+        menu = GameObject.Find("Canvas");
+        menu.GetComponent<NewLevel>().goToScene("Game View");
+        yield return null;
+        //check for a waypoint system that is non-empty
+
+        var path = new GameObject();
+        path = GameObject.Find("Path");
+        if(path == null)
+        {
+            Debug.Log("Path not found");
+            Assert.Fail();
+        }
+        yield return null;
+        //set to 8 because there are 9 waypoints in the scene, and too simple paths are bad
+        Assert.Greater(Path.waypoints.Length, 8);
+        
+    }
+
+    //Eventually test that enemies can spawn and move along the path
+    //[UnityTest]
+    //public IEnumerator CheckEnemySpawns()
+    
+    //[UnityTest]
+    //public IEnumerator CheckEnemyMovesOnPath()
+
     [UnityTest]
 
     public IEnumerator ChangeToMainMenu()
