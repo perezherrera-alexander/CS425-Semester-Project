@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -14,6 +15,10 @@ public class WorldMapGenerator : MonoBehaviour
     public bool[,] ConnectedWorld;
 
     public bool[,] ActiveWorlds;
+
+    public bool[,] LocationOfTowerUnlock;
+
+    public int NumberOfTowerUnlock = 6;
 
     public void Obtain2dArrays(GameObject[,] buttons, bool[,] status)
     {
@@ -122,7 +127,7 @@ public class WorldMapGenerator : MonoBehaviour
 
         string combineddata = string.Join(",", col, row);
 
-        playerData.CurrentWorld = combineddata; 
+        playerData.CurrentWorld = combineddata;
     }
 
     // The function that finds and stores the connection of each current node for the next possible nodes
@@ -163,23 +168,57 @@ public class WorldMapGenerator : MonoBehaviour
                             // Check if the adjacent node is not in use
                             if (WorldsInUseForMapGeneration[newCol, newRow] == true)
                             {
-                                    // Get the adjacent node
-                                    WorldNode adjacentNode = WorldButtons[newCol, newRow].GetComponent<WorldNode>();
+                                // Get the adjacent node
+                                WorldNode adjacentNode = WorldButtons[newCol, newRow].GetComponent<WorldNode>();
 
-                                    // Add connection between the current node and adjacent node
-                                    currentNode.AddConnection(adjacentNode);
+                                // Add connection between the current node and adjacent node
+                                currentNode.AddConnection(adjacentNode);
 
-                                    Image buttonImage = WorldButtons[newCol, newRow].GetComponent<Image>();
-                                    Button buttonComponent = WorldButtons[newCol, newRow].GetComponent<Button>();
+                                Image buttonImage = WorldButtons[newCol, newRow].GetComponent<Image>();
+                                Button buttonComponent = WorldButtons[newCol, newRow].GetComponent<Button>();
 
-                                    buttonImage.enabled = true;
-                                    buttonComponent.enabled = true;
-                                    ActiveWorlds[newCol, newRow] = true;
+                                buttonImage.enabled = true;
+                                buttonComponent.enabled = true;
+                                ActiveWorlds[newCol, newRow] = true;
                             }
                         }
                     }
                 }
             }
         }
+        TowerUnlockGeneration();
+    }
+
+    private void TowerUnlockGeneration()
+    {
+        int TowersPlaced = 0;
+        while (TowersPlaced < NumberOfTowerUnlock)
+        {
+            // Iterate through all nodes in the grid
+            for (int col = 1; col < 11 && TowersPlaced < NumberOfTowerUnlock; col++)
+            {
+                for (int row = 0; row < 7 && TowersPlaced < NumberOfTowerUnlock; row++)
+                {
+                    // Check if the node is not in use
+                    if (WorldsInUseForMapGeneration[col, row] == true && ActiveWorlds[col, row] == true)
+                    {
+                        Image buttonImages = WorldButtons[col, row].GetComponent<Image>();
+
+                        int count = Random.Range(0, 6);
+                        if (count == 0)
+                        {
+                            TowersPlaced++;
+                            row = 7;
+                        }
+                        else if (count == 5)
+                        {
+                            TowersPlaced++;
+                            row = 7;
+                        }
+                    }
+                }
+            }
+        }
+        playerData.LocationOfTowerUnlock = LocationOfTowerUnlock;
     }
 }

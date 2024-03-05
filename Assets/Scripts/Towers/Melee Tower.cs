@@ -22,12 +22,17 @@ public class meleeTower : BaseTowerLogic
         towerName = "Army Ant";
         Invoke();
         MakeSphere();
+        curAttackSpeed = fireRate;
         animate = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (data != null)
+        {
+            handleEffect();
+        }
         Track();
         ListPrune();
     }
