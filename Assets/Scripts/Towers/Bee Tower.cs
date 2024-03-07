@@ -14,10 +14,15 @@ public class BeeTower : BaseTowerLogic
         Invoke();
         MakeSphere();
         Debug.Log("Targetting Type: " + targetingType);
+        curAttackSpeed = fireRate;
     }
 
     void Update()
     {
+        if (data != null)
+        {
+            handleEffect();
+        }
         Track();
         ListPrune();
     }

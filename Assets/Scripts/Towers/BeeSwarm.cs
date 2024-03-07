@@ -21,12 +21,15 @@ public class BeeSwarm : BaseTowerLogic
     // Update is called once per frame
     void Update()
     {
-        if (data != null)
+        if (isActive)
         {
-            handleEffect();
+            if (data != null)
+            {
+                handleEffect();
+            }
+            Track();
+            ListPrune();
         }
-        Track();
-        ListPrune();
     }
 
     public override void Track()

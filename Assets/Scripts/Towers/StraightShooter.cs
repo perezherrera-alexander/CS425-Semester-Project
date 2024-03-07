@@ -39,6 +39,12 @@ public class StraightShooter : BaseTowerLogic
 
     }
 
+    public override void MakeSphere()
+    {
+        proximitySphere = transform.GetComponent<SphereCollider>();
+       proximitySphere.radius = targettingRange * 3f;
+    }
+
     [ContextMenu("Generate ID")]
     public string GenerateId()
     {
