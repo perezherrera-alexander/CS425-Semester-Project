@@ -18,6 +18,7 @@ public class GridLayoutBluePrint : MonoBehaviour
 
     private void OnEnable()
     {
+        Debug.Log("TEST");
         WorldButtonGrid = new GameObject[rows, cols];
         WorldCompleted = new bool[rows, cols];
         WorldsInUseForMapGeneration = new bool[rows, cols];

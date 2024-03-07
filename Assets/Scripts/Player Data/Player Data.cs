@@ -17,10 +17,12 @@ public class PlayerData : ScriptableObject
     public string CurrentWorld = "";
     public string[] WorldsCompleted;
 
-    public bool[,] LocationOfTowerUnlock;
+    public string[] LocationOfTowerUnlock;
 
     public int TowersObtained = 3;
     public GameObject[] Towers;
+    public GameObject[] TowerPool;
+    public GameObject[] TowerUnlockOrder;
     public Generals activeGeneral = Generals.Bee;
     public Modifiers activeModifier = Modifiers.None;
 
@@ -44,5 +46,21 @@ public class PlayerData : ScriptableObject
     public void InitializeWorldsCompletedArray(int arraySize)
     {
         WorldsCompleted = new string[arraySize];
+    }
+    public void InitializeTowerUnlockArray(int arraySize)
+    {
+        LocationOfTowerUnlock = new string[arraySize];
+    }
+    public void InitializeTowersArray(int arraySize)
+    {
+        Towers = new GameObject[arraySize];
+    }
+    public void InitializeTowerPoolArray(int arraySize)
+    {
+        TowerPool = new GameObject[arraySize];
+    }
+    public void InitializeTowerUnlockOrderArray(int arraySize)
+    {
+        TowerUnlockOrder = new GameObject[arraySize];
     }
 }

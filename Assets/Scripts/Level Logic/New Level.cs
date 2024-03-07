@@ -15,6 +15,11 @@ public class NewLevel : MonoBehaviour
         playerData.activeModifier = Modifiers.None;
         defaultButton.Select();
         defaultButton.onClick.Invoke();
+
+        for (int i = 0; i < 7; i++)
+        {
+            playerData.TowerPool[i] = towers[i];
+        }
     }
     public void goToScene(string sceneName)
     {
@@ -28,6 +33,7 @@ public class NewLevel : MonoBehaviour
             playerData.NumberOfWorldsCompleted = 0;
             playerData.CurrentWorld = "0,3";
             playerData.InitializeWorldsCompletedArray(100);
+            playerData.InitializeTowerUnlockArray(6);
             SceneManager.LoadScene(sceneName);
         }
 

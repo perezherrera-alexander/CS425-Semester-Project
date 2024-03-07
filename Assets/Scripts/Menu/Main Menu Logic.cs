@@ -10,6 +10,7 @@ public class MainMenu : MonoBehaviour
     public Slider volumeSlider;
     public Slider musicSlider;
     public TMP_Dropdown difficultyDropdown;
+    public PlayerData playerData;
 
     void Start(){
         if(volumeSlider != null) volumeSlider.value = SettingsValues.gameVolume;
@@ -18,6 +19,12 @@ public class MainMenu : MonoBehaviour
         else Debug.Log("Music Slider is null");
         if(difficultyDropdown != null) difficultyDropdown.value = SettingsValues.difficulty;
         else Debug.Log("Difficulty Dropdown is null");
+        playerData.InitializeTowersArray(0);
+        playerData.InitializeTowersArray(20);
+        playerData.InitializeTowerPoolArray(0);
+        playerData.InitializeTowerPoolArray(20);
+        playerData.InitializeTowerUnlockOrderArray(0);
+        playerData.InitializeTowerUnlockOrderArray(10);
     }
 
     void Update()

@@ -32,6 +32,32 @@ public class ValidWorlds : MonoBehaviour
 
         WorldsInUseForMapGenerationHolder = worldMapGenerator.WorldsInUseForMapGeneration;
 
+        // turn all nodes 3 nodes ahead from last level completed white and more vibrant
+        int maxCol = Mathf.Min(playerData.NumberOfWorldsCompleted + 3, WorldButtonsHolder.GetLength(0));
+        for (int col = 0; col < maxCol; col++)
+        {
+            for (int row = 0; row < 7; row++)
+            {
+                if (worldMapGenerator.WorldsInUseForMapGeneration[col, row] == true)
+                {
+                    Image buttonImage = WorldButtonsHolder[col, row].GetComponent<Image>();
+                    Button buttonComponent = WorldButtonsHolder[col, row].GetComponent<Button>();
+
+                    buttonImage.color = Color.white;
+                    buttonComponent.enabled = true;
+
+                    var colors = buttonComponent.colors;
+                    var disabledColor = colors.disabledColor;
+                    disabledColor.a = 1;
+                    colors.disabledColor = disabledColor;
+                    buttonComponent.colors = colors;
+
+                    buttonComponent.interactable = false;
+                }
+            }
+        }
+
+        // All worlds completed nodes are turned black
         for (int i = 0; i < playerData.NumberOfWorldsCompleted; i++)
         {
             string[] SplitString = playerData.WorldsCompleted[i].Split(',');
@@ -48,7 +74,7 @@ public class ValidWorlds : MonoBehaviour
             buttonComponent.colors = DisabledColor;
         }
 
-
+        // All possible worlds you can visit next are turned yellow
         for (int i = 0; i < 3; i++)
         {
 
@@ -78,28 +104,17 @@ public class ValidWorlds : MonoBehaviour
             }
         }
 
-        for (int length = 0; length < playerData.NumberOfWorldsCompleted; length++)
+        // Show all locations of tower unlock points
+        for (int i = 0; i < playerData.LocationOfTowerUnlock.Length; i++)
         {
-            // Iterate through all nodes in the grid
-            for (int col = 0; col < length; col++)
-            {
-                for (int row = 0; row < 7; row++)
-                {
-                    Image buttonImage = WorldButtonsHolder[col, col].GetComponent<Image>();
-                    Button buttonComponent = WorldButtonsHolder[col, col].GetComponent<Button>();
+            string[] SplitString = playerData.LocationOfTowerUnlock[i].Split(',');
 
-                    buttonImage.color = Color.white;
-                    buttonComponent.enabled = true;
+            int col = int.Parse(SplitString[0]);
+            int row = int.Parse(SplitString[1]);
 
-                    var colors = buttonComponent.colors;
-                    var disabledColor = colors.disabledColor;
-                    disabledColor.a = 1;
-                    colors.disabledColor = disabledColor;
-                    buttonComponent.colors = colors;
+            Image buttonImage = WorldButtonsHolder[col, row].GetComponent<Image>();
 
-                    buttonComponent.interactable = false;
-                }
-            }
+            buttonImage.color = Color.blue;
         }
     }
 }

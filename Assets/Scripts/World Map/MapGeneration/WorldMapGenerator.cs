@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -82,6 +84,28 @@ public class WorldMapGenerator : MonoBehaviour
         {
             Debug.Log("Button clicked at: " + col + ", " + row);
 
+            string location = col + "," + row;
+            if (playerData.LocationOfTowerUnlock.Contains(location))
+            {
+                // Find the position of the location in the LocationOfTowerUnlock array
+                int position = Array.IndexOf(playerData.LocationOfTowerUnlock, location);
+
+                // Get the tower from the TowerUnlockOrder array at the same position
+                GameObject tower = playerData.TowerUnlockOrder[position];
+
+                // Add the tower to the end of the Towers array
+                playerData.Towers[playerData.TowersObtained] = tower;
+
+                // Increment the number of towers obtained
+                playerData.TowersObtained++;
+
+                // Debug output
+                Debug.Log("Tower obtained: " + tower.name);
+            }
+
+
+
+
             // Print information about the clicked node and its connections
             Debug.Log("Connections from this node:");
             foreach (var adjacentNode in worldNode.Connections)
@@ -105,24 +129,6 @@ public class WorldMapGenerator : MonoBehaviour
             Debug.Log("Button clicked at: " + col + ", " + row + " - No WorldNode component found");
         }
 
-        /*int World = UnityEngine.Random.Range(0, 8);
-        if (World == 0)
-            SceneManager.LoadScene("Game View");
-        else if (World == 1)
-            SceneManager.LoadScene("Game View 1");
-        else if (World == 2)
-            SceneManager.LoadScene("Game View 2");
-        else if (World == 3)
-            SceneManager.LoadScene("Game View 3");
-        else if (World == 4)
-            SceneManager.LoadScene("Game View 4");
-        else if (World == 5)
-            SceneManager.LoadScene("Game View 5");
-        else if (World == 6)
-            SceneManager.LoadScene("Game View 6");
-        else if (World == 7)
-            SceneManager.LoadScene("Game View 7");
-        */
         SceneManager.LoadScene("Game View");
 
         string combineddata = string.Join(",", col, row);
@@ -186,32 +192,51 @@ public class WorldMapGenerator : MonoBehaviour
                 }
             }
         }
-        TowerUnlockGeneration();
+        if (playerData.NumberOfWorldsCompleted == 1)
+        {
+            TowerUnlockGeneration();
+        }
     }
 
     private void TowerUnlockGeneration()
     {
         int TowersPlaced = 0;
+
+        LocationOfTowerUnlock = new bool[12, 7];
+
+        // List to keep track of which towers have been selected
+        List<int> selectedTowers = new List<int>();
+
         while (TowersPlaced < NumberOfTowerUnlock)
         {
-            // Iterate through all nodes in the grid
             for (int col = 1; col < 11 && TowersPlaced < NumberOfTowerUnlock; col++)
             {
                 for (int row = 0; row < 7 && TowersPlaced < NumberOfTowerUnlock; row++)
                 {
                     // Check if the node is not in use
-                    if (WorldsInUseForMapGeneration[col, row] == true && ActiveWorlds[col, row] == true)
+                    if (WorldsInUseForMapGeneration[col, row] && ActiveWorlds[col, row])
                     {
-                        Image buttonImages = WorldButtons[col, row].GetComponent<Image>();
+                        int count = UnityEngine.Random.Range(0, 6);
+                        if (count == 0 || count == 5)
+                        {
+                            LocationOfTowerUnlock[col, row] = true;
+                            string combineddata = string.Join(",", col, row);
+                            playerData.LocationOfTowerUnlock[TowersPlaced] = combineddata;
 
-                        int count = Random.Range(0, 6);
-                        if (count == 0)
-                        {
-                            TowersPlaced++;
-                            row = 7;
-                        }
-                        else if (count == 5)
-                        {
+                            // Pick a unique tower for this node
+                            int towerIndex;
+                            do
+                            {
+                                towerIndex = UnityEngine.Random.Range(0, 7);
+                            } while (selectedTowers.Contains(towerIndex)); // Ensure uniqueness
+
+                            // Store the selected tower index
+                            selectedTowers.Add(towerIndex);
+
+                            playerData.TowerUnlockOrder[TowersPlaced] = playerData.TowerPool[towerIndex];
+
+
+                            Debug.Log(col + ", " + row);
                             TowersPlaced++;
                             row = 7;
                         }
@@ -219,6 +244,5 @@ public class WorldMapGenerator : MonoBehaviour
                 }
             }
         }
-        playerData.LocationOfTowerUnlock = LocationOfTowerUnlock;
     }
 }
