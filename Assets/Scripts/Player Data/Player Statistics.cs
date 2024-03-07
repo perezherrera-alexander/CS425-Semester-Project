@@ -14,6 +14,7 @@ public class PlayerStatistics : MonoBehaviour, ISaveable
     public int currentMorale = 100;
     public int CurrentEvolutionPoints = 20;
     private int enemiesKilled = 0;
+    public int enemiesPresent = 0;
     //private string CustomSaveName;
     private void Awake()
     {

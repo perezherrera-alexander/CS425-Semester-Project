@@ -11,6 +11,8 @@ public class PlayerData : ScriptableObject
     public int EvolutionPointsDuringWorld = 0;
 
     public int EnemiesKilled = 0;
+
+    //public int enemiesPresent = 0;
     public int EnemiesKilledDuringWorld = 0;
 
     public int NumberOfWorldsCompleted = 0;

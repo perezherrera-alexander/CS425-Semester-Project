@@ -22,8 +22,8 @@ public class EnemyCarrier : BaseEnemyLogic
                 //change target aswell
                 troop.GetComponent<BaseEnemyLogic>().target = Path.waypoints[waypointindex];
             }
-
-            PlayerStatistics.Instance.AddEnemiesKilled();
+            //subtract present enemies count by 1
+            PlayerStatistics.Instance.enemiesPresent--;
             Destroy(ob);
 
             //PlayerStatistics.Instance.AddEnemiesKilled();

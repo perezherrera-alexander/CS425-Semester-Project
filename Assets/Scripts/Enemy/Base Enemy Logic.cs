@@ -25,11 +25,12 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
     public void Start(){
 
         PlayerStatistics = FindObjectOfType<PlayerStatistics>();
+
+        //increase number of enemies counter by 1
+        PlayerStatistics.Instance.enemiesPresent++;
         //code to deal with the enemy being spawned from another enemy
         if(!differentStart) target = Path.waypoints[0];
         curSpeed = speed;
-        Debug.Log("Start waypoint index: " + waypointindex);
-        Debug.Log("Start Target: " + target.position);
     }
 
     public void reduceHealth(float damage)
@@ -48,7 +49,8 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
         {
             PlayerStatistics.AddMoney(GoldWorth);
             Destroy(ob);
-            PlayerStatistics.Instance.AddEnemiesKilled();
+            //subtract present enemies count by 1
+            PlayerStatistics.Instance.enemiesPresent--;
             return;
         }
     }
@@ -72,14 +74,11 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
     public virtual void Update (){
         healthCheck();
 
-
         if(effects.Count > 0)
         {
             if (effects.First() != null) handleEffect();
         }
         
-        
-
         Vector3 direction = target.position - transform.position;
         transform.Translate(direction.normalized * speed * slowFactor * Time.deltaTime, Space.World);
 
@@ -107,13 +106,13 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
     }
 
     public virtual void GetNextWaypoint(){
-        if (waypointindex >= Path.waypoints.Length - 1){ // Enemy reaches end of path
+        if (waypointindex >= Path.waypoints.Length){ // Enemy reaches end of path
             //decrement player health according to
             float EnemyHealth = getHealth();
             int MoraleLost = (int)EnemyHealth;
             PlayerStatistics.Instance.ReduceMorale(MoraleLost);
-            
-            PlayerStatistics.Instance.AddEnemiesKilled();
+            //subtract present enemies count by 1
+            PlayerStatistics.Instance.enemiesPresent--;
             Destroy(gameObject);
             return;
         }

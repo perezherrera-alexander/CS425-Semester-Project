@@ -43,6 +43,7 @@ public class TowerPlacement : MonoBehaviour
 
                 // Call the ActivateTower function of the tower's script
                 Tower.transform.GetComponentInChildren<BaseTowerLogic>().ActivateTower(); // We don't actually need the towername, we can just do it this way
+                Debug.Log("Tower activated");
                 // Except I guess we need to do it this way for save data purposes. There has to be a better way, this should be revisited.
                 if (towerName == "Bee Tower")
                 {
