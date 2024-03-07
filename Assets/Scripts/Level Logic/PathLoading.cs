@@ -14,7 +14,7 @@ public class PathLoading : MonoBehaviour
         }
         // Assign one of the prefab paths to the "World Objects" game object
         int pathIndex = Random.Range(0, pathPrefabs.Length);
-        Debug.Log("Path index: " + pathIndex);
+        //Debug.Log("Path index: " + pathIndex);
         GameObject path = Instantiate(pathPrefabs[pathIndex], transform.position, Quaternion.identity);
         path.transform.parent = transform;
 
