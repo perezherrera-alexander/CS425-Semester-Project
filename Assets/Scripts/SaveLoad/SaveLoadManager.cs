@@ -7,52 +7,26 @@ public class SaveLoadManager : MonoBehaviour
 {
     private string SavePath => $"{Application.persistentDataPath}/save.txt";
 
-    private string CustomSavePath;
-
-    private string testname;
-
-    //PlayerStats playerStats;
-
-    private void CustomSaveName (string name)
-    {
-        CustomSavePath = $"{Application.persistentDataPath}/{name}.txt";
-    }
-
-    private void test()
-    {
-        testname = $"{Application.persistentDataPath}";
-    }
-
-
     [ContextMenu("Save")]
-    public void Save ()
+    public void Save()
     {
-        // Create method to see all save files in directory
-        
-        /*
-        test();
-
-        string[] files = Directory.GetFiles(testname);
-
-        foreach (string file in files)
-        {
-            Debug.Log(file);
-        }
-        */
-
-
-        //CustomSaveName(SaveName);
+        Debug.Log(SavePath);
         var State = LoadFile();
         CaptureState(State);
+        // Delete the old save file if it exists
+        if (File.Exists(SavePath))
+        {
+            File.Delete(SavePath);
+        }
+        // Save the new state
         SaveFile(State);
     }
 
     [ContextMenu("Load")]
-    public void Load ()
+    public void Load()
     {
         var State = LoadFile();
         RestoreState(State);
-
     }
 
     private void SaveFile (object state)
@@ -68,7 +42,7 @@ public class SaveLoadManager : MonoBehaviour
     {
         if (!File.Exists(SavePath))
         {
-            Debug.Log("DOESNT EXIST");
+            Debug.Log("DOESN'T EXIST");
             return new Dictionary<string, object>();
         }
 
@@ -79,7 +53,7 @@ public class SaveLoadManager : MonoBehaviour
         }
     }
 
-    private void CaptureState (Dictionary<string, object> state)
+    private void CaptureState(Dictionary<string, object> state)
     {
         foreach (var saveable in FindObjectsOfType<SaveableEntity>())
         {
@@ -87,7 +61,7 @@ public class SaveLoadManager : MonoBehaviour
         }
     }
 
-    private void RestoreState (Dictionary<string, object> state)
+    private void RestoreState(Dictionary<string, object> state)
     {
         foreach (var saveable in FindObjectsOfType<SaveableEntity>())
         {

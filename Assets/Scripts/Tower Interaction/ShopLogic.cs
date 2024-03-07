@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;// Required when using Event data.
+using Codice.CM.Common.Tree;
 
 public class ShopLogic : MonoBehaviour, IPointerEnterHandler
 {
@@ -36,6 +37,9 @@ public class ShopLogic : MonoBehaviour, IPointerEnterHandler
     [Header("Scripts")]
     [SerializeField] private TowerPlacement towerPlacement; // Tower placing is handed off to the TowerPlacement script
 
+
+    private TargetingTypes savedTargettingType;
+    [SerializeField] TowerSaveLoadManager towerSaveLoadManager;
     void Start()
     {
         // Grab references to the shop button and shop panel in the scene
@@ -231,7 +235,7 @@ public class ShopLogic : MonoBehaviour, IPointerEnterHandler
         {
             // Deduct the money and call the PlaceTower function
             playerStatistics.AddMoney(-towerCost);
-            towerPlacement.PlaceTower(MortarTowerPrefab, "Morar Tower");
+            towerPlacement.PlaceTower(MortarTowerPrefab, "Mortar Tower");
         }
         else
         {

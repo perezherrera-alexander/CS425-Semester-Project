@@ -5,9 +5,18 @@ using UnityEngine;
 
 public class TowerSaveLoadManager : MonoBehaviour, ISaveable
 {
-    public GameObject BeeTowerPrefab;
-    public GameObject MortarTowerPrefab;
-    public GameObject TetherTowerPrefab;
+    [Header("Tower Prefabs")]
+    [SerializeField] private GameObject BeeTowerPrefab;
+    [SerializeField] private GameObject MortarTowerPrefab;
+    [SerializeField] private GameObject TetherTowerPrefab;
+    [SerializeField] private GameObject FlameTowerPrefab;
+    [SerializeField] private GameObject MeleeTowerPrefab;
+    [SerializeField] private GameObject MortarAntPrefab;
+    [SerializeField] private GameObject AttackBeePrefab;
+    [SerializeField] private GameObject BeeSwarmPrefab;
+    [SerializeField] private GameObject BuffingBeePrefab;
+    [SerializeField] private GameObject WaspTowerPrefab;
+    [SerializeField] private GameObject WaspMeleePrefab;
 
     private Dictionary<string, TowerData> towerDictionary = new Dictionary<string, TowerData>();
 
@@ -21,7 +30,7 @@ public class TowerSaveLoadManager : MonoBehaviour, ISaveable
             TargetingOption = targetType
         };
 
-        Debug.Log($"Added tower: {towerID} at position {position}, Tower Name: {name}");
+        Debug.Log($"Added tower: {towerID} at position {position}, Tower Name: {name}, with Targeting: {targetType}");
     }
 
     public void RemoveTower(string towerID)
@@ -36,7 +45,7 @@ public class TowerSaveLoadManager : MonoBehaviour, ISaveable
         foreach (var towerData in towerDictionary.Values)
         {
 
-            if (towerData.TowerName == "beeTurret")
+            if (towerData.TowerName == "Bee Tower")
             {
                 GameObject instantiateTower = InstantiateTowerPrefab(new Vector3(towerData.TowerPosition[0], towerData.TowerPosition[1], towerData.TowerPosition[2]), BeeTowerPrefab);
 
@@ -45,7 +54,7 @@ public class TowerSaveLoadManager : MonoBehaviour, ISaveable
                 instantiateTower.GetComponentInChildren<BeeTower>().targetingType = towerData.TargetingOption;
             }
 
-            if (towerData.TowerName == "mortarTurret")
+            if (towerData.TowerName == "Mortar Tower")
             {
                 GameObject instantiateTower = InstantiateTowerPrefab(new Vector3(towerData.TowerPosition[0], towerData.TowerPosition[1], towerData.TowerPosition[2]), MortarTowerPrefab);
 
@@ -54,13 +63,102 @@ public class TowerSaveLoadManager : MonoBehaviour, ISaveable
                 instantiateTower.GetComponentInChildren<mortarTower>().targetingType = towerData.TargetingOption;
             }
 
-            if (towerData.TowerName == "tetherTower")
+            if (towerData.TowerName == "Tether Tower")
             {
                 GameObject instantiateTower = InstantiateTowerPrefab(new Vector3(towerData.TowerPosition[0], towerData.TowerPosition[1], towerData.TowerPosition[2]), TetherTowerPrefab);
 
                 instantiateTower.GetComponentInChildren<tetherTower>().id = towerData.TowerID;
 
                 instantiateTower.GetComponentInChildren<tetherTower>().targetingType = towerData.TargetingOption;
+
+            }
+
+
+
+
+
+
+
+
+
+
+            if (towerData.TowerName == "Flame Tower")
+            {
+                GameObject instantiateTower = InstantiateTowerPrefab(new Vector3(towerData.TowerPosition[0], towerData.TowerPosition[1], towerData.TowerPosition[2]), FlameTowerPrefab);
+
+                instantiateTower.GetComponentInChildren<FlameTower>().id = towerData.TowerID;
+
+                instantiateTower.GetComponentInChildren<FlameTower>().targetingType = towerData.TargetingOption;
+
+            }
+
+            if (towerData.TowerName == "Melee Tower")
+            {
+                GameObject instantiateTower = InstantiateTowerPrefab(new Vector3(towerData.TowerPosition[0], towerData.TowerPosition[1], towerData.TowerPosition[2]), MeleeTowerPrefab);
+
+                instantiateTower.GetComponentInChildren<meleeTower>().id = towerData.TowerID;
+
+                instantiateTower.GetComponentInChildren<meleeTower>().targetingType = towerData.TargetingOption;
+
+            }
+
+            if (towerData.TowerName == "Mortar Ant")
+            {
+                GameObject instantiateTower = InstantiateTowerPrefab(new Vector3(towerData.TowerPosition[0], towerData.TowerPosition[1], towerData.TowerPosition[2]), MortarAntPrefab);
+
+                instantiateTower.GetComponentInChildren<mortarTower>().id = towerData.TowerID;
+
+                instantiateTower.GetComponentInChildren<mortarTower>().targetingType = towerData.TargetingOption;
+
+            }
+
+            if (towerData.TowerName == "Attack Bee")
+            {
+                GameObject instantiateTower = InstantiateTowerPrefab(new Vector3(towerData.TowerPosition[0], towerData.TowerPosition[1], towerData.TowerPosition[2]), AttackBeePrefab);
+
+                instantiateTower.GetComponentInChildren<BeeTower>().id = towerData.TowerID;
+
+                instantiateTower.GetComponentInChildren<BeeTower>().targetingType = towerData.TargetingOption;
+
+            }
+
+            if (towerData.TowerName == "Bee Swarm")
+            {
+                GameObject instantiateTower = InstantiateTowerPrefab(new Vector3(towerData.TowerPosition[0], towerData.TowerPosition[1], towerData.TowerPosition[2]), BeeSwarmPrefab);
+
+                instantiateTower.GetComponentInChildren<BeeSwarm>().id = towerData.TowerID;
+
+                instantiateTower.GetComponentInChildren<BeeSwarm>().targetingType = towerData.TargetingOption;
+
+            }
+
+            if (towerData.TowerName == "Buffing Bee")
+            {
+                GameObject instantiateTower = InstantiateTowerPrefab(new Vector3(towerData.TowerPosition[0], towerData.TowerPosition[1], towerData.TowerPosition[2]), BuffingBeePrefab);
+
+                instantiateTower.GetComponentInChildren<BuffingBees>().id = towerData.TowerID;
+
+                instantiateTower.GetComponentInChildren<BuffingBees>().targetingType = towerData.TargetingOption;
+
+            }
+
+            if (towerData.TowerName == "Wasp Melee")
+            {
+                GameObject instantiateTower = InstantiateTowerPrefab(new Vector3(towerData.TowerPosition[0], towerData.TowerPosition[1], towerData.TowerPosition[2]), WaspMeleePrefab);
+
+                instantiateTower.GetComponentInChildren<WaspMelee>().id = towerData.TowerID;
+
+                instantiateTower.GetComponentInChildren<WaspMelee>().targetingType = towerData.TargetingOption;
+
+            }
+
+            if (towerData.TowerName == "Wasp Tower")
+            {
+                GameObject instantiateTower = InstantiateTowerPrefab(new Vector3(towerData.TowerPosition[0], towerData.TowerPosition[1], towerData.TowerPosition[2]), WaspTowerPrefab);
+
+                instantiateTower.GetComponentInChildren<StraightShooter>().id = towerData.TowerID;
+
+                instantiateTower.GetComponentInChildren<StraightShooter>().targetingType = towerData.TargetingOption;
 
             }
 
@@ -74,12 +172,40 @@ public class TowerSaveLoadManager : MonoBehaviour, ISaveable
         GameObject towerPrefab = Instantiate(tower, position, Quaternion.identity);
 
         towerPrefab.GetComponentInParent<BoxCollider>().enabled = true;
-        towerPrefab.transform.GetChild(1).GetComponentInChildren<SphereCollider>().enabled = true;
-        towerPrefab.transform.GetComponentInChildren<BaseTowerLogic>().ActivateTower();
 
-        Debug.Log("activating tower and setting sphere collider");
+        // Iterate over all children of the tower prefab
+        for (int i = 0; i < towerPrefab.transform.childCount; i++)
+        {
+            Transform towerChild = towerPrefab.transform.GetChild(i);
 
-        return towerPrefab;
+            // Check if the child has a SphereCollider component
+            SphereCollider sphereCollider = towerChild.GetComponentInChildren<SphereCollider>();
+
+            if (sphereCollider != null)
+            {
+                // Enable the SphereCollider if it exists
+                sphereCollider.enabled = true;
+
+                // Activate tower logic
+                BaseTowerLogic towerLogic = towerChild.GetComponent<BaseTowerLogic>();
+                if (towerLogic != null)
+                {
+                    towerLogic.ActivateTower();
+                }
+                else
+                {
+                    Debug.LogWarning("No BaseTowerLogic component found in the tower child.");
+                }
+
+                Debug.Log("Activating tower and setting sphere collider");
+                return towerPrefab; // Return the prefab after finding the appropriate child
+            }
+        }
+
+        // If no child with SphereCollider is found, log a warning
+        Debug.LogWarning("No child with SphereCollider found in the tower prefab.");
+
+        return towerPrefab; // Return the prefab even if no appropriate child is found
     }
 
     public void UpdateTargetingType(string towerID, TargetingTypes UpdatedTargetingType)
