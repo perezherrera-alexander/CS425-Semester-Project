@@ -25,8 +25,11 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
     public void Start(){
 
         PlayerStatistics = FindObjectOfType<PlayerStatistics>();
-        target = Path.waypoints[0];
+        //code to deal with the enemy being spawned from another enemy
+        if(!differentStart) target = Path.waypoints[0];
         curSpeed = speed;
+        Debug.Log("Start waypoint index: " + waypointindex);
+        Debug.Log("Start Target: " + target.position);
     }
 
     public void reduceHealth(float damage)
@@ -39,7 +42,7 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
         return health;
     }
 
-    public void healthCheck()
+    public virtual void healthCheck()
     {
         if (health <= 0)
         {
@@ -63,6 +66,8 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
     public Transform target;
 
     public int waypointindex = 0;
+
+    public bool differentStart = false;
 
     public virtual void Update (){
         healthCheck();
@@ -101,7 +106,7 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
         }
     }
 
-    public void GetNextWaypoint(){
+    public virtual void GetNextWaypoint(){
         if (waypointindex >= Path.waypoints.Length - 1){ // Enemy reaches end of path
             //decrement player health according to
             float EnemyHealth = getHealth();
@@ -116,7 +121,7 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
         target = Path.waypoints[waypointindex];
         waypointindex++;
     }
-    public void knockback(int knockbackForce){
+    public virtual void knockback(int knockbackForce){
 
         //Calculate the distance between the current position and the next waypoint
 

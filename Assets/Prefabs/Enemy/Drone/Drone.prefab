@@ -444,14 +444,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6213db702bc3f8418e397c3df71eef5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  effects: []
   objectCollider: {fileID: 9107400376225679032}
   ob: {fileID: 3129493927702828240}
   GoldWorth: 1
   model: {fileID: 2316506665245494890}
   health: 2
   speed: 10
+  slowFactor: 1
+  slowDownTimer: 0
+  dotDamage: 0
+  dotTimer: 0
   target: {fileID: 0}
-  wavepointIndex: 0
+  waypointindex: 0
+  differentStart: 0
 --- !u!54 &4615012270245993098
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -472,7 +478,7 @@ Rigidbody:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_ImplicitCom: 1
+  m_ImplicitCom: 0
   m_ImplicitTensor: 1
   m_UseGravity: 0
   m_IsKinematic: 0

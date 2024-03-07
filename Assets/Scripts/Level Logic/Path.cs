@@ -12,16 +12,16 @@ public class Path : MonoBehaviour
         }
     }
 
-    void OnDrawGizmos()
-    {
-        //Debug.Log("Drawing");
-        if(waypoints.Length > 1)
-        {
-            for(int i = 0; i < waypoints.Length - 1; i++)
-            {
-                Gizmos.color = Color.red;
-                Gizmos.DrawLine(waypoints[i].position, waypoints[i + 1].position);
-            }
-        }
-    }
+    // void OnDrawGizmos()
+    // {
+    //     //Debug.Log("Drawing");
+    //     if(waypoints.Length > 1)
+    //     {
+    //         for(int i = 0; i < waypoints.Length - 1; i++)
+    //         {
+    //             Gizmos.color = Color.red;
+    //             Gizmos.DrawLine(waypoints[i].position, waypoints[i + 1].position);
+    //         }
+    //     }
+    // }
 }
