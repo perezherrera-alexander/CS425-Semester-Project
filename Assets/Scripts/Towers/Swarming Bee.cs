@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class SwarmingBee : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class SwarmingBee : MonoBehaviour
     private float angle = 0f;
     private float range = 10f;
     private Vector3 center;
+
+    public string id;
 
 
     private void Start()
@@ -92,6 +95,12 @@ public class SwarmingBee : MonoBehaviour
         {
             target = closeEnemy.transform;
         }
+    }
 
+    [ContextMenu("Generate ID")]
+    public string GenerateId()
+    {
+        id = Guid.NewGuid().ToString();
+        return id;
     }
 }

@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class BuffBee : MonoBehaviour
 {
+    public string id;
     [SerializeField] StatusEffects data;
     private Transform target;
 
@@ -49,5 +51,12 @@ public class BuffBee : MonoBehaviour
                 }
             }
         }
+    }
+
+    [ContextMenu("Generate ID")]
+    public string GenerateId()
+    {
+        id = Guid.NewGuid().ToString();
+        return id;
     }
 }

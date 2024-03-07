@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class SpiderScript : BaseTowerLogic
 {
@@ -31,5 +32,12 @@ public class SpiderScript : BaseTowerLogic
         StandardProjectile sting = shot.GetComponent<StandardProjectile>();
         //animate.SetBool("Attacking", false);
 
+    }
+
+    [ContextMenu("Generate ID")]
+    public string GenerateId()
+    {
+        id = Guid.NewGuid().ToString();
+        return id;
     }
 }
