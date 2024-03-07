@@ -7,6 +7,7 @@ public class BeeSwarm : BaseTowerLogic
 {
     public string id;
     public List<SwarmingBee> projectiles = new List<SwarmingBee>();
+    private float swarmAmount = 5f;
 
     // Start is called before the first frame update
     void Start()
@@ -32,17 +33,38 @@ public class BeeSwarm : BaseTowerLogic
     {
         if (target == null)
         {
-            if(fireCountdown <= 0f)
+            if (projectiles.Count <= swarmAmount)
             {
-                Swarm();
-                fireCountdown = 1f / fireRate;
+                if (fireCountdown <= 0f)
+                {
+                    Swarm();
+                    fireCountdown = 1f / fireRate;
+                }
+                fireCountdown -= Time.deltaTime;
             }
-            fireCountdown -= Time.deltaTime;
+        }
+        else if(target != null && projectiles.Count > 1)
+        {
+            Shoot();
+            //removeFromList();
+        }
+        else if(target != null && projectiles.Count == 0)
+        {
+            if (projectiles.Count <= swarmAmount)
+            {
+                if (fireCountdown <= 0f)
+                {
+                    Swarm();
+                    fireCountdown = 1f / fireRate;
+                }
+                fireCountdown -= Time.deltaTime;
+            }
+            Shoot();
         }
         else
         {
             Shoot();
-            removeFromList();
+            //removeFromList();
         }
     }
     public override void Shoot()
@@ -51,11 +73,12 @@ public class BeeSwarm : BaseTowerLogic
         {
             projectile.Seek(target);
         }
+        removeFromList();
     }
 
     public void removeFromList()
     {
-        projectiles.Clear();
+        projectiles.RemoveAll(item => item == null);
     }
 
     public void Swarm()
