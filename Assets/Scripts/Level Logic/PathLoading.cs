@@ -5,24 +5,27 @@ using UnityEngine;
 
 public class PathLoading : MonoBehaviour, ISaveable
 {
+    [Tooltip("Enable to use debug mode, which will not load a saved or random level, but use the one already in the scene.")]
+    public bool enableDebug = false;
     public GameObject[] pathPrefabs;
     public PlayerData playerData;
-
     public int LevelChoice = 0;
     void Start()
     {
+        
+        if(enableDebug) return; // If debug is enabled, don't load saved level or randomly pick one (use the one already in the scene)
         // If "World Objects" has a child, destroy it
         if (transform.childCount > 0)
         {
             Destroy(transform.GetChild(0).gameObject);
         }
 
+        // If there is save data, load the level from the save data, otherwise load a random level
         if (playerData.LevelLoaded == false)
         {
             // Assign one of the prefab paths to the "World Objects" game object
             int pathIndex = UnityEngine.Random.Range(0, pathPrefabs.Length);
             LevelChoice = pathIndex;
-            //Debug.Log("Path index: " + pathIndex);
             GameObject path = Instantiate(pathPrefabs[pathIndex], transform.position, Quaternion.identity);
             path.transform.parent = transform;
 
@@ -30,10 +33,8 @@ public class PathLoading : MonoBehaviour, ISaveable
             GameObject waveSpawner = GameObject.Find("Game Master");
             waveSpawner.GetComponent<WaveSpawner>().SpawnPoint = path.transform.GetChild(1);
         }
-
-        if (playerData.LevelLoaded == true)
+        else
         {
-            //Debug.Log("Path index: " + pathIndex);
             GameObject path = Instantiate(pathPrefabs[LevelChoice], transform.position, Quaternion.identity);
             path.transform.parent = transform;
 
