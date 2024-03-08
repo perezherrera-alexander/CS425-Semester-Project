@@ -10,7 +10,6 @@ public class SaveLoadManager : MonoBehaviour
     [ContextMenu("Save")]
     public void Save()
     {
-        Debug.Log(SavePath);
         var State = LoadFile();
         CaptureState(State);
         // Delete the old save file if it exists
@@ -29,7 +28,7 @@ public class SaveLoadManager : MonoBehaviour
         RestoreState(State);
     }
 
-    private void SaveFile (object state)
+    private void SaveFile(object state)
     {
         using (var stream = File.Open(SavePath, FileMode.Create))
         {

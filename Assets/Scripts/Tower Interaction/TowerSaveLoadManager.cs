@@ -73,15 +73,6 @@ public class TowerSaveLoadManager : MonoBehaviour, ISaveable
 
             }
 
-
-
-
-
-
-
-
-
-
             if (towerData.TowerName == "Flame Tower")
             {
                 GameObject instantiateTower = InstantiateTowerPrefab(new Vector3(towerData.TowerPosition[0], towerData.TowerPosition[1], towerData.TowerPosition[2]), FlameTowerPrefab);
@@ -229,7 +220,6 @@ public class TowerSaveLoadManager : MonoBehaviour, ISaveable
 
     public object CaptureState()
     {
-        Debug.Log("CAPTURING STATE");
         var saveDataList = new List<TowerData>();
 
         foreach (var towerdata in towerDictionary.Values)

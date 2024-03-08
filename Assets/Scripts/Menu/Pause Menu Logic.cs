@@ -15,6 +15,7 @@ public class PauseMenu : MonoBehaviour
     public Slider musicSlider;
     public TMP_Dropdown difficultyDropdown;
     SaveLoadManager saveLoadManager;
+    public PlayerData playerData;
 
 
     void Start()
@@ -104,6 +105,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1.0f;
         GameIsPaused = false;
         saveLoadManager.Load();
+        playerData.LevelLoaded = true;
         SceneManager.sceneLoaded -= OnSceneLoaded; // Unsubscribe to the event to avoid multiple calls
     }
 

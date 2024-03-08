@@ -10,11 +10,9 @@ public class SaveableEntity : MonoBehaviour
     public string Id => id;
 
     [ContextMenu("Generate ID")]
-    public string GenerateId()
-    {
-        id = Guid.NewGuid().ToString();
-        return id;
-    }
+    
+    private void GenerateId() => id = Guid.NewGuid().ToString();
+
     public object CaptureState()
     {
         var state = new Dictionary<string, object>();
@@ -33,12 +31,6 @@ public class SaveableEntity : MonoBehaviour
     public void RestoreState(object state)
     {
         var stateDictionary = (Dictionary<string, object>)state;
-
-        // Restore the ID from the state
-        if (stateDictionary.TryGetValue(nameof(Id), out object idValue))
-        {
-            id = (string)idValue;
-        }
 
         foreach (var saveable in GetComponents<ISaveable>())
         {

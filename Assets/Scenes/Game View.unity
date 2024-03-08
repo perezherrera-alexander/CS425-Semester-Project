@@ -473,6 +473,7 @@ GameObject:
   m_Component:
   - component: {fileID: 244055986}
   - component: {fileID: 244055987}
+  - component: {fileID: 244055988}
   m_Layer: 0
   m_Name: World Objects
   m_TagString: Untagged
@@ -512,6 +513,21 @@ MonoBehaviour:
   - {fileID: 2154752863039885724, guid: 95c04e9ab2c2a5e449d242bead5265c2, type: 3}
   - {fileID: 3283810633382655351, guid: e1bf61d465354b94fb3c406ab5fde9b0, type: 3}
   - {fileID: 7025646087115900231, guid: 5b19666bee5fbdb459c24867f6acfd97, type: 3}
+  playerData: {fileID: 11400000, guid: 5e3cd046013d0654b91f369ecf77ee21, type: 2}
+  LevelChoice: 0
+--- !u!114 &244055988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 244055985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5baaf0a8f8821c94fb2a1f007888f0d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0ddebac0-7906-4ff3-b175-970ee54f7bb8
 --- !u!1 &263824600
 GameObject:
   m_ObjectHideFlags: 0
@@ -1159,6 +1175,7 @@ MonoBehaviour:
   volumeSlider: {fileID: 738801598}
   musicSlider: {fileID: 49103802}
   difficultyDropdown: {fileID: 1306623350}
+  playerData: {fileID: 11400000, guid: 5e3cd046013d0654b91f369ecf77ee21, type: 2}
 --- !u!114 &655933922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3072,7 +3089,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5baaf0a8f8821c94fb2a1f007888f0d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 
+  id: 308ea652-e748-4bb4-bed1-ab38508e2acf
 --- !u!114 &1798962337
 MonoBehaviour:
   m_ObjectHideFlags: 0
