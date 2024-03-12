@@ -96,7 +96,18 @@ public class PlayerStatistics : MonoBehaviour, ISaveable
         return new SaveData
         {
             CurrentEvolutionPoints = CurrentEvolutionPoints,
-            currentMorale = currentMorale
+            currentMorale = currentMorale,
+            NumberOfWorldsCompleted = playerData.NumberOfWorldsCompleted,
+            CurrentWorld = playerData.CurrentWorld,
+            WorldsCompleted = playerData.WorldsCompleted,
+            LocationOfTowerUnlock = playerData.LocationOfTowerUnlock,
+            TowersObtained = playerData.TowersObtained,
+            /*
+            Towers = playerData.Towers,
+            TowerUnlockOrder = playerData.TowerUnlockOrder,
+            ActiveGenerals = playerData.activeGeneral,
+            ActiveModifiers = playerData.activeModifier
+            */
         };
     }
 
@@ -106,12 +117,32 @@ public class PlayerStatistics : MonoBehaviour, ISaveable
 
         CurrentEvolutionPoints = saveData.CurrentEvolutionPoints;
         currentMorale = saveData.currentMorale;
-    }
+        playerData.NumberOfWorldsCompleted = saveData.NumberOfWorldsCompleted;
+        playerData.CurrentWorld = saveData.CurrentWorld;
+        playerData.WorldsCompleted = saveData.WorldsCompleted;
+        playerData.LocationOfTowerUnlock = saveData.LocationOfTowerUnlock;
+        playerData.TowersObtained = saveData.TowersObtained;
+        //playerData.Towers = saveData.Towers;
+        //playerData.TowerUnlockOrder = saveData.TowerUnlockOrder;
+        //playerData.activeGeneral = saveData.ActiveGenerals;
+        //playerData.activeModifier = saveData.ActiveModifiers;
+}
 
     [Serializable]
     private struct SaveData
     {
         public int CurrentEvolutionPoints;
         public int currentMorale;
+        public int NumberOfWorldsCompleted;
+        public string CurrentWorld;
+        public string[] WorldsCompleted;
+        public string[] LocationOfTowerUnlock;
+        public int TowersObtained;
+        /*
+        public GameObject[] Towers;
+        public GameObject[] TowerUnlockOrder;
+        public Generals ActiveGenerals;
+        public Modifiers ActiveModifiers;
+        */
     }
 }
