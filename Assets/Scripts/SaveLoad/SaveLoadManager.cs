@@ -5,50 +5,102 @@ using System.Collections.Generic;
 
 public class SaveLoadManager : MonoBehaviour
 {
-    private string SavePath => $"{Application.persistentDataPath}/save.txt";
+    private string SavePath0 => $"{Application.persistentDataPath}/MenuSave.txt";
+    private string SavePath1 => $"{Application.persistentDataPath}/WorldMapSave.txt";
 
     [ContextMenu("Save")]
-    public void Save()
+    public void Save(int choice)
     {
-        var State = LoadFile();
-        CaptureState(State);
-        // Delete the old save file if it exists
-        if (File.Exists(SavePath))
+        if (choice == 0)
         {
-            File.Delete(SavePath);
+            var State = LoadFile(choice);
+            CaptureState(State);
+            // Delete the old save file if it exists
+            if (File.Exists(SavePath0))
+            {
+                File.Delete(SavePath0);
+            }
+            // Save the new state
+            SaveFile(State, choice);
         }
-        // Save the new state
-        SaveFile(State);
+        else
+        {
+            var State = LoadFile(choice);
+            CaptureState(State);
+            // Delete the old save file if it exists
+            if (File.Exists(SavePath1))
+            {
+                File.Delete(SavePath1);
+            }
+            // Save the new state
+            SaveFile(State, choice);
+        }
     }
 
     [ContextMenu("Load")]
-    public void Load()
+    public void Load(int choice)
     {
-        var State = LoadFile();
-        RestoreState(State);
-    }
-
-    private void SaveFile(object state)
-    {
-        using (var stream = File.Open(SavePath, FileMode.Create))
+        if (choice == 0)
         {
-            var formatter = new BinaryFormatter();
-            formatter.Serialize(stream, state);
+            var State = LoadFile(choice);
+            RestoreState(State);
+        }
+        else
+        {
+            var State = LoadFile(choice);
+            RestoreState(State);
         }
     }
 
-    private Dictionary<string, object> LoadFile()
+    private void SaveFile(object state, int choice)
     {
-        if (!File.Exists(SavePath))
+        if (choice == 0)
         {
-            Debug.Log("DOESN'T EXIST");
-            return new Dictionary<string, object>();
+            using (var stream = File.Open(SavePath0, FileMode.Create))
+            {
+                var formatter = new BinaryFormatter();
+                formatter.Serialize(stream, state);
+            }
         }
-
-        using (FileStream file = File.Open(SavePath, FileMode.Open))
+        else
         {
-            var formatter = new BinaryFormatter();
-            return (Dictionary<string, object>)formatter.Deserialize(file);
+            using (var stream = File.Open(SavePath1, FileMode.Create))
+            {
+                var formatter = new BinaryFormatter();
+                formatter.Serialize(stream, state);
+            }
+        }
+    }
+
+    private Dictionary<string, object> LoadFile(int choice)
+    {
+        if (choice == 0)
+        {
+            if (!File.Exists(SavePath0))
+            {
+                Debug.Log("DOESN'T EXIST");
+                return new Dictionary<string, object>();
+            }
+
+            using (FileStream file = File.Open(SavePath0, FileMode.Open))
+            {
+                var formatter = new BinaryFormatter();
+                return (Dictionary<string, object>)formatter.Deserialize(file);
+            }
+        }
+        else
+        {
+            if (!File.Exists(SavePath1))
+            {
+                Debug.Log("DOESN'T EXIST");
+                return new Dictionary<string, object>();
+            }
+
+            using (FileStream file = File.Open(SavePath1, FileMode.Open))
+            {
+                var formatter = new BinaryFormatter();
+                return (Dictionary<string, object>)formatter.Deserialize(file);
+            }
         }
     }
 

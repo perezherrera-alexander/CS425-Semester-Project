@@ -15,6 +15,8 @@ public class PlayerStatistics : MonoBehaviour, ISaveable
     public int CurrentEvolutionPoints = 20;
     private int enemiesKilled = 0;
     public int enemiesPresent = 0;
+
+    public GameObjectConversion GameObjectConversion;
     //private string CustomSaveName;
     private void Awake()
     {
@@ -102,12 +104,11 @@ public class PlayerStatistics : MonoBehaviour, ISaveable
             WorldsCompleted = playerData.WorldsCompleted,
             LocationOfTowerUnlock = playerData.LocationOfTowerUnlock,
             TowersObtained = playerData.TowersObtained,
-            /*
-            Towers = playerData.Towers,
-            TowerUnlockOrder = playerData.TowerUnlockOrder,
+            Towers = GameObjectConversion.SaveTowerObtained(playerData.Towers, playerData.TowersObtained),
+            TowerUnlockOrder = GameObjectConversion.SaveTowerUnlockOrder(playerData.TowerUnlockOrder),
             ActiveGenerals = playerData.activeGeneral,
             ActiveModifiers = playerData.activeModifier
-            */
+            
         };
     }
 
@@ -122,10 +123,10 @@ public class PlayerStatistics : MonoBehaviour, ISaveable
         playerData.WorldsCompleted = saveData.WorldsCompleted;
         playerData.LocationOfTowerUnlock = saveData.LocationOfTowerUnlock;
         playerData.TowersObtained = saveData.TowersObtained;
-        //playerData.Towers = saveData.Towers;
-        //playerData.TowerUnlockOrder = saveData.TowerUnlockOrder;
-        //playerData.activeGeneral = saveData.ActiveGenerals;
-        //playerData.activeModifier = saveData.ActiveModifiers;
+        playerData.Towers = GameObjectConversion.LoadTowerObtained(saveData.Towers);
+        playerData.TowerUnlockOrder = GameObjectConversion.LoadTowerUnlockOrder(saveData.TowerUnlockOrder);
+        playerData.activeGeneral = saveData.ActiveGenerals;
+        playerData.activeModifier = saveData.ActiveModifiers;
 }
 
     [Serializable]
@@ -138,11 +139,10 @@ public class PlayerStatistics : MonoBehaviour, ISaveable
         public string[] WorldsCompleted;
         public string[] LocationOfTowerUnlock;
         public int TowersObtained;
-        /*
-        public GameObject[] Towers;
-        public GameObject[] TowerUnlockOrder;
+        public string[] Towers;
+        public string[] TowerUnlockOrder;
         public Generals ActiveGenerals;
         public Modifiers ActiveModifiers;
-        */
+        
     }
 }

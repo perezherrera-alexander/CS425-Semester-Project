@@ -11,6 +11,7 @@ public class MainMenu : MonoBehaviour
     public Slider musicSlider;
     public TMP_Dropdown difficultyDropdown;
     public PlayerData playerData;
+    public SaveLoadManager saveLoadManager;
 
     void Start(){
         if(volumeSlider != null) volumeSlider.value = SettingsValues.gameVolume;
@@ -24,7 +25,7 @@ public class MainMenu : MonoBehaviour
         playerData.InitializeTowerPoolArray(0);
         playerData.InitializeTowerPoolArray(20);
         playerData.InitializeTowerUnlockOrderArray(0);
-        playerData.InitializeTowerUnlockOrderArray(10);
+        playerData.InitializeTowerUnlockOrderArray(6);
     }
 
     void Update()
@@ -56,5 +57,11 @@ public class MainMenu : MonoBehaviour
         Debug.Log("Exiting Settings......");
         SettingsMenuUI.SetActive(false);
         SettingsStatus = false;
+    }
+
+    public void LoadWorldMapSave()
+    {
+        Debug.Log("Load World Map Save......");
+        saveLoadManager.Load(1);
     }
 }
