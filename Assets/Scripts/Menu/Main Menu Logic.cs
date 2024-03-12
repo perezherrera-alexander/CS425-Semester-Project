@@ -62,6 +62,14 @@ public class MainMenu : MonoBehaviour
     public void LoadWorldMapSave()
     {
         Debug.Log("Load World Map Save......");
-        saveLoadManager.Load(1);
+        SceneManager.sceneLoaded += OnSceneLoaded; // Subscribe to the sceneLoaded event
+        SceneManager.LoadScene("World Map Generation");
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Debug.Log("Scene loaded");
+        saveLoadManager.Load();
+        SceneManager.sceneLoaded -= OnSceneLoaded; // Unsubscribe to the event to avoid multiple calls
     }
 }

@@ -11,7 +11,6 @@ public class WorldMapGenerator : MonoBehaviour
 {
     public GridLayoutBluePrint grid;
     public PlayerData playerData;
-    public SaveLoadManager saveLoadManager;
 
     public GameObject[,] WorldButtons;
     public bool[,] WorldsInUseForMapGeneration;
@@ -106,7 +105,7 @@ public class WorldMapGenerator : MonoBehaviour
 
 
 
-
+            /*
             // Print information about the clicked node and its connections
             Debug.Log("Connections from this node:");
             foreach (var adjacentNode in worldNode.Connections)
@@ -124,13 +123,12 @@ public class WorldMapGenerator : MonoBehaviour
                     Debug.Log("Connected Node: " + otherWorldNode.col + ", " + otherWorldNode.row);
                 }
             }
+            */
         }
         else
         {
             Debug.Log("Button clicked at: " + col + ", " + row + " - No WorldNode component found");
         }
-
-        saveLoadManager.Save(1);
 
         string combineddata = string.Join(",", col, row);
 
@@ -238,8 +236,6 @@ public class WorldMapGenerator : MonoBehaviour
 
                             playerData.TowerUnlockOrder[TowersPlaced] = playerData.TowerPool[towerIndex];
 
-
-                            Debug.Log(col + ", " + row);
                             TowersPlaced++;
                             row = 7;
                         }

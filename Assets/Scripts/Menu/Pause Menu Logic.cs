@@ -90,7 +90,7 @@ public class PauseMenu : MonoBehaviour
 
     public void SaveGame ()
     {
-        saveLoadManager.Save(0);
+        saveLoadManager.Save();
     }
 
     public void LoadGame()
@@ -104,7 +104,7 @@ public class PauseMenu : MonoBehaviour
         Debug.Log("Scene loaded");
         Time.timeScale = 1.0f;
         GameIsPaused = false;
-        saveLoadManager.Load(0);
+        saveLoadManager.Load();
         playerData.LevelLoaded = true;
         SceneManager.sceneLoaded -= OnSceneLoaded; // Unsubscribe to the event to avoid multiple calls
     }

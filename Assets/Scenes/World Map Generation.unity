@@ -138,6 +138,9 @@ GameObject:
   - component: {fileID: 429735245}
   - component: {fileID: 429735246}
   - component: {fileID: 429735247}
+  - component: {fileID: 429735250}
+  - component: {fileID: 429735249}
+  - component: {fileID: 429735248}
   m_Layer: 5
   m_Name: Map (Canvas)
   m_TagString: Untagged
@@ -243,7 +246,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grid: {fileID: 1955013484}
   playerData: {fileID: 11400000, guid: 5e3cd046013d0654b91f369ecf77ee21, type: 2}
-  saveLoadManager: {fileID: 429735247}
   NumberOfTowerUnlock: 6
 --- !u!114 &429735246
 MonoBehaviour:
@@ -258,6 +260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: 5e3cd046013d0654b91f369ecf77ee21, type: 2}
+  saveLoadManager: {fileID: 429735247}
   SceneName: []
   worldMapGenerator: {fileID: 429735245}
 --- !u!114 &429735247
@@ -272,6 +275,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c882bd39b826104d89ecfd29ac94a6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &429735248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429735240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fb8052d7a1a2304da2d68463f8cd9f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BeeTowerPrefab: {fileID: 971902319036964014, guid: 6c1bcac6b019a5445a29397b2e5fbdbd, type: 3}
+  MortarTowerPrefab: {fileID: 4802165041365209427, guid: 6b391e1d30df3bf40982d80495c75b4a, type: 3}
+  TetherTowerPrefab: {fileID: 4697445435849318074, guid: d683e4508f9f8474e99a3210a2578de0, type: 3}
+  FlameTowerPrefab: {fileID: 3496186726202727201, guid: 6c1a92e71725f8e4d87187e45f71fa2e, type: 3}
+  MeleeTowerPrefab: {fileID: 5638637389332727884, guid: 4e4f33efe7895774986c5a0f0a79ecce, type: 3}
+  MortarAntPrefab: {fileID: 7528787299345294700, guid: 77aa7cae226f46a4d970e9b2d11fdf72, type: 3}
+  AttackBeePrefab: {fileID: 9090199576069704506, guid: 43408111086a3e34db3441bd1aa0baab, type: 3}
+  BeeSwarmPrefab: {fileID: 9099372547338785898, guid: 9550a6addcd9c354bb98e29b39814b80, type: 3}
+  BuffingBeePrefab: {fileID: 68215039139777297, guid: cd5c3652db6025942b286581eeb80dc8, type: 3}
+  WaspTowerPrefab: {fileID: 5375419024465267202, guid: 9615296694b34664ba234ff1db9775dd, type: 3}
+  WaspMeleePrefab: {fileID: 7531189038630079958, guid: f1e522ec82051554684e9168369f9564, type: 3}
+  SpiderTowerPrefab: {fileID: 5375419024465267202, guid: 038281cb77a244742a6c90eadb25957a, type: 3}
+  LoadTowerArray: []
+  SaveTowerArray: []
+--- !u!114 &429735249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429735240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47da2366c077d7a40a5429d76e81115b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerData: {fileID: 11400000, guid: 5e3cd046013d0654b91f369ecf77ee21, type: 2}
+  GameObjectConversion: {fileID: 429735248}
+--- !u!114 &429735250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429735240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5baaf0a8f8821c94fb2a1f007888f0d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: db699279-9717-4a83-b3c8-6aa0935e9518
 --- !u!1 &1028138908
 GameObject:
   m_ObjectHideFlags: 0

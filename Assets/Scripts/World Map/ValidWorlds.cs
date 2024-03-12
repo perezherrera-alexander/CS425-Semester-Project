@@ -9,6 +9,7 @@ using System.Runtime.Serialization;
 public class ValidWorlds : MonoBehaviour
 {
     public PlayerData playerData;
+    public SaveLoadManager saveLoadManager;
     //public TrackLevelsCompleted trackLevelsCompleted;
 
     //public GameObject InvalidWorldMessage;
@@ -116,5 +117,7 @@ public class ValidWorlds : MonoBehaviour
 
             buttonImage.color = Color.blue;
         }
+
+        saveLoadManager.Save();
     }
 }
