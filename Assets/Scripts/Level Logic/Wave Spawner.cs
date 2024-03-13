@@ -10,6 +10,7 @@ public class WaveSpawner : MonoBehaviour
 {
     public PlayerData PlayerData;
     [Header("Enemy Prefabs")]
+    //every enemy type
     public GameObject enemy1;
     public GameObject enemy2;
     public GameObject enemy3;
@@ -22,12 +23,13 @@ public class WaveSpawner : MonoBehaviour
     public GameObject enemyE;
     public struct waveFormation
     {
+        //enemy id, amount of enemies, time between enemy spawns
         public int id;
         public int enemyAmount;
         public float timeBetweenEnemySpawnsSeconds;
     }
     public WaveFormat waveFormat;
-    private List<List<waveFormation>> waves = new List<List<waveFormation>>();
+    private List<List<waveFormation>> waves = new List<List<waveFormation>>(); // List of waves
     public Transform SpawnPoint;
     [Header("Wave Settings")]
     public GameStates gameState;
@@ -48,20 +50,20 @@ public class WaveSpawner : MonoBehaviour
         // Load wave data from waveFormat
         for(int i = 0; i < waveFormat.waveFormations.Length; i++)
         {
-            waves.Add(new List<waveFormation>());
-            string[] formationsInWave = waveFormat.waveFormations[i].Split(' ');
-            for(int j = 0; j < formationsInWave.Length; j++)
+            waves.Add(new List<waveFormation>());                               // Add a new list for each wave
+            string[] formationsInWave = waveFormat.waveFormations[i].Split(' ');// Split the wave into formations
+            for(int j = 0; j < formationsInWave.Length; j++)                    // For each formation in the wave
             {
-                string[] enemyData = formationsInWave[j].Split(',');
-                waveFormation wave = new waveFormation();
-                wave.id = int.Parse(enemyData[0]);
-                wave.enemyAmount = int.Parse(enemyData[1]);
-                wave.timeBetweenEnemySpawnsSeconds = float.Parse(enemyData[2]);
+                string[] enemyData = formationsInWave[j].Split(',');            // Split the formation into enemy data
+                waveFormation wave = new waveFormation();                       // Create a new waveFormation
+                wave.id = int.Parse(enemyData[0]);                              // Set the enemy id
+                wave.enemyAmount = int.Parse(enemyData[1]);                     // Set the amount of enemies
+                wave.timeBetweenEnemySpawnsSeconds = float.Parse(enemyData[2]); // Set the time between enemy spawns
                 //Debug.Log("i: " + i + " j: " + j);
-                waves.ElementAt(i).Add(wave);
+                waves.ElementAt(i).Add(wave);                                   // Add the waveFormation to the list of waves
             }
         }
-        maxWaveCount = waves.Count;
+        maxWaveCount = waves.Count;// Set the max wave count
     }
 
     void Update()
@@ -83,11 +85,11 @@ public class WaveSpawner : MonoBehaviour
         }
         else if(gameState == GameStates.WaveInProgress)
         {
-            if(enemiesDoneSpawning && PlayerStatistics.Instance.enemiesPresent == 0) 
+            if(enemiesDoneSpawning && PlayerStatistics.Instance.enemiesPresent == 0) // If all enemies are dead and no more are spawning
             {
                 Debug.Log("Wave Complete!");
                 //PlayerStatistics.Instance.ResetEnemiesKilled();
-                if(currentWaveCount >= maxWaveCount)
+                if(currentWaveCount >= maxWaveCount)  // If the last wave is complete
                 {
                     Debug.Log("Level Complete!");
                     gameState = GameStates.LevelComplete;
@@ -115,13 +117,13 @@ public class WaveSpawner : MonoBehaviour
 
     IEnumerator SpawnWave(List<waveFormation> formationsForThisWave)
     {
-        enemiesDoneSpawning = false;
-        foreach(waveFormation formation in formationsForThisWave)
+        enemiesDoneSpawning = false;                                // Set enemiesDoneSpawning to false
+        foreach(waveFormation formation in formationsForThisWave)   // For each formation in the wave
         {
-            for(int i = 0; i < formation.enemyAmount; i++)
+            for(int i = 0; i < formation.enemyAmount; i++)          // For each enemy in the formation
             {
-                SpawnEnemy(formation.id);
-                yield return new WaitForSeconds(formation.timeBetweenEnemySpawnsSeconds);
+                SpawnEnemy(formation.id);                   // Spawn the enemy
+                yield return new WaitForSeconds(formation.timeBetweenEnemySpawnsSeconds);   // Wait for the time between enemy spawns
             }
         }
         enemiesDoneSpawning = true;

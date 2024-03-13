@@ -1722,9 +1722,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 536059218465054784}
-  - component: {fileID: 8952444158087204805}
   - component: {fileID: 3107982841807102961}
   - component: {fileID: -6409043865329160841}
+  - component: {fileID: 9206951447415020675}
   m_Layer: 0
   m_Name: Robot4
   m_TagString: Enemy
@@ -1748,32 +1748,6 @@ Transform:
   - {fileID: 2443734586794635639}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -180, y: 0, z: 0}
---- !u!114 &8952444158087204805
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7379353672405591081}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6213db702bc3f8418e397c3df71eef5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  effects: []
-  objectCollider: {fileID: 0}
-  ob: {fileID: 7379353672405591081}
-  GoldWorth: 0
-  model: {fileID: 0}
-  health: 20
-  speed: 10
-  slowFactor: 1
-  slowDownTimer: 0
-  dotDamage: 0
-  dotTimer: 0
-  target: {fileID: 0}
-  waypointindex: 0
-  differentStart: 0
 --- !u!54 &3107982841807102961
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1822,6 +1796,40 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &9206951447415020675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7379353672405591081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bae06e08a4486da4b9ac926535c6d94d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effects: []
+  objectCollider: {fileID: 0}
+  ob: {fileID: 7379353672405591081}
+  GoldWorth: 0
+  PlayerStatistics: {fileID: 0}
+  model: {fileID: 0}
+  maxHealth: 20
+  health: 20
+  speed: 10
+  slowFactor: 1
+  slowDownTimer: 0
+  dotDamage: 0
+  dotTimer: 0
+  target: {fileID: 0}
+  waypointindex: 0
+  differentStart: 0
+  healthTier1: 1
+  healthTier2: 1
+  healthTier3: 1
+  armL: {fileID: 2518305257173551168}
+  armR: {fileID: 2175550255553207807}
+  head: {fileID: 5885273547335467749}
 --- !u!1 &7917213978288176762
 GameObject:
   m_ObjectHideFlags: 0

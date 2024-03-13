@@ -1464,6 +1464,7 @@ MonoBehaviour:
   volumeSlider: {fileID: 8843736853426061403}
   musicSlider: {fileID: 5799859915676704831}
   difficultyDropdown: {fileID: 5799859915676704830}
+  playerData: {fileID: 0}
 --- !u!1 &947788483
 GameObject:
   m_ObjectHideFlags: 0
@@ -1749,6 +1750,7 @@ MonoBehaviour:
   shopRowTemplate: {fileID: 4528605834539100341, guid: f971ac892fa11a143acf24df9365c0f2, type: 3}
   shopButtonTemplate: {fileID: 5511344516256347830, guid: 1d0e3e2406872f744b389f92fdb43b14, type: 3}
   towerPlacement: {fileID: 1096613039}
+  towerSaveLoadManager: {fileID: 0}
 --- !u!114 &1096613039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2624,6 +2626,14 @@ MonoBehaviour:
   BeeTowerPrefab: {fileID: 971902319036964014, guid: 6c1bcac6b019a5445a29397b2e5fbdbd, type: 3}
   MortarTowerPrefab: {fileID: 4802165041365209427, guid: 6b391e1d30df3bf40982d80495c75b4a, type: 3}
   TetherTowerPrefab: {fileID: 4697445435849318074, guid: d683e4508f9f8474e99a3210a2578de0, type: 3}
+  FlameTowerPrefab: {fileID: 0}
+  MeleeTowerPrefab: {fileID: 0}
+  MortarAntPrefab: {fileID: 0}
+  AttackBeePrefab: {fileID: 0}
+  BeeSwarmPrefab: {fileID: 0}
+  BuffingBeePrefab: {fileID: 0}
+  WaspTowerPrefab: {fileID: 0}
+  WaspMeleePrefab: {fileID: 0}
 --- !u!114 &1798962338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2660,6 +2670,7 @@ MonoBehaviour:
   currentMorale: 100
   CurrentEvolutionPoints: 20
   enemiesPresent: 0
+  GameObjectConversion: {fileID: 0}
 --- !u!1 &1819400016
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,9 +12,11 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
     public GameObject ob;
     public int GoldWorth;
 
-    private PlayerStatistics PlayerStatistics;
+    public PlayerStatistics PlayerStatistics;
 
     public Transform model;
+
+    public float maxHealth = 5;
 
     public float health = 5;
 
@@ -25,6 +27,7 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
     public void Start(){
 
         PlayerStatistics = FindObjectOfType<PlayerStatistics>();
+        maxHealth = health;
 
         //increase number of enemies counter by 1
         PlayerStatistics.Instance.enemiesPresent++;
