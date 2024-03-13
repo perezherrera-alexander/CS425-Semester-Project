@@ -340,4 +340,14 @@ public class BaseTowerLogic : MonoBehaviour, Effectable
             isBuffed = true;
         }
     }
+
+    protected void createOutline()
+    {
+        //Debug.Log("Creating Outline");
+        GameObject parent = transform.parent.gameObject;
+        Outline outline = parent.AddComponent<Outline>();
+        outline.OutlineMode = Outline.Mode.OutlineAll;
+        outline.OutlineWidth = 10f;
+        outline.enabled = false;
+    }
 }

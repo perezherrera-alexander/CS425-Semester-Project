@@ -2,14 +2,17 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 public class BeeTower : BaseTowerLogic
 {
     //public float[] towerPosition; // This variable is seeming unused
     public string id;
+    //public Outline outline;
     void Start()
     {
+        createOutline();
         towerName = "Bee Tower";
         Invoke();
         MakeSphere();

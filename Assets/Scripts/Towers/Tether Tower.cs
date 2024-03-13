@@ -13,6 +13,7 @@ public class tetherTower : BaseTowerLogic
     public string id;
     void Start()
     {
+        createOutline();
         towerName = "Tether Tower";
         Invoke();
         MakeSphere();

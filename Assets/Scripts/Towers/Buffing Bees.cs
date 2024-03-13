@@ -9,6 +9,7 @@ public class BuffingBees : BaseTowerLogic
     // Start is called before the first frame update
     void Start()
     {
+        createOutline();
         towerName = "Bee Buffer";
         enemyTag = "Bee";
         fireRate = 0.2f;

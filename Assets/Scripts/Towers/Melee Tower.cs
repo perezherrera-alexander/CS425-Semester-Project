@@ -19,6 +19,7 @@ public class meleeTower : BaseTowerLogic
     // Start is called before the first frame update
     void Start()
     {
+        createOutline();
         towerName = "Army Ant";
         Invoke();
         MakeSphere();

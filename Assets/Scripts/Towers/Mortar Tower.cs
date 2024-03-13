@@ -10,6 +10,7 @@ public class mortarTower : BaseTowerLogic
     // Start is called before the first frame update
     void Start()
     {
+        createOutline();
         towerName = "Mortar Tower";
         Invoke();
         MakeSphere();

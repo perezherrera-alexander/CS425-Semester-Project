@@ -12,6 +12,7 @@ public class BeeSwarm : BaseTowerLogic
     // Start is called before the first frame update
     void Start()
     {
+        createOutline();
         towerName = "Bee Swarm";
         Invoke();
         MakeSphere();

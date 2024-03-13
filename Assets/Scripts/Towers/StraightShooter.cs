@@ -11,6 +11,7 @@ public class StraightShooter : BaseTowerLogic
     // Start is called before the first frame update
     void Start()
     {
+        createOutline();
         towerName = "Wasp Tower";
         Invoke();
         animate = GetComponentInChildren<Animator>();

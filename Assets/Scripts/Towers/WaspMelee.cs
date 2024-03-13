@@ -15,6 +15,7 @@ public class WaspMelee : BaseTowerLogic
     // Start is called before the first frame update
     void Start()
     {
+        createOutline();
         towerName = "Tarantula Wasp";
         Invoke();
         MakeSphere();
