@@ -11,7 +11,7 @@ public enum GameStates
     LevelComplete
 }
 
-[Flags] // Bitwise enum
+[Flags] // Bitwise enum (https://www.c-sharpcorner.com/article/understanding-bitwise-enums-in-c-sharp/)
 public enum Modifiers
 {
     None = 0,
