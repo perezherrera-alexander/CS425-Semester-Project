@@ -124,7 +124,7 @@ public class TowerPanelManager : MonoBehaviour
 
             if (scriptName == "mortarTower")
             {
-                dropdown.value = (int) SelectedTower.transform.GetChild(0).gameObject.GetComponent<mortarTower>().targetingType;
+                dropdown.value = (int) SelectedTower.transform.GetComponentInChildren<mortarTower>().targetingType;
             }
 
             if (scriptName == "tetherTower")
