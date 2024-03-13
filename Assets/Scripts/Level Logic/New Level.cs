@@ -41,25 +41,62 @@ public class NewLevel : MonoBehaviour
 
     public void runModifier(string modifierName)
     {
+        // modifierName is passed from the checkboxes
+        // Use that name to determine which modifier to apply
+        // Modifiers is a bitwise enum, so we use bitwise operations to apply or remove them
         if(modifierName == "Money") {
-            playerData.activeModifier = Modifiers.Money;
+            if(playerData.activeModifier.HasFlag(Modifiers.Money)) {
+                playerData.activeModifier ^= Modifiers.Money;
+            }
+            else {
+                playerData.activeModifier |= Modifiers.Money;
+            }
         } 
         else if(modifierName == "Morale"){
-            playerData.activeModifier = Modifiers.Morale;
+            if(playerData.activeModifier.HasFlag(Modifiers.Morale)) {
+                playerData.activeModifier ^= Modifiers.Morale;
+            }
+            else {
+                playerData.activeModifier |= Modifiers.Morale;
+            }
         }
         else if(modifierName == "Range"){
-            playerData.activeModifier = Modifiers.Range;
+            if(playerData.activeModifier.HasFlag(Modifiers.Range)) {
+                playerData.activeModifier ^= Modifiers.Range;
+            }
+            else {
+                playerData.activeModifier |= Modifiers.Range;
+            }
         }
         else if(modifierName == "Damage"){
-            playerData.activeModifier = Modifiers.Damage;
+            if(playerData.activeModifier.HasFlag(Modifiers.Damage)) {
+                playerData.activeModifier &= ~Modifiers.Damage;
+            }
+            else {
+                playerData.activeModifier |= Modifiers.Damage;
+            }
         }
         else if(modifierName == "Cooldown"){
-            playerData.activeModifier = Modifiers.Cooldown;
+            if(playerData.activeModifier.HasFlag(Modifiers.Cooldown)) {
+                playerData.activeModifier ^= Modifiers.Cooldown;
+            }
+            else {
+                playerData.activeModifier |= Modifiers.Cooldown;
+            }
+        }
+        else if(modifierName == "Developer"){
+            if(playerData.activeModifier.HasFlag(Modifiers.Developer)) {
+                playerData.activeModifier ^= Modifiers.Developer;
+            }
+            else {
+                playerData.activeModifier |= Modifiers.Developer;
+            }
         }
         else {
-            Debug.Log("Modifier not found or not yet implemented.");
-            playerData.activeModifier = Modifiers.None;
+            Debug.Log("The " + modifierName + " modifier is not found or not yet implemented.");
         }
+
+        //Debug.Log("Active Modifiers: " + playerData.activeModifier.ToString());
     }
 
 

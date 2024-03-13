@@ -69,7 +69,7 @@ public class TowerPlacement : MonoBehaviour
                     towerSaveLoadManager.AddTower(ID, pos, towerName, savedTargettingType);
                 }
 
-                if (towerName == "Flame Tower")
+                if (towerName == "Fire Ant") // Previously Flame Tower
                 {
                     string ID = Tower.transform.GetChild(0).gameObject.GetComponent<FlameTower>().GenerateId().ToString();
                     savedTargettingType = Tower.transform.GetChild(0).gameObject.GetComponent<FlameTower>().targetingType;
@@ -77,7 +77,7 @@ public class TowerPlacement : MonoBehaviour
                     towerSaveLoadManager.AddTower(ID, pos, towerName, savedTargettingType);
                 }
 
-                if (towerName == "Melee Tower")
+                if (towerName == "Army Ant") // Previously Melee Tower
                 {
                     string ID = Tower.transform.GetChild(0).gameObject.GetComponent<meleeTower>().GenerateId().ToString();
                     savedTargettingType = Tower.transform.GetChild(0).gameObject.GetComponent<meleeTower>().targetingType;
@@ -138,17 +138,18 @@ public class TowerPlacement : MonoBehaviour
         }
     }
 
-    public void PlaceTower(GameObject towerToPlace, string nameOfTower)
+    public void PlaceTower(GameObject towerToPlace)
     {
-        towerName = nameOfTower; // Save the name of the tower's prefab so we can later call it's script
+        // Save the name of the tower's prefab so we can later call it's script
+        towerName = towerToPlace.transform.gameObject.GetComponentInChildren<BaseTowerLogic>().towerName;
         Tower = GameObject.Instantiate(towerToPlace, Vector3.zero, Quaternion.identity);
-        //Tower.transform.GetChild(1).GetComponentInChildren<ParticleSystem>().Stop();
+        // Also start the particle effect
         Tower.transform.Find("Rotate").Find("TowerParticleSystem").GetComponent<ParticleSystem>().Stop();
     }
 
     private void CreatePlacementEffect()
     {
-        //Tower.transform.GetChild(1).GetChild(2).GetComponent<ParticleSystem>().Play(); // We must do this song and dance to grab the particle component
+        // We must do this song and dance to grab the particle component
         Tower.transform.Find("Rotate").Find("TowerParticleSystem").GetComponent<ParticleSystem>().Play();
         // Stop the particle system atfer 3 seconds
         StartCoroutine(StopParticleEffect(Tower.transform.Find("Rotate").Find("TowerParticleSystem").GetComponent<ParticleSystem>()));

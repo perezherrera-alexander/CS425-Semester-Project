@@ -27,7 +27,6 @@ public class PlayerData : ScriptableObject
     public GameObject[] TowerUnlockOrder;
     public Generals activeGeneral = Generals.Bee;
     public Modifiers activeModifier = Modifiers.None;
-
     public bool LevelLoaded = false;
 
     public void UpdateStats(int morale, int evolutionPoints, int enemiesKilled)

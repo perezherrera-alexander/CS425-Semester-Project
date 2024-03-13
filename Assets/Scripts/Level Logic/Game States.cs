@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,14 +11,16 @@ public enum GameStates
     LevelComplete
 }
 
+[Flags] // Bitwise enum (https://www.c-sharpcorner.com/article/understanding-bitwise-enums-in-c-sharp/)
 public enum Modifiers
 {
-    None,
-    Money,
-    Morale, // Increase health
-    Range,
-    Damage,
-    Cooldown
+    None = 0,
+    Money = 1,
+    Morale = 2, // Increase health
+    Range = 4,
+    Damage = 8,
+    Cooldown = 16,
+    Developer = 32
 }
 
 public enum Generals

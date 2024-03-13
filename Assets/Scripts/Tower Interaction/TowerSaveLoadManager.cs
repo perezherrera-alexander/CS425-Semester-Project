@@ -45,7 +45,7 @@ public class TowerSaveLoadManager : MonoBehaviour, ISaveable
         foreach (var towerData in towerDictionary.Values)
         {
 
-            if (towerData.TowerName == "Bee Tower")
+            if (towerData.TowerName == BeeTowerPrefab.transform.gameObject.GetComponentInChildren<BaseTowerLogic>().towerName)
             {
                 GameObject instantiateTower = InstantiateTowerPrefab(new Vector3(towerData.TowerPosition[0], towerData.TowerPosition[1], towerData.TowerPosition[2]), BeeTowerPrefab);
 
@@ -54,7 +54,7 @@ public class TowerSaveLoadManager : MonoBehaviour, ISaveable
                 instantiateTower.GetComponentInChildren<BeeTower>().targetingType = towerData.TargetingOption;
             }
 
-            if (towerData.TowerName == "Mortar Tower")
+            if (towerData.TowerName == MortarTowerPrefab.transform.gameObject.GetComponentInChildren<BaseTowerLogic>().towerName)
             {
                 GameObject instantiateTower = InstantiateTowerPrefab(new Vector3(towerData.TowerPosition[0], towerData.TowerPosition[1], towerData.TowerPosition[2]), MortarTowerPrefab);
 
@@ -63,7 +63,7 @@ public class TowerSaveLoadManager : MonoBehaviour, ISaveable
                 instantiateTower.GetComponentInChildren<mortarTower>().targetingType = towerData.TargetingOption;
             }
 
-            if (towerData.TowerName == "Tether Tower")
+            if (towerData.TowerName == TetherTowerPrefab.transform.gameObject.GetComponentInChildren<BaseTowerLogic>().towerName)
             {
                 GameObject instantiateTower = InstantiateTowerPrefab(new Vector3(towerData.TowerPosition[0], towerData.TowerPosition[1], towerData.TowerPosition[2]), TetherTowerPrefab);
 
@@ -73,7 +73,7 @@ public class TowerSaveLoadManager : MonoBehaviour, ISaveable
 
             }
 
-            if (towerData.TowerName == "Flame Tower")
+            if (towerData.TowerName == FlameTowerPrefab.transform.gameObject.GetComponentInChildren<BaseTowerLogic>().towerName) // Previously Flame Tower
             {
                 GameObject instantiateTower = InstantiateTowerPrefab(new Vector3(towerData.TowerPosition[0], towerData.TowerPosition[1], towerData.TowerPosition[2]), FlameTowerPrefab);
 
@@ -83,7 +83,7 @@ public class TowerSaveLoadManager : MonoBehaviour, ISaveable
 
             }
 
-            if (towerData.TowerName == "Melee Tower")
+            if (towerData.TowerName == MeleeTowerPrefab.transform.gameObject.GetComponentInChildren<BaseTowerLogic>().towerName) // Previously Melee Tower
             {
                 GameObject instantiateTower = InstantiateTowerPrefab(new Vector3(towerData.TowerPosition[0], towerData.TowerPosition[1], towerData.TowerPosition[2]), MeleeTowerPrefab);
 
@@ -93,7 +93,7 @@ public class TowerSaveLoadManager : MonoBehaviour, ISaveable
 
             }
 
-            if (towerData.TowerName == "Mortar Ant")
+            if (towerData.TowerName == MortarAntPrefab.transform.gameObject.GetComponentInChildren<BaseTowerLogic>().towerName)
             {
                 GameObject instantiateTower = InstantiateTowerPrefab(new Vector3(towerData.TowerPosition[0], towerData.TowerPosition[1], towerData.TowerPosition[2]), MortarAntPrefab);
 
@@ -103,7 +103,7 @@ public class TowerSaveLoadManager : MonoBehaviour, ISaveable
 
             }
 
-            if (towerData.TowerName == "Attack Bee")
+            if (towerData.TowerName == AttackBeePrefab.transform.gameObject.GetComponentInChildren<BaseTowerLogic>().towerName)
             {
                 GameObject instantiateTower = InstantiateTowerPrefab(new Vector3(towerData.TowerPosition[0], towerData.TowerPosition[1], towerData.TowerPosition[2]), AttackBeePrefab);
 
@@ -113,7 +113,7 @@ public class TowerSaveLoadManager : MonoBehaviour, ISaveable
 
             }
 
-            if (towerData.TowerName == "Bee Swarm")
+            if (towerData.TowerName == BeeSwarmPrefab.transform.gameObject.GetComponentInChildren<BaseTowerLogic>().towerName)
             {
                 GameObject instantiateTower = InstantiateTowerPrefab(new Vector3(towerData.TowerPosition[0], towerData.TowerPosition[1], towerData.TowerPosition[2]), BeeSwarmPrefab);
 
@@ -123,7 +123,7 @@ public class TowerSaveLoadManager : MonoBehaviour, ISaveable
 
             }
 
-            if (towerData.TowerName == "Buffing Bee")
+            if (towerData.TowerName == BuffingBeePrefab.transform.gameObject.GetComponentInChildren<BaseTowerLogic>().towerName)
             {
                 GameObject instantiateTower = InstantiateTowerPrefab(new Vector3(towerData.TowerPosition[0], towerData.TowerPosition[1], towerData.TowerPosition[2]), BuffingBeePrefab);
 
@@ -133,7 +133,7 @@ public class TowerSaveLoadManager : MonoBehaviour, ISaveable
 
             }
 
-            if (towerData.TowerName == "Wasp Melee")
+            if (towerData.TowerName == WaspMeleePrefab.transform.gameObject.GetComponentInChildren<BaseTowerLogic>().towerName)
             {
                 GameObject instantiateTower = InstantiateTowerPrefab(new Vector3(towerData.TowerPosition[0], towerData.TowerPosition[1], towerData.TowerPosition[2]), WaspMeleePrefab);
 
@@ -143,7 +143,7 @@ public class TowerSaveLoadManager : MonoBehaviour, ISaveable
 
             }
 
-            if (towerData.TowerName == "Wasp Tower")
+            if (towerData.TowerName == WaspTowerPrefab.transform.gameObject.GetComponentInChildren<BaseTowerLogic>().towerName)
             {
                 GameObject instantiateTower = InstantiateTowerPrefab(new Vector3(towerData.TowerPosition[0], towerData.TowerPosition[1], towerData.TowerPosition[2]), WaspTowerPrefab);
 
