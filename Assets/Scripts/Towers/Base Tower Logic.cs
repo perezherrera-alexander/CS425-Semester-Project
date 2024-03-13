@@ -342,9 +342,8 @@ public class BaseTowerLogic : MonoBehaviour, Effectable
         }
     }
 
-    protected void createOutline()
+    protected void createOutline() // This needs to be called by the Start method of any tower that wants an outline
     {
-        //Debug.Log("Creating Outline");
         GameObject parent = transform.parent.gameObject;
         Outline outline = parent.AddComponent<Outline>();
         outline.OutlineMode = Outline.Mode.OutlineAll;

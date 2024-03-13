@@ -213,11 +213,11 @@ public class TowerPanelManager : MonoBehaviour
         SelectedTower = null;
     }
 
+    // The tower parent (SelectedTower) should have an Outline component. These methods simply turn them on and off
     private void TurnOnTowerOutline()
     {
         var outline = SelectedTower.GetComponent<Outline>();
         outline.enabled = true;
-        Debug.Log("Turned on outline");
     }
 
     private void TurnOffTowerOutline()
