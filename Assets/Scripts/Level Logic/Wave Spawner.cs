@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 using System;
 using System.Linq;
+using System.Globalization;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -58,7 +59,7 @@ public class WaveSpawner : MonoBehaviour
                 waveFormation wave = new waveFormation();                       // Create a new waveFormation
                 wave.id = int.Parse(enemyData[0]);                              // Set the enemy id
                 wave.enemyAmount = int.Parse(enemyData[1]);                     // Set the amount of enemies
-                wave.timeBetweenEnemySpawnsSeconds = float.Parse(enemyData[2]); // Set the time between enemy spawns
+                wave.timeBetweenEnemySpawnsSeconds = float.Parse(enemyData[2], CultureInfo.InvariantCulture); // Set the time between enemy spawns
                 //Debug.Log("i: " + i + " j: " + j);
                 waves.ElementAt(i).Add(wave);                                   // Add the waveFormation to the list of waves
             }
