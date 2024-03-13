@@ -10,6 +10,7 @@ public class SpiderScript : BaseTowerLogic
     // Start is called before the first frame update
     void Start()
     {
+        createOutline();
         towerName = "Spider Tower";
         Invoke();
         //animate = GetComponentInChildren<Animator>();

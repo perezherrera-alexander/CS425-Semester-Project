@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -509,7 +509,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dfd615581673ab42924791a04b28158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enableDebug: 0
+  enableDebug: 1
   loadSpecificLevel: 0
   specificLevelIndex: 2
   pathPrefabs:
@@ -3182,6 +3182,8 @@ MonoBehaviour:
   WaspTowerPrefab: {fileID: 5375419024465267202, guid: 9615296694b34664ba234ff1db9775dd, type: 3}
   WaspMeleePrefab: {fileID: 7531189038630079958, guid: f1e522ec82051554684e9168369f9564, type: 3}
   SpiderTowerPrefab: {fileID: 5375419024465267202, guid: 038281cb77a244742a6c90eadb25957a, type: 3}
+  LoadTowerArray: []
+  SaveTowerArray: []
 --- !u!1 &1826386577
 GameObject:
   m_ObjectHideFlags: 0

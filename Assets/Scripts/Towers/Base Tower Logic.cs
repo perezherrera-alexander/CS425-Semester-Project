@@ -1,4 +1,4 @@
-using System.Collections;
+    using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -12,6 +12,7 @@ public class BaseTowerLogic : MonoBehaviour, Effectable
     public Transform locationToFireFrom;
     public GameObject projectilePrefab;
     public string enemyTag = "Enemy";
+    public float outlineThickness = 10.0f;
     [Header("Tower Stats")]
     public int buildCost;
     [Range(0f, 30f)]
@@ -339,5 +340,15 @@ public class BaseTowerLogic : MonoBehaviour, Effectable
             fireRate = fireRate * (1 + data.attackSpeedIncrease);
             isBuffed = true;
         }
+    }
+
+    protected void createOutline()
+    {
+        //Debug.Log("Creating Outline");
+        GameObject parent = transform.parent.gameObject;
+        Outline outline = parent.AddComponent<Outline>();
+        outline.OutlineMode = Outline.Mode.OutlineAll;
+        outline.OutlineWidth = outlineThickness;
+        outline.enabled = false;
     }
 }
