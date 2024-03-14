@@ -29,12 +29,12 @@ public class LossConditionCheck : MonoBehaviour
         }
     }
 
-    public void TryAgain()
+    public void EnhanceYourCritters()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("Tower Upgrade");
     }
 
-    public void ExitToMainMenu()
+    public void ReturnToMainMenu()
     {
         Debug.Log("Quitting to Main Menu......");
         SceneManager.LoadScene("Main Menu");
