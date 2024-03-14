@@ -11,6 +11,8 @@ public class LossConditionCheck : MonoBehaviour
 
     public GameObject GameOverScreen;
 
+    public StoreTowerUpgradeData storeTowerUpgradeData;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +33,7 @@ public class LossConditionCheck : MonoBehaviour
 
     public void EnhanceYourCritters()
     {
+        storeTowerUpgradeData.TokensObtained = 1;
         SceneManager.LoadScene("Tower Upgrade");
     }
 

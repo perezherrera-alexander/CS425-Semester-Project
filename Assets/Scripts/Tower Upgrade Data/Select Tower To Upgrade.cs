@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SelectTowerToUpgrade : MonoBehaviour
 {
@@ -45,5 +46,15 @@ public class SelectTowerToUpgrade : MonoBehaviour
     {
         TowerUpgradeDataWindow.SetActive(true);
         Populator.PopulatePanel(UpgradeData);
+    }
+
+    public void StartRun()
+    {
+        SceneManager.LoadScene("Game View");
+    }
+
+    public void EndRun()
+    {
+        SceneManager.LoadScene("Main Menu");
     }
 }
