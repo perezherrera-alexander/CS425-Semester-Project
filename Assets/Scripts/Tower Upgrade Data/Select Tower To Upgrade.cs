@@ -12,8 +12,15 @@ public class SelectTowerToUpgrade : MonoBehaviour
     public GameObject UniqueUpgradeButton;
     public string TowerUpgradeName;
 
-    public DataPanelPopulator Populator;
+    public TMP_Text TokenCounter;
 
+    public DataPanelPopulator Populator;
+    public StoreTowerUpgradeData storeTowerUpgradeData;
+
+    public void Update()
+    {
+        TokenCounter.text = "Tokens Left: " + storeTowerUpgradeData.TokensObtained.ToString();
+    }
     public void OpenDataPanel(string ButtonName)
     {
         SelectTowerUpgradePanel.SetActive(false);
@@ -50,7 +57,15 @@ public class SelectTowerToUpgrade : MonoBehaviour
 
     public void StartRun()
     {
-        SceneManager.LoadScene("Game View");
+        if (storeTowerUpgradeData.TokensObtained > 1)
+        {
+            storeTowerUpgradeData.TokensObtained--;
+        }
+        else if (storeTowerUpgradeData.TokensObtained == 1)
+        {
+            storeTowerUpgradeData.TokensObtained--;
+            SceneManager.LoadScene("Game View");
+        }
     }
 
     public void EndRun()
