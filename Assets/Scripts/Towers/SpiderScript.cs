@@ -20,9 +20,17 @@ public class SpiderScript : BaseTowerLogic
     // Update is called once per frame
     void Update()
     {
-        
-        Track();
-        ListPrune();
+
+        if (isActive)
+        {
+            if(data != null)
+            {
+                handleEffect();
+            }
+            Track();
+            ListPrune();
+        }
+   
     }
 
     public override void Shoot()
