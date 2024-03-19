@@ -65,6 +65,7 @@ public class nestPanelManager : MonoBehaviour
     private void closeNestPanel()
     {
         Destroy(nestPanelInstance);
+        Debug.Log("DID THIS CLOSE");
     }
 
     private void openNestPanel()
@@ -72,5 +73,7 @@ public class nestPanelManager : MonoBehaviour
         waspNestScript waspNest = selectedNest.GetComponentInChildren<waspNestScript>();
 
         nestPanelInstance = Instantiate(nestPanelPrefab) as GameObject;
+
+        Debug.Log("DID THIS OPEN");
     }
 }

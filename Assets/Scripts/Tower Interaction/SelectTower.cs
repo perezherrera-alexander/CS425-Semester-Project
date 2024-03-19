@@ -6,7 +6,6 @@ using System.Linq;
 
 public class SelectTower : MonoBehaviour
 {
-    public GameObject towerCanvasPrefab;
 
     [SerializeField]
     private TowerPlacement towerPlacement;
