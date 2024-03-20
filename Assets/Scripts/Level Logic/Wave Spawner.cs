@@ -22,6 +22,8 @@ public class WaveSpawner : MonoBehaviour
     public GameObject enemyC;
     public GameObject enemyD;
     public GameObject enemyE;
+
+    public GameObject enemyV;
     public struct waveFormation
     {
         //enemy id, amount of enemies, time between enemy spawns
@@ -164,6 +166,9 @@ public class WaveSpawner : MonoBehaviour
                 break;
             case 10:
                 Instantiate(enemyE, SpawnPoint.position, SpawnPoint.rotation);
+                break;
+            case 11:
+                Instantiate(enemyV, SpawnPoint.position, SpawnPoint.rotation);
                 break;
         }
     }

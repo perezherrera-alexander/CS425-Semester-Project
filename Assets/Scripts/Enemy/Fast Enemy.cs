@@ -23,4 +23,18 @@ public class FastEnemy : BaseEnemyLogic
             GetNextWaypoint();
         }
     }
+    public override void healthCheck()
+    {
+        if (health <= 0)
+        {
+            PlayerStatistics.AddMoney(GoldWorth);
+            Destroy(gameObject);
+            Debug.Log("Fast enemy Destroyed");
+                // Destroy(this.gameObject);
+                // Destroy(ob);
+            //subtract present enemies count by 1
+            PlayerStatistics.Instance.enemiesPresent--;
+            return;
+        }
+    }
 }
