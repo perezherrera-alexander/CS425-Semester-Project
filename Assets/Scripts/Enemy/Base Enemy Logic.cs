@@ -7,7 +7,8 @@ using UnityEngine;
 public class BaseEnemyLogic : MonoBehaviour, Effectable
 {
     private StatusEffects data;
-    [SerializeField] List<StatusEffects> effects;
+    [SerializeField] 
+    public List<StatusEffects> effects;
     public Collider objectCollider;
     public GameObject ob;
     public int GoldWorth;

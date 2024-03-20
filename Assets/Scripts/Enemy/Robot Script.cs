@@ -13,7 +13,6 @@ public class RobotScript : BaseEnemyLogic
     public override void healthCheck()
     {   
         if (health <= 0){
-            Debug.Log(health);
             PlayerStatistics.AddMoney(GoldWorth);
             Destroy(ob);
             //subtract present enemies count by 1
@@ -32,19 +31,16 @@ public class RobotScript : BaseEnemyLogic
            // DestroyImmediate(armL);
             healthTier1 = false;
             DestroyImmediate(armL);
-            Debug.Log(health);
         }
         if(healthPercentage < .50 && healthTier2){
          //   DestroyImmediate(armR);
             healthTier2 = false;
             DestroyImmediate(armR);
-            Debug.Log(health);
         }
         if(healthPercentage < .25 && healthTier3){
          //   DestroyImmediate(head);
             healthTier3 = false;
             DestroyImmediate(head);
-            Debug.Log(health);
         }
     }
 }
