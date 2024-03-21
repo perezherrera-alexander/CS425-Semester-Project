@@ -7,6 +7,7 @@ public class antNest : baseNests
     [Header("Nest Parts")]
     public BoxCollider antArea;
     public Transform center;
+
     private float damage = 1f;
 
     // Start is called before the first frame update
@@ -55,8 +56,12 @@ public class antNest : baseNests
         reSizeBox();
     }
 
+    
+
     public float getDamage()
     {
         return damage;
     }
+
+
 }

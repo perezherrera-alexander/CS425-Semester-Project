@@ -5,6 +5,7 @@ using UnityEngine;
 public class baseNests : MonoBehaviour
 {
     public Transform target;
+    public GameObject targ;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,5 +26,16 @@ public class baseNests : MonoBehaviour
         target.position = new Vector3 (targX, targY, targZ);
 
 
+    }
+
+    public void showTarget()
+    {
+        
+        targ.GetComponent<MeshRenderer>().enabled = true;
+    }
+
+    public void hideTarget()
+    {
+        targ.GetComponent<MeshRenderer>().enabled = false;
     }
 }

@@ -43,12 +43,14 @@ public class nestPanelManager : MonoBehaviour
         {
             panelState = false;
             closeNestPanel();
+            selectedNest.GetComponentInChildren<baseNests>().hideTarget();
             //turnOffOutline
         }
         else if(selectedNest == nest && panelState == false)
         {
             panelState = true;
             openNestPanel();
+            selectedNest.GetComponentInChildren<baseNests>().showTarget();
             //turnOffOutline
         }
         else
@@ -56,6 +58,7 @@ public class nestPanelManager : MonoBehaviour
             panelState = true;
             nestSelected(nest);
             openNestPanel();
+            selectedNest.GetComponentInChildren<baseNests>().showTarget();
             //turnOnOutline
         }
     }
@@ -87,13 +90,13 @@ public class nestPanelManager : MonoBehaviour
             string scriptName = scriptType.Name;
             Debug.Log(scriptName);
 
-            if(targetButton != null)
-            {
-                Debug.Log("Null");
-                targetButton.onClick.AddListener(moveTarget);
-            }
 
+        }
 
+        if (targetButton != null)
+        {
+            Debug.Log("Null");
+            targetButton.onClick.AddListener(moveTarget);
         }
 
     }
