@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class nestSelect : MonoBehaviour
 {
-    public nestPanelManager nestPanelManager;
+    [SerializeField]
+    private nestPanelManager nestPanelManage;
 
     public GameObject nestCanvasPrefab;
     [SerializeField]
@@ -13,7 +14,7 @@ public class nestSelect : MonoBehaviour
     void Start()
     {
         pauseMenu = FindObjectOfType<PauseMenu>();
-        nestPanelManager = FindObjectOfType<nestPanelManager>();
+        nestPanelManage = FindObjectOfType<nestPanelManager>();
     }
 
     private void OnMouseDown()
@@ -30,9 +31,10 @@ public class nestSelect : MonoBehaviour
             if (Physics.Raycast(ray, out hit))
             {
                 // Check if the hit collider belongs to the TowerLayer
-                if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Tower"))
+                if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Nest"))
                 {
                     toggleNestCanvas(hit.collider.gameObject);
+
                 }
             }
         }
@@ -40,12 +42,12 @@ public class nestSelect : MonoBehaviour
 
    private void toggleNestCanvas(GameObject nest)
     {
-        nestPanelManager nestPanelManager = nestPanelManager.Instance;
-
-        if(nestPanelManager != null )
+        nestPanelManager nestpanelManager = nestPanelManager.Instance;
+        
+        if (nestpanelManager != null )
         {
-            nestPanelManager.ToggleNestPanel(nest);
-            Debug.Log("IS THIS NULL");
+            nestpanelManager.ToggleNestPanel(nest);
+            
         }
     }
 

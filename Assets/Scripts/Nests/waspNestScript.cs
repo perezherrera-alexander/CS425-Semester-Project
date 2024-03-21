@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class waspNestScript : MonoBehaviour
+public class waspNestScript : baseNests
 {
     [Header("Nest Parts")]
     public Transform barrelToRotate;
@@ -14,7 +14,7 @@ public class waspNestScript : MonoBehaviour
     public float fireCountdown = 0f;
 
     public float curAttackSpeed;
-    public Transform target;
+
 
     // Start is called before the first frame update
     void Start()

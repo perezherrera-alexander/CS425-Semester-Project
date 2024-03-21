@@ -2790,7 +2790,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 533825567974674855, guid: 038281cb77a244742a6c90eadb25957a, type: 3}
       propertyPath: m_Radius
-      value: 59.44
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 533825567974674855, guid: 038281cb77a244742a6c90eadb25957a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1341075003203752393, guid: 038281cb77a244742a6c90eadb25957a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2832,9 +2836,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3430685867822628981, guid: 038281cb77a244742a6c90eadb25957a, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5375419024465267202, guid: 038281cb77a244742a6c90eadb25957a, type: 3}
       propertyPath: m_Name
       value: Spider
+      objectReference: {fileID: 0}
+    - target: {fileID: 5375419024465267202, guid: 038281cb77a244742a6c90eadb25957a, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7474355143984115563, guid: 038281cb77a244742a6c90eadb25957a, type: 3}
       propertyPath: isActive

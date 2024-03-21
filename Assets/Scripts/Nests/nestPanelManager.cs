@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using System;
+using TMPro;
 
 public class nestPanelManager : MonoBehaviour
 {
-    waspNestScript waspNest;
+    baseNests waspNest;
     private static nestPanelManager instance;
 
     public static nestPanelManager Instance {  get { return instance; } }
@@ -18,7 +21,7 @@ public class nestPanelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        waspNest = GameObject.FindAnyObjectByType<waspNestScript>();
+        waspNest = GameObject.FindAnyObjectByType<baseNests>();
     }
 
     // Update is called once per frame
@@ -65,15 +68,38 @@ public class nestPanelManager : MonoBehaviour
     private void closeNestPanel()
     {
         Destroy(nestPanelInstance);
-        Debug.Log("DID THIS CLOSE");
+
     }
 
     private void openNestPanel()
     {
-        waspNestScript waspNest = selectedNest.GetComponentInChildren<waspNestScript>();
+        baseNests waspNest = selectedNest.GetComponentInChildren<baseNests>();
 
         nestPanelInstance = Instantiate(nestPanelPrefab) as GameObject;
 
-        Debug.Log("DID THIS OPEN");
+        nestPanelInstance.transform.position = selectedNest.transform.position;
+
+        Button targetButton = nestPanelInstance.transform.GetChild(0).GetChild(1).GetChild(0).GetComponent<Button>();
+
+        if (waspNest != null)
+        {
+            Type scriptType = waspNest.GetType();
+            string scriptName = scriptType.Name;
+            Debug.Log(scriptName);
+
+            if(targetButton != null)
+            {
+                Debug.Log("Null");
+                targetButton.onClick.AddListener(moveTarget);
+            }
+
+
+        }
+
+    }
+
+    public void moveTarget()
+    {
+        Debug.Log("Hello");
     }
 }

@@ -499,13 +499,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b28f4fa8a7fcab249b32b7b3a00f0ce1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 6539569996756854906}
   barrelToRotate: {fileID: 4618520101316737064}
   locationToFireFrom: {fileID: 1309356272492114196}
-  projectilePrefab: {fileID: 6095504555082554128}
+  projectilePrefab: {fileID: 7241673889985896534, guid: f4ea97f5f28c78a40aeba085a84f1bd8, type: 3}
   fireRate: 1
   fireCountdown: 0
   curAttackSpeed: 0
-  target: {fileID: 0}
 --- !u!1 &6095504555082554128
 GameObject:
   m_ObjectHideFlags: 0
@@ -605,6 +605,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb11b3bbda67404c971dc8853a2757b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nestPanelManager: {fileID: 0}
   nestCanvasPrefab: {fileID: 5176675737283603480, guid: 2b0c4e2273160ab47a96513e1fefc613, type: 3}
   pauseMenu: {fileID: 0}
 --- !u!1 &6597180466896825260
