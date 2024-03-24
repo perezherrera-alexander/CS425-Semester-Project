@@ -25,12 +25,15 @@ public class waspNestScript : baseNests
     // Update is called once per frame
     void Update()
     {
-        track();
+        if (target != null)
+        {
+            track();
+        }
     }
 
     void track()
     {
-        Vector3 dir = target.position - transform.position;
+        Vector3 dir = target.transform.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(dir);
         Vector3 rotation = lookRotation.eulerAngles;
         barrelToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
@@ -56,7 +59,7 @@ public class waspNestScript : baseNests
         waspNestProjectile sting = wasp.GetComponent<waspNestProjectile>();
         if (sting != null)
         {
-            sting.Look(target);
+            sting.Look(target.transform);
         }
     }
 }

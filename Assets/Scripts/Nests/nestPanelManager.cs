@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 using TMPro;
+using UnityEditor.AssetImporters;
 
 public class nestPanelManager : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class nestPanelManager : MonoBehaviour
     public GameObject selectedNest;
     public GameObject nestPanelInstance;
     public GameObject nestPanelPrefab;
+    public GameObject targetPrefab;
+
+    [SerializeField] public nestTargetPlacement targetPlacement;
 
     private bool panelState = false;
 
@@ -43,14 +47,14 @@ public class nestPanelManager : MonoBehaviour
         {
             panelState = false;
             closeNestPanel();
-            selectedNest.GetComponentInChildren<baseNests>().hideTarget();
+            turnOffTarget();
             //turnOffOutline
         }
         else if(selectedNest == nest && panelState == false)
         {
             panelState = true;
             openNestPanel();
-            selectedNest.GetComponentInChildren<baseNests>().showTarget();
+            turnOnTarget();
             //turnOffOutline
         }
         else
@@ -58,7 +62,7 @@ public class nestPanelManager : MonoBehaviour
             panelState = true;
             nestSelected(nest);
             openNestPanel();
-            selectedNest.GetComponentInChildren<baseNests>().showTarget();
+            turnOnTarget();
             //turnOnOutline
         }
     }
@@ -84,25 +88,52 @@ public class nestPanelManager : MonoBehaviour
 
         Button targetButton = nestPanelInstance.transform.GetChild(0).GetChild(1).GetChild(0).GetComponent<Button>();
 
+        Button deletePanel = nestPanelInstance.transform.GetChild(0).GetChild(2).GetChild(0).GetComponent<Button>();
+
         if (waspNest != null)
         {
             Type scriptType = waspNest.GetType();
             string scriptName = scriptType.Name;
             Debug.Log(scriptName);
 
+            TMP_Text output = nestPanelInstance.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
+            output.text = "Nest Name: " + scriptName;
 
         }
 
         if (targetButton != null)
         {
-            Debug.Log("Null");
             targetButton.onClick.AddListener(moveTarget);
+        }
+
+        if (deletePanel != null)
+        {
+            deletePanel.onClick.AddListener(deletePanelFunction);
         }
 
     }
 
     public void moveTarget()
     {
-        Debug.Log("Hello");
+        targetPlacement.placeTarget(targetPrefab,selectedNest);
+    }
+
+    private void deletePanelFunction()
+    {
+        panelState = false;
+        turnOffTarget();
+        Destroy(nestPanelInstance);
+    }
+
+    private void turnOffTarget()
+    {
+        var targ = selectedNest.GetComponentInChildren<baseNests>();
+        targ.hideTarget();
+    }
+
+    private void turnOnTarget()
+    {
+        var targ = selectedNest.GetComponentInChildren<baseNests>();
+        targ.showTarget();
     }
 }

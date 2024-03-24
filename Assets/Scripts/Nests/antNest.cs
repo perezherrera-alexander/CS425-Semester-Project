@@ -26,32 +26,41 @@ public class antNest : baseNests
 
     void track()
     {
-        Vector3 dir = target.position - transform.position;
-        Quaternion lookRotation = Quaternion.LookRotation(dir);
-        Vector3 rotation = lookRotation.eulerAngles;
-        center.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+        if (target != null)
+        {
+            Vector3 dir = target.transform.position - transform.position;
+            Quaternion lookRotation = Quaternion.LookRotation(dir);
+            Vector3 rotation = lookRotation.eulerAngles;
+            center.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+        }
     }
 
     void centerBoxCollider()
     {
-        Vector3 midPoint = (center.position + target.position) * 0.5f;
-        antArea.transform.position = midPoint;
+        if (target != null)
+        {
+            Vector3 midPoint = (center.position + target.transform.position) * 0.5f;
+            antArea.transform.position = midPoint;
+        }
     }
 
     void reSizeBox()
     {
-        float xSize = antArea.size.x;
-        float ySize = antArea.size.y;
-        float newZ = target.position.z - center.position.z;
-        antArea.size = new Vector3(xSize, ySize, newZ);
+        if (target != null)
+        {
+            float xSize = antArea.size.x;
+            float ySize = antArea.size.y;
+            float newZ = target.transform.position.z - center.position.z;
+            antArea.size = new Vector3(xSize, ySize, newZ);
+        }
     }
 
     public override void moveTarget(Transform newTarget)
     {
-        float targY = target.position.y;
+        float targY = target.transform.position.y;
         float targX = newTarget.position.x;
         float targZ = newTarget.position.z;
-        target.position = new Vector3(targX, targY, targZ);
+        target.transform.position = new Vector3(targX, targY, targZ);
         centerBoxCollider();
         reSizeBox();
     }

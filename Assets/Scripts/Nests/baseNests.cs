@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class baseNests : MonoBehaviour
 {
-    public Transform target;
+    public GameObject target;
     public GameObject targ;
     // Start is called before the first frame update
     void Start()
@@ -20,10 +20,10 @@ public class baseNests : MonoBehaviour
 
     public virtual void moveTarget(Transform newTarget)
     {
-        float targY = target.position.y;
+        float targY = target.transform.position.y;
         float targX = newTarget.position.x;
         float targZ = newTarget.position.z;
-        target.position = new Vector3 (targX, targY, targZ);
+        target.transform.position = new Vector3 (targX, targY, targZ);
 
 
     }
@@ -31,11 +31,17 @@ public class baseNests : MonoBehaviour
     public void showTarget()
     {
         
-        targ.GetComponent<MeshRenderer>().enabled = true;
+        target.GetComponentInChildren<MeshRenderer>().enabled = true;
     }
 
     public void hideTarget()
     {
-        targ.GetComponent<MeshRenderer>().enabled = false;
+        target.GetComponentInChildren<MeshRenderer>().enabled = false;
+    }
+
+    public void changeTarget(GameObject newTarget)
+    {
+        Destroy(target);
+        target = newTarget;
     }
 }

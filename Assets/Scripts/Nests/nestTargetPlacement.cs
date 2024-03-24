@@ -7,6 +7,8 @@ public class nestTargetPlacement : MonoBehaviour
     [SerializeField] private Camera playerCam;
     private GameObject target;
     private GameObject currentTarget;
+
+    public bool isPlacingTarget { get { return target != null; } }
     // Start is called before the first frame update
     void Start()
     {
@@ -28,8 +30,19 @@ public class nestTargetPlacement : MonoBehaviour
 
             if(Input.GetMouseButtonDown(0) && hitInfo.collider.CompareTag("Floor"))
             {
-                target.transform.GetChild(1).gameObject.GetComponent<baseNests>().moveTarget(target.transform);
+                
+
+                target = null;
             }
         }
+    }
+
+    public void placeTarget(GameObject newTarget, GameObject parentObject)
+    {
+
+        target = GameObject.Instantiate(newTarget, parentObject.transform);
+        target.GetComponentInChildren<MeshRenderer>().enabled = true;
+        parentObject.transform.GetComponentInChildren<baseNests>().changeTarget(target);
+        
     }
 }
