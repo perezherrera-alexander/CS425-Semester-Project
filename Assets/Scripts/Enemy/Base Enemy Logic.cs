@@ -21,6 +21,8 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
 
     public float health = 5;
 
+    public bool goldIncreased = false;
+
     private float curSpeed;
     private bool isSlowed = false;
     // float health = 5;
@@ -167,19 +169,7 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
         speed = speed * slowFactor;
     }
 
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.GetComponent<CapsuleCollider>())
-        {
-            if(other.GetComponent<FlameTower>() != null)
-            {
-                float damage = other.GetComponent<FlameTower>().getDamage();
-                float dmgFrame = damage * Time.deltaTime;
-                reduceHealth(dmgFrame);
-            }
 
-        }
-    }
 
 
     public void applyEffect(StatusEffects effect)
@@ -295,6 +285,40 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
             }
         }
 
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.GetComponent<CapsuleCollider>())
+        {
+            if (other.GetComponent<FlameTower>() != null)
+            {
+                float damage = other.GetComponent<FlameTower>().getDamage();
+                float dmgFrame = damage * Time.deltaTime;
+                reduceHealth(dmgFrame);
+            }
+
+
+
+        }
+
+        if (other.GetComponent<BoxCollider>())
+        {
+            
+            if (other.GetComponentInChildren<antNest>() != null)
+            {
+                //Debug.Log("Got nest");
+                float damage = other.GetComponentInChildren<antNest>().getDamage();
+                float dmgFrame = damage * Time.deltaTime;
+                reduceHealth(dmgFrame);
+            }
+        }
+    }
+
+    public void newGoldCost(int newGoldValue)
+    {
+        GoldWorth = newGoldValue;
+        goldIncreased = true;
     }
 }
 

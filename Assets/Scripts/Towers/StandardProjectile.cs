@@ -16,7 +16,7 @@ public class StandardProjectile : MonoBehaviour
     void Start()
     {
         isActive = true;
-        transform.LookAt(transform.position);
+        //transform.LookAt(transform.position);
     }
 
     // Update is called once per frame
@@ -46,7 +46,7 @@ public class StandardProjectile : MonoBehaviour
             {
                 other.GetComponent<BaseEnemyLogic>().reduceHealth(damage);
                 //knockback
-                other.GetComponent<BaseEnemyLogic>().knockback(75);
+                //other.GetComponent<BaseEnemyLogic>().knockback(75);
                 pierceAmount = pierceAmount - 1;
             }
             else if(pierceAmount == 0) 

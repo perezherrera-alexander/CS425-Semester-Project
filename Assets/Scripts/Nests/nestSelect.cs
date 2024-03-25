@@ -1,32 +1,24 @@
-using TMPro;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using System;
-using System.Linq;
 
-public class SelectTower : MonoBehaviour
+public class nestSelect : MonoBehaviour
 {
-
     [SerializeField]
-    private TowerPlacement towerPlacement;
+    private nestPanelManager nestPanelManage;
 
+    public GameObject nestCanvasPrefab;
     [SerializeField]
     private PauseMenu pauseMenu;
-
     // Start is called before the first frame update
     void Start()
     {
-        towerPlacement = FindObjectOfType<TowerPlacement>();
         pauseMenu = FindObjectOfType<PauseMenu>();
+        nestPanelManage = FindObjectOfType<nestPanelManager>();
     }
 
     private void OnMouseDown()
     {
-        if (towerPlacement.IsPlacingTower)
-        {
-            return;
-        }
-
         if (pauseMenu.GameIsPaused)
         {
             return;
@@ -39,21 +31,25 @@ public class SelectTower : MonoBehaviour
             if (Physics.Raycast(ray, out hit))
             {
                 // Check if the hit collider belongs to the TowerLayer
-                if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Tower"))
+                if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Nest"))
                 {
-                    ToggleTowerCanvas(hit.collider.gameObject);
+                    toggleNestCanvas(hit.collider.gameObject);
+
                 }
             }
         }
     }
 
-    private void ToggleTowerCanvas(GameObject tower)
+   private void toggleNestCanvas(GameObject nest)
     {
-        TowerPanelManager towerPanelManager = TowerPanelManager.Instance;
-
-        if (towerPanelManager != null)
+        nestPanelManager nestpanelManager = nestPanelManager.Instance;
+        
+        if (nestpanelManager != null )
         {
-            towerPanelManager.ToggleTowerPanel(tower);
+            nestpanelManager.ToggleNestPanel(nest);
+            
         }
     }
+
+        
 }
