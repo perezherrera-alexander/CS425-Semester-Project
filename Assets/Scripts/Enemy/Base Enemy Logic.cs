@@ -297,18 +297,14 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
                 float dmgFrame = damage * Time.deltaTime;
                 reduceHealth(dmgFrame);
             }
-
-
-
         }
 
         if (other.GetComponent<BoxCollider>())
         {
-            
-            if (other.GetComponentInChildren<antNest>() != null)
+    
+            if(other.GetComponentInParent<antNest>() != null)
             {
-                //Debug.Log("Got nest");
-                float damage = other.GetComponentInChildren<antNest>().getDamage();
+                float damage = other.GetComponentInParent<antNest>().getDamage();
                 float dmgFrame = damage * Time.deltaTime;
                 reduceHealth(dmgFrame);
             }
