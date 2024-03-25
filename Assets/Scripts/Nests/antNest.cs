@@ -13,7 +13,7 @@ public class antNest : baseNests
     // Start is called before the first frame update
     void Start()
     {
-        
+        nestName = "Ant Nest";
     }
 
     // Update is called once per frame

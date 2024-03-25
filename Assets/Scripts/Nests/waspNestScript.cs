@@ -19,7 +19,8 @@ public class waspNestScript : baseNests
     // Start is called before the first frame update
     void Start()
     {
-        curAttackSpeed = fireRate;   
+        curAttackSpeed = fireRate;
+        nestName = "Wasp Nest";
     }
 
     // Update is called once per frame

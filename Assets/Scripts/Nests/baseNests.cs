@@ -6,10 +6,11 @@ public class baseNests : MonoBehaviour
 {
     public GameObject target;
     public GameObject targ;
+    public string nestName;
     // Start is called before the first frame update
     void Start()
     {
-        
+        nestName = "Base Nest";
     }
 
     // Update is called once per frame

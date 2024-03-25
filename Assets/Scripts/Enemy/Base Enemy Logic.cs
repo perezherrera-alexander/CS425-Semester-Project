@@ -21,6 +21,8 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
 
     public float health = 5;
 
+    public bool goldIncreased = false;
+
     private float curSpeed;
     private bool isSlowed = false;
     // float health = 5;
@@ -311,6 +313,12 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
                 reduceHealth(dmgFrame);
             }
         }
+    }
+
+    public void newGoldCost(int newGoldValue)
+    {
+        GoldWorth = newGoldValue;
+        goldIncreased = true;
     }
 }
 

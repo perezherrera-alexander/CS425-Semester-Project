@@ -16,11 +16,13 @@ public class nestPanelManager : MonoBehaviour
     public GameObject selectedNest;
     public GameObject nestPanelInstance;
     public GameObject nestPanelPrefab;
+    public GameObject beeNestPanelPrefab;
     public GameObject targetPrefab;
 
     [SerializeField] public nestTargetPlacement targetPlacement;
 
     private bool panelState = false;
+    private Image timer;
 
     // Start is called before the first frame update
     void Start()
@@ -48,14 +50,14 @@ public class nestPanelManager : MonoBehaviour
             panelState = false;
             closeNestPanel();
             turnOffTarget();
-            //turnOffOutline
+
         }
         else if(selectedNest == nest && panelState == false)
         {
             panelState = true;
             openNestPanel();
             turnOnTarget();
-            //turnOffOutline
+
         }
         else
         {
@@ -63,7 +65,7 @@ public class nestPanelManager : MonoBehaviour
             nestSelected(nest);
             openNestPanel();
             turnOnTarget();
-            //turnOnOutline
+ 
         }
     }
 
@@ -82,13 +84,22 @@ public class nestPanelManager : MonoBehaviour
     {
         baseNests waspNest = selectedNest.GetComponentInChildren<baseNests>();
 
-        nestPanelInstance = Instantiate(nestPanelPrefab) as GameObject;
-
+        if (waspNest.nestName == "Bee Nest")
+        {
+            nestPanelInstance = Instantiate(beeNestPanelPrefab) as GameObject;
+            timer = nestPanelInstance.transform.GetChild(0).GetChild(1).GetChild(1).GetComponent<Image>();
+        }
+        else
+        {
+            nestPanelInstance = Instantiate(nestPanelPrefab) as GameObject;
+        }
         nestPanelInstance.transform.position = selectedNest.transform.position;
 
         Button targetButton = nestPanelInstance.transform.GetChild(0).GetChild(1).GetChild(0).GetComponent<Button>();
 
         Button deletePanel = nestPanelInstance.transform.GetChild(0).GetChild(2).GetChild(0).GetComponent<Button>();
+
+        
 
         if (waspNest != null)
         {
@@ -99,11 +110,22 @@ public class nestPanelManager : MonoBehaviour
             TMP_Text output = nestPanelInstance.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
             output.text = "Nest Name: " + scriptName;
 
+            if (scriptName == "beeNest")
+            {
+
+            }
         }
 
         if (targetButton != null)
         {
-            targetButton.onClick.AddListener(moveTarget);
+            if (waspNest.nestName == "Bee Nest")
+            {
+                targetButton.onClick.AddListener(activateNest);
+            }
+            else
+            {
+                targetButton.onClick.AddListener(moveTarget);
+            }
         }
 
         if (deletePanel != null)
@@ -116,6 +138,21 @@ public class nestPanelManager : MonoBehaviour
     public void moveTarget()
     {
         targetPlacement.placeTarget(targetPrefab,selectedNest);
+    }
+
+    public void activateNest()
+    {
+
+        if (selectedNest.GetComponentInChildren<beeNest>().abilityActive == false)
+        {
+            selectedNest.GetComponentInChildren<beeNest>().abilityActivate();
+            StartCoroutine(Timer());
+            StartCoroutine(TimerVisual());
+        }
+        else
+        {
+
+        }
     }
 
     private void deletePanelFunction()
@@ -135,5 +172,33 @@ public class nestPanelManager : MonoBehaviour
     {
         var targ = selectedNest.GetComponentInChildren<baseNests>();
         targ.showTarget();
+    }
+
+    IEnumerator Timer()
+    {
+        float waitTime = selectedNest.GetComponentInChildren<beeNest>().abilityTimer;
+        Debug.Log("Timer started");
+        yield return new WaitForSeconds(waitTime);
+        Debug.Log("Timer finished");
+        selectedNest.GetComponentInChildren<beeNest>().abilityDeactivate();
+        yield return null;
+    }
+
+    IEnumerator TimerVisual()
+    {
+        timer.enabled = true;
+        timer.fillAmount = 0;
+        yield return new WaitForSeconds(2);
+        timer.fillAmount = 0.2f;
+        yield return new WaitForSeconds(2);
+        timer.fillAmount = 0.4f;
+        yield return new WaitForSeconds(2);
+        timer.fillAmount = 0.6f;
+        yield return new WaitForSeconds(2);
+        timer.fillAmount = 0.8f;
+        yield return new WaitForSeconds(2);
+        timer.fillAmount = 1f;
+        timer.enabled = false;
+        yield return null;
     }
 }
