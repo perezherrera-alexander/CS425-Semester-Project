@@ -200,7 +200,7 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
         
     }
 
-    public void handleEffect()
+    public virtual void handleEffect()
     {
 
 
