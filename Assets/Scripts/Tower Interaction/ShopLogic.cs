@@ -259,4 +259,14 @@ public class ShopLogic : MonoBehaviour, IPointerEnterHandler
         
     }
 
+    public void ReverseMoneyCheck(int towerCost)
+    {
+        if(playerData.activeModifier != Modifiers.Developer) {
+            playerStatistics.AddMoney(towerCost);
+        }
+        else {
+            return; // Do nothing if in developer mode
+        }
+    }
+
 }
