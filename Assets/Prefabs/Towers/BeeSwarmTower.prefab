@@ -141,7 +141,7 @@ Transform:
   m_GameObject: {fileID: 8005557356186689600}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.51, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -220,6 +220,7 @@ MonoBehaviour:
   locationToFireFrom: {fileID: 2343968665285788681}
   projectilePrefab: {fileID: 5293129905896234806, guid: 3e144ea51a910d5419b144c874dfcff6, type: 3}
   enemyTag: Enemy
+  outlineThickness: 10
   buildCost: 0
   targettingRange: 20
   fireRate: 1
@@ -351,7 +352,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef50a542e3fd9db46ab3321dbc44b145, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerCanvasPrefab: {fileID: 1042973311252548879, guid: d96e12da61bc0ef4191677328bdf07f1, type: 3}
   towerPlacement: {fileID: 0}
   pauseMenu: {fileID: 0}
 --- !u!222 &3658332540939789513

@@ -116,7 +116,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef50a542e3fd9db46ab3321dbc44b145, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerCanvasPrefab: {fileID: 1042973311252548879, guid: d96e12da61bc0ef4191677328bdf07f1, type: 3}
   towerPlacement: {fileID: 0}
   pauseMenu: {fileID: 0}
 --- !u!222 &8651059560255931613
@@ -178,6 +177,7 @@ MonoBehaviour:
   locationToFireFrom: {fileID: 9130146055819174601}
   projectilePrefab: {fileID: 3653065466352016189, guid: 63563199ad1208a48be8b489ebd3a3f3, type: 3}
   enemyTag: 
+  outlineThickness: 10
   buildCost: 0
   targettingRange: 20
   fireRate: 1
@@ -391,7 +391,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ea9475b4f91f7db4a9ecd66ea216618e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.51
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ea9475b4f91f7db4a9ecd66ea216618e, type: 3}
       propertyPath: m_LocalPosition.z

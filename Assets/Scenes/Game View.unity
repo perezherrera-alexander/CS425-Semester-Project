@@ -1340,6 +1340,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &680905381
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 485808280407978274, guid: 7df61434015697245b3e946ffe96167e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 24.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 485808280407978274, guid: 7df61434015697245b3e946ffe96167e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485808280407978274, guid: 7df61434015697245b3e946ffe96167e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 29.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 485808280407978274, guid: 7df61434015697245b3e946ffe96167e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 485808280407978274, guid: 7df61434015697245b3e946ffe96167e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485808280407978274, guid: 7df61434015697245b3e946ffe96167e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485808280407978274, guid: 7df61434015697245b3e946ffe96167e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485808280407978274, guid: 7df61434015697245b3e946ffe96167e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485808280407978274, guid: 7df61434015697245b3e946ffe96167e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485808280407978274, guid: 7df61434015697245b3e946ffe96167e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587570604612605659, guid: 7df61434015697245b3e946ffe96167e, type: 3}
+      propertyPath: m_Name
+      value: MantisTower
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7df61434015697245b3e946ffe96167e, type: 3}
 --- !u!114 &738801598 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9123582436850844739, guid: 920e0e11675b21e44b7a29f8e7caed45, type: 3}
@@ -3829,3 +3886,4 @@ SceneRoots:
   - {fileID: 1798962333}
   - {fileID: 655933925}
   - {fileID: 1611373641}
+  - {fileID: 680905381}

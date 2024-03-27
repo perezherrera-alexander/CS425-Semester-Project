@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1258264455575169674}
   - component: {fileID: 8815930104379523434}
   - component: {fileID: 4568121924027993459}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SwarmingBeeProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,6 +69,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54bc9d16d717d5d48a7b6acd828479b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  id: 
 --- !u!1 &7345646943083121340
 GameObject:
   m_ObjectHideFlags: 0
@@ -80,7 +82,7 @@ GameObject:
   - component: {fileID: 6467628305956522163}
   - component: {fileID: 110849472179652902}
   - component: {fileID: 2330281698033016626}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}

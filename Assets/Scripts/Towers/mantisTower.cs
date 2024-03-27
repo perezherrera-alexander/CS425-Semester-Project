@@ -2,36 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using static UnityEngine.Playables.AnimationPlayableUtilities;
 
-public class meleeTower : BaseTowerLogic
+public class mantisTower : BaseTowerLogic
 {
-    private float directDamage = 5f;
 
-    private float attackRate = 0f;
-    private float coolDown = 0f;
     private Animator animate;
     public string id;
-    
-    
-
-    public int targetingint;
+    public float sliceDmg = 0.75f;
     // Start is called before the first frame update
     void Start()
     {
         createOutline();
-        towerName = "Army Ant";
+        towerName = "Mantis Warrior";
         Invoke();
         MakeSphere();
-        fireRate = 1f;
+        fireRate = 3f;
         curAttackSpeed = fireRate;
         animate = GetComponentInChildren<Animator>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (data != null)
+        if(data != null)
         {
             handleEffect();
         }
@@ -41,7 +35,7 @@ public class meleeTower : BaseTowerLogic
 
     public override void Track()
     {
-        if (target == null)
+        if(target == null)
         {
             return;
         }
@@ -51,38 +45,31 @@ public class meleeTower : BaseTowerLogic
         Vector3 rotation = lookRotation.eulerAngles;
         barrelToRotate.rotation = Quaternion.Euler(barrelToRotate.rotation.x, rotation.y, 0f);
 
-        if (attackRate <= 0f)
+        if(fireCountdown <= 0f)
         {
             Shoot();
-            coolDown += Time.deltaTime;
-            attackRate = 1f / fireRate;
-            if(coolDown > 0)
-            {
-
-            }
+            fireCountdown = 1f / fireRate;
         }
 
-        attackRate -= Time.deltaTime;
-
+        fireCountdown -= Time.deltaTime;
     }
 
     public override void Shoot()
     {
-        //pending animation/sound/visual effects code
-        //animate.Play("Base Layer.New Animation");
-        target.GetComponent<BaseEnemyLogic>().reduceHealth(directDamage);
+        animate.SetTrigger("Attack");
 
+        var targ = target.GetComponent<BaseEnemyLogic>();
+        if(targ == null)
+        {
+            Debug.Log("Scarab");
+        }
+        else
+        {
+            targ.reduceHealth(sliceDmg);
+        }
 
     }
 
-    /*private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Enemy")
-        {
-            other.GetComponent<BaseEnemyLogic>().reduceHealth(directDamage);
-            //Debug.Log(other.GetComponent<BaseEnemyLogic>().getHealth());
-        }
-    }*/
     [ContextMenu("Generate ID")]
     public string GenerateId()
     {
