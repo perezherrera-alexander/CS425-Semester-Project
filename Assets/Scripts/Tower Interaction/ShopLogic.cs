@@ -233,6 +233,7 @@ public class ShopLogic : MonoBehaviour, IPointerEnterHandler
         if (MoneyCheck(towerCost)) // Only true if you have enough money (deducts money) or you are in developer mode
         {
             towerPlacement.PlaceTower(towerPrefab);
+            ToggleShopUI();
         }
         else
         {
