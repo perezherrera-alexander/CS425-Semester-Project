@@ -5,6 +5,7 @@ using UnityEngine;
 public class TowerPlacement : MonoBehaviour
 {
     [SerializeField] private Camera playerCamera;
+    public ShopLogic shopLogic; // This reference is used for purhcase cancelation (This isn't the best way to do this but it works for now)
     private GameObject CurrentPlacingTower;
     private GameObject Tower;
     private string towerName;
@@ -135,6 +136,13 @@ public class TowerPlacement : MonoBehaviour
 
                 Tower = null;
             }
+
+            if(Input.GetKeyDown(KeyCode.C))
+            {
+                ProcessRefund();
+                Destroy(Tower);
+                Tower = null;
+            }
         }
     }
 
@@ -159,5 +167,10 @@ public class TowerPlacement : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         particleSystem.Stop();
+    }
+
+    private void ProcessRefund() // Refund the player the cost of the tower
+    {
+        shopLogic.ReverseMoneyCheck(Tower.GetComponentInChildren<BaseTowerLogic>().buildCost);
     }
 }
