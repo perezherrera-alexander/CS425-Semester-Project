@@ -367,9 +367,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4804571691816938851}
+  - component: {fileID: 6297161908827875969}
   - component: {fileID: 1985822001365172593}
   - component: {fileID: 8106100388143383470}
-  - component: {fileID: 6297161908827875969}
   m_Layer: 0
   m_Name: Robot5
   m_TagString: Enemy
@@ -386,13 +386,48 @@ Transform:
   m_GameObject: {fileID: 1573580589347934921}
   serializedVersion: 2
   m_LocalRotation: {x: -1, y: 0, z: 0, w: 0}
-  m_LocalPosition: {x: -11.94, y: 13.5, z: -55.6}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3125415844906426615}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -180, y: 0, z: 0}
+--- !u!114 &6297161908827875969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573580589347934921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bae06e08a4486da4b9ac926535c6d94d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effects: []
+  objectCollider: {fileID: 0}
+  ob: {fileID: 1573580589347934921}
+  GoldWorth: 0
+  PlayerStatistics: {fileID: 0}
+  model: {fileID: 0}
+  maxHealth: 25
+  health: 25
+  goldIncreased: 0
+  speed: 10
+  slowFactor: 1
+  slowDownTimer: 0
+  dotDamage: 0
+  dotTimer: 0
+  target: {fileID: 0}
+  waypointindex: 0
+  differentStart: 0
+  healthTier1: 1
+  healthTier2: 1
+  healthTier3: 1
+  armL: {fileID: 5374508084104166295}
+  armR: {fileID: 5108249875738478644}
+  head: {fileID: 8313661559343656805}
 --- !u!65 &1985822001365172593
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -441,40 +476,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &6297161908827875969
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1573580589347934921}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bae06e08a4486da4b9ac926535c6d94d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  effects: []
-  objectCollider: {fileID: 0}
-  ob: {fileID: 1573580589347934921}
-  GoldWorth: 0
-  PlayerStatistics: {fileID: 0}
-  model: {fileID: 0}
-  maxHealth: 25
-  health: 25
-  speed: 10
-  slowFactor: 1
-  slowDownTimer: 0
-  dotDamage: 0
-  dotTimer: 0
-  target: {fileID: 0}
-  waypointindex: 0
-  differentStart: 0
-  healthTier1: 1
-  healthTier2: 1
-  healthTier3: 1
-  armL: {fileID: 5374508084104166295}
-  armR: {fileID: 5108249875738478644}
-  head: {fileID: 8313661559343656805}
 --- !u!1 &1710830892988484729
 GameObject:
   m_ObjectHideFlags: 0
