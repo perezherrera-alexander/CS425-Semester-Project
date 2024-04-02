@@ -141,14 +141,14 @@ public class ShopLogic : MonoBehaviour, IPointerEnterHandler
 
     public void ShopVisible () // Move the shop open button to the left to make way for the shop panel
     {
-        openShopButton.transform.position = new Vector3(openShopButton.transform.position.x - 200, openShopButton.transform.position.y, openShopButton.transform.position.z);
+        openShopButton.transform.position = new Vector3(openShopButton.transform.position.x - 400, openShopButton.transform.position.y, openShopButton.transform.position.z);
         shopPanel.SetActive(true);
         shopIsOpen = true;
     }
 
     public void ShopHidden () // Move it back when closing the shop
     {
-        openShopButton.transform.position = new Vector3(openShopButton.transform.position.x + 200, openShopButton.transform.position.y, openShopButton.transform.position.z);
+        openShopButton.transform.position = new Vector3(openShopButton.transform.position.x + 400, openShopButton.transform.position.y, openShopButton.transform.position.z);
         shopPanel.SetActive(false);
         shopIsOpen = false;
     }
