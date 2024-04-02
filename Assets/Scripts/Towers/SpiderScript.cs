@@ -5,6 +5,7 @@ using System;
 
 public class SpiderScript : BaseTowerLogic
 {
+    private Animator animate;
     public string id;
     //private Animator animate;
     // Start is called before the first frame update
@@ -13,7 +14,7 @@ public class SpiderScript : BaseTowerLogic
         createOutline();
         towerName = "Spider Tower";
         Invoke();
-        //animate = GetComponentInChildren<Animator>();
+        animate = GetComponentInChildren<Animator>();
         MakeSphere();
     }
 
@@ -35,11 +36,11 @@ public class SpiderScript : BaseTowerLogic
 
     public override void Shoot()
     {
-        //animate.SetBool("Attacking", true);
+        animate.ResetTrigger("Attack");
         GameObject shot = (GameObject)Instantiate(projectilePrefab, locationToFireFrom.position, locationToFireFrom.rotation);
         
         StandardProjectile sting = shot.GetComponent<StandardProjectile>();
-        //animate.SetBool("Attacking", false);
+        animate.SetTrigger("Attack");
 
     }
 
