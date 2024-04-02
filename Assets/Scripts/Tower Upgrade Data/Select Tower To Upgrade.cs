@@ -17,16 +17,38 @@ public class SelectTowerToUpgrade : MonoBehaviour
     public DataPanelPopulator Populator;
     public StoreTowerUpgradeData storeTowerUpgradeData;
 
+    public bool OpenClosed = false;
+
     public void Update()
     {
         TokenCounter.text = "Tokens Left: " + storeTowerUpgradeData.TokensObtained.ToString();
     }
     public void OpenDataPanel(string ButtonName)
     {
-        SelectTowerUpgradePanel.SetActive(false);
-        ChooseTowerUpgradeOptionPanel.SetActive(true);
-        TowerUpgradeName = ButtonName;
-        Panel();
+        if (OpenClosed == false)
+        {
+            ChooseTowerUpgradeOptionPanel.SetActive(true);
+            TowerUpgradeName = ButtonName;
+            Panel();
+            OpenClosed = true;
+            if (UniqueUpgradeButton == null)
+            {
+                return;
+            }
+            else
+            {
+                UniqueUpgradeButton.SetActive(false);
+            }
+            return;
+        }
+
+        if (OpenClosed)
+        {
+            ChooseTowerUpgradeOptionPanel.SetActive(false);
+            UniqueUpgradeButton.SetActive(false);
+            OpenClosed = false;
+            return;
+        }
     }
 
     public void PassPannelButtons(GameObject UpgradeButton)
@@ -35,17 +57,9 @@ public class SelectTowerToUpgrade : MonoBehaviour
         UniqueUpgradeButton.SetActive(true);
     }
 
-    public void CloseDataPanel()
-    {
-        SelectTowerUpgradePanel.SetActive(true);
-        ChooseTowerUpgradeOptionPanel.SetActive(false);
-        TowerUpgradeDataWindow.SetActive(false);
-        UniqueUpgradeButton.SetActive(false);
-    }
-
     private void Panel()
     {
-        TMP_Text HeaderName = ChooseTowerUpgradeOptionPanel.transform.GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>();
+        TMP_Text HeaderName = ChooseTowerUpgradeOptionPanel.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
         HeaderName.text = "SELECT " + TowerUpgradeName + " UPGRADES";
     }
 
