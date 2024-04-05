@@ -30,10 +30,10 @@ public class ShopLogic : MonoBehaviour, IPointerEnterHandler
     private GameObject openShopButton; // The button that opens the shop UI
     [SerializeField] private GameObject shopRowTemplate;
     [SerializeField] private GameObject shopButtonTemplate;
-    private float shopUIWidth;
+    //private float shopUIWidth;
     private int numberOfTowersUnlocked;
-    private float buttonXonClosedShop;
-    private float buttonYonClosedShop;
+    //private float buttonXonClosedShop;
+    //private float buttonYonClosedShop;
     [Header("Scripts")]
     [SerializeField] private TowerPlacement towerPlacement; // Tower placing is handed off to the TowerPlacement script
 
@@ -45,10 +45,6 @@ public class ShopLogic : MonoBehaviour, IPointerEnterHandler
         // Grab references to the shop button and shop panel in the scene
         openShopButton = transform.GetChild(0).gameObject;
         shopPanel = transform.GetChild(1).gameObject;
-
-        // Save the button's position to restore later when needed
-        buttonXonClosedShop = openShopButton.transform.position.x;
-        buttonYonClosedShop = openShopButton.transform.position.y;
 
         InitializeShopUI(); // Creates rows and populates them with buttons
     }
@@ -86,7 +82,7 @@ public class ShopLogic : MonoBehaviour, IPointerEnterHandler
 
     void InitializeShopUI(){
         // Initialize variables to create the shop UI
-        shopUIWidth = shopPanel.GetComponent<RectTransform>().rect.width;
+        //shopUIWidth = shopPanel.GetComponent<RectTransform>().rect.width;
         numberOfTowersUnlocked = playerData.TowersObtained;
         int numberOfRowsNeeded = Mathf.CeilToInt((float)numberOfTowersUnlocked / 2);
         int towersLeftToSpawn = numberOfTowersUnlocked;
@@ -141,14 +137,16 @@ public class ShopLogic : MonoBehaviour, IPointerEnterHandler
 
     public void ShopVisible () // Move the shop open button to the left to make way for the shop panel
     {
-        openShopButton.transform.position = new Vector3(openShopButton.transform.position.x - 400, openShopButton.transform.position.y, openShopButton.transform.position.z);
+        //openShopButton.transform.position = new Vector3(openShopButton.transform.position.x - 400, openShopButton.transform.position.y, openShopButton.transform.position.z);
+        openShopButton.SetActive(false);
         shopPanel.SetActive(true);
         shopIsOpen = true;
     }
 
     public void ShopHidden () // Move it back when closing the shop
     {
-        openShopButton.transform.position = new Vector3(openShopButton.transform.position.x + 400, openShopButton.transform.position.y, openShopButton.transform.position.z);
+        //openShopButton.transform.position = new Vector3(openShopButton.transform.position.x + 400, openShopButton.transform.position.y, openShopButton.transform.position.z);
+        openShopButton.SetActive(true);
         shopPanel.SetActive(false);
         shopIsOpen = false;
     }
