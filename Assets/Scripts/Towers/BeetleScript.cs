@@ -70,7 +70,6 @@ public class BeetleScript : BaseTowerLogic
         }
         else if (isHome == false && isAttacking == false)
         {
-            c
             isHome = true;
             return;
         }
