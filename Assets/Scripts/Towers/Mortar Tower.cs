@@ -11,7 +11,7 @@ public class mortarTower : BaseTowerLogic
     void Start()
     {
         createOutline();
-        towerName = "Mortar Tower";
+        towerName = "Mortar Ant";
         Invoke();
         MakeSphere();
         curAttackSpeed = fireRate;

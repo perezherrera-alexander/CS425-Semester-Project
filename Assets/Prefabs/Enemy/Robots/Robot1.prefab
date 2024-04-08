@@ -1640,9 +1640,12 @@ MonoBehaviour:
   ob: {fileID: 8368731085636143380}
   GoldWorth: 0
   PlayerStatistics: {fileID: 0}
+  particles: {fileID: 5065363750106160447, guid: 6e9dcf273246cca47901c15ebc107d3d, type: 3}
+  death: {fileID: 4783692702609254861, guid: a7346f514b8940b4ca5f2b14632a6a70, type: 3}
   model: {fileID: 0}
   maxHealth: 5
   health: 5
+  goldIncreased: 0
   speed: 10
   slowFactor: 1
   slowDownTimer: 0
@@ -1703,8 +1706,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.221171, y: 5.4071703, z: 1}
+  m_Center: {x: 0.01650238, y: 0.457471, z: 0}
 --- !u!1 &8408107230527670395
 GameObject:
   m_ObjectHideFlags: 0

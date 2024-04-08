@@ -44,7 +44,7 @@ public class BeetleScript : BaseTowerLogic
         //bool isReallyNull = ((object)target) == null;
         if(target == null)
         {
-            beetle.GetComponent<BeetleProjectile>().seek(target);
+            beetle.GetComponent<BeetleProjectile>().seek(home);
             return;
         }
         Vector3 dir = target.position - transform.position;

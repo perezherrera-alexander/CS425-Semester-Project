@@ -23,6 +23,7 @@ public class EnemyCarrier : BaseEnemyLogic
                 troop.GetComponent<BaseEnemyLogic>().target = Path.waypoints[waypointindex];
             }
             //subtract present enemies count by 1
+            death.playParts(transform);
             PlayerStatistics.Instance.enemiesPresent--;
             Destroy(ob);
 
