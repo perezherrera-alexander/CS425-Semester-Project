@@ -98,6 +98,11 @@ public class SwarmingBee : MonoBehaviour
         }
     }
 
+    public void destroyFromList()
+    {
+        Destroy(gameObject);
+    }
+
     [ContextMenu("Generate ID")]
     public string GenerateId()
     {

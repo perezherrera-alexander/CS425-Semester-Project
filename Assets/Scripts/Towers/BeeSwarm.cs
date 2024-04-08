@@ -92,6 +92,16 @@ public class BeeSwarm : BaseTowerLogic
         projectiles.Add(bee);
     }
 
+    public void deleteSwarmifDeleted()
+    {
+        foreach(SwarmingBee projectile in projectiles)
+        {
+            projectile.destroyFromList();
+        }
+        projectiles.Clear();
+    }
+
+
     [ContextMenu("Generate ID")]
     public string GenerateId()
     {

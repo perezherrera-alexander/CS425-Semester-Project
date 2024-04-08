@@ -7,7 +7,7 @@ using static UnityEngine.GraphicsBuffer;
 public class MortarLikeProjectile : mortarProjectile
 {
     // Start is called before the first frame update
-
+    public visualEffectHandler particles;
     void Start()
     {
         startPos = transform.position;
@@ -55,7 +55,9 @@ public class MortarLikeProjectile : mortarProjectile
         if(other.gameObject.tag == "Enemy")
         {
             shockWave();
+            particles.playParts(transform);
             Destroy(gameObject);
         }
     }
+
 }

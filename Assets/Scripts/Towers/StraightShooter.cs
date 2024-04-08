@@ -32,11 +32,11 @@ public class StraightShooter : BaseTowerLogic
 
     public override void Shoot()
     {
-        animate.SetBool("Attacking", true);
+        animate.SetTrigger("attack");
         GameObject shot = (GameObject)Instantiate(projectilePrefab, locationToFireFrom.position, locationToFireFrom.rotation);
         
         StandardProjectile sting = shot.GetComponent<StandardProjectile>();
-        animate.SetBool("Attacking", false);
+ 
 
     }
 

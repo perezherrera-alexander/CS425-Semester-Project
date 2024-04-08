@@ -14,6 +14,7 @@ public class RobotScript : BaseEnemyLogic
     {   
         if (health <= 0){
             PlayerStatistics.AddMoney(GoldWorth);
+            death.playParts(transform);
             Destroy(ob);
             //subtract present enemies count by 1
             PlayerStatistics.Instance.enemiesPresent--;

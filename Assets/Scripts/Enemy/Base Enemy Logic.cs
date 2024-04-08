@@ -14,6 +14,8 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
     public int GoldWorth;
 
     public PlayerStatistics PlayerStatistics;
+    public ParticleSystem particles;
+    public visualEffectHandler death;
 
     public Transform model;
 
@@ -42,6 +44,7 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
     public void reduceHealth(float damage)
     {
         health = (health - damage);
+        Instantiate(particles, transform);
     }
 
     public float getHealth()
@@ -54,6 +57,7 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
         if (health <= 0)
         {
             PlayerStatistics.AddMoney(GoldWorth);
+            death.playParts(transform);
             Destroy(ob);
             //subtract present enemies count by 1
             PlayerStatistics.Instance.enemiesPresent--;
@@ -316,5 +320,6 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
         GoldWorth = newGoldValue;
         goldIncreased = true;
     }
+
 }
 
