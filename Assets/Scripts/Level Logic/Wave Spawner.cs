@@ -12,20 +12,22 @@ public class WaveSpawner : MonoBehaviour
     public PlayerData PlayerData;
     [Header("Enemy Prefabs")]
     //every enemy type
-    public GameObject enemy1;
-    public GameObject enemy2;
-    public GameObject enemy3;
-    public GameObject enemy4;
-    public GameObject enemy5;
-    public GameObject enemyA; //6
-    public GameObject enemyB;
-    public GameObject enemyC;
-    public GameObject enemyD;
-    public GameObject enemyE; //10
+    public GameObject enemy1; //Robot1
+    public GameObject enemy2; //Robot2
+    public GameObject enemy3; //Robot3
+    public GameObject enemy4; //Robot4
+    public GameObject enemy5; //Robot5
+    public GameObject enemyA; //SpaceShip1
+    public GameObject enemyB; //SpaceShip2
+    public GameObject enemyC; //SpaceShip3
+    public GameObject enemyD; //SpaceShip4
+    public GameObject enemyE; //SpaceShip5
 
-    public GameObject enemyV;
-    public GameObject enemyW;
-    public GameObject enemyX;
+    public GameObject enemyV; //Fast Enemy
+    public GameObject enemyW; //Scarab
+    public GameObject enemyX; //Drone
+
+    
     public struct waveFormation
     {
         //enemy id, amount of enemies, time between enemy spawns
