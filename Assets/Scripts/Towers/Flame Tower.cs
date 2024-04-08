@@ -19,7 +19,7 @@ public class FlameTower : BaseTowerLogic
         towerName = "Fire Ant";
         Invoke();
         MakeSphere();
-        visual.Stop();
+        visual.Pause();
         fireArea = GetComponent<CapsuleCollider>();
         fireArea.enabled = false;
 
