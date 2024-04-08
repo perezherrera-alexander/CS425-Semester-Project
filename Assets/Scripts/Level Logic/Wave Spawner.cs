@@ -17,15 +17,15 @@ public class WaveSpawner : MonoBehaviour
     public GameObject enemy3;
     public GameObject enemy4;
     public GameObject enemy5;
-    public GameObject enemyA;
+    public GameObject enemyA; //6
     public GameObject enemyB;
     public GameObject enemyC;
     public GameObject enemyD;
-    public GameObject enemyE;
+    public GameObject enemyE; //10
 
     public GameObject enemyV;
-
     public GameObject enemyW;
+    public GameObject enemyX;
     public struct waveFormation
     {
         //enemy id, amount of enemies, time between enemy spawns

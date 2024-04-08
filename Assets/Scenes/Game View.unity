@@ -510,8 +510,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enableDebug: 0
-  loadSpecificLevel: 0
-  specificLevelIndex: 5
+  loadSpecificLevel: 1
+  specificLevelIndex: 3
   pathPrefabs:
   - {fileID: 3283810633382655351, guid: e1bf61d465354b94fb3c406ab5fde9b0, type: 3}
   - {fileID: 7025646087115900231, guid: 5b19666bee5fbdb459c24867f6acfd97, type: 3}
@@ -3162,6 +3162,7 @@ MonoBehaviour:
   enemyC: {fileID: 2750475128477427218, guid: b6d097f65ab93b64e99ab284f8cb4d0d, type: 3}
   enemyD: {fileID: 4087907735615080734, guid: 32ec49f45dd9c584a8ccb88c5f2ad886, type: 3}
   enemyE: {fileID: 9159871299313499265, guid: 99010c75aefcddc4588b7ce4848193d6, type: 3}
+  enemyL: {fileID: 3129493927702828240, guid: 70022aab04a3d2746830400f0ed90128, type: 3}
   enemyV: {fileID: 4610368972151047935, guid: 73a60b3198018d549bd29c22daccee0f, type: 3}
   enemyW: {fileID: 652428192806326497, guid: 8a4380fe5adb0d14cb16cd9ea54348cd, type: 3}
   waveFormat: {fileID: 11400000, guid: f2d894313115a8f429e2735282ef28de, type: 2}

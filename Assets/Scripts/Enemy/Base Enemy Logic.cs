@@ -88,7 +88,6 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
         {
             if (effects.First() != null) handleEffect();
         }
-        
         Vector3 direction = target.position - transform.position;
         transform.Translate(direction.normalized * speed * slowFactor * Time.deltaTime, Space.World);
 
