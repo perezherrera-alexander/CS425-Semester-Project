@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;// Required when using Event data.
 using Codice.CM.Common.Tree;
 
-public class ShopLogic : MonoBehaviour, IPointerEnterHandler
+public class ShopLogic : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [Header("Tower Prefabs")]
     [SerializeField] private GameObject BeeTowerPrefab;
@@ -30,14 +30,11 @@ public class ShopLogic : MonoBehaviour, IPointerEnterHandler
     private GameObject openShopButton; // The button that opens the shop UI
     [SerializeField] private GameObject shopRowTemplate;
     [SerializeField] private GameObject shopButtonTemplate;
-    //private float shopUIWidth;
     private int numberOfTowersUnlocked;
-    //private float buttonXonClosedShop;
-    //private float buttonYonClosedShop;
+    private bool hoveringOnButton = false;
+    public GameObject towerDescriptionPanel;
     [Header("Scripts")]
     [SerializeField] private TowerPlacement towerPlacement; // Tower placing is handed off to the TowerPlacement script
-
-
     private TargetingTypes savedTargettingType;
     [SerializeField] TowerSaveLoadManager towerSaveLoadManager;
     void Start()
@@ -53,12 +50,31 @@ public class ShopLogic : MonoBehaviour, IPointerEnterHandler
     {
         GameObject hoveredObject = eventData.pointerEnter;
         //Debug.Log("Hovered object: " + hoveredObject.name);
+        if(hoveredObject.tag == "ShopButton")
+        {
+            //Debug.Log("Hovering on a shop button");
+            hoveringOnButton = true;
+            towerDescriptionPanel.SetActive(true);
+        }
+        else
+        {
+            hoveringOnButton = false;
+        }
+
+
     
 
         // TODO: 
         // 1. Create Scriptable Objects for each tower and the those to buttons when created
         // 2. Use this function (OnPointerEnter) to get a referene to the object of the button and subseqeuently the data in the scriptable object
         // 3. Use that data to display the tower's stats in the shop UI
+    }
+
+    //Detect when Cursor leaves the GameObject
+    public void OnPointerExit(PointerEventData pointerEventData)
+    {
+        hoveringOnButton = false;
+        towerDescriptionPanel.SetActive(false);
     }
 
 
@@ -77,6 +93,16 @@ public class ShopLogic : MonoBehaviour, IPointerEnterHandler
             {
                 ToggleShopUI();
             }
+        }
+
+        if(hoveringOnButton)
+        {
+            // Have the tower description panel follow the mouse
+            Vector3 mousePos = Input.mousePosition;
+            Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
+            //mousePos.z = 10;
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(towerDescriptionPanel.transform.parent.GetComponent<RectTransform>(), mousePos, null, out Vector2 localPoint);
+            towerDescriptionPanel.transform.localPosition = localPoint;
         }
     }
 
