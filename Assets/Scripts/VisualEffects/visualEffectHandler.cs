@@ -5,10 +5,10 @@ using UnityEngine;
 public class visualEffectHandler : MonoBehaviour
 {
     public ParticleSystem particles;
-
+    Quaternion spawnRotation; 
     void Start()
     {
-        gameObject.SetActive(true);
+        spawnRotation = particles.transform.rotation;
     }
     void Update()
     {
@@ -16,9 +16,14 @@ public class visualEffectHandler : MonoBehaviour
     }
     public void playParts(Transform pos)
     {
-        
-        Instantiate(particles, pos.position, Quaternion.identity);
-        
+        if (particles.name == "CFXR2 WW Enemy Explosion")
+        {
+            Instantiate(particles, pos.position, Quaternion.Euler(-90,0,0));
+        }
+        else
+        {
+            Instantiate(particles, pos.position, spawnRotation);
+        }
         //StartCoroutine(stopParticles(parts));
     }
 
