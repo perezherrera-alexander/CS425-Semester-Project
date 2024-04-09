@@ -51,6 +51,9 @@ MonoBehaviour:
   enemyTag: Enemy
   outlineThickness: 10
   buildCost: 0
+  towerDescription: A moth attracted to a lamp, that will periodically stun nearby
+    enemies.
+  towerImage: {fileID: 0}
   targettingRange: 15
   fireRate: 0.3
   fireCountdown: 0
@@ -59,7 +62,6 @@ MonoBehaviour:
   targetingType: 0
   targets: []
   towerName: 
-  towerImage: {fileID: 0}
   curAttackSpeed: 0
   isBuffed: 0
   center: {fileID: 5714891471211224874}
