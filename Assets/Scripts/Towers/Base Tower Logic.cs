@@ -15,6 +15,9 @@ public class BaseTowerLogic : MonoBehaviour, Effectable
     public float outlineThickness = 10.0f;
     [Header("Tower Stats")]
     public int buildCost;
+    [TextArea]
+    public string towerDescription = "Lorem ipsum dolor sit amet.";
+    public Texture2D towerImage; // Image of the tower as displayed in the UI
     [Range(0f, 30f)]
     public float targettingRange = 20f;
     public float fireRate = 1f;
@@ -27,7 +30,6 @@ public class BaseTowerLogic : MonoBehaviour, Effectable
     protected SphereCollider proximitySphere;
     public string towerName; // Name of the tower as displayed in the UI and used to figure out what tower a gameObject is when it's not obvious.
     // I feel like there has to be a better way to do this though
-    public Texture2D towerImage; // Image of the tower as displayed in the UI
     [Header("Status Effects")]
     protected StatusEffects data;
 

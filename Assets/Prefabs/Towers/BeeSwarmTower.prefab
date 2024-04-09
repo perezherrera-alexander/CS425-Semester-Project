@@ -222,6 +222,10 @@ MonoBehaviour:
   enemyTag: Enemy
   outlineThickness: 10
   buildCost: 0
+  towerDescription: Periodically spawns bees even when enemies aren't around and
+    puts them into a holding pattern. This swarm of bees will attack nearby enemies
+    and be exhausted.
+  towerImage: {fileID: 2800000, guid: aa97823f97d96214dbaf1f4a5c7d9f55, type: 3}
   targettingRange: 20
   fireRate: 1
   fireCountdown: 0
@@ -230,7 +234,6 @@ MonoBehaviour:
   targetingType: 0
   targets: []
   towerName: Bee Swarm
-  towerImage: {fileID: 2800000, guid: aa97823f97d96214dbaf1f4a5c7d9f55, type: 3}
   curAttackSpeed: 0
   isBuffed: 0
   id: 
