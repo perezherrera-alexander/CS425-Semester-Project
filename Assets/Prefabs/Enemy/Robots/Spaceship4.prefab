@@ -221,8 +221,13 @@ MonoBehaviour:
   objectCollider: {fileID: 0}
   ob: {fileID: 4087907735615080734}
   GoldWorth: 0
+  PlayerStatistics: {fileID: 0}
+  particles: {fileID: 6443688252534756951, guid: ecf5696ed3259ac4ab51152543310776, type: 3}
+  death: {fileID: 91852219361799126, guid: 3fafa333d81174d4eb041cf0208ea86d, type: 3}
   model: {fileID: 0}
+  maxHealth: 5
   health: 40
+  goldIncreased: 0
   speed: 25
   slowFactor: 1
   slowDownTimer: 0

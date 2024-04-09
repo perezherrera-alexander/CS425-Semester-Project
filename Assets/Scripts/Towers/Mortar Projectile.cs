@@ -5,12 +5,12 @@ using UnityEngine;
 public class mortarProjectile : MonoBehaviour
 {
 #pragma warning disable 0414
-    private Transform target;
-    [SerializeField] StatusEffects data;
+    protected Transform target;
+    [SerializeField] protected StatusEffects data;
 
     public float speed = 10f;
     public float arcHeight = 1.0f;
-    public float blastRadius = 3f;
+    public float blastRadius = 5f;
     private float radius = 50f;
 
     protected Vector3 startPos;
@@ -18,9 +18,9 @@ public class mortarProjectile : MonoBehaviour
     protected float step;
     protected float progress = 0f;
 
-    protected float directDamage = 2f;
+    public float directDamage = 2f;
     protected float splashDamage = 2.5f;
-    protected float bounces = 1f;
+    protected float bounces = 3f;
 
     bool exists = false;
 #pragma warning restore 0414
@@ -72,6 +72,7 @@ public class mortarProjectile : MonoBehaviour
 
 
         transform.Translate(dir.normalized * distancePerFrame, Space.World);
+        transform.LookAt(target);
 
     }
 
@@ -83,7 +84,7 @@ public class mortarProjectile : MonoBehaviour
         {
             var effect = other.GetComponent<Effectable>();
 
-            if (effect != null)
+            if (effect != null && data != null)
             {
                 effect.applyEffect(data);
             }
@@ -92,7 +93,7 @@ public class mortarProjectile : MonoBehaviour
 
         if (bounces > 0)
         {
-
+            other.GetComponent<BaseEnemyLogic>().reduceHealth(directDamage);
             bounces -= 1;
             findNewTarget();
             if(target == null)
@@ -136,7 +137,7 @@ public class mortarProjectile : MonoBehaviour
     }
 
 
-    void findNewTarget()
+    public void findNewTarget()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         float shortDis = Mathf.Infinity;
