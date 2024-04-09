@@ -1764,6 +1764,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 1643746015}
+  shopLogic: {fileID: 0}
   towerSaveLoadManager: {fileID: 1798962337}
 --- !u!1 &1313668339
 GameObject:
@@ -2563,6 +2564,9 @@ MonoBehaviour:
   enemyC: {fileID: 2750475128477427218, guid: b6d097f65ab93b64e99ab284f8cb4d0d, type: 3}
   enemyD: {fileID: 4087907735615080734, guid: 32ec49f45dd9c584a8ccb88c5f2ad886, type: 3}
   enemyE: {fileID: 9159871299313499265, guid: 99010c75aefcddc4588b7ce4848193d6, type: 3}
+  enemyV: {fileID: 0}
+  enemyW: {fileID: 0}
+  enemyX: {fileID: 0}
   waveFormat: {fileID: 11400000, guid: f2d894313115a8f429e2735282ef28de, type: 2}
   SpawnPoint: {fileID: 932530791776530093}
   gameState: 0
@@ -2627,14 +2631,14 @@ MonoBehaviour:
   BeeTowerPrefab: {fileID: 971902319036964014, guid: 6c1bcac6b019a5445a29397b2e5fbdbd, type: 3}
   MortarTowerPrefab: {fileID: 4802165041365209427, guid: 6b391e1d30df3bf40982d80495c75b4a, type: 3}
   TetherTowerPrefab: {fileID: 4697445435849318074, guid: d683e4508f9f8474e99a3210a2578de0, type: 3}
-  FlameTowerPrefab: {fileID: 0}
-  MeleeTowerPrefab: {fileID: 0}
-  MortarAntPrefab: {fileID: 0}
-  AttackBeePrefab: {fileID: 0}
-  BeeSwarmPrefab: {fileID: 0}
-  BuffingBeePrefab: {fileID: 0}
-  WaspTowerPrefab: {fileID: 0}
-  WaspMeleePrefab: {fileID: 0}
+  FlameTowerPrefab: {fileID: 3496186726202727201, guid: 6c1a92e71725f8e4d87187e45f71fa2e, type: 3}
+  MeleeTowerPrefab: {fileID: 5638637389332727884, guid: 4e4f33efe7895774986c5a0f0a79ecce, type: 3}
+  MortarAntPrefab: {fileID: 7528787299345294700, guid: 77aa7cae226f46a4d970e9b2d11fdf72, type: 3}
+  AttackBeePrefab: {fileID: 13752776046551093, guid: fc5108c8fa998cd4691292c2d9722f5a, type: 3}
+  BeeSwarmPrefab: {fileID: 5293129905896234806, guid: 3e144ea51a910d5419b144c874dfcff6, type: 3}
+  BuffingBeePrefab: {fileID: 3653065466352016189, guid: 63563199ad1208a48be8b489ebd3a3f3, type: 3}
+  WaspTowerPrefab: {fileID: 5375419024465267202, guid: 9615296694b34664ba234ff1db9775dd, type: 3}
+  WaspMeleePrefab: {fileID: 7531189038630079958, guid: f1e522ec82051554684e9168369f9564, type: 3}
 --- !u!114 &1798962338
 MonoBehaviour:
   m_ObjectHideFlags: 0
