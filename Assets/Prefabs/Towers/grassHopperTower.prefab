@@ -53,6 +53,8 @@ MonoBehaviour:
   enemyTag: Enemy
   outlineThickness: 10
   buildCost: 0
+  towerDescription: Summon grasshoppers that jump between enemies to damage them.
+  towerImage: {fileID: 0}
   targettingRange: 20
   fireRate: 1
   fireCountdown: 0
@@ -61,7 +63,6 @@ MonoBehaviour:
   targetingType: 2
   targets: []
   towerName: 
-  towerImage: {fileID: 0}
   curAttackSpeed: 0
   isBuffed: 0
   id: 

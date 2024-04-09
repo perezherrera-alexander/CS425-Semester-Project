@@ -8,7 +8,7 @@ public class WaspMelee : BaseTowerLogic
     public string id;
     private Animator animate;
 
-    private float directDamage = 5f;
+    private float directDamage = 0.5f;
     private float attackRate = 0f;
 
 
@@ -19,7 +19,7 @@ public class WaspMelee : BaseTowerLogic
         towerName = "Tarantula Wasp";
         Invoke();
         MakeSphere();
-        fireRate = 0.3f;
+        fireRate = 1.5f;
         curAttackSpeed = fireRate;
         animate = GetComponentInChildren<Animator>();
     }
