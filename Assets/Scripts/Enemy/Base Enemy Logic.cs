@@ -75,6 +75,8 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
     public float dotDamage = 0;
     public float dotTimer = 0;
 
+    public float stunTimer = 0;
+
     public Transform target;
 
     public int waypointindex = 0;
@@ -88,9 +90,13 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
         {
             if (effects.First() != null) handleEffect();
         }
-        
         Vector3 direction = target.position - transform.position;
-        transform.Translate(direction.normalized * speed * slowFactor * Time.deltaTime, Space.World);
+        int stun = 1;
+        if (stunTimer > 0){
+            stun = 0;
+            stunTimer -= Time.deltaTime;
+        }
+        transform.Translate(direction.normalized * speed * stun * slowFactor * Time.deltaTime, Space.World);
 
         if (Vector3.Distance(transform.position, target.position) <= 0.4f){
             GetNextWaypoint();
@@ -173,7 +179,10 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
         speed = speed * slowFactor;
     }
 
-
+    public virtual void stun(float stunTime)
+    {
+        stunTimer = stunTime;
+    }
 
 
     public void applyEffect(StatusEffects effect)

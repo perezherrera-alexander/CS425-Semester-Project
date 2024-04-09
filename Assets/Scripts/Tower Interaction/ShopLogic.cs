@@ -4,8 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;// Required when using Event data.
 using Codice.CM.Common.Tree;
+using System;
 
-public class ShopLogic : MonoBehaviour, IPointerEnterHandler
+public class ShopLogic : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [Header("Tower Prefabs")]
     [SerializeField] private GameObject BeeTowerPrefab;
@@ -30,14 +31,12 @@ public class ShopLogic : MonoBehaviour, IPointerEnterHandler
     private GameObject openShopButton; // The button that opens the shop UI
     [SerializeField] private GameObject shopRowTemplate;
     [SerializeField] private GameObject shopButtonTemplate;
-    //private float shopUIWidth;
     private int numberOfTowersUnlocked;
-    //private float buttonXonClosedShop;
-    //private float buttonYonClosedShop;
+    private bool hoveringOnButton = false;
+    public GameObject towerDescriptionPanelPrefab;
+    private GameObject activeTowerDescriptionPanel;
     [Header("Scripts")]
     [SerializeField] private TowerPlacement towerPlacement; // Tower placing is handed off to the TowerPlacement script
-
-
     private TargetingTypes savedTargettingType;
     [SerializeField] TowerSaveLoadManager towerSaveLoadManager;
     void Start()
@@ -53,12 +52,29 @@ public class ShopLogic : MonoBehaviour, IPointerEnterHandler
     {
         GameObject hoveredObject = eventData.pointerEnter;
         //Debug.Log("Hovered object: " + hoveredObject.name);
-    
+        if(hoveredObject.tag == "ShopButton")
+        {
+            //Debug.Log("Hovering on a shop button");
+            hoveringOnButton = true;
+            // Remove the word button from the name to get the tower name
+            String activeTowerDescriptionPanelName = hoveredObject.name;
+            activeTowerDescriptionPanelName = activeTowerDescriptionPanelName.Replace(" Button", " Description Panel");
+            //Debug.Log("Active Tower Description Panel Name: " + activeTowerDescriptionPanelName);
+            // Find the activeTowerDescriptionPanel by name
+            activeTowerDescriptionPanel = GameObject.Find(activeTowerDescriptionPanelName);
+            if(activeTowerDescriptionPanel != null) activeTowerDescriptionPanel.transform.GetChild(0).gameObject.SetActive(true);
+            //else Debug.Log("Active Tower Description Panel not found.");
+        }
+        else
+        {
+            hoveringOnButton = false;
+        }
+    }
 
-        // TODO: 
-        // 1. Create Scriptable Objects for each tower and the those to buttons when created
-        // 2. Use this function (OnPointerEnter) to get a referene to the object of the button and subseqeuently the data in the scriptable object
-        // 3. Use that data to display the tower's stats in the shop UI
+    public void OnPointerExit(PointerEventData pointerEventData) //Detect when Cursor leaves the GameObject
+    {
+        hoveringOnButton = false;
+        if(activeTowerDescriptionPanel != null) activeTowerDescriptionPanel.transform.GetChild(0).gameObject.SetActive(false);
     }
 
 
@@ -78,11 +94,19 @@ public class ShopLogic : MonoBehaviour, IPointerEnterHandler
                 ToggleShopUI();
             }
         }
+
+        if(hoveringOnButton)
+        {
+            // Have the tower description panel follow the mouse
+            Vector3 mousePos = Input.mousePosition;
+            Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(activeTowerDescriptionPanel.transform.parent.GetComponent<RectTransform>(), mousePos, null, out Vector2 localPoint);
+            activeTowerDescriptionPanel.transform.localPosition = localPoint;
+        }
     }
 
     void InitializeShopUI(){
         // Initialize variables to create the shop UI
-        //shopUIWidth = shopPanel.GetComponent<RectTransform>().rect.width;
         numberOfTowersUnlocked = playerData.TowersObtained;
         int numberOfRowsNeeded = Mathf.CeilToInt((float)numberOfTowersUnlocked / 2);
         int towersLeftToSpawn = numberOfTowersUnlocked;
@@ -91,7 +115,6 @@ public class ShopLogic : MonoBehaviour, IPointerEnterHandler
         // Spawn the needed rows and popluate them with buttons
         for (int i = 0; i < numberOfRowsNeeded; i++)
         {
-            //Debug.Log("Spawning a new row");
             GameObject newRow = Instantiate(shopRowTemplate, shopPanel.transform);
             // Attach the empty row to the shop UI child
             newRow.transform.SetParent(shopCanvasChild.transform);
@@ -102,10 +125,10 @@ public class ShopLogic : MonoBehaviour, IPointerEnterHandler
                 {
                     GameObject towerReference = playerData.Towers[numberOfTowersUnlocked - towersLeftToSpawn];
                     Transform towerChildWithScript = towerReference.transform.Find("Rotate");
-                    string towerName = towerReference.transform.GetComponentInChildren<BaseTowerLogic>().towerName;
 
+                    string towerName = towerReference.transform.GetComponentInChildren<BaseTowerLogic>().towerName;
                     int towerCost = towerChildWithScript.GetComponent<BaseTowerLogic>().buildCost;
-                    // Will update in the future to display tower stats such as range, cost, damage, etc. But for now towerCost goes unused.
+                    string towerDescription = towerChildWithScript.GetComponent<BaseTowerLogic>().towerDescription;
 
                     // Create the button, attach it to the row and initialize it
                     GameObject newButton = Instantiate(shopButtonTemplate, newRow.transform);
@@ -115,6 +138,15 @@ public class ShopLogic : MonoBehaviour, IPointerEnterHandler
                     newButton.GetComponent<RawImage>().color = new Color(1, 1, 1, 1); // Button's default color is #717171 (for debugging) but is set to white at run time as otherwise the image is tinted.
                     newButton.GetComponent<RawImage>().texture = towerReference.transform.GetComponentInChildren<BaseTowerLogic>().towerImage;
                     newButton.GetComponent<Button>().onClick.AddListener(delegate {PurchaseTower(towerName); });
+
+                    // Create a tower description panel for each button
+                    GameObject newTowerDescriptionPanel = Instantiate(towerDescriptionPanelPrefab, shopPanel.transform);
+                    newTowerDescriptionPanel.name = towerName + " Description Panel";
+                    //Debug.Log("Description Panel: " + newTowerDescriptionPanel.name);
+                    newTowerDescriptionPanel.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<TMPro.TextMeshProUGUI>().text = towerName;
+                    newTowerDescriptionPanel.transform.GetChild(0).GetChild(1).GetChild(0).GetComponent<TMPro.TextMeshProUGUI>().text = towerCost.ToString();
+                    newTowerDescriptionPanel.transform.GetChild(0).GetChild(2).GetChild(0).GetComponent<TMPro.TextMeshProUGUI>().text = towerDescription;
+                    newTowerDescriptionPanel.transform.GetChild(0).gameObject.SetActive(false);
 
                     towersLeftToSpawn--;
                 }
