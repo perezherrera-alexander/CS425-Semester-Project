@@ -110,7 +110,6 @@ public class stingerScript : MonoBehaviour
                 effect.applyEffect(data);
             }
 
-            other.GetComponent<BaseEnemyLogic>().reduceHealth(directDamage);
 
 
 
