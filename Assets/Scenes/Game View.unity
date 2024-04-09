@@ -566,7 +566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dfd615581673ab42924791a04b28158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enableDebug: 1
+  enableDebug: 0
   loadSpecificLevel: 1
   specificLevelIndex: 1
   pathPrefabs:
@@ -577,7 +577,7 @@ MonoBehaviour:
   - {fileID: 5634187709461644724, guid: faf1f9c5bdc022747befe51349413f01, type: 3}
   - {fileID: 5867140428727287296, guid: a0a19c25d4b70c8449690ec6d5a01276, type: 3}
   playerData: {fileID: 11400000, guid: 5e3cd046013d0654b91f369ecf77ee21, type: 2}
-  LevelChoice: 0
+  LevelChoice: 1
 --- !u!114 &244055988
 MonoBehaviour:
   m_ObjectHideFlags: 0
