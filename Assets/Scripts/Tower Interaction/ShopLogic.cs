@@ -204,7 +204,7 @@ public class ShopLogic : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         else if (towerName == "Wasp Tower") PurchaseWaspTower(towerName);
         else if (towerName == "Wasp Melee") PurchaseWaspMeleeTower(towerName);
         else if (towerName == "Beetle Tower") PurchaseBeetleTower(towerName);
-        else if (towerName == "Grass Hopper") PurchaseGrassHopperTower(towerName);
+        else if (towerName == "Grasshopper Lair") PurchaseGrassHopperTower(towerName);
         else if (towerName == "Mantis Tower") PurchaseMantisTower(towerName);
         else if (towerName == "Moth Tower") PurchaseMothTower(towerName);
         else if (towerName == "Spider") PurchaseSpiderTower(towerName);

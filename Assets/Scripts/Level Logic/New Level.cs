@@ -138,7 +138,8 @@ public class NewLevel : MonoBehaviour
             playerData.Towers[5] = towers[13];
             playerData.Towers[6] = towers[14];
             playerData.Towers[7] = towers[15];
-            playerData.TowersObtained = 8;
+            playerData.Towers[8] = towers[16];
+            playerData.TowersObtained = 9;
             playerData.activeGeneral = Generals.Dev;
             generalSelected = true;
             nameOfGen = generalName;
