@@ -150,8 +150,8 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
         travelDistance += Vector3.Distance(Path.waypoints[waypointindex].position, transform.position);
         float knockbackLength = knockbackForce * travelDistance * .01f;
 
-        Debug.Log("Distance: " + travelDistance);
-        Debug.Log("Knockback length: " + knockbackLength);
+        //Debug.Log("Distance: " + travelDistance);
+        //Debug.Log("Knockback length: " + knockbackLength);
         
         //index of the last waypoint that holds a length less than the knockback length
         int newIndex = 0;

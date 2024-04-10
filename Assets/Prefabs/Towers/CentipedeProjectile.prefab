@@ -50,6 +50,9 @@ MonoBehaviour:
   speed: 7
   waypointIndex: 0
   damage: 2
+  firedOut: 1
+  lifeTime: 3
+  particles: {fileID: 407985019193547632, guid: 7944b8bc4d508b64b947cc2e9a7b2ee7, type: 3}
 --- !u!65 &5071651142899262560
 BoxCollider:
   m_ObjectHideFlags: 0
