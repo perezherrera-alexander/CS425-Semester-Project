@@ -5,6 +5,7 @@ using UnityEngine;
 public class centipedeTower : BaseTowerLogic
 {
     public int waypointIndex = 0;
+    private Animator animate;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +23,7 @@ public class centipedeTower : BaseTowerLogic
         }
         target = Path.waypoints[waypointIndex - 1];
         fireRate = 0.3f;
+        animate = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -57,6 +59,7 @@ public class centipedeTower : BaseTowerLogic
 
     public override void Shoot()
     {
+        animate.SetTrigger("attack");
         GameObject stinger = Instantiate(projectilePrefab, locationToFireFrom.position, locationToFireFrom.rotation);
         CentipedeSeeker seek = stinger.GetComponent<CentipedeSeeker>();
     }
