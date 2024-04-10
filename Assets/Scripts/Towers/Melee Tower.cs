@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using static UnityEngine.Playables.AnimationPlayableUtilities;
+using Codice.CM.Common;
 
 public class meleeTower : BaseTowerLogic
 {
     private float directDamage = 5f;
 
     private float attackRate = 0f;
-    private float coolDown = 0f;
+    private float speed = 30f;
     private Animator animate;
     public string id;
+    public Transform center;
+    private bool attacking;
     
     
 
@@ -23,7 +26,8 @@ public class meleeTower : BaseTowerLogic
         towerName = "Army Ant";
         Invoke();
         MakeSphere();
-        fireRate = 1f;
+        attacking = true;
+        fireRate = 0.2f;
         curAttackSpeed = fireRate;
         animate = GetComponentInChildren<Animator>();
     }
@@ -43,6 +47,8 @@ public class meleeTower : BaseTowerLogic
     {
         if (target == null)
         {
+            transform.position = center.position;
+
             return;
         }
 
@@ -50,16 +56,30 @@ public class meleeTower : BaseTowerLogic
         Quaternion lookRotation = Quaternion.LookRotation(dir);
         Vector3 rotation = lookRotation.eulerAngles;
         barrelToRotate.rotation = Quaternion.Euler(barrelToRotate.rotation.x, rotation.y, 0f);
+        
 
         if (attackRate <= 0f)
         {
-            Shoot();
-            coolDown += Time.deltaTime;
+            attacking = false;
             attackRate = 1f / fireRate;
-            if(coolDown > 0)
+ 
+        }
+        else if(attackRate > 0f && attacking == false)
+        {
+            if (checkDistance())
+            {
+                Shoot();
+                transform.position = center.position;
+                attacking = true;
+            }
+            else 
             {
 
+                float distancePerFrame = speed * Time.deltaTime;
+                transform.Translate(dir.normalized * distancePerFrame, Space.World);
             }
+
+
         }
 
         attackRate -= Time.deltaTime;
@@ -74,15 +94,25 @@ public class meleeTower : BaseTowerLogic
 
 
     }
-
-    /*private void OnTriggerEnter(Collider other)
+    public bool checkDistance()
     {
-        if (other.gameObject.tag == "Enemy")
+        bool nextToTarget = false;
+
+        float check = Vector3.Distance(transform.position, target.position);
+        if (check < 0.1)
         {
-            other.GetComponent<BaseEnemyLogic>().reduceHealth(directDamage);
-            //Debug.Log(other.GetComponent<BaseEnemyLogic>().getHealth());
+            nextToTarget = true;
+            return nextToTarget;
         }
-    }*/
+        return nextToTarget;
+    }
+    public override void MakeSphere()
+    {
+        proximitySphere = GetComponent<SphereCollider>();
+        proximitySphere.radius = 5.46f;
+    }
+    
+
     [ContextMenu("Generate ID")]
     public string GenerateId()
     {

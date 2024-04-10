@@ -44,6 +44,12 @@ public class SpiderScript : BaseTowerLogic
 
     }
 
+    public override void MakeSphere()
+    {
+        proximitySphere = transform.GetComponent<SphereCollider>();
+        proximitySphere.radius = 41.29f;
+    }
+
     [ContextMenu("Generate ID")]
     public string GenerateId()
     {

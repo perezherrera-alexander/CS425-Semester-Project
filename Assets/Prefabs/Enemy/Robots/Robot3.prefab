@@ -1128,8 +1128,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.2196164, y: 4.981574, z: 1}
+  m_Center: {x: -0.010328531, y: 0.28744364, z: 0}
 --- !u!114 &2442538609155143950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1147,9 +1147,12 @@ MonoBehaviour:
   ob: {fileID: 5512348237283082412}
   GoldWorth: 0
   PlayerStatistics: {fileID: 0}
+  particles: {fileID: 5065363750106160447, guid: 6e9dcf273246cca47901c15ebc107d3d, type: 3}
+  death: {fileID: 4783692702609254861, guid: a7346f514b8940b4ca5f2b14632a6a70, type: 3}
   model: {fileID: 0}
   maxHealth: 15
   health: 15
+  goldIncreased: 0
   speed: 10
   slowFactor: 1
   slowDownTimer: 0

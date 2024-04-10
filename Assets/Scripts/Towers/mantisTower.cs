@@ -70,6 +70,12 @@ public class mantisTower : BaseTowerLogic
 
     }
 
+    public override void MakeSphere()
+    {
+        proximitySphere = GetComponent<SphereCollider>();
+        proximitySphere.radius = 9.88f;
+    }
+
     [ContextMenu("Generate ID")]
     public string GenerateId()
     {

@@ -347,16 +347,11 @@ PrefabInstance:
       addedObject: {fileID: 9107400376225679032}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 020aab87a4d05164593f37c70a8fed49, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 229544293619638687}
+      addedObject: {fileID: 4615012270245993098}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 020aab87a4d05164593f37c70a8fed49, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4615012270245993098}
+      addedObject: {fileID: -4033105353951092590}
   m_SourcePrefab: {fileID: 100100000, guid: 020aab87a4d05164593f37c70a8fed49, type: 3}
---- !u!4 &2316506665245494890 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 020aab87a4d05164593f37c70a8fed49, type: 3}
-  m_PrefabInstance: {fileID: 2859605394541848961}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3129493927702828240 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 020aab87a4d05164593f37c70a8fed49, type: 3}
@@ -432,32 +427,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.5, y: 0.5, z: 0.5}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &229544293619638687
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3129493927702828240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6213db702bc3f8418e397c3df71eef5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  effects: []
-  objectCollider: {fileID: 9107400376225679032}
-  ob: {fileID: 3129493927702828240}
-  GoldWorth: 1
-  model: {fileID: 2316506665245494890}
-  health: 2
-  speed: 10
-  slowFactor: 1
-  slowDownTimer: 0
-  dotDamage: 0
-  dotTimer: 0
-  target: {fileID: 0}
-  waypointindex: 0
-  differentStart: 0
 --- !u!54 &4615012270245993098
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -485,3 +454,32 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-4033105353951092590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3129493927702828240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dd0a3256f7982f4da42a896a403eee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effects: []
+  objectCollider: {fileID: 9107400376225679032}
+  ob: {fileID: 3129493927702828240}
+  GoldWorth: 0
+  PlayerStatistics: {fileID: 0}
+  model: {fileID: 0}
+  maxHealth: 5
+  health: 5
+  goldIncreased: 0
+  speed: 10
+  slowFactor: 1
+  slowDownTimer: 0
+  dotDamage: 0
+  dotTimer: 0
+  target: {fileID: 0}
+  waypointindex: 0
+  differentStart: 0

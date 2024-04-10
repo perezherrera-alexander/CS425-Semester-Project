@@ -11,7 +11,7 @@ public class mortarTower : BaseTowerLogic
     void Start()
     {
         createOutline();
-        towerName = "Mortar Tower";
+        towerName = "Mortar Ant";
         Invoke();
         MakeSphere();
         curAttackSpeed = fireRate;
@@ -38,6 +38,11 @@ public class mortarTower : BaseTowerLogic
         }
     }
 
+    public override void MakeSphere()
+    {
+        proximitySphere = GetComponent<SphereCollider>();
+        proximitySphere.radius = 11.99f;
+    }
 
     [ContextMenu("Generate ID")]
     public string GenerateId()

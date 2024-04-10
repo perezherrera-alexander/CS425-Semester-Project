@@ -45,6 +45,12 @@ public class BeeTower : BaseTowerLogic
         }
     }
 
+    public override void MakeSphere()
+    {
+        proximitySphere = GetComponent<SphereCollider>();
+        proximitySphere.radius = 11.93f;
+    }
+
 
     [ContextMenu("Generate ID")]
     public string GenerateId()

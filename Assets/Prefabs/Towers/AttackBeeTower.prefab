@@ -73,7 +73,9 @@ MonoBehaviour:
   projectilePrefab: {fileID: 13752776046551093, guid: fc5108c8fa998cd4691292c2d9722f5a, type: 3}
   enemyTag: Enemy
   outlineThickness: 10
-  buildCost: 0
+  buildCost: 3
+  towerDescription: Periodically spawns bees that target nearby enemies
+  towerImage: {fileID: 2800000, guid: d45094b9132a572419606e8ff16e0874, type: 3}
   targettingRange: 20
   fireRate: 1
   fireCountdown: 0
@@ -82,7 +84,6 @@ MonoBehaviour:
   targetingType: 0
   targets: []
   towerName: Attack Bee
-  towerImage: {fileID: 2800000, guid: aa97823f97d96214dbaf1f4a5c7d9f55, type: 3}
   curAttackSpeed: 0
   isBuffed: 0
   id: 

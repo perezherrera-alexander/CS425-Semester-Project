@@ -92,6 +92,22 @@ public class BeeSwarm : BaseTowerLogic
         projectiles.Add(bee);
     }
 
+    public void deleteSwarmifDeleted()
+    {
+        foreach(SwarmingBee projectile in projectiles)
+        {
+            projectile.destroyFromList();
+        }
+        projectiles.Clear();
+    }
+
+    public override void MakeSphere()
+    {
+        proximitySphere = GetComponent<SphereCollider>();
+        proximitySphere.radius = 11.93f;
+    }
+
+
     [ContextMenu("Generate ID")]
     public string GenerateId()
     {

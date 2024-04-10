@@ -70,7 +70,7 @@ public class SwarmingBee : MonoBehaviour
         if(other.gameObject.tag == "Enemy")
         {
             other.GetComponent<BaseEnemyLogic>().reduceHealth(directDamage);
-            other.GetComponent<BaseEnemyLogic>().knockback(75);
+            //other.GetComponent<BaseEnemyLogic>().knockback(75);
             Destroy(gameObject);
         }
     }
@@ -96,6 +96,11 @@ public class SwarmingBee : MonoBehaviour
         {
             target = closeEnemy.transform;
         }
+    }
+
+    public void destroyFromList()
+    {
+        Destroy(gameObject);
     }
 
     [ContextMenu("Generate ID")]

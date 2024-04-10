@@ -8,9 +8,9 @@ public class WaspMelee : BaseTowerLogic
     public string id;
     private Animator animate;
 
-    private float directDamage = 5f;
+    private float directDamage = 0.5f;
     private float attackRate = 0f;
-    private float coolDown = 0f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +19,7 @@ public class WaspMelee : BaseTowerLogic
         towerName = "Tarantula Wasp";
         Invoke();
         MakeSphere();
-        fireRate = 0.3f;
+        fireRate = 1.5f;
         curAttackSpeed = fireRate;
         animate = GetComponentInChildren<Animator>();
     }
@@ -50,12 +50,7 @@ public class WaspMelee : BaseTowerLogic
         if (attackRate <= 0f)
         {
             Shoot();
-            coolDown += Time.deltaTime;
             attackRate = 1f / fireRate;
-            if (coolDown > 0)
-            {
-
-            }
         }
 
         attackRate -= Time.deltaTime;
@@ -65,8 +60,15 @@ public class WaspMelee : BaseTowerLogic
     public override void Shoot()
     {
         //animate.SetBool("attack", true);
+        animate.SetTrigger("attack");
+ 
         target.GetComponent<BaseEnemyLogic>().reduceHealth(directDamage);
         //animate.SetBool("attack", false);
+    }
+    public override void MakeSphere()
+    {
+        proximitySphere = GetComponent<SphereCollider>();
+        proximitySphere.radius = 3.57f;
     }
 
     [ContextMenu("Generate ID")]

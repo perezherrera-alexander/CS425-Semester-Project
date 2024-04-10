@@ -83,7 +83,10 @@ MonoBehaviour:
   locationToFireFrom: {fileID: 4113756102017948791}
   projectilePrefab: {fileID: 4943902595599502078, guid: 5ad18cf7bac346743a502a2b0de00ea2, type: 3}
   enemyTag: Enemy
-  buildCost: 0
+  outlineThickness: 10
+  buildCost: 2
+  towerDescription: A wasp that will shoot out its stingers in a straight line
+  towerImage: {fileID: 2800000, guid: 4e283aba1681685499be14c2e3e763d3, type: 3}
   targettingRange: 30
   fireRate: 1
   fireCountdown: 0
@@ -92,7 +95,6 @@ MonoBehaviour:
   targetingType: 0
   targets: []
   towerName: Wasp Tower
-  towerImage: {fileID: 2800000, guid: 3ecfde93ea4b06c4e9dad945a69aaf22, type: 3}
   curAttackSpeed: 0
   isBuffed: 0
   id: 
@@ -228,7 +230,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef50a542e3fd9db46ab3321dbc44b145, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerCanvasPrefab: {fileID: 1042973311252548879, guid: d96e12da61bc0ef4191677328bdf07f1, type: 3}
   towerPlacement: {fileID: 0}
   pauseMenu: {fileID: 0}
 --- !u!54 &4085854274669178160

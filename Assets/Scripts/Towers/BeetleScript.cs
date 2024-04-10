@@ -44,7 +44,7 @@ public class BeetleScript : BaseTowerLogic
         //bool isReallyNull = ((object)target) == null;
         if(target == null)
         {
-            beetle.GetComponent<BeetleProjectile>().seek(target);
+            beetle.GetComponent<BeetleProjectile>().seek(home);
             return;
         }
         Vector3 dir = target.position - transform.position;
@@ -77,7 +77,7 @@ public class BeetleScript : BaseTowerLogic
     public override void MakeSphere()
     {
         proximitySphere = transform.GetComponentInParent<SphereCollider>();
-        proximitySphere.radius = targettingRange * 0.5f;
+        proximitySphere.radius = 4.47f;
     }
 
     IEnumerator Timer()

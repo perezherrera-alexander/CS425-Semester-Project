@@ -19,7 +19,7 @@ public class FlameTower : BaseTowerLogic
         towerName = "Fire Ant";
         Invoke();
         MakeSphere();
-        visual.Stop();
+        visual.Pause();
         fireArea = GetComponent<CapsuleCollider>();
         fireArea.enabled = false;
 
@@ -68,6 +68,12 @@ public class FlameTower : BaseTowerLogic
         }
 
     }
+
+    public override void MakeSphere()
+    {
+        proximitySphere = GetComponent<SphereCollider>();
+        proximitySphere.radius = 7.81f;
+    }   
 
 
 

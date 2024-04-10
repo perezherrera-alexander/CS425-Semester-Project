@@ -205,6 +205,12 @@ public class TowerPanelManager : MonoBehaviour
                 Debug.Log(TowerID);
                 towerSaveLoadManager.RemoveTower(TowerID);
             }
+
+            if (scriptName == "BeeSwarm")
+            {
+                
+                SelectedTower.transform.GetChild(1).GetComponent<BeeSwarm>().deleteSwarmifDeleted();
+            }
         }
 
         Debug.Log("Deleting tower through player interaction.");

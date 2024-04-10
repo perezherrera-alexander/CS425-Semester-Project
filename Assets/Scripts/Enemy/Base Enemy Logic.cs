@@ -10,10 +10,11 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
     [SerializeField] 
     public List<StatusEffects> effects;
     public Collider objectCollider;
-    public GameObject ob;
     public int GoldWorth;
 
     public PlayerStatistics PlayerStatistics;
+    public ParticleSystem particles;
+    public visualEffectHandler death;
 
     public Transform model;
 
@@ -42,6 +43,7 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
     public void reduceHealth(float damage)
     {
         health = (health - damage);
+        Instantiate(particles, transform);
     }
 
     public float getHealth()
@@ -54,7 +56,8 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
         if (health <= 0)
         {
             PlayerStatistics.AddMoney(GoldWorth);
-            Destroy(ob);
+            death.playParts(transform);
+            Destroy(this.gameObject);
             //subtract present enemies count by 1
             PlayerStatistics.Instance.enemiesPresent--;
             return;
@@ -71,6 +74,8 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
     public float dotDamage = 0;
     public float dotTimer = 0;
 
+    public float stunTimer = 0;
+
     public Transform target;
 
     public int waypointindex = 0;
@@ -84,9 +89,13 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
         {
             if (effects.First() != null) handleEffect();
         }
-        
         Vector3 direction = target.position - transform.position;
-        transform.Translate(direction.normalized * speed * slowFactor * Time.deltaTime, Space.World);
+        int stun = 1;
+        if (stunTimer > 0){
+            stun = 0;
+            stunTimer -= Time.deltaTime;
+        }
+        transform.Translate(direction.normalized * speed * stun * slowFactor * Time.deltaTime, Space.World);
 
         if (Vector3.Distance(transform.position, target.position) <= 0.4f){
             GetNextWaypoint();
@@ -169,7 +178,10 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
         speed = speed * slowFactor;
     }
 
-
+    public virtual void stun(float stunTime)
+    {
+        stunTimer = stunTime;
+    }
 
 
     public void applyEffect(StatusEffects effect)
@@ -316,5 +328,6 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
         GoldWorth = newGoldValue;
         goldIncreased = true;
     }
+
 }
 
