@@ -221,7 +221,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 5293129905896234806, guid: 3e144ea51a910d5419b144c874dfcff6, type: 3}
   enemyTag: Enemy
   outlineThickness: 10
-  buildCost: 0
+  buildCost: 3
   towerDescription: Periodically spawns bees even when enemies aren't around and
     puts them into a holding pattern. This swarm of bees will attack nearby enemies
     and be exhausted.

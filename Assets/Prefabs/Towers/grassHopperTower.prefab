@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3312229584512328101}
-  - component: {fileID: 4959318204467755764}
   - component: {fileID: 4014419124072801078}
+  - component: {fileID: 4479197628293844676}
   m_Layer: 2
   m_Name: Rotate
   m_TagString: Untagged
@@ -36,37 +36,6 @@ Transform:
   - {fileID: 9007411439790855773}
   m_Father: {fileID: 86615497716919202}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4959318204467755764
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1177822862532843567}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63ef7b4bf0d18c84ca0e88b0208e18f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  barrelToRotate: {fileID: 6789115809293436554}
-  locationToFireFrom: {fileID: 3312229584512328101}
-  projectilePrefab: {fileID: 3457465387389235499, guid: 679b27ea89eb9614eba3dcc09b28471c, type: 3}
-  enemyTag: Enemy
-  outlineThickness: 10
-  buildCost: 1
-  towerDescription: Summon grasshoppers that jump between enemies to damage them.
-  towerImage: {fileID: 2800000, guid: 4e1e1a3afab0d1348b831ca48e2eb598, type: 3}
-  targettingRange: 20
-  fireRate: 1
-  fireCountdown: 0
-  isActive: 1
-  target: {fileID: 0}
-  targetingType: 2
-  targets: []
-  towerName: Grass Hopper
-  curAttackSpeed: 0
-  isBuffed: 0
-  id: 
 --- !u!135 &4014419124072801078
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -82,12 +51,43 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4479197628293844676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1177822862532843567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30c72b029218bea41923a8ba799893ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barrelToRotate: {fileID: 6789115809293436554}
+  locationToFireFrom: {fileID: 3312229584512328101}
+  projectilePrefab: {fileID: 3457465387389235499, guid: 679b27ea89eb9614eba3dcc09b28471c, type: 3}
+  enemyTag: Enemy
+  outlineThickness: 10
+  buildCost: 5
+  towerDescription: Summon grasshoppers that jump between enemies to damage them.
+  towerImage: {fileID: 2800000, guid: 4e1e1a3afab0d1348b831ca48e2eb598, type: 3}
+  targettingRange: 20
+  fireRate: 1
+  fireCountdown: 0
+  isActive: 0
+  target: {fileID: 0}
+  targetingType: 0
+  targets: []
+  towerName: Grasshopper Lair
+  curAttackSpeed: 0
+  isBuffed: 0
+  id: 
 --- !u!1 &5883509993009891312
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,7 +215,7 @@ GameObject:
   - component: {fileID: 1040470902493087668}
   - component: {fileID: 820102307971036065}
   - component: {fileID: 6929230659319698690}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: grassHopperTower
   m_TagString: Bee
   m_Icon: {fileID: 0}

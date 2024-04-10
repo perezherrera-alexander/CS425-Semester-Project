@@ -106,6 +106,12 @@ public class meleeTower : BaseTowerLogic
         }
         return nextToTarget;
     }
+    public override void MakeSphere()
+    {
+        proximitySphere = GetComponent<SphereCollider>();
+        proximitySphere.radius = 5.46f;
+    }
+    
 
     [ContextMenu("Generate ID")]
     public string GenerateId()

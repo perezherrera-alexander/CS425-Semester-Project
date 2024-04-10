@@ -69,6 +69,12 @@ public class FlameTower : BaseTowerLogic
 
     }
 
+    public override void MakeSphere()
+    {
+        proximitySphere = GetComponent<SphereCollider>();
+        proximitySphere.radius = 7.81f;
+    }   
+
 
 
     [ContextMenu("Generate ID")]

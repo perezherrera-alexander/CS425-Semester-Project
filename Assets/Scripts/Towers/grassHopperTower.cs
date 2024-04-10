@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class mortarTower : BaseTowerLogic
+public class grassHopperTower : BaseTowerLogic
 {
     public string id;
-
     // Start is called before the first frame update
     void Start()
     {
         createOutline();
-        towerName = "Mortar Ant";
+        towerName = "Grasshopper Lair";
         Invoke();
         MakeSphere();
         curAttackSpeed = fireRate;
@@ -41,7 +40,7 @@ public class mortarTower : BaseTowerLogic
     public override void MakeSphere()
     {
         proximitySphere = GetComponent<SphereCollider>();
-        proximitySphere.radius = 11.99f;
+        proximitySphere.radius = 19.92f;
     }
 
     [ContextMenu("Generate ID")]

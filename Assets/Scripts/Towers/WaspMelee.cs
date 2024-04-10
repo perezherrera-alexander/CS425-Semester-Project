@@ -65,6 +65,11 @@ public class WaspMelee : BaseTowerLogic
         target.GetComponent<BaseEnemyLogic>().reduceHealth(directDamage);
         //animate.SetBool("attack", false);
     }
+    public override void MakeSphere()
+    {
+        proximitySphere = GetComponent<SphereCollider>();
+        proximitySphere.radius = 3.57f;
+    }
 
     [ContextMenu("Generate ID")]
     public string GenerateId()

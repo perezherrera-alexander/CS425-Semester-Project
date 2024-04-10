@@ -101,6 +101,12 @@ public class BeeSwarm : BaseTowerLogic
         projectiles.Clear();
     }
 
+    public override void MakeSphere()
+    {
+        proximitySphere = GetComponent<SphereCollider>();
+        proximitySphere.radius = 11.93f;
+    }
+
 
     [ContextMenu("Generate ID")]
     public string GenerateId()

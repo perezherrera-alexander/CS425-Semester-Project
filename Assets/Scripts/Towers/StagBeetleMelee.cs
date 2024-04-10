@@ -62,6 +62,12 @@ public class BeetleMelee : BaseTowerLogic
         animate.SetTrigger("Attack");
     }
 
+    public override void MakeSphere()
+    {
+        proximitySphere = GetComponent<SphereCollider>();
+        proximitySphere.radius = 3.7f;
+    }
+
     [ContextMenu("Generate ID")]
     public string GenerateId()
     {

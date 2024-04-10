@@ -148,13 +148,13 @@ MonoBehaviour:
   projectilePrefab: {fileID: 0}
   enemyTag: Enemy
   outlineThickness: 10
-  buildCost: 0
+  buildCost: 5
   towerDescription: A stag beetle that can lift and push enemies away.
-  towerImage: {fileID: 0}
+  towerImage: {fileID: 2800000, guid: db4dffe47d318b644bcd897c90d95bdb, type: 3}
   targettingRange: 8.2
   fireRate: 1
   fireCountdown: 0
-  isActive: 1
+  isActive: 0
   target: {fileID: 0}
   targetingType: 2
   targets: []
@@ -182,7 +182,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 3.7
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &3917949036877948912
 PrefabInstance:

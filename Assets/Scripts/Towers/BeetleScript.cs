@@ -77,7 +77,7 @@ public class BeetleScript : BaseTowerLogic
     public override void MakeSphere()
     {
         proximitySphere = transform.GetComponentInParent<SphereCollider>();
-        proximitySphere.radius = targettingRange * 0.5f;
+        proximitySphere.radius = 4.47f;
     }
 
     IEnumerator Timer()
