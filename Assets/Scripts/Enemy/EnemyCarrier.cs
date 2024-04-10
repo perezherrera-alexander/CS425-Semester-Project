@@ -25,7 +25,7 @@ public class EnemyCarrier : BaseEnemyLogic
             //subtract present enemies count by 1
             death.playParts(transform);
             PlayerStatistics.Instance.enemiesPresent--;
-            Destroy(ob);
+            Destroy(this.gameObject);
 
             //PlayerStatistics.Instance.AddEnemiesKilled();
             

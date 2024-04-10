@@ -30,7 +30,7 @@ public class FastEnemy : BaseEnemyLogic
     //         Destroy(gameObject);
     //         Debug.Log("Fast enemy Destroyed");
     //             // Destroy(this.gameObject);
-    //             // Destroy(ob);
+    //             // Destroy(this.gameObject);
     //         //subtract present enemies count by 1
     //         PlayerStatistics.Instance.enemiesPresent--;
     //         return;

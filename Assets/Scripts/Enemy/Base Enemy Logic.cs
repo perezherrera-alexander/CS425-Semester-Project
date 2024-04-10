@@ -10,7 +10,6 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
     [SerializeField] 
     public List<StatusEffects> effects;
     public Collider objectCollider;
-    public GameObject ob;
     public int GoldWorth;
 
     public PlayerStatistics PlayerStatistics;
@@ -58,7 +57,7 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
         {
             PlayerStatistics.AddMoney(GoldWorth);
             death.playParts(transform);
-            Destroy(ob);
+            Destroy(this.gameObject);
             //subtract present enemies count by 1
             PlayerStatistics.Instance.enemiesPresent--;
             return;

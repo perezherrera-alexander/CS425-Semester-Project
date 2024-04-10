@@ -15,7 +15,7 @@ public class RobotScript : BaseEnemyLogic
         if (health <= 0){
             PlayerStatistics.AddMoney(GoldWorth);
             death.playParts(transform);
-            Destroy(ob);
+            Destroy(this.gameObject);
             //subtract present enemies count by 1
             PlayerStatistics.Instance.enemiesPresent--;
             return;
@@ -24,7 +24,7 @@ public class RobotScript : BaseEnemyLogic
         float healthPercentage = health / maxHealth;
 
         if(healthPercentage < .75 && healthTier1){
-            // Transform firstChild = ob.Find("Robot");
+            // Transform firstChild = this.gameObject.Find("Robot");
             // Transform secondChild = firstChild.Find("Root");
             // Transform thirdChild = secondChild.Find("Body");
             // Transform prey = thirdChild.Find("UpperArm_L");
