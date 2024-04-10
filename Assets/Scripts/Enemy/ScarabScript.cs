@@ -11,7 +11,6 @@ public class ScarabScript : BaseEnemyLogic
         if(health<maxHealth)
         {
             health += Time.deltaTime * recoveryRate;
-          
         }
         if(effects.Count > 0)
         {
