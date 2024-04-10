@@ -61,39 +61,40 @@ public class grassHopperProjectile : mortarProjectile
             {
                 effect.applyEffect(data);
             }
-            //other.GetComponent<BaseEnemyLogic>().reduceHealth(directDamage);
-        }
+            if (bounces > 0)
+            {
+                other.GetComponent<BaseEnemyLogic>().reduceHealth(directDamage);
+                bounces -= 1;
+                findNewTarget();
+                animate.SetTrigger("Attack");
 
-        if (bounces > 0)
-        {
-            other.GetComponent<BaseEnemyLogic>().reduceHealth(directDamage);
-            bounces -= 1;
-            findNewTarget();
-            animate.SetTrigger("Attack");
-            
-            if (target == null)
+                if (target == null)
+                {
+                    //shockWave();
+                    Destroy(gameObject);
+
+                }
+                startPos = transform.position;
+
+                float distance = Vector3.Distance(startPos, target.position);
+
+                arcHeight = (float)(arcHeight * (0.10 * distance));
+
+
+                step = speed / distance;
+                progress = 0;
+
+            }
+            else if (bounces == 0)
             {
                 //shockWave();
                 Destroy(gameObject);
-                
+
             }
-            startPos = transform.position;
-
-            float distance = Vector3.Distance(startPos, target.position);
-
-            arcHeight = (float)(arcHeight * (0.10 * distance));
-
-
-            step = speed / distance;
-            progress = 0;
-
+            //other.GetComponent<BaseEnemyLogic>().reduceHealth(directDamage);
         }
-        else if (bounces == 0)
-        {
-            //shockWave();
-            Destroy(gameObject);
-            
-        }
+
+
     }
 
 }
