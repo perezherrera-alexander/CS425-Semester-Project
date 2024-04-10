@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -572,7 +572,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enableDebug: 0
   loadSpecificLevel: 1
-  specificLevelIndex: 1
+  specificLevelIndex: 6
   pathPrefabs:
   - {fileID: 3283810633382655351, guid: e1bf61d465354b94fb3c406ab5fde9b0, type: 3}
   - {fileID: 7025646087115900231, guid: 5b19666bee5fbdb459c24867f6acfd97, type: 3}
