@@ -151,14 +151,25 @@ public class TowerPlacement : MonoBehaviour
         // Save the name of the tower's prefab so we can later call it's script
         towerName = towerToPlace.transform.gameObject.GetComponentInChildren<BaseTowerLogic>().towerName;
         Tower = GameObject.Instantiate(towerToPlace, Vector3.zero, Quaternion.identity);
-        // Also start the particle effect
-        Tower.transform.Find("Rotate").Find("TowerParticleSystem").GetComponent<ParticleSystem>().Stop();
+        // Also start the particle effect if it has one
+        Transform particleSystem = Tower.transform.Find("Rotate").Find("TowerParticleSystem");
+        if(particleSystem != null)
+        {
+            particleSystem.TryGetComponent<ParticleSystem>(out ParticleSystem particle);
+            particle.Stop();
+        }
     }
 
     private void CreatePlacementEffect()
     {
         // We must do this song and dance to grab the particle component
-        Tower.transform.Find("Rotate").Find("TowerParticleSystem").GetComponent<ParticleSystem>().Play();
+        Transform particleSystem = Tower.transform.Find("Rotate").Find("TowerParticleSystem");
+        if(particleSystem != null)
+        {
+            particleSystem.TryGetComponent<ParticleSystem>(out ParticleSystem particle);
+            particle.Play();
+        }
+        else return;
         // Stop the particle system atfer 3 seconds
         StartCoroutine(StopParticleEffect(Tower.transform.Find("Rotate").Find("TowerParticleSystem").GetComponent<ParticleSystem>()));
     }
