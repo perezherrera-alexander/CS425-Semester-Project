@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5180567853227411930}
   - component: {fileID: 113390101967456682}
+  - component: {fileID: 7840047790242356121}
   m_Layer: 2
   m_Name: Rotate
   m_TagString: Untagged
@@ -31,6 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7635056257002886167}
+  - {fileID: 6955230143774444310}
   m_Father: {fileID: 6132584989949131892}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &113390101967456682
@@ -53,7 +55,7 @@ MonoBehaviour:
   buildCost: 0
   towerDescription: A moth attracted to a lamp, that will periodically stun nearby
     enemies.
-  towerImage: {fileID: 0}
+  towerImage: {fileID: 2800000, guid: 2f18abb09efe98241becceaf9d02b6a6, type: 3}
   targettingRange: 15
   fireRate: 0.3
   fireCountdown: 0
@@ -61,11 +63,32 @@ MonoBehaviour:
   target: {fileID: 0}
   targetingType: 0
   targets: []
-  towerName: 
+  towerName: Moth Tower
   curAttackSpeed: 0
   isBuffed: 0
   center: {fileID: 5714891471211224874}
   particles: {fileID: 19800004, guid: 757df604761b8ef42831192c70ee1099, type: 3}
+--- !u!135 &7840047790242356121
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1416948193629043083}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Radius: 0.01
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1779559047980987579
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,7 +141,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 3.7003593, y: 13.093191, z: 2.6080704}
   m_Center: {x: 0, y: -1.4534044, z: 0}
@@ -1280,4 +1303,66 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8cf4feed8bbd62c4bb8e62f1576a2251, type: 3}
   m_PrefabInstance: {fileID: 8167580142941645604}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8619214987186581658
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5180567853227411930}
+    m_Modifications:
+    - target: {fileID: 1664197342355094412, guid: 841478899781e794f80815c4244aee5b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1664197342355094412, guid: 841478899781e794f80815c4244aee5b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1664197342355094412, guid: 841478899781e794f80815c4244aee5b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1664197342355094412, guid: 841478899781e794f80815c4244aee5b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1664197342355094412, guid: 841478899781e794f80815c4244aee5b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1664197342355094412, guid: 841478899781e794f80815c4244aee5b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1664197342355094412, guid: 841478899781e794f80815c4244aee5b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1664197342355094412, guid: 841478899781e794f80815c4244aee5b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1664197342355094412, guid: 841478899781e794f80815c4244aee5b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1664197342355094412, guid: 841478899781e794f80815c4244aee5b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3975382800676708411, guid: 841478899781e794f80815c4244aee5b, type: 3}
+      propertyPath: m_Name
+      value: TowerParticleSystem
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 841478899781e794f80815c4244aee5b, type: 3}
+--- !u!4 &6955230143774444310 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1664197342355094412, guid: 841478899781e794f80815c4244aee5b, type: 3}
+  m_PrefabInstance: {fileID: 8619214987186581658}
   m_PrefabAsset: {fileID: 0}

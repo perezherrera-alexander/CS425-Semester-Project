@@ -20,6 +20,12 @@ public class ShopLogic : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     [SerializeField] private GameObject BuffingBeePrefab;
     [SerializeField] private GameObject WaspTowerPrefab;
     [SerializeField] private GameObject WaspMeleePrefab;
+    [SerializeField] private GameObject BeetleTowerPrefab;
+    [SerializeField] private GameObject GrassHopperPrefab;
+    [SerializeField] private GameObject MantisTowerPrefab;
+    [SerializeField] private GameObject MothTowerPrefab;
+    [SerializeField] private GameObject SpiderTowerPrefab;
+    [SerializeField] private GameObject StagBeetlePrefab;
 
     [Header("Player Information")]
     [SerializeField] private PlayerStatistics playerStatistics; // Used to check if the player has enogh money when purchasing
@@ -127,8 +133,8 @@ public class ShopLogic : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
                     Transform towerChildWithScript = towerReference.transform.Find("Rotate");
 
                     string towerName = towerReference.transform.GetComponentInChildren<BaseTowerLogic>().towerName;
-                    int towerCost = towerChildWithScript.GetComponent<BaseTowerLogic>().buildCost;
-                    string towerDescription = towerChildWithScript.GetComponent<BaseTowerLogic>().towerDescription;
+                    int towerCost = towerChildWithScript.GetComponentInChildren<BaseTowerLogic>().buildCost;
+                    string towerDescription = towerChildWithScript.GetComponentInChildren<BaseTowerLogic>().towerDescription;
 
                     // Create the button, attach it to the row and initialize it
                     GameObject newButton = Instantiate(shopButtonTemplate, newRow.transform);
@@ -197,6 +203,12 @@ public class ShopLogic : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         else if (towerName == "Buffing Bee") PurchaseBuffingBeeTower(towerName);
         else if (towerName == "Wasp Tower") PurchaseWaspTower(towerName);
         else if (towerName == "Wasp Melee") PurchaseWaspMeleeTower(towerName);
+        else if (towerName == "Beetle Tower") PurchaseBeetleTower(towerName);
+        else if (towerName == "Grass Hopper") PurchaseGrassHopperTower(towerName);
+        else if (towerName == "Mantis Tower") PurchaseMantisTower(towerName);
+        else if (towerName == "Moth Tower") PurchaseMothTower(towerName);
+        else if (towerName == "Spider") PurchaseSpiderTower(towerName);
+        else if (towerName == "Stag Beetle") PurchaseStagBeetleTower(towerName);
         else {
             Debug.Log("Tower: " + towerName + " not found or not yet implemented. Defaulting to Bee Tower.");
             PurchaseBeeTower("Bee Tower");
@@ -251,6 +263,36 @@ public class ShopLogic : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     public void PurchaseWaspTower(string towerName)
     {
         PurchaseLogic(towerName, WaspTowerPrefab);
+    }
+
+    public void PurchaseBeetleTower(string towerName)
+    {
+        PurchaseLogic(towerName, BeetleTowerPrefab);
+    }
+
+    public void PurchaseGrassHopperTower(string towerName)
+    {
+        PurchaseLogic(towerName, GrassHopperPrefab);
+    }
+
+    public void PurchaseMantisTower(string towerName)
+    {
+        PurchaseLogic(towerName, MantisTowerPrefab);
+    }
+
+    public void PurchaseMothTower(string towerName)
+    {
+        PurchaseLogic(towerName, MothTowerPrefab);
+    }
+
+    public void PurchaseSpiderTower(string towerName)
+    {
+        PurchaseLogic(towerName, SpiderTowerPrefab);
+    }
+
+    public void PurchaseStagBeetleTower(string towerName)
+    {
+        PurchaseLogic(towerName, StagBeetlePrefab);
     }
 
     private void PurchaseLogic(string towerName, GameObject towerPrefab)
