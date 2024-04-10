@@ -10,7 +10,10 @@ public class SelectTowerToUpgrade : MonoBehaviour
     public GameObject SelectTowerUpgradePanel;
     public GameObject TowerUpgradeDataWindow;
     public GameObject UniqueUpgradeButton;
-    public string TowerUpgradeName;
+    public string TowerUpgradeName = "";
+
+    public GameObject TowerUpgradeButton;
+    public GameObject UpgradePickedParent;
 
     public TMP_Text TokenCounter;
 
@@ -18,6 +21,7 @@ public class SelectTowerToUpgrade : MonoBehaviour
     public StoreTowerUpgradeData storeTowerUpgradeData;
 
     public bool OpenClosed = false;
+    public string ButtonNameHolder;
 
     public void Update()
     {
@@ -39,6 +43,28 @@ public class SelectTowerToUpgrade : MonoBehaviour
             {
                 UniqueUpgradeButton.SetActive(false);
             }
+            ButtonNameHolder = ButtonName;
+            return;
+        }
+
+        if (ButtonNameHolder != ButtonName)
+        {
+            ChooseTowerUpgradeOptionPanel.SetActive(false);
+            UniqueUpgradeButton.SetActive(false);
+
+            ChooseTowerUpgradeOptionPanel.SetActive(true);
+            TowerUpgradeName = ButtonName;
+            Panel();
+            OpenClosed = true;
+            if (UniqueUpgradeButton == null)
+            {
+                return;
+            }
+            else
+            {
+                UniqueUpgradeButton.SetActive(false);
+            }
+            ButtonNameHolder = ButtonName;
             return;
         }
 
@@ -69,17 +95,26 @@ public class SelectTowerToUpgrade : MonoBehaviour
         Populator.PopulatePanel(UpgradeData);
     }
 
-    public void StartRun()
+    public void SelectUpgrade()
     {
-        if (storeTowerUpgradeData.TokensObtained > 1)
+        if (storeTowerUpgradeData.TokensObtained > 0)
         {
             storeTowerUpgradeData.TokensObtained--;
         }
-        else if (storeTowerUpgradeData.TokensObtained == 1)
+        else if (storeTowerUpgradeData.TokensObtained == 0)
         {
-            storeTowerUpgradeData.TokensObtained--;
-            SceneManager.LoadScene("Game View");
+            Debug.Log("No tokens left to purchase upgrade");
+            return;
         }
+    }
+
+    public void CreateButtonForUpgrade()
+    {
+        GameObject UpgradeButton = Instantiate(TowerUpgradeButton);
+        UpgradeButton.transform.SetParent(UpgradePickedParent.transform, false);
+
+        int size = storeTowerUpgradeData.ListOfUpgradesObtained.Count - 1;
+        UpgradeButton.GetComponent<RemoveSelectedTowerUpgrade>().SetName(storeTowerUpgradeData.ListOfUpgradesObtained[size]);
     }
 
     public void EndRun()

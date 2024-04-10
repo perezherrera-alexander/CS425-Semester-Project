@@ -5,6 +5,7 @@ using System;
 
 public class BeeSwarm : BaseTowerLogic
 {
+    public StoreTowerUpgradeData storeTowerUpgradeData;
     public string id;
     public List<SwarmingBee> projectiles = new List<SwarmingBee>();
     private float swarmAmount = 5f;
@@ -17,6 +18,7 @@ public class BeeSwarm : BaseTowerLogic
         Invoke();
         MakeSphere();
         curAttackSpeed = fireRate;
+        AddUpgradeEffects();
     }
 
     // Update is called once per frame
@@ -113,5 +115,22 @@ public class BeeSwarm : BaseTowerLogic
     {
         id = Guid.NewGuid().ToString();
         return id;
+    }
+
+    public void AddUpgradeEffects()
+    {
+        int count = 0;
+        while (count <= storeTowerUpgradeData.ListOfUpgradesObtained.Count)
+        {
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count] == "Bee Swarm Upgrade 1")
+            {
+                swarmAmount = 10;
+            }
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count] == "Bee Swarm Upgrade 2")
+            {
+                fireRate = 3f;
+            }
+            count++;
+        }
     }
 }

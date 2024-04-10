@@ -10,6 +10,7 @@ public class CentipedeSeeker : MonoBehaviour
     public int damage = 2;
     public bool firedOut = true;
     public float lifeTime = 3f;
+    public ParticleSystem particles;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +23,7 @@ public class CentipedeSeeker : MonoBehaviour
         }
         transform.position = Path.waypoints[waypointIndex].position;
         target = Path.waypoints[waypointIndex-1];
+        Instantiate(particles, transform);
     }
 
     // Update is called once per frame
@@ -30,24 +32,14 @@ public class CentipedeSeeker : MonoBehaviour
         if (lifeTime > 0)
         {
             lifeTime -= Time.deltaTime;
-            if (firedOut)
-            {
-                Vector3 dir = target.position - transform.position;
-                transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
-                if (Vector3.Distance(transform.position, target.position) <= 0.4f)
-                {
-                    firedOut = false;
-                }
-            }
-            else
-            {
+            
                 Vector3 direction = target.position - transform.position;
                 transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);
                 if (Vector3.Distance(transform.position, target.position) <= 0.4f)
                 {
                     GetNextWaypoint();
                 }
-            }
+
         }
         else
         {

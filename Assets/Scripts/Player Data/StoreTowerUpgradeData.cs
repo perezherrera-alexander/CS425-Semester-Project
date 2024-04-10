@@ -11,7 +11,15 @@ public class StoreTowerUpgradeData : ScriptableObject
 
     public void UpdateListOfUpgrades()
     {
-        ListOfUpgradesObtained.Add(TowerUpgradePicked);
+        if (TokensObtained > 0)
+        {
+            ListOfUpgradesObtained.Add(TowerUpgradePicked);
+        }
+        else
+        {
+            Debug.Log("NO TOKENS");
+            return;
+        }
     }
 
     public void TowerUpgradeChosen(string Upgrade)
