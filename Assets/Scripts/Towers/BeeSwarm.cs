@@ -124,7 +124,7 @@ public class BeeSwarm : BaseTowerLogic
         {
             if (storeTowerUpgradeData.ListOfUpgradesObtained[count] == "Bee Swarm Upgrade 1")
             {
-                swarmAmount++;
+                swarmAmount = 10;
             }
             if (storeTowerUpgradeData.ListOfUpgradesObtained[count] == "Bee Swarm Upgrade 2")
             {
