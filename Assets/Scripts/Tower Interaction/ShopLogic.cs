@@ -26,6 +26,7 @@ public class ShopLogic : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     [SerializeField] private GameObject MothTowerPrefab;
     [SerializeField] private GameObject SpiderTowerPrefab;
     [SerializeField] private GameObject StagBeetlePrefab;
+    [SerializeField] private GameObject CentipedePrefab;
 
     [Header("Player Information")]
     [SerializeField] private PlayerStatistics playerStatistics; // Used to check if the player has enogh money when purchasing
@@ -209,6 +210,7 @@ public class ShopLogic : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         else if (towerName == "Moth Tower") PurchaseMothTower(towerName);
         else if (towerName == "Spider") PurchaseSpiderTower(towerName);
         else if (towerName == "Stag Beetle") PurchaseStagBeetleTower(towerName);
+        else if (towerName == "Centipede Tower") PurchaseCentipedeTower(towerName);
         else {
             Debug.Log("Tower: " + towerName + " not found or not yet implemented. Defaulting to Bee Tower.");
             PurchaseBeeTower("Bee Tower");
@@ -293,6 +295,11 @@ public class ShopLogic : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     public void PurchaseStagBeetleTower(string towerName)
     {
         PurchaseLogic(towerName, StagBeetlePrefab);
+    }
+
+    public void PurchaseCentipedeTower(string towerName)
+    {
+        PurchaseLogic(towerName, CentipedePrefab);
     }
 
     private void PurchaseLogic(string towerName, GameObject towerPrefab)

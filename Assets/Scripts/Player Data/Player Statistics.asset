@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: Player Statistics
   m_EditorClassIdentifier: 
   Morale: 100
-  MoraleDuringWorld: 21
-  EvolutionPoints: 20
-  EvolutionPointsDuringWorld: 20
+  MoraleDuringWorld: 100
+  EvolutionPoints: 3
+  EvolutionPointsDuringWorld: 3
   EnemiesKilled: 0
   EnemiesKilledDuringWorld: 0
-  NumberOfWorldsCompleted: 0
-  CurrentWorld: 0,3
+  NumberOfWorldsCompleted: 1
+  CurrentWorld: 1,4
   WorldsCompleted:
-  - 
+  - 0,3
   - 
   - 
   - 
@@ -122,24 +122,24 @@ MonoBehaviour:
   - 
   - 
   LocationOfTowerUnlock:
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  TowersObtained: 8
+  - 1,4
+  - 2,2
+  - 3,1
+  - 4,2
+  - 5,6
+  - 6,1
+  TowersObtained: 10
   Towers:
   - {fileID: 971902319036964014, guid: 6c1bcac6b019a5445a29397b2e5fbdbd, type: 3}
   - {fileID: 4802165041365209427, guid: 6b391e1d30df3bf40982d80495c75b4a, type: 3}
   - {fileID: 4697445435849318074, guid: d683e4508f9f8474e99a3210a2578de0, type: 3}
-  - {fileID: 5375419024465267202, guid: 038281cb77a244742a6c90eadb25957a, type: 3}
   - {fileID: 342585393426448817, guid: 3505d66aedc9c5846b141bb259ef4e91, type: 3}
   - {fileID: 7159842274490414621, guid: 755addfaf130171459f81e3a8a284933, type: 3}
   - {fileID: 1587570604612605659, guid: 7df61434015697245b3e946ffe96167e, type: 3}
   - {fileID: 1779559047980987579, guid: e6d988cee754c7c4db9d4e5088529d64, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 5375419024465267202, guid: 038281cb77a244742a6c90eadb25957a, type: 3}
+  - {fileID: 1071273790937799345, guid: 8a69c412e80b649459dcfa6570d5f355, type: 3}
+  - {fileID: 1071273790937799345, guid: 8a69c412e80b649459dcfa6570d5f355, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -151,13 +151,13 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   TowerPool:
-  - {fileID: 971902319036964014, guid: 6c1bcac6b019a5445a29397b2e5fbdbd, type: 3}
-  - {fileID: 4802165041365209427, guid: 6b391e1d30df3bf40982d80495c75b4a, type: 3}
-  - {fileID: 4697445435849318074, guid: d683e4508f9f8474e99a3210a2578de0, type: 3}
-  - {fileID: 9090199576069704506, guid: 43408111086a3e34db3441bd1aa0baab, type: 3}
-  - {fileID: 9099372547338785898, guid: 9550a6addcd9c354bb98e29b39814b80, type: 3}
-  - {fileID: 68215039139777297, guid: cd5c3652db6025942b286581eeb80dc8, type: 3}
-  - {fileID: 3496186726202727201, guid: 6c1a92e71725f8e4d87187e45f71fa2e, type: 3}
+  - {fileID: 342585393426448817, guid: 3505d66aedc9c5846b141bb259ef4e91, type: 3}
+  - {fileID: 7159842274490414621, guid: 755addfaf130171459f81e3a8a284933, type: 3}
+  - {fileID: 1587570604612605659, guid: 7df61434015697245b3e946ffe96167e, type: 3}
+  - {fileID: 1779559047980987579, guid: e6d988cee754c7c4db9d4e5088529d64, type: 3}
+  - {fileID: 5375419024465267202, guid: 038281cb77a244742a6c90eadb25957a, type: 3}
+  - {fileID: 1071273790937799345, guid: 8a69c412e80b649459dcfa6570d5f355, type: 3}
+  - {fileID: 8433493587229939750, guid: 3f9bf1ad1c016644bacaebcec1d930ed, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -172,12 +172,12 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   TowerUnlockOrder:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1071273790937799345, guid: 8a69c412e80b649459dcfa6570d5f355, type: 3}
+  - {fileID: 7159842274490414621, guid: 755addfaf130171459f81e3a8a284933, type: 3}
+  - {fileID: 1587570604612605659, guid: 7df61434015697245b3e946ffe96167e, type: 3}
+  - {fileID: 342585393426448817, guid: 3505d66aedc9c5846b141bb259ef4e91, type: 3}
+  - {fileID: 1779559047980987579, guid: e6d988cee754c7c4db9d4e5088529d64, type: 3}
+  - {fileID: 5375419024465267202, guid: 038281cb77a244742a6c90eadb25957a, type: 3}
   activeGeneral: 4
   activeModifier: 0
   LevelLoaded: 0

@@ -8,6 +8,8 @@ public class CentipedeSeeker : MonoBehaviour
     public float speed = 7f;
     public int waypointIndex = 0;
     public int damage = 2;
+    public bool firedOut = true;
+    public float lifeTime = 3f;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,11 +27,35 @@ public class CentipedeSeeker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 direction = target.position - transform.position;
-        transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);
-        if (Vector3.Distance(transform.position, target.position) <= 0.4f){
-            GetNextWaypoint();
+        if (lifeTime > 0)
+        {
+            lifeTime -= Time.deltaTime;
+            if (firedOut)
+            {
+                Vector3 dir = target.position - transform.position;
+                transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
+                if (Vector3.Distance(transform.position, target.position) <= 0.4f)
+                {
+                    firedOut = false;
+                }
+            }
+            else
+            {
+                Vector3 direction = target.position - transform.position;
+                transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);
+                if (Vector3.Distance(transform.position, target.position) <= 0.4f)
+                {
+                    GetNextWaypoint();
+                }
+            }
         }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+
+
     }
 
     void GetNextWaypoint()
