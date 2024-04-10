@@ -37,4 +37,9 @@ public class EnemyCarrier : BaseEnemyLogic
     {
         //base.knockback();
     }
+
+    public override void stun(float stunTime)
+    {
+        
+    }
 }

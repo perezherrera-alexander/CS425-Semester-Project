@@ -42,7 +42,7 @@ public class MothTower : BaseTowerLogic
         {
             if (c.GetComponent<BaseEnemyLogic>())
             {
-                c.GetComponent<BaseEnemyLogic>().knockback(50);
+                c.GetComponent<BaseEnemyLogic>().stun(2f);
                 //Have this tower do knockback for now to test functionality, this tower will stun enemies when the stun effect is implemented
             }
         }

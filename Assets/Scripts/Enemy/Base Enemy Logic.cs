@@ -14,6 +14,7 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
 
     public PlayerStatistics PlayerStatistics;
     public ParticleSystem particles;
+    public ParticleSystem stunned;
     public visualEffectHandler death;
 
     public Transform model;
@@ -180,6 +181,8 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
 
     public virtual void stun(float stunTime)
     {
+        ParticleSystem parts =  Instantiate(stunned, transform);
+        StartCoroutine(turnOffStun(stunTime, parts));
         stunTimer = stunTime;
     }
 
@@ -327,6 +330,14 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
     {
         GoldWorth = newGoldValue;
         goldIncreased = true;
+    }
+
+    IEnumerator turnOffStun(float time, ParticleSystem particles)
+    {
+        Debug.Log("Calling stun ");
+        yield return new WaitForSeconds(time);
+        particles.Stop();
+
     }
 
 }
