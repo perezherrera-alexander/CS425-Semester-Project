@@ -6,7 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class SelectTowerToUpgrade : MonoBehaviour
 {
-    public GameObject ChooseTowerUpgradeOptionPanel;
+    public GameObject OldUpgradeWindow;
+    public GameObject NewUpgradeWindow;
+
+
     public GameObject SelectTowerUpgradePanel;
     public GameObject TowerUpgradeDataWindow;
     public GameObject UniqueUpgradeButton;
@@ -31,50 +34,40 @@ public class SelectTowerToUpgrade : MonoBehaviour
     {
         if (OpenClosed == false)
         {
-            ChooseTowerUpgradeOptionPanel.SetActive(true);
+            NewUpgradeWindow.SetActive(true);
             TowerUpgradeName = ButtonName;
             Panel();
             OpenClosed = true;
-            if (UniqueUpgradeButton == null)
-            {
-                return;
-            }
-            else
-            {
-                UniqueUpgradeButton.SetActive(false);
-            }
             ButtonNameHolder = ButtonName;
+            OldUpgradeWindow = NewUpgradeWindow;
             return;
         }
 
-        if (ButtonNameHolder != ButtonName)
+        else if (ButtonNameHolder != ButtonName)
         {
-            ChooseTowerUpgradeOptionPanel.SetActive(false);
-            UniqueUpgradeButton.SetActive(false);
+            OldUpgradeWindow.SetActive(false);
 
-            ChooseTowerUpgradeOptionPanel.SetActive(true);
+            NewUpgradeWindow.SetActive(true);
             TowerUpgradeName = ButtonName;
             Panel();
             OpenClosed = true;
-            if (UniqueUpgradeButton == null)
-            {
-                return;
-            }
-            else
-            {
-                UniqueUpgradeButton.SetActive(false);
-            }
             ButtonNameHolder = ButtonName;
+            OldUpgradeWindow = NewUpgradeWindow;
             return;
         }
 
-        if (OpenClosed)
+        else if (OpenClosed)
         {
-            ChooseTowerUpgradeOptionPanel.SetActive(false);
-            UniqueUpgradeButton.SetActive(false);
+            NewUpgradeWindow.SetActive(false);
             OpenClosed = false;
+            //OldUpgradeWindow = NewUpgradeWindow;
             return;
         }
+    }
+
+    public void Panelset(GameObject panel)
+    {
+        NewUpgradeWindow = panel;
     }
 
     public void PassPannelButtons(GameObject UpgradeButton)
@@ -85,7 +78,7 @@ public class SelectTowerToUpgrade : MonoBehaviour
 
     private void Panel()
     {
-        TMP_Text HeaderName = ChooseTowerUpgradeOptionPanel.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
+        TMP_Text HeaderName = NewUpgradeWindow.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
         HeaderName.text = "SELECT " + TowerUpgradeName + " UPGRADES";
     }
 
@@ -106,15 +99,6 @@ public class SelectTowerToUpgrade : MonoBehaviour
             Debug.Log("No tokens left to purchase upgrade");
             return;
         }
-    }
-
-    public void CreateButtonForUpgrade()
-    {
-        GameObject UpgradeButton = Instantiate(TowerUpgradeButton);
-        UpgradeButton.transform.SetParent(UpgradePickedParent.transform, false);
-
-        int size = storeTowerUpgradeData.ListOfUpgradesObtained.Count - 1;
-        UpgradeButton.GetComponent<RemoveSelectedTowerUpgrade>().SetName(storeTowerUpgradeData.ListOfUpgradesObtained[size]);
     }
 
     public void EndRun()
