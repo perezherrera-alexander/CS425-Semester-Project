@@ -5,6 +5,7 @@ using System;
 
 public class BeetleMelee : BaseTowerLogic
 {
+    public StoreTowerUpgradeData storeTowerUpgradeData;
     private Animator animate;
     public string id;
     public float damage = 0.5f;
@@ -18,6 +19,7 @@ public class BeetleMelee : BaseTowerLogic
         fireRate = 0.5f;
         curAttackSpeed = fireRate;
         animate = GetComponentInChildren<Animator>();
+        AddUpgradeEffects();
     }
 
     // Update is called once per frame
@@ -73,5 +75,20 @@ public class BeetleMelee : BaseTowerLogic
     {
         id = Guid.NewGuid().ToString();
         return id;
+    }
+
+    public void AddUpgradeEffects()
+    {
+        int count = 0;
+        while (count <= storeTowerUpgradeData.ListOfUpgradesObtained.Count)
+        {
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count] == "Stag Beetle Upgrade 1")
+            {
+            }
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count] == "Stag Beetle Upgrade 2")
+            {
+            }
+            count++;
+        }
     }
 }

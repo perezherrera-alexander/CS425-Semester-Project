@@ -6,6 +6,7 @@ using static UnityEngine.Playables.AnimationPlayableUtilities;
 
 public class StraightShooter : BaseTowerLogic
 {
+    public StoreTowerUpgradeData storeTowerUpgradeData;
     public string id;
     private Animator animate;
     // Start is called before the first frame update
@@ -17,6 +18,7 @@ public class StraightShooter : BaseTowerLogic
         animate = GetComponentInChildren<Animator>();
         MakeSphere();
         curAttackSpeed = fireRate;
+        AddUpgradeEffects();
     }
 
     // Update is called once per frame
@@ -51,5 +53,20 @@ public class StraightShooter : BaseTowerLogic
     {
         id = Guid.NewGuid().ToString();
         return id;
+    }
+
+    public void AddUpgradeEffects()
+    {
+        int count = 0;
+        while (count <= storeTowerUpgradeData.ListOfUpgradesObtained.Count)
+        {
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count] == "Wasp Upgrade 1")
+            {
+            }
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count] == "Wasp Upgrade 2")
+            {
+            }
+            count++;
+        }
     }
 }

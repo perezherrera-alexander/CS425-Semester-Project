@@ -5,6 +5,7 @@ using System;
 
 public class MothTower : BaseTowerLogic
 {
+    public StoreTowerUpgradeData storeTowerUpgradeData;
     public Transform center;
     public ParticleSystem particles;
     private float timer = 0f;
@@ -16,6 +17,7 @@ public class MothTower : BaseTowerLogic
     {
         fireRate = 0.3f;
         towerName = "Moth Man";
+        AddUpgradeEffects();
     }
 
     // Update is called once per frame
@@ -55,5 +57,20 @@ public class MothTower : BaseTowerLogic
         var offset = new Vector3(Mathf.Sin(angle), 0, Mathf.Cos(angle)) * 15f;
         transform.position = center.position + offset;
         transform.LookAt(center);
+    }
+
+    public void AddUpgradeEffects()
+    {
+        int count = 0;
+        while (count <= storeTowerUpgradeData.ListOfUpgradesObtained.Count)
+        {
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count] == "Moth Upgrade 1")
+            {
+            }
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count] == "Moth Upgrade 2")
+            {
+            }
+            count++;
+        }
     }
 }

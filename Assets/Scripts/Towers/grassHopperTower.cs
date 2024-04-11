@@ -5,6 +5,7 @@ using System;
 
 public class grassHopperTower : BaseTowerLogic
 {
+    public StoreTowerUpgradeData storeTowerUpgradeData;
     public string id;
     // Start is called before the first frame update
     void Start()
@@ -14,6 +15,7 @@ public class grassHopperTower : BaseTowerLogic
         Invoke();
         MakeSphere();
         curAttackSpeed = fireRate;
+        AddUpgradeEffects();
     }
 
     // Update is called once per frame
@@ -48,5 +50,20 @@ public class grassHopperTower : BaseTowerLogic
     {
         id = Guid.NewGuid().ToString();
         return id;
+    }
+
+    public void AddUpgradeEffects()
+    {
+        int count = 0;
+        while (count <= storeTowerUpgradeData.ListOfUpgradesObtained.Count)
+        {
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count] == "Grass Hopper Upgrade 1")
+            {
+            }
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count] == "Grass Hopper Upgrade 2")
+            {
+            }
+            count++;
+        }
     }
 }

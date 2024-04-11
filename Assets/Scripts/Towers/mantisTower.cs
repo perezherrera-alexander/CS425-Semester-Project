@@ -5,7 +5,7 @@ using System;
 
 public class mantisTower : BaseTowerLogic
 {
-
+    public StoreTowerUpgradeData storeTowerUpgradeData;
     private Animator animate;
     public string id;
     public float sliceDmg = 0.75f;
@@ -19,6 +19,7 @@ public class mantisTower : BaseTowerLogic
         fireRate = 3f;
         curAttackSpeed = fireRate;
         animate = GetComponentInChildren<Animator>();
+        AddUpgradeEffects();
         
     }
 
@@ -81,5 +82,20 @@ public class mantisTower : BaseTowerLogic
     {
         id = Guid.NewGuid().ToString();
         return id;
+    }
+
+    public void AddUpgradeEffects()
+    {
+        int count = 0;
+        while (count <= storeTowerUpgradeData.ListOfUpgradesObtained.Count)
+        {
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count] == "Mantis Upgrade 1")
+            {
+            }
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count] == "Mantis Upgrade 2")
+            {
+            }
+            count++;
+        }
     }
 }

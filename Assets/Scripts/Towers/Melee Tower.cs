@@ -7,6 +7,7 @@ using Codice.CM.Common;
 
 public class meleeTower : BaseTowerLogic
 {
+    public StoreTowerUpgradeData storeTowerUpgradeData;
     private float directDamage = 5f;
 
     private float attackRate = 0f;
@@ -30,6 +31,7 @@ public class meleeTower : BaseTowerLogic
         fireRate = 0.2f;
         curAttackSpeed = fireRate;
         animate = GetComponentInChildren<Animator>();
+        AddUpgradeEffects();
     }
 
     // Update is called once per frame
@@ -118,5 +120,20 @@ public class meleeTower : BaseTowerLogic
     {
         id = Guid.NewGuid().ToString();
         return id;
+    }
+
+    public void AddUpgradeEffects()
+    {
+        int count = 0;
+        while (count <= storeTowerUpgradeData.ListOfUpgradesObtained.Count)
+        {
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count] == "Melee Ant Upgrade 1")
+            {
+            }
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count] == "Melee Ant Upgrade 2")
+            {
+            }
+            count++;
+        }
     }
 }

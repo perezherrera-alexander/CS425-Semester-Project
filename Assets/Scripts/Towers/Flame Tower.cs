@@ -6,6 +6,7 @@ using System;
 
 public class FlameTower : BaseTowerLogic
 {
+    public StoreTowerUpgradeData storeTowerUpgradeData;
     public string id;
     private bool firing = false;
     public ParticleSystem visual;
@@ -22,7 +23,7 @@ public class FlameTower : BaseTowerLogic
         visual.Pause();
         fireArea = GetComponent<CapsuleCollider>();
         fireArea.enabled = false;
-
+        AddUpgradeEffects();
     }
 
     // Update is called once per frame
@@ -82,5 +83,20 @@ public class FlameTower : BaseTowerLogic
     {
         id = Guid.NewGuid().ToString();
         return id;
+    }
+
+    public void AddUpgradeEffects()
+    {
+        int count = 0;
+        while (count <= storeTowerUpgradeData.ListOfUpgradesObtained.Count)
+        {
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count] == "Flame Ant Upgrade 1")
+            {
+            }
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count] == "Flame Ant Upgrade 2")
+            {
+            }
+            count++;
+        }
     }
 }

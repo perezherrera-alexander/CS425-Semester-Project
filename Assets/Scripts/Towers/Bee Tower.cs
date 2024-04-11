@@ -7,6 +7,7 @@ using UnityEngine.UIElements;
 
 public class BeeTower : BaseTowerLogic
 {
+    public StoreTowerUpgradeData storeTowerUpgradeData;
     //public float[] towerPosition; // This variable is seeming unused
     public string id;
     //public Outline outline;
@@ -18,6 +19,7 @@ public class BeeTower : BaseTowerLogic
         MakeSphere();
         Debug.Log("Targetting Type: " + targetingType);
         curAttackSpeed = fireRate;
+        AddUpgradeEffects();
     }
 
     void Update()
@@ -57,5 +59,20 @@ public class BeeTower : BaseTowerLogic
     {
         id = Guid.NewGuid().ToString();
         return id;
+    }
+
+    public void AddUpgradeEffects()
+    {
+        int count = 0;
+        while (count <= storeTowerUpgradeData.ListOfUpgradesObtained.Count)
+        {
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count] == "Attack Bee Upgrade 1")
+            {
+            }
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count] == "Attack Bee Upgrade 2")
+            {
+            }
+            count++;
+        }
     }
 }

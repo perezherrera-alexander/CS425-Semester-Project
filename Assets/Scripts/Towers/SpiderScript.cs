@@ -5,6 +5,7 @@ using System;
 
 public class SpiderScript : BaseTowerLogic
 {
+    public StoreTowerUpgradeData storeTowerUpgradeData;
     private Animator animate;
     public string id;
     //private Animator animate;
@@ -16,6 +17,7 @@ public class SpiderScript : BaseTowerLogic
         Invoke();
         animate = GetComponentInChildren<Animator>();
         MakeSphere();
+        AddUpgradeEffects();
     }
 
     // Update is called once per frame
@@ -55,5 +57,20 @@ public class SpiderScript : BaseTowerLogic
     {
         id = Guid.NewGuid().ToString();
         return id;
+    }
+
+    public void AddUpgradeEffects()
+    {
+        int count = 0;
+        while (count <= storeTowerUpgradeData.ListOfUpgradesObtained.Count)
+        {
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count] == "Spider Upgrade 1")
+            {
+            }
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count] == "Spider Upgrade 2")
+            {
+            }
+            count++;
+        }
     }
 }

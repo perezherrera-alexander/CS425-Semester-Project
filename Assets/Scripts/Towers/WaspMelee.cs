@@ -4,7 +4,8 @@ using UnityEngine;
 using System;
 
 public class WaspMelee : BaseTowerLogic
-{ 
+{
+    public StoreTowerUpgradeData storeTowerUpgradeData;
     public string id;
     private Animator animate;
 
@@ -22,6 +23,7 @@ public class WaspMelee : BaseTowerLogic
         fireRate = 1.5f;
         curAttackSpeed = fireRate;
         animate = GetComponentInChildren<Animator>();
+        AddUpgradeEffects();
     }
 
     // Update is called once per frame
@@ -76,5 +78,20 @@ public class WaspMelee : BaseTowerLogic
     {
         id = Guid.NewGuid().ToString();
         return id;
+    }
+
+    public void AddUpgradeEffects()
+    {
+        int count = 0;
+        while (count <= storeTowerUpgradeData.ListOfUpgradesObtained.Count)
+        {
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count] == "Wasp Melee Upgrade 1")
+            {
+            }
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count] == "Wasp Melee Upgrade 2")
+            {
+            }
+            count++;
+        }
     }
 }

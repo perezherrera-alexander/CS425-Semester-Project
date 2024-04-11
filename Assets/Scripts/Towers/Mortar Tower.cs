@@ -5,6 +5,7 @@ using System;
 
 public class mortarTower : BaseTowerLogic
 {
+    public StoreTowerUpgradeData storeTowerUpgradeData;
     public string id;
 
     // Start is called before the first frame update
@@ -15,6 +16,7 @@ public class mortarTower : BaseTowerLogic
         Invoke();
         MakeSphere();
         curAttackSpeed = fireRate;
+        AddUpgradeEffects();
     }
 
     // Update is called once per frame
@@ -49,5 +51,20 @@ public class mortarTower : BaseTowerLogic
     {
         id = Guid.NewGuid().ToString();
         return id;
+    }
+
+    public void AddUpgradeEffects()
+    {
+        int count = 0;
+        while (count <= storeTowerUpgradeData.ListOfUpgradesObtained.Count)
+        {
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count] == "Mortar Ant Upgrade 1")
+            {
+            }
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count] == "Mortar Ant Upgrade 2")
+            {
+            }
+            count++;
+        }
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class centipedeTower : BaseTowerLogic
 {
+    public StoreTowerUpgradeData storeTowerUpgradeData;
     public int waypointIndex = 0;
     private Animator animate;
     // Start is called before the first frame update
@@ -24,6 +25,7 @@ public class centipedeTower : BaseTowerLogic
         target = Path.waypoints[waypointIndex - 1];
         fireRate = 0.3f;
         animate = GetComponentInChildren<Animator>();
+        AddUpgradeEffects();
     }
 
     // Update is called once per frame
@@ -62,5 +64,20 @@ public class centipedeTower : BaseTowerLogic
         animate.SetTrigger("attack");
         GameObject stinger = Instantiate(projectilePrefab, locationToFireFrom.position, locationToFireFrom.rotation);
         CentipedeSeeker seek = stinger.GetComponent<CentipedeSeeker>();
+    }
+
+    public void AddUpgradeEffects()
+    {
+        int count = 0;
+        while (count <= storeTowerUpgradeData.ListOfUpgradesObtained.Count)
+        {
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count] == "Centipede Upgrade 1")
+            {
+            }
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count] == "Centipede Upgrade 2")
+            {
+            }
+            count++;
+        }
     }
 }

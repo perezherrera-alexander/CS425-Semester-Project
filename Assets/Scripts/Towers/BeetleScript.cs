@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BeetleScript : BaseTowerLogic
 {
-
+    public StoreTowerUpgradeData storeTowerUpgradeData;
     //private Animator animate;
     public string id;
     //public float damage = 0.5f;
@@ -36,6 +36,7 @@ public class BeetleScript : BaseTowerLogic
         }
         Track();
         ListPrune();
+        AddUpgradeEffects();
     }
 
     public override void Track()
@@ -89,5 +90,18 @@ public class BeetleScript : BaseTowerLogic
     }
 
 
-
+    public void AddUpgradeEffects()
+    {
+        int count = 0;
+        while (count <= storeTowerUpgradeData.ListOfUpgradesObtained.Count)
+        {
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count] == "Beetle Upgrade 1")
+            {
+            }
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count] == "Beetle Upgrade 2")
+            {
+            }
+            count++;
+        }
+    }
 }
