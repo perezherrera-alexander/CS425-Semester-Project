@@ -47,17 +47,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effects: []
   objectCollider: {fileID: 0}
-  ob: {fileID: 0}
-  GoldWorth: 0
+  GoldWorth: 1
   PlayerStatistics: {fileID: 0}
+  particles: {fileID: 0}
+  stunned: {fileID: 0}
+  death: {fileID: 0}
   model: {fileID: 0}
   maxHealth: 5
   health: 5
+  goldIncreased: 0
   speed: 10
   slowFactor: 1
   slowDownTimer: 0
   dotDamage: 0
   dotTimer: 0
+  stunTimer: 0
   target: {fileID: 0}
   waypointindex: 0
   differentStart: 0
