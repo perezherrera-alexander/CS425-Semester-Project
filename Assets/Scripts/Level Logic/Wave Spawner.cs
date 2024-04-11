@@ -35,7 +35,8 @@ public class WaveSpawner : MonoBehaviour
         public int enemyAmount;
         public float timeBetweenEnemySpawnsSeconds;
     }
-    public WaveFormat waveFormat;
+    public List<WaveFormat> waveFormats;
+    private WaveFormat waveFormat;
     private List<List<waveFormation>> waves = new List<List<waveFormation>>(); // List of waves
     public Transform SpawnPoint;
     [Header("Wave Settings")]
@@ -53,6 +54,9 @@ public class WaveSpawner : MonoBehaviour
     void Start()
     {
         levelCompleteText.text = "";
+
+        // Pick a random waveFormat from the list
+        waveFormat = waveFormats[UnityEngine.Random.Range(0, waveFormats.Count)];
 
         // Load wave data from waveFormat
         for(int i = 0; i < waveFormat.waveFormations.Length; i++)
