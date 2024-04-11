@@ -5,18 +5,13 @@ using UnityEngine;
 public class GameObjectConversion : MonoBehaviour
 {
     [Header("Tower Prefabs")]
-    [SerializeField] private GameObject BeeTowerPrefab;
-    [SerializeField] private GameObject MortarTowerPrefab;
-    [SerializeField] private GameObject TetherTowerPrefab;
-    [SerializeField] private GameObject FlameTowerPrefab;
-    [SerializeField] private GameObject MeleeTowerPrefab;
-    [SerializeField] private GameObject MortarAntPrefab;
-    [SerializeField] private GameObject AttackBeePrefab;
-    [SerializeField] private GameObject BeeSwarmPrefab;
-    [SerializeField] private GameObject BuffingBeePrefab;
-    [SerializeField] private GameObject WaspTowerPrefab;
-    [SerializeField] private GameObject WaspMeleePrefab;
-    [SerializeField] private GameObject SpiderTowerPrefab;
+    [SerializeField] private GameObject CentipedePrefab;
+    [SerializeField] private GameObject MantisPrefab;
+    [SerializeField] private GameObject BeetlePrefab;
+    [SerializeField] private GameObject StagBeetlePrefab;
+    [SerializeField] private GameObject SpiderPrefab;
+    [SerializeField] private GameObject GrassHopperPrefab;
+    [SerializeField] private GameObject MothPrefab;
 
     public GameObject[] LoadTowerArray;
     public string[] SaveTowerArray;
@@ -106,35 +101,24 @@ public class GameObjectConversion : MonoBehaviour
 
         return LoadTowerArray;
     }
-
     private GameObject GetTowerPrefab(string name)
     {
         switch (name)
         {
-            case "BeeTower":
-                return BeeTowerPrefab;
-            case "MortarTower":
-                return MortarTowerPrefab;
-            case "tetherTower":
-                return TetherTowerPrefab;
-            case "FlameTower":
-                return FlameTowerPrefab;
-            case "MeleeTower":
-                return MeleeTowerPrefab;
-            case "MortarAnt":
-                return MortarAntPrefab;
-            case "AttackBeeTower":
-                return AttackBeePrefab;
-            case "BeeSwarmTower":
-                return BeeSwarmPrefab;
-            case "BuffingBeeTower":
-                return BuffingBeePrefab;
-            case "Wasp":
-                return WaspTowerPrefab;
-            case "WaspMelee":
-                return WaspMeleePrefab;
-            case "Spider":
-                return SpiderTowerPrefab;
+            case "Centipede Mother":
+                return CentipedePrefab;
+            case "Mantis Warrior":
+                return MantisPrefab;
+            case "Beetle Buzzer":
+                return BeetlePrefab;
+            case "Stag Staller":
+                return StagBeetlePrefab;
+            case "Spider Tower":
+                return SpiderPrefab;
+            case "Grasshopper Lair":
+                return GrassHopperPrefab;
+            case "Moth Man":
+                return MothPrefab;
 
             default:
                 Debug.LogWarning("Tower prefab not found: " + name);

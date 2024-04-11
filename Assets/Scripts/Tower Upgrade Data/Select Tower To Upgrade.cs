@@ -29,6 +29,12 @@ public class SelectTowerToUpgrade : MonoBehaviour
     public void Update()
     {
         TokenCounter.text = "Tokens Left: " + storeTowerUpgradeData.TokensObtained.ToString();
+        if (storeTowerUpgradeData.TokensObtained == 0)
+        {
+            Debug.Log("No tokens left to purchase upgrade");
+            SceneManager.LoadScene("Game View");
+            return;
+        }
     }
     public void OpenDataPanel(string ButtonName)
     {
@@ -36,7 +42,6 @@ public class SelectTowerToUpgrade : MonoBehaviour
         {
             NewUpgradeWindow.SetActive(true);
             TowerUpgradeName = ButtonName;
-            Panel();
             OpenClosed = true;
             ButtonNameHolder = ButtonName;
             OldUpgradeWindow = NewUpgradeWindow;
@@ -49,7 +54,6 @@ public class SelectTowerToUpgrade : MonoBehaviour
 
             NewUpgradeWindow.SetActive(true);
             TowerUpgradeName = ButtonName;
-            Panel();
             OpenClosed = true;
             ButtonNameHolder = ButtonName;
             OldUpgradeWindow = NewUpgradeWindow;
@@ -60,7 +64,6 @@ public class SelectTowerToUpgrade : MonoBehaviour
         {
             NewUpgradeWindow.SetActive(false);
             OpenClosed = false;
-            //OldUpgradeWindow = NewUpgradeWindow;
             return;
         }
     }
@@ -70,34 +73,27 @@ public class SelectTowerToUpgrade : MonoBehaviour
         NewUpgradeWindow = panel;
     }
 
-    public void PassPannelButtons(GameObject UpgradeButton)
-    {
-        UniqueUpgradeButton = UpgradeButton;
-        UniqueUpgradeButton.SetActive(true);
-    }
-
-    private void Panel()
-    {
-        TMP_Text HeaderName = NewUpgradeWindow.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
-        HeaderName.text = "SELECT " + TowerUpgradeName + " UPGRADES";
-    }
-
-    public void ButtonPressed(TowerUpgradeData UpgradeData)
-    {
-        TowerUpgradeDataWindow.SetActive(true);
-        Populator.PopulatePanel(UpgradeData);
-    }
-
-    public void SelectUpgrade()
+    public void UpdateTokens()
     {
         if (storeTowerUpgradeData.TokensObtained > 0)
         {
             storeTowerUpgradeData.TokensObtained--;
         }
-        else if (storeTowerUpgradeData.TokensObtained == 0)
+    }
+
+    public void SelectUpgrade(GameObject Button)
+    {
+        if (storeTowerUpgradeData.TokensObtained > 0)
         {
-            Debug.Log("No tokens left to purchase upgrade");
-            return;
+            Destroy(Button);
+        }
+    }
+
+    public void ShowNextUpgradeLevel(GameObject Button)
+    {
+        if (storeTowerUpgradeData.TokensObtained > 0)
+        {
+            Button.SetActive(true);
         }
     }
 

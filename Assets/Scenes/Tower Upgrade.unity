@@ -313,7 +313,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UpgradeNameText: {fileID: 1502824249}
   CostText: {fileID: 2090043413}
-  DescriptionText: {fileID: 0}
+  DescriptionText: {fileID: 356450455}
+  UpgradeData: {fileID: 11400000, guid: fe11264134b684e4bb9a35ccc07827cb, type: 2}
 --- !u!114 &13573837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -370,7 +371,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &22862744
 RectTransform:
   m_ObjectHideFlags: 0
@@ -435,22 +436,46 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 250730940}
-        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
-        m_MethodName: ButtonPressed
-        m_Mode: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: TowerUpgradeChosen
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: TowerUpgradeData, Scripts
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Attack Bee Upgrade 2
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: UpdateListOfUpgrades
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
-        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
-        m_MethodName: TowerUpgradeChosen
-        m_Mode: 5
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: SelectUpgrade
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 22862743}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: UpdateTokens
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -617,22 +642,58 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 250730940}
-        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
-        m_MethodName: ButtonPressed
-        m_Mode: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: TowerUpgradeChosen
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: TowerUpgradeData, Scripts
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Wasp Melee Upgrade 1
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: UpdateListOfUpgrades
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
-        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
-        m_MethodName: TowerUpgradeChosen
-        m_Mode: 5
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: SelectUpgrade
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 53649787}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: ShowNextUpgradeLevel
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1321408291}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: UpdateTokens
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -851,12 +912,11 @@ RectTransform:
   - {fileID: 30238686}
   - {fileID: 1838783983}
   - {fileID: 1898000631}
-  - {fileID: 1368581301}
+  - {fileID: 1026324320}
   - {fileID: 1575593791}
   - {fileID: 1097624248}
   - {fileID: 870864043}
   - {fileID: 186541963}
-  - {fileID: 1026324320}
   m_Father: {fileID: 250730937}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -920,7 +980,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UpgradeNameText: {fileID: 199456724}
   CostText: {fileID: 572454383}
-  DescriptionText: {fileID: 0}
+  DescriptionText: {fileID: 1843287164}
+  UpgradeData: {fileID: 11400000, guid: b97fed9466a567241a5380aabbe35acc, type: 2}
 --- !u!114 &82231962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1015,7 +1076,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UpgradeNameText: {fileID: 1242467198}
   CostText: {fileID: 93834317}
-  DescriptionText: {fileID: 0}
+  DescriptionText: {fileID: 1942545700}
+  UpgradeData: {fileID: 11400000, guid: 1529300a61abafd468d8a4c0fdc4a998, type: 2}
 --- !u!114 &85343398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1137,22 +1199,58 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 250730940}
-        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
-        m_MethodName: ButtonPressed
-        m_Mode: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: TowerUpgradeChosen
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: TowerUpgradeData, Scripts
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Mortar Ant Upgrade 1
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: UpdateListOfUpgrades
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
-        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
-        m_MethodName: TowerUpgradeChosen
-        m_Mode: 5
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: SelectUpgrade
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 90579576}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: ShowNextUpgradeLevel
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1375377029}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: UpdateTokens
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1523,7 +1621,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UpgradeNameText: {fileID: 1335203800}
   CostText: {fileID: 398840738}
-  DescriptionText: {fileID: 0}
+  DescriptionText: {fileID: 965334213}
+  UpgradeData: {fileID: 11400000, guid: bb7d7a989ab67294482513cc4cee5a18, type: 2}
 --- !u!114 &108643129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1913,22 +2012,58 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 250730940}
-        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
-        m_MethodName: ButtonPressed
-        m_Mode: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: TowerUpgradeChosen
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: TowerUpgradeData, Scripts
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Moth Upgrade 1
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: UpdateListOfUpgrades
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
-        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
-        m_MethodName: TowerUpgradeChosen
-        m_Mode: 5
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: SelectUpgrade
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 151098364}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: ShowNextUpgradeLevel
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 978292124}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: UpdateTokens
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1993,7 +2128,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &156815864
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2058,22 +2193,46 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 250730940}
-        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
-        m_MethodName: ButtonPressed
-        m_Mode: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: TowerUpgradeChosen
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: TowerUpgradeData, Scripts
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Buffing Bee Upgrade 2
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: UpdateListOfUpgrades
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
-        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
-        m_MethodName: TowerUpgradeChosen
-        m_Mode: 5
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: SelectUpgrade
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 156815863}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: UpdateTokens
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2310,7 +2469,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UpgradeNameText: {fileID: 2042285566}
   CostText: {fileID: 147066553}
-  DescriptionText: {fileID: 0}
+  DescriptionText: {fileID: 1167996614}
+  UpgradeData: {fileID: 11400000, guid: 5ba510eb41a709b42bc62a3d96959f2a, type: 2}
 --- !u!114 &162547902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2700,22 +2860,58 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 250730940}
-        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
-        m_MethodName: ButtonPressed
-        m_Mode: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: TowerUpgradeChosen
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: TowerUpgradeData, Scripts
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Buffing Bee Upgrade 1
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: UpdateListOfUpgrades
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
-        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
-        m_MethodName: TowerUpgradeChosen
-        m_Mode: 5
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: SelectUpgrade
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 177033009}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: ShowNextUpgradeLevel
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 156815863}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: UpdateTokens
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2772,7 +2968,7 @@ GameObject:
   m_Component:
   - component: {fileID: 186541963}
   m_Layer: 5
-  m_Name: Moth Tower
+  m_Name: Moth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2817,7 +3013,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &192488911
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2882,22 +3078,46 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 250730940}
-        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
-        m_MethodName: ButtonPressed
-        m_Mode: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: TowerUpgradeChosen
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: TowerUpgradeData, Scripts
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Bee Swarm Upgrade 2
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: UpdateListOfUpgrades
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
-        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
-        m_MethodName: TowerUpgradeChosen
-        m_Mode: 5
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: SelectUpgrade
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 192488910}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: UpdateTokens
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3000,7 +3220,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UpgradeNameText: {fileID: 241621933}
   CostText: {fileID: 1705956296}
-  DescriptionText: {fileID: 0}
+  DescriptionText: {fileID: 909564593}
+  UpgradeData: {fileID: 11400000, guid: 1d0834aab66d2984981299147a4fe6ca, type: 2}
 --- !u!114 &192755691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3173,140 +3394,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 198659717}
   m_CullTransparentMesh: 1
---- !u!1 &199306468
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 199306469}
-  - component: {fileID: 199306471}
-  - component: {fileID: 199306470}
-  m_Layer: 5
-  m_Name: Text (TMP)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &199306469
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 199306468}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 207853139}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &199306470
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 199306468}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_text: SELECT UPGRADE
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
-  m_fontMaterial: {fileID: 0}
-  m_fontMaterials: []
-  m_fontColor32:
-    serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_enableVertexGradient: 0
-  m_colorMode: 3
-  m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
-  m_tintAllSprites: 0
-  m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
-  m_overrideHtmlColors: 0
-  m_faceColor:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
-  m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 0
-  m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
-  m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
-  m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
-  m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
-  m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
-  m_linkedTextComponent: {fileID: 0}
-  parentLinkedComponent: {fileID: 0}
-  m_enableKerning: 1
-  m_enableExtraPadding: 0
-  checkPaddingRequired: 0
-  m_isRichText: 1
-  m_parseCtrlCharacters: 1
-  m_isOrthographic: 1
-  m_isCullingEnabled: 0
-  m_horizontalMapping: 0
-  m_verticalMapping: 0
-  m_uvLineOffset: 0
-  m_geometrySortingOrder: 0
-  m_IsTextObjectScaleStatic: 0
-  m_VertexBufferAutoSizeReduction: 0
-  m_useMaxVisibleDescender: 1
-  m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
-  m_isUsingLegacyAnimationComponent: 0
-  m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_baseMaterial: {fileID: 0}
-  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!222 &199306471
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 199306468}
-  m_CullTransparentMesh: 1
 --- !u!1 &199456722
 GameObject:
   m_ObjectHideFlags: 0
@@ -3441,151 +3528,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 199456722}
   m_CullTransparentMesh: 1
---- !u!1 &207853138
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 207853139}
-  - component: {fileID: 207853142}
-  - component: {fileID: 207853141}
-  - component: {fileID: 207853140}
-  m_Layer: 5
-  m_Name: Select Upgrade
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &207853139
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 207853138}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 199306469}
-  m_Father: {fileID: 1928845433}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -218}
-  m_SizeDelta: {x: 200, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &207853140
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 207853138}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 207853141}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 250730940}
-        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
-        m_MethodName: ButtonPressed
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: TowerUpgradeData, Scripts
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
-        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
-        m_MethodName: TowerUpgradeChosen
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &207853141
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 207853138}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &207853142
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 207853138}
-  m_CullTransparentMesh: 1
 --- !u!1 &209540441
 GameObject:
   m_ObjectHideFlags: 0
@@ -3642,7 +3584,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UpgradeNameText: {fileID: 162964566}
   CostText: {fileID: 942463536}
-  DescriptionText: {fileID: 0}
+  DescriptionText: {fileID: 1283681689}
+  UpgradeData: {fileID: 11400000, guid: c463c59dad3abb94693c817673f1503d, type: 2}
 --- !u!114 &209540444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3766,6 +3709,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 250730940}
         m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: Panelset
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1898000630}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
         m_MethodName: OpenDataPanel
         m_Mode: 5
         m_Arguments:
@@ -3773,19 +3728,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Bee
-          m_BoolArgument: 0
-        m_CallState: 1
-      - m_Target: {fileID: 250730940}
-        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
-        m_MethodName: PassPannelButtons
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Beetle
           m_BoolArgument: 0
         m_CallState: 1
 --- !u!114 &215233368
@@ -4179,6 +4122,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 250730940}
         m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: Panelset
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1474941656}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
         m_MethodName: OpenDataPanel
         m_Mode: 5
         m_Arguments:
@@ -4186,19 +4141,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Bee
-          m_BoolArgument: 0
-        m_CallState: 1
-      - m_Target: {fileID: 250730940}
-        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
-        m_MethodName: PassPannelButtons
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Mortar Ant
           m_BoolArgument: 0
         m_CallState: 1
 --- !u!114 &231175243
@@ -4295,7 +4238,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UpgradeNameText: {fileID: 1801530625}
   CostText: {fileID: 1994633906}
-  DescriptionText: {fileID: 0}
+  DescriptionText: {fileID: 1550034347}
+  UpgradeData: {fileID: 11400000, guid: 8192b9cd64f713f4c971f75c48b4c9dc, type: 2}
 --- !u!114 &233316330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4783,22 +4727,58 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 250730940}
-        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
-        m_MethodName: ButtonPressed
-        m_Mode: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: TowerUpgradeChosen
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: TowerUpgradeData, Scripts
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Centipede Upgrade 1
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: UpdateListOfUpgrades
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
-        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
-        m_MethodName: TowerUpgradeChosen
-        m_Mode: 5
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: SelectUpgrade
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 252914972}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: ShowNextUpgradeLevel
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1286620404}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: UpdateTokens
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5380,140 +5360,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 300838110}
   m_CullTransparentMesh: 1
---- !u!1 &310527937
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 310527938}
-  - component: {fileID: 310527940}
-  - component: {fileID: 310527939}
-  m_Layer: 5
-  m_Name: Text (TMP)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &310527938
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 310527937}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1718124193}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &310527939
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 310527937}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_text: SELECT UPGRADE
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
-  m_fontMaterial: {fileID: 0}
-  m_fontMaterials: []
-  m_fontColor32:
-    serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_enableVertexGradient: 0
-  m_colorMode: 3
-  m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
-  m_tintAllSprites: 0
-  m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
-  m_overrideHtmlColors: 0
-  m_faceColor:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
-  m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 0
-  m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
-  m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
-  m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
-  m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
-  m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
-  m_linkedTextComponent: {fileID: 0}
-  parentLinkedComponent: {fileID: 0}
-  m_enableKerning: 1
-  m_enableExtraPadding: 0
-  checkPaddingRequired: 0
-  m_isRichText: 1
-  m_parseCtrlCharacters: 1
-  m_isOrthographic: 1
-  m_isCullingEnabled: 0
-  m_horizontalMapping: 0
-  m_verticalMapping: 0
-  m_uvLineOffset: 0
-  m_geometrySortingOrder: 0
-  m_IsTextObjectScaleStatic: 0
-  m_VertexBufferAutoSizeReduction: 0
-  m_useMaxVisibleDescender: 1
-  m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
-  m_isUsingLegacyAnimationComponent: 0
-  m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_baseMaterial: {fileID: 0}
-  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!222 &310527940
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 310527937}
-  m_CullTransparentMesh: 1
 --- !u!1 &332773946
 GameObject:
   m_ObjectHideFlags: 0
@@ -5599,6 +5445,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 250730940}
         m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: Panelset
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1097624247}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
         m_MethodName: OpenDataPanel
         m_Mode: 5
         m_Arguments:
@@ -5606,19 +5464,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Bee
-          m_BoolArgument: 0
-        m_CallState: 1
-      - m_Target: {fileID: 250730940}
-        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
-        m_MethodName: PassPannelButtons
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Grass Hopper
           m_BoolArgument: 0
         m_CallState: 1
 --- !u!114 &332773949
@@ -6153,7 +5999,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UpgradeNameText: {fileID: 1372440741}
   CostText: {fileID: 1870258186}
-  DescriptionText: {fileID: 0}
+  DescriptionText: {fileID: 825360384}
+  UpgradeData: {fileID: 11400000, guid: 4f2c3a13254bd934b80470f70e1fd0e5, type: 2}
 --- !u!114 &388537454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6382,7 +6229,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UpgradeNameText: {fileID: 1611068111}
   CostText: {fileID: 451977609}
-  DescriptionText: {fileID: 0}
+  DescriptionText: {fileID: 795749977}
+  UpgradeData: {fileID: 11400000, guid: 4029bc4eeb82d1343b834c4b596dd03d, type: 2}
 --- !u!114 &398077703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7386,7 +7234,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UpgradeNameText: {fileID: 1336046550}
   CostText: {fileID: 985932439}
-  DescriptionText: {fileID: 0}
+  DescriptionText: {fileID: 1109278573}
+  UpgradeData: {fileID: 11400000, guid: d76abf143cce5624db38c9fe9374718e, type: 2}
 --- !u!114 &465511768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7508,22 +7357,58 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 250730940}
-        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
-        m_MethodName: ButtonPressed
-        m_Mode: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: TowerUpgradeChosen
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: TowerUpgradeData, Scripts
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Flame Ant Upgrade 2
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: UpdateListOfUpgrades
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
-        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
-        m_MethodName: TowerUpgradeChosen
-        m_Mode: 5
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: SelectUpgrade
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 467501779}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: ShowNextUpgradeLevel
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1580050204}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: UpdateTokens
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -7760,7 +7645,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UpgradeNameText: {fileID: 792628190}
   CostText: {fileID: 1610608491}
-  DescriptionText: {fileID: 0}
+  DescriptionText: {fileID: 961454726}
+  UpgradeData: {fileID: 11400000, guid: ee8ab5504a2782247b85ba3f015126fd, type: 2}
 --- !u!114 &469703076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7989,7 +7875,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UpgradeNameText: {fileID: 1220208061}
   CostText: {fileID: 391505086}
-  DescriptionText: {fileID: 0}
+  DescriptionText: {fileID: 906131841}
+  UpgradeData: {fileID: 11400000, guid: d8a69ee84654a8f4a82e248347ff570c, type: 2}
 --- !u!114 &504797571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8301,7 +8188,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &549359332
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8366,22 +8253,46 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 250730940}
-        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
-        m_MethodName: ButtonPressed
-        m_Mode: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: TowerUpgradeChosen
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: TowerUpgradeData, Scripts
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Mantis Upgrade 2
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: UpdateListOfUpgrades
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
-        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
-        m_MethodName: TowerUpgradeChosen
-        m_Mode: 5
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: SelectUpgrade
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 549359331}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: UpdateTokens
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -8513,6 +8424,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 250730940}
         m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: Panelset
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 461646837}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
         m_MethodName: OpenDataPanel
         m_Mode: 5
         m_Arguments:
@@ -8520,19 +8443,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Bee
-          m_BoolArgument: 0
-        m_CallState: 1
-      - m_Target: {fileID: 250730940}
-        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
-        m_MethodName: PassPannelButtons
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Melee Ant
           m_BoolArgument: 0
         m_CallState: 1
 --- !u!114 &569111366
@@ -9165,7 +9076,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UpgradeNameText: {fileID: 1138651517}
   CostText: {fileID: 1259731035}
-  DescriptionText: {fileID: 0}
+  DescriptionText: {fileID: 1196951225}
+  UpgradeData: {fileID: 11400000, guid: 36ab1e1a778abe144b1a94eb5f4ff417, type: 2}
 --- !u!114 &607750903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9528,7 +9440,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UpgradeNameText: {fileID: 863407718}
   CostText: {fileID: 174818987}
-  DescriptionText: {fileID: 0}
+  DescriptionText: {fileID: 1484001235}
+  UpgradeData: {fileID: 11400000, guid: 1a1beac1460e15e4ea7f273f711fe474, type: 2}
 --- !u!114 &630931166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9784,22 +9697,58 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 250730940}
-        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
-        m_MethodName: ButtonPressed
-        m_Mode: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: TowerUpgradeChosen
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: TowerUpgradeData, Scripts
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Stag Beetle Upgrade 1
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: UpdateListOfUpgrades
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
-        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
-        m_MethodName: TowerUpgradeChosen
-        m_Mode: 5
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: SelectUpgrade
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 670752784}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: ShowNextUpgradeLevel
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1898117541}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: UpdateTokens
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -10400,7 +10349,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &730378329
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10465,22 +10414,46 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 250730940}
-        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
-        m_MethodName: ButtonPressed
-        m_Mode: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: TowerUpgradeChosen
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: TowerUpgradeData, Scripts
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Spider Upgrade 2
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: UpdateListOfUpgrades
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
-        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
-        m_MethodName: TowerUpgradeChosen
-        m_Mode: 5
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: SelectUpgrade
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 730378328}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: UpdateTokens
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -10583,7 +10556,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UpgradeNameText: {fileID: 403013705}
   CostText: {fileID: 1443652049}
-  DescriptionText: {fileID: 0}
+  DescriptionText: {fileID: 1819096118}
+  UpgradeData: {fileID: 11400000, guid: 4e483834e81eafd47829c56a9f3d4140, type: 2}
 --- !u!114 &732152095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10678,7 +10652,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UpgradeNameText: {fileID: 1539545566}
   CostText: {fileID: 421183236}
-  DescriptionText: {fileID: 0}
+  DescriptionText: {fileID: 124559261}
+  UpgradeData: {fileID: 11400000, guid: 52dcd31bc27e51b4f8e00a8353370840, type: 2}
 --- !u!114 &735671673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10735,7 +10710,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &745991846
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10800,22 +10775,46 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 250730940}
-        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
-        m_MethodName: ButtonPressed
-        m_Mode: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: TowerUpgradeChosen
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: TowerUpgradeData, Scripts
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Melee Ant Upgrade 2
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: UpdateListOfUpgrades
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
-        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
-        m_MethodName: TowerUpgradeChosen
-        m_Mode: 5
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: SelectUpgrade
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 745991845}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: UpdateTokens
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -10945,22 +10944,58 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 250730940}
-        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
-        m_MethodName: ButtonPressed
-        m_Mode: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: TowerUpgradeChosen
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: TowerUpgradeData, Scripts
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Grass Hopper Upgrade 1
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: UpdateListOfUpgrades
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
-        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
-        m_MethodName: TowerUpgradeChosen
-        m_Mode: 5
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: SelectUpgrade
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 764744787}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: ShowNextUpgradeLevel
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 975596206}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: UpdateTokens
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -11760,22 +11795,58 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 250730940}
-        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
-        m_MethodName: ButtonPressed
-        m_Mode: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: TowerUpgradeChosen
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: TowerUpgradeData, Scripts
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Spider Upgrade 1
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: UpdateListOfUpgrades
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
-        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
-        m_MethodName: TowerUpgradeChosen
-        m_Mode: 5
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: SelectUpgrade
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 826087192}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: ShowNextUpgradeLevel
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 730378328}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: UpdateTokens
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -11999,6 +12070,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 250730940}
         m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: Panelset
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 186541962}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
         m_MethodName: OpenDataPanel
         m_Mode: 5
         m_Arguments:
@@ -12006,19 +12089,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Bee
-          m_BoolArgument: 0
-        m_CallState: 1
-      - m_Target: {fileID: 250730940}
-        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
-        m_MethodName: PassPannelButtons
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Moth
           m_BoolArgument: 0
         m_CallState: 1
 --- !u!114 &829037278
@@ -12115,7 +12186,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UpgradeNameText: {fileID: 1833274730}
   CostText: {fileID: 1954863582}
-  DescriptionText: {fileID: 0}
+  DescriptionText: {fileID: 854932596}
+  UpgradeData: {fileID: 11400000, guid: f23bcb5eb36989a4d96b37651b39284d, type: 2}
 --- !u!114 &829678131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12773,22 +12845,58 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 250730940}
-        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
-        m_MethodName: ButtonPressed
-        m_Mode: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: TowerUpgradeChosen
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: TowerUpgradeData, Scripts
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Mantis Upgrade 1
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: UpdateListOfUpgrades
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
-        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
-        m_MethodName: TowerUpgradeChosen
-        m_Mode: 5
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: SelectUpgrade
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 866315052}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: ShowNextUpgradeLevel
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 549359331}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: UpdateTokens
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -12845,7 +12953,7 @@ GameObject:
   m_Component:
   - component: {fileID: 870864043}
   m_Layer: 5
-  m_Name: Mantis Tower
+  m_Name: Mantis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12872,140 +12980,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &882318420
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 882318421}
-  - component: {fileID: 882318423}
-  - component: {fileID: 882318422}
-  m_Layer: 5
-  m_Name: Description
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &882318421
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 882318420}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1567307506}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -40}
-  m_SizeDelta: {x: 700, y: 300}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &882318422
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 882318420}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_text: 'Description - '
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
-  m_fontMaterial: {fileID: 0}
-  m_fontMaterials: []
-  m_fontColor32:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
-  m_enableVertexGradient: 0
-  m_colorMode: 3
-  m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
-  m_tintAllSprites: 0
-  m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
-  m_overrideHtmlColors: 0
-  m_faceColor:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
-  m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
-  m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
-  m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
-  m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
-  m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
-  m_linkedTextComponent: {fileID: 0}
-  parentLinkedComponent: {fileID: 0}
-  m_enableKerning: 1
-  m_enableExtraPadding: 0
-  checkPaddingRequired: 0
-  m_isRichText: 1
-  m_parseCtrlCharacters: 1
-  m_isOrthographic: 1
-  m_isCullingEnabled: 0
-  m_horizontalMapping: 0
-  m_verticalMapping: 0
-  m_uvLineOffset: 0
-  m_geometrySortingOrder: 0
-  m_IsTextObjectScaleStatic: 0
-  m_VertexBufferAutoSizeReduction: 0
-  m_useMaxVisibleDescender: 1
-  m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -24.45636, w: 0}
-  m_isUsingLegacyAnimationComponent: 0
-  m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_baseMaterial: {fileID: 0}
-  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!222 &882318423
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 882318420}
-  m_CullTransparentMesh: 1
 --- !u!1 &887517303
 GameObject:
   m_ObjectHideFlags: 0
@@ -13426,7 +13400,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &917330153
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13491,22 +13465,46 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 250730940}
-        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
-        m_MethodName: ButtonPressed
-        m_Mode: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: TowerUpgradeChosen
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: TowerUpgradeData, Scripts
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Beetle Upgrade 2
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: UpdateListOfUpgrades
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
-        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
-        m_MethodName: TowerUpgradeChosen
-        m_Mode: 5
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: SelectUpgrade
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 917330152}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: UpdateTokens
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -14145,7 +14143,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UpgradeNameText: {fileID: 1449025311}
   CostText: {fileID: 469666928}
-  DescriptionText: {fileID: 0}
+  DescriptionText: {fileID: 1671472750}
+  UpgradeData: {fileID: 11400000, guid: 9c803e935789d704da690b5c3655aaa2, type: 2}
 --- !u!114 &943337473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14641,7 +14640,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &975596207
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14706,22 +14705,46 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 250730940}
-        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
-        m_MethodName: ButtonPressed
-        m_Mode: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: TowerUpgradeChosen
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: TowerUpgradeData, Scripts
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Grass Hopper Upgrade 2
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: UpdateListOfUpgrades
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
-        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
-        m_MethodName: TowerUpgradeChosen
-        m_Mode: 5
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: SelectUpgrade
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 975596206}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: UpdateTokens
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -14786,7 +14809,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &978292125
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14851,22 +14874,46 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 250730940}
-        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
-        m_MethodName: ButtonPressed
-        m_Mode: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: TowerUpgradeChosen
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: TowerUpgradeData, Scripts
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Moth Upgrade 2
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: UpdateListOfUpgrades
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
-        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
-        m_MethodName: TowerUpgradeChosen
-        m_Mode: 5
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: SelectUpgrade
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 978292124}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: UpdateTokens
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -15325,7 +15372,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1026324320}
   m_Layer: 5
-  m_Name: Stag Beetle Melee
+  m_Name: Stag Beetle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15542,7 +15589,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UpgradeNameText: {fileID: 927223017}
   CostText: {fileID: 949094827}
-  DescriptionText: {fileID: 0}
+  DescriptionText: {fileID: 1227774244}
+  UpgradeData: {fileID: 11400000, guid: 6db8038ee67138e4793ede8f9e633068, type: 2}
 --- !u!114 &1052652478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15666,6 +15714,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 250730940}
         m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: Panelset
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2020709724}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
         m_MethodName: OpenDataPanel
         m_Mode: 5
         m_Arguments:
@@ -15673,19 +15733,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Bee
-          m_BoolArgument: 0
-        m_CallState: 1
-      - m_Target: {fileID: 250730940}
-        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
-        m_MethodName: PassPannelButtons
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Wasp
           m_BoolArgument: 0
         m_CallState: 1
 --- !u!114 &1053954543
@@ -16785,6 +16833,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 250730940}
         m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: Panelset
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 30238685}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
         m_MethodName: OpenDataPanel
         m_Mode: 5
         m_Arguments:
@@ -16792,19 +16852,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Bee
-          m_BoolArgument: 0
-        m_CallState: 1
-      - m_Target: {fileID: 250730940}
-        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
-        m_MethodName: PassPannelButtons
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Wasp Melee
           m_BoolArgument: 0
         m_CallState: 1
 --- !u!114 &1184751890
@@ -17062,22 +17110,58 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 250730940}
-        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
-        m_MethodName: ButtonPressed
-        m_Mode: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: TowerUpgradeChosen
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: TowerUpgradeData, Scripts
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Attack Bee Upgrade 1
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: UpdateListOfUpgrades
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
-        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
-        m_MethodName: TowerUpgradeChosen
-        m_Mode: 5
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: SelectUpgrade
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1197518441}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: ShowNextUpgradeLevel
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 22862743}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: UpdateTokens
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -17448,7 +17532,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UpgradeNameText: {fileID: 680275000}
   CostText: {fileID: 2204014}
-  DescriptionText: {fileID: 0}
+  DescriptionText: {fileID: 887517305}
+  UpgradeData: {fileID: 11400000, guid: 95644227bff06dd4b98ff62255175a00, type: 2}
 --- !u!114 &1209535188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18421,7 +18506,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UpgradeNameText: {fileID: 1746438709}
   CostText: {fileID: 221583233}
-  DescriptionText: {fileID: 0}
+  DescriptionText: {fileID: 1874989665}
+  UpgradeData: {fileID: 11400000, guid: 01598fce4693a874d910458a62d88d99, type: 2}
 --- !u!114 &1279780762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18746,7 +18832,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1286620405
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18811,22 +18897,46 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 250730940}
-        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
-        m_MethodName: ButtonPressed
-        m_Mode: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: TowerUpgradeChosen
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: TowerUpgradeData, Scripts
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Centipede Upgrade 2
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: UpdateListOfUpgrades
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
-        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
-        m_MethodName: TowerUpgradeChosen
-        m_Mode: 5
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: SelectUpgrade
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1286620404}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: UpdateTokens
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -18929,7 +19039,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UpgradeNameText: {fileID: 1531478084}
   CostText: {fileID: 919231239}
-  DescriptionText: {fileID: 0}
+  DescriptionText: {fileID: 473566109}
+  UpgradeData: {fileID: 11400000, guid: a8a98d028f4ef25458d6ff73e4b43a45, type: 2}
 --- !u!114 &1307040556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19120,7 +19231,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1321408292
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19185,22 +19296,46 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 250730940}
-        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
-        m_MethodName: ButtonPressed
-        m_Mode: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: TowerUpgradeChosen
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: TowerUpgradeData, Scripts
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Wasp Melee Upgrade 2
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: UpdateListOfUpgrades
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
-        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
-        m_MethodName: TowerUpgradeChosen
-        m_Mode: 5
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: SelectUpgrade
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1321408291}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: UpdateTokens
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -20088,43 +20223,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1355505387}
   m_CullTransparentMesh: 1
---- !u!1 &1368581300
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1368581301}
-  m_Layer: 5
-  m_Name: Centipede Seeker
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &1368581301
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1368581300}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1567307506}
-  - {fileID: 1928845433}
-  m_Father: {fileID: 75821930}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1372440739
 GameObject:
   m_ObjectHideFlags: 0
@@ -20277,7 +20375,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1375377030
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20342,22 +20440,46 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 250730940}
-        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
-        m_MethodName: ButtonPressed
-        m_Mode: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: TowerUpgradeChosen
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: TowerUpgradeData, Scripts
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Mortar Ant Upgrade 2
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: UpdateListOfUpgrades
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
-        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
-        m_MethodName: TowerUpgradeChosen
-        m_Mode: 5
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: SelectUpgrade
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1375377029}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: UpdateTokens
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -20678,7 +20800,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UpgradeNameText: {fileID: 1577617927}
   CostText: {fileID: 1664753512}
-  DescriptionText: {fileID: 0}
+  DescriptionText: {fileID: 161702402}
+  UpgradeData: {fileID: 11400000, guid: 8bcf16f232ce0124d9b0e0da0c34dd47, type: 2}
 --- !u!114 &1391300830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20773,7 +20896,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UpgradeNameText: {fileID: 1313572663}
   CostText: {fileID: 1455533239}
-  DescriptionText: {fileID: 0}
+  DescriptionText: {fileID: 1328011421}
+  UpgradeData: {fileID: 11400000, guid: cef464e6181c5a746b62a170ff9369ff, type: 2}
 --- !u!114 &1431522210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22551,101 +22675,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &1567307505
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1567307506}
-  - component: {fileID: 1567307509}
-  - component: {fileID: 1567307508}
-  - component: {fileID: 1567307507}
-  m_Layer: 5
-  m_Name: Upgrade 1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1567307506
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1567307505}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2018761254}
-  - {fileID: 2020554407}
-  - {fileID: 882318421}
-  - {fileID: 1718124193}
-  m_Father: {fileID: 1368581301}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -440, y: -160}
-  m_SizeDelta: {x: 720, y: 480}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1567307507
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1567307505}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd9b8010b37c9734d8b0b243fe6ca014, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UpgradeNameText: {fileID: 2018761255}
-  CostText: {fileID: 2020554408}
-  DescriptionText: {fileID: 0}
---- !u!114 &1567307508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1567307505}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1567307509
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1567307505}
-  m_CullTransparentMesh: 1
 --- !u!1 &1575593790
 GameObject:
   m_ObjectHideFlags: 0
@@ -22656,7 +22685,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1575593791}
   m_Layer: 5
-  m_Name: Centipede Tower
+  m_Name: Centipede
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22835,7 +22864,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1580050205
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22900,22 +22929,46 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 250730940}
-        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
-        m_MethodName: ButtonPressed
-        m_Mode: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: TowerUpgradeChosen
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: TowerUpgradeData, Scripts
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Flame Ant Upgrade 2
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: UpdateListOfUpgrades
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
-        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
-        m_MethodName: TowerUpgradeChosen
-        m_Mode: 5
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: SelectUpgrade
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1580050204}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: UpdateTokens
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -23777,140 +23830,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1611068109}
   m_CullTransparentMesh: 1
---- !u!1 &1613927812
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1613927813}
-  - component: {fileID: 1613927815}
-  - component: {fileID: 1613927814}
-  m_Layer: 5
-  m_Name: Upgrade Cost
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1613927813
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1613927812}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1928845433}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 150}
-  m_SizeDelta: {x: 700, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1613927814
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1613927812}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_text: 'Cost - '
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
-  m_fontMaterial: {fileID: 0}
-  m_fontMaterials: []
-  m_fontColor32:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
-  m_enableVertexGradient: 0
-  m_colorMode: 3
-  m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
-  m_tintAllSprites: 0
-  m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
-  m_overrideHtmlColors: 0
-  m_faceColor:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
-  m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
-  m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
-  m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
-  m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
-  m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
-  m_linkedTextComponent: {fileID: 0}
-  parentLinkedComponent: {fileID: 0}
-  m_enableKerning: 1
-  m_enableExtraPadding: 0
-  checkPaddingRequired: 0
-  m_isRichText: 1
-  m_parseCtrlCharacters: 1
-  m_isOrthographic: 1
-  m_isCullingEnabled: 0
-  m_horizontalMapping: 0
-  m_verticalMapping: 0
-  m_uvLineOffset: 0
-  m_geometrySortingOrder: 0
-  m_IsTextObjectScaleStatic: 0
-  m_VertexBufferAutoSizeReduction: 0
-  m_useMaxVisibleDescender: 1
-  m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -24.45636, w: 0}
-  m_isUsingLegacyAnimationComponent: 0
-  m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_baseMaterial: {fileID: 0}
-  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!222 &1613927815
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1613927812}
-  m_CullTransparentMesh: 1
 --- !u!1 &1629684758
 GameObject:
   m_ObjectHideFlags: 0
@@ -23996,6 +23915,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 250730940}
         m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: Panelset
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1838783982}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
         m_MethodName: OpenDataPanel
         m_Mode: 5
         m_Arguments:
@@ -24003,19 +23934,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Bee
-          m_BoolArgument: 0
-        m_CallState: 1
-      - m_Target: {fileID: 250730940}
-        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
-        m_MethodName: PassPannelButtons
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Spider
           m_BoolArgument: 0
         m_CallState: 1
 --- !u!114 &1629684761
@@ -24055,140 +23974,6 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1629684758}
-  m_CullTransparentMesh: 1
---- !u!1 &1647706986
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1647706987}
-  - component: {fileID: 1647706989}
-  - component: {fileID: 1647706988}
-  m_Layer: 5
-  m_Name: Upgrade Name
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1647706987
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1647706986}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1928845433}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 240}
-  m_SizeDelta: {x: 458.0141, y: 67.8018}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1647706988
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1647706986}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_text: _________ Upgrade Name
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
-  m_fontMaterial: {fileID: 0}
-  m_fontMaterials: []
-  m_fontColor32:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
-  m_enableVertexGradient: 0
-  m_colorMode: 3
-  m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
-  m_tintAllSprites: 0
-  m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
-  m_overrideHtmlColors: 0
-  m_faceColor:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
-  m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 0
-  m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
-  m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
-  m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
-  m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
-  m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
-  m_linkedTextComponent: {fileID: 0}
-  parentLinkedComponent: {fileID: 0}
-  m_enableKerning: 1
-  m_enableExtraPadding: 0
-  checkPaddingRequired: 0
-  m_isRichText: 1
-  m_parseCtrlCharacters: 1
-  m_isOrthographic: 1
-  m_isCullingEnabled: 0
-  m_horizontalMapping: 0
-  m_verticalMapping: 0
-  m_uvLineOffset: 0
-  m_geometrySortingOrder: 0
-  m_IsTextObjectScaleStatic: 0
-  m_VertexBufferAutoSizeReduction: 0
-  m_useMaxVisibleDescender: 1
-  m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
-  m_isUsingLegacyAnimationComponent: 0
-  m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_baseMaterial: {fileID: 0}
-  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!222 &1647706989
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1647706986}
   m_CullTransparentMesh: 1
 --- !u!1 &1663108900
 GameObject:
@@ -24648,7 +24433,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UpgradeNameText: {fileID: 1718355836}
   CostText: {fileID: 2010093864}
-  DescriptionText: {fileID: 0}
+  DescriptionText: {fileID: 941835892}
+  UpgradeData: {fileID: 11400000, guid: 8290979475a8f134a91f8dfdbca75711, type: 2}
 --- !u!114 &1675534443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24743,7 +24529,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UpgradeNameText: {fileID: 637679216}
   CostText: {fileID: 520294507}
-  DescriptionText: {fileID: 0}
+  DescriptionText: {fileID: 1996839513}
+  UpgradeData: {fileID: 11400000, guid: 780014b871820a845948a74144c98f22, type: 2}
 --- !u!114 &1683216164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25269,6 +25056,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 250730940}
         m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: Panelset
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1575593790}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
         m_MethodName: OpenDataPanel
         m_Mode: 5
         m_Arguments:
@@ -25276,19 +25075,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Bee
-          m_BoolArgument: 0
-        m_CallState: 1
-      - m_Target: {fileID: 250730940}
-        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
-        m_MethodName: PassPannelButtons
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Centipede Tower
           m_BoolArgument: 0
         m_CallState: 1
 --- !u!114 &1714205555
@@ -25328,151 +25115,6 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1714205552}
-  m_CullTransparentMesh: 1
---- !u!1 &1718124192
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1718124193}
-  - component: {fileID: 1718124196}
-  - component: {fileID: 1718124195}
-  - component: {fileID: 1718124194}
-  m_Layer: 5
-  m_Name: Select Upgrade
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1718124193
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1718124192}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 310527938}
-  m_Father: {fileID: 1567307506}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -218}
-  m_SizeDelta: {x: 200, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1718124194
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1718124192}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1718124195}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 250730940}
-        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
-        m_MethodName: ButtonPressed
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: TowerUpgradeData, Scripts
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
-        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
-        m_MethodName: TowerUpgradeChosen
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1718124195
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1718124192}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1718124196
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1718124192}
   m_CullTransparentMesh: 1
 --- !u!1 &1718355834
 GameObject:
@@ -25693,6 +25335,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 250730940}
         m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: Panelset
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1219143633}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
         m_MethodName: OpenDataPanel
         m_Mode: 5
         m_Arguments:
@@ -25700,19 +25354,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Bee
-          m_BoolArgument: 0
-        m_CallState: 1
-      - m_Target: {fileID: 250730940}
-        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
-        m_MethodName: PassPannelButtons
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Bee Swarm
           m_BoolArgument: 0
         m_CallState: 1
 --- !u!114 &1739678723
@@ -25972,6 +25614,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 250730940}
         m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: Panelset
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1241032498}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
         m_MethodName: OpenDataPanel
         m_Mode: 5
         m_Arguments:
@@ -25979,19 +25633,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Bee
-          m_BoolArgument: 0
-        m_CallState: 1
-      - m_Target: {fileID: 250730940}
-        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
-        m_MethodName: PassPannelButtons
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Flame Ant
           m_BoolArgument: 0
         m_CallState: 1
 --- !u!114 &1759432825
@@ -27055,6 +26697,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 250730940}
         m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: Panelset
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1026324319}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
         m_MethodName: OpenDataPanel
         m_Mode: 5
         m_Arguments:
@@ -27062,19 +26716,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Bee
-          m_BoolArgument: 0
-        m_CallState: 1
-      - m_Target: {fileID: 250730940}
-        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
-        m_MethodName: PassPannelButtons
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Stag Beetle
           m_BoolArgument: 0
         m_CallState: 1
 --- !u!114 &1828280984
@@ -27962,140 +27604,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1886526691
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1886526692}
-  - component: {fileID: 1886526694}
-  - component: {fileID: 1886526693}
-  m_Layer: 5
-  m_Name: Description
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1886526692
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1886526691}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1928845433}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -40}
-  m_SizeDelta: {x: 700, y: 300}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1886526693
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1886526691}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_text: 'Description - '
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
-  m_fontMaterial: {fileID: 0}
-  m_fontMaterials: []
-  m_fontColor32:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
-  m_enableVertexGradient: 0
-  m_colorMode: 3
-  m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
-  m_tintAllSprites: 0
-  m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
-  m_overrideHtmlColors: 0
-  m_faceColor:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
-  m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
-  m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
-  m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
-  m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
-  m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
-  m_linkedTextComponent: {fileID: 0}
-  parentLinkedComponent: {fileID: 0}
-  m_enableKerning: 1
-  m_enableExtraPadding: 0
-  checkPaddingRequired: 0
-  m_isRichText: 1
-  m_parseCtrlCharacters: 1
-  m_isOrthographic: 1
-  m_isCullingEnabled: 0
-  m_horizontalMapping: 0
-  m_verticalMapping: 0
-  m_uvLineOffset: 0
-  m_geometrySortingOrder: 0
-  m_IsTextObjectScaleStatic: 0
-  m_VertexBufferAutoSizeReduction: 0
-  m_useMaxVisibleDescender: 1
-  m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -24.45636, w: 0}
-  m_isUsingLegacyAnimationComponent: 0
-  m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_baseMaterial: {fileID: 0}
-  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!222 &1886526694
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1886526691}
-  m_CullTransparentMesh: 1
 --- !u!1 &1898000630
 GameObject:
   m_ObjectHideFlags: 0
@@ -28151,7 +27659,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1898117542
 RectTransform:
   m_ObjectHideFlags: 0
@@ -28216,22 +27724,46 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 250730940}
-        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
-        m_MethodName: ButtonPressed
-        m_Mode: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: TowerUpgradeChosen
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: TowerUpgradeData, Scripts
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Stag Beetle Upgrade 2
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: UpdateListOfUpgrades
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
-        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
-        m_MethodName: TowerUpgradeChosen
-        m_Mode: 5
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: SelectUpgrade
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1898117541}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: UpdateTokens
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -28409,7 +27941,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UpgradeNameText: {fileID: 1009611710}
   CostText: {fileID: 2019590354}
-  DescriptionText: {fileID: 0}
+  DescriptionText: {fileID: 1526427884}
+  UpgradeData: {fileID: 11400000, guid: b914ba28fdb1af440af28a3050ad223a, type: 2}
 --- !u!114 &1920210732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28581,101 +28114,6 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1921567346}
-  m_CullTransparentMesh: 1
---- !u!1 &1928845432
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1928845433}
-  - component: {fileID: 1928845436}
-  - component: {fileID: 1928845435}
-  - component: {fileID: 1928845434}
-  m_Layer: 5
-  m_Name: Upgrade 2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1928845433
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1928845432}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1647706987}
-  - {fileID: 1613927813}
-  - {fileID: 1886526692}
-  - {fileID: 207853139}
-  m_Father: {fileID: 1368581301}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 440, y: -160}
-  m_SizeDelta: {x: 720, y: 480}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1928845434
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1928845432}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd9b8010b37c9734d8b0b243fe6ca014, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UpgradeNameText: {fileID: 1647706988}
-  CostText: {fileID: 1613927814}
-  DescriptionText: {fileID: 0}
---- !u!114 &1928845435
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1928845432}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1928845436
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1928845432}
   m_CullTransparentMesh: 1
 --- !u!1 &1929987501
 GameObject:
@@ -28867,7 +28305,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UpgradeNameText: {fileID: 834190338}
   CostText: {fileID: 430749488}
-  DescriptionText: {fileID: 0}
+  DescriptionText: {fileID: 54520052}
+  UpgradeData: {fileID: 11400000, guid: 1fd9b7a5c85cccb4fbd1b92b143a4b4d, type: 2}
 --- !u!114 &1932376239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28989,22 +28428,58 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 250730940}
-        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
-        m_MethodName: ButtonPressed
-        m_Mode: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: TowerUpgradeChosen
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: TowerUpgradeData, Scripts
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Wasp Upgrade 1
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: UpdateListOfUpgrades
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
-        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
-        m_MethodName: TowerUpgradeChosen
-        m_Mode: 5
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: SelectUpgrade
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1933487524}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: ShowNextUpgradeLevel
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2062467303}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: UpdateTokens
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -29107,7 +28582,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UpgradeNameText: {fileID: 1964512692}
   CostText: {fileID: 1462335450}
-  DescriptionText: {fileID: 0}
+  DescriptionText: {fileID: 1769752934}
+  UpgradeData: {fileID: 11400000, guid: 251e1f784601c37459a622705d53115b, type: 2}
 --- !u!114 &1934480699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29374,22 +28850,58 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 250730940}
-        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
-        m_MethodName: ButtonPressed
-        m_Mode: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: TowerUpgradeChosen
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: TowerUpgradeData, Scripts
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Bee Swarm Upgrade 1
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: UpdateListOfUpgrades
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
-        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
-        m_MethodName: TowerUpgradeChosen
-        m_Mode: 5
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: SelectUpgrade
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1941992799}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: ShowNextUpgradeLevel
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 192488910}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: UpdateTokens
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -30374,140 +29886,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2010093862}
   m_CullTransparentMesh: 1
---- !u!1 &2018761253
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2018761254}
-  - component: {fileID: 2018761256}
-  - component: {fileID: 2018761255}
-  m_Layer: 5
-  m_Name: Upgrade Name
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &2018761254
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2018761253}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1567307506}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 240}
-  m_SizeDelta: {x: 458.0141, y: 67.8018}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2018761255
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2018761253}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_text: _________ Upgrade Name
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
-  m_fontMaterial: {fileID: 0}
-  m_fontMaterials: []
-  m_fontColor32:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
-  m_enableVertexGradient: 0
-  m_colorMode: 3
-  m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
-  m_tintAllSprites: 0
-  m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
-  m_overrideHtmlColors: 0
-  m_faceColor:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
-  m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 0
-  m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
-  m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
-  m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
-  m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
-  m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
-  m_linkedTextComponent: {fileID: 0}
-  parentLinkedComponent: {fileID: 0}
-  m_enableKerning: 1
-  m_enableExtraPadding: 0
-  checkPaddingRequired: 0
-  m_isRichText: 1
-  m_parseCtrlCharacters: 1
-  m_isOrthographic: 1
-  m_isCullingEnabled: 0
-  m_horizontalMapping: 0
-  m_verticalMapping: 0
-  m_uvLineOffset: 0
-  m_geometrySortingOrder: 0
-  m_IsTextObjectScaleStatic: 0
-  m_VertexBufferAutoSizeReduction: 0
-  m_useMaxVisibleDescender: 1
-  m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
-  m_isUsingLegacyAnimationComponent: 0
-  m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_baseMaterial: {fileID: 0}
-  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!222 &2018761256
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2018761253}
-  m_CullTransparentMesh: 1
 --- !u!1 &2019590352
 GameObject:
   m_ObjectHideFlags: 0
@@ -30725,22 +30103,58 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 250730940}
-        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
-        m_MethodName: ButtonPressed
-        m_Mode: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: TowerUpgradeChosen
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: TowerUpgradeData, Scripts
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Beetle Upgrade 1
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: UpdateListOfUpgrades
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
-        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
-        m_MethodName: TowerUpgradeChosen
-        m_Mode: 5
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: SelectUpgrade
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2019960938}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: ShowNextUpgradeLevel
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 917330152}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: UpdateTokens
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -30786,140 +30200,6 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2019960938}
-  m_CullTransparentMesh: 1
---- !u!1 &2020554406
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2020554407}
-  - component: {fileID: 2020554409}
-  - component: {fileID: 2020554408}
-  m_Layer: 5
-  m_Name: Upgrade Cost
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &2020554407
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2020554406}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1567307506}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 150}
-  m_SizeDelta: {x: 700, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2020554408
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2020554406}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_text: 'Cost - '
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
-  m_fontMaterial: {fileID: 0}
-  m_fontMaterials: []
-  m_fontColor32:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
-  m_enableVertexGradient: 0
-  m_colorMode: 3
-  m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
-  m_tintAllSprites: 0
-  m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
-  m_overrideHtmlColors: 0
-  m_faceColor:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
-  m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
-  m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
-  m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
-  m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
-  m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
-  m_linkedTextComponent: {fileID: 0}
-  parentLinkedComponent: {fileID: 0}
-  m_enableKerning: 1
-  m_enableExtraPadding: 0
-  checkPaddingRequired: 0
-  m_isRichText: 1
-  m_parseCtrlCharacters: 1
-  m_isOrthographic: 1
-  m_isCullingEnabled: 0
-  m_horizontalMapping: 0
-  m_verticalMapping: 0
-  m_uvLineOffset: 0
-  m_geometrySortingOrder: 0
-  m_IsTextObjectScaleStatic: 0
-  m_VertexBufferAutoSizeReduction: 0
-  m_useMaxVisibleDescender: 1
-  m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -24.45636, w: 0}
-  m_isUsingLegacyAnimationComponent: 0
-  m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_baseMaterial: {fileID: 0}
-  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!222 &2020554409
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2020554406}
   m_CullTransparentMesh: 1
 --- !u!1 &2020709724
 GameObject:
@@ -31043,6 +30323,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 250730940}
         m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: Panelset
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 870864042}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
         m_MethodName: OpenDataPanel
         m_Mode: 5
         m_Arguments:
@@ -31050,19 +30342,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Bee
-          m_BoolArgument: 0
-        m_CallState: 1
-      - m_Target: {fileID: 250730940}
-        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
-        m_MethodName: PassPannelButtons
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Mantis
           m_BoolArgument: 0
         m_CallState: 1
 --- !u!114 &2025783179
@@ -31255,7 +30535,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2062467304
 RectTransform:
   m_ObjectHideFlags: 0
@@ -31320,22 +30600,46 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 250730940}
-        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
-        m_MethodName: ButtonPressed
-        m_Mode: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: TowerUpgradeChosen
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: TowerUpgradeData, Scripts
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Wasp Upgrade 2
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: UpdateListOfUpgrades
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
-        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
-        m_MethodName: TowerUpgradeChosen
-        m_Mode: 5
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: SelectUpgrade
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2062467303}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: UpdateTokens
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -31677,22 +30981,58 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 250730940}
-        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
-        m_MethodName: ButtonPressed
-        m_Mode: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: TowerUpgradeChosen
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: TowerUpgradeData, Scripts
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Melee Ant Upgrade 1
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
+        m_MethodName: UpdateListOfUpgrades
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
-        m_TargetAssemblyTypeName: StoreTowerUpgradeData, Scripts
-        m_MethodName: TowerUpgradeChosen
-        m_Mode: 5
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: SelectUpgrade
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2143164055}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: ShowNextUpgradeLevel
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 745991845}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 250730940}
+        m_TargetAssemblyTypeName: SelectTowerToUpgrade, Scripts
+        m_MethodName: UpdateTokens
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

@@ -9,12 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ff7457d323f37747a0d1ab4f91cc35f, type: 3}
-  m_Name: Store Tower Upgrades
+  m_Script: {fileID: 11500000, guid: 377fa9f50487fa646b73b95421521cd5, type: 3}
+  m_Name: Beetle Upgrade 1
   m_EditorClassIdentifier: 
-  TokensObtained: 0
-  ListOfUpgradesObtained:
-  - Attack Bee Upgrade 1
-  - Attack Bee Upgrade 2
-  - Buffing Bee Upgrade 1
-  TowerUpgradePicked: Buffing Bee Upgrade 1
+  UpgradeName: Beetle Upgrade 1
+  Cost: 1
+  Description: Testing text

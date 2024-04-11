@@ -15,10 +15,11 @@ public class NewLevel : MonoBehaviour
         playerData.activeModifier = Modifiers.None;
         defaultButton.Select();
         defaultButton.onClick.Invoke();
-
-        for (int i = 0; i < 7; i++)
+        int count = 0;
+        for (int i = 11; i < 18; i++)
         {
-            playerData.TowerPool[i] = towers[i];
+            playerData.TowerPool[count] = towers[i];
+            count++;
         }
     }
     public void goToScene(string sceneName)

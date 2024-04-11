@@ -15,6 +15,7 @@ public class MothTower : BaseTowerLogic
     void Start()
     {
         fireRate = 0.3f;
+        towerName = "Moth Man";
     }
 
     // Update is called once per frame

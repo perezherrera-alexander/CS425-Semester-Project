@@ -33,8 +33,8 @@ public class LossConditionCheck : MonoBehaviour
 
     public void EnhanceYourCritters()
     {
-        storeTowerUpgradeData.TokensObtained = 1;
-        //SceneManager.LoadScene("Tower Upgrade");
+        storeTowerUpgradeData.TokensObtained = 3;
+        SceneManager.LoadScene("Tower Upgrade");
     }
 
     public void ReturnToMainMenu()
