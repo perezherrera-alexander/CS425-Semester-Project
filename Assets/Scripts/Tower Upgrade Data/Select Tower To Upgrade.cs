@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -8,7 +9,7 @@ public class SelectTowerToUpgrade : MonoBehaviour
 {
     public GameObject OldUpgradeWindow;
     public GameObject NewUpgradeWindow;
-
+    public GameObject ButtonHolder;
 
     public GameObject SelectTowerUpgradePanel;
     public GameObject TowerUpgradeDataWindow;
@@ -18,10 +19,13 @@ public class SelectTowerToUpgrade : MonoBehaviour
     public GameObject TowerUpgradeButton;
     public GameObject UpgradePickedParent;
 
+    public GameObject StartRunButton;
+
     public TMP_Text TokenCounter;
 
     public DataPanelPopulator Populator;
     public StoreTowerUpgradeData storeTowerUpgradeData;
+    public PlayerData playerData;
 
     public bool OpenClosed = false;
     public string ButtonNameHolder;
@@ -29,12 +33,6 @@ public class SelectTowerToUpgrade : MonoBehaviour
     public void Update()
     {
         TokenCounter.text = "Tokens Left: " + storeTowerUpgradeData.TokensObtained.ToString();
-        if (storeTowerUpgradeData.TokensObtained == 0)
-        {
-            Debug.Log("No tokens left to purchase upgrade");
-            SceneManager.LoadScene("Game View");
-            return;
-        }
     }
     public void OpenDataPanel(string ButtonName)
     {
@@ -45,6 +43,7 @@ public class SelectTowerToUpgrade : MonoBehaviour
             OpenClosed = true;
             ButtonNameHolder = ButtonName;
             OldUpgradeWindow = NewUpgradeWindow;
+            StartRunButton.SetActive(false);
             return;
         }
 
@@ -57,6 +56,7 @@ public class SelectTowerToUpgrade : MonoBehaviour
             OpenClosed = true;
             ButtonNameHolder = ButtonName;
             OldUpgradeWindow = NewUpgradeWindow;
+            StartRunButton.SetActive(false);
             return;
         }
 
@@ -64,6 +64,7 @@ public class SelectTowerToUpgrade : MonoBehaviour
         {
             NewUpgradeWindow.SetActive(false);
             OpenClosed = false;
+            StartRunButton.SetActive(true);
             return;
         }
     }
@@ -97,8 +98,93 @@ public class SelectTowerToUpgrade : MonoBehaviour
         }
     }
 
+    // When player returns to this scene after the first time they've seen the buttons for upgrades they've bought should stay deleted so this function ensures its not visible
+    public void CheckIfButtonShouldBeDeleted(GameObject Button)
+    {
+        int length = storeTowerUpgradeData.ListOfUpgradesObtained.Count;
+        int count = 0;
+        while (count < length)
+        {
+            if (Button == null)
+            {
+                return;
+            }
+            if (Button.name == storeTowerUpgradeData.ListOfUpgradesObtained[count])
+            {
+                Destroy(Button);
+                ButtonHolder.SetActive(true);
+            }
+            if (ButtonHolder.name == storeTowerUpgradeData.ListOfUpgradesObtained[count])
+            {
+                Destroy(ButtonHolder);
+            }
+            count++;
+        }
+    }
+
+    public void ButtonHolding(GameObject Button)
+    {
+        ButtonHolder = Button;
+    }
+
     public void EndRun()
     {
         SceneManager.LoadScene("Main Menu");
+    }
+
+    public void StartRun()
+    {
+        GameObject[] TemptTowerArray = new GameObject[20];
+        string general = playerData.activeGeneral.ToString();
+
+        if (general == "Bee" || general == "Ant")
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                TemptTowerArray[i] = playerData.Towers[i];
+            }
+            for (int i = 3; i < 20; i++)
+            {
+                TemptTowerArray[i] = null;
+            }
+            playerData.TowersObtained = 3;
+        }
+        else if (general == "Wasp")
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                TemptTowerArray[i] = playerData.Towers[i];
+            }
+            for (int i = 2; i < 20; i++)
+            {
+                TemptTowerArray[i] = null;
+            }
+            playerData.TowersObtained = 2;
+        }
+        else if (general == "Dev")
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                TemptTowerArray[i] = playerData.Towers[i];
+            }
+            for (int i = 10; i < 20; i++)
+            {
+                TemptTowerArray[i] = null;
+            }
+            playerData.TowersObtained = 10;
+        }
+        playerData.Towers = TemptTowerArray;
+
+        playerData.Morale = 100;
+        playerData.EvolutionPoints = 20;
+        playerData.EnemiesKilled = 0;
+        playerData.NumberOfWorldsCompleted = 0;
+        playerData.CurrentWorld = "0,3";
+        playerData.InitializeWorldsCompletedArray(100);
+        playerData.InitializeTowerUnlockArray(6);
+        playerData.InitializeTowerUnlockOrderArray(0);
+        playerData.InitializeTowerUnlockOrderArray(6);
+
+        SceneManager.LoadScene("Game View");
     }
 }

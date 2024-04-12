@@ -11,8 +11,6 @@ public class DataPanelPopulator : MonoBehaviour
 
     public void Start()
     {
-        Debug.Log("TEST");
-        Debug.Log(UpgradeData.UpgradeName);
         UpgradeNameText.text = UpgradeData.UpgradeName;
         CostText.text = "Cost: " + UpgradeData.Cost.ToString();
         DescriptionText.text = UpgradeData.Description;
