@@ -8,7 +8,8 @@ public enum GameStates
     InbetweenWaves,
     WaveStarting,
     WaveInProgress,
-    LevelComplete
+    LevelComplete,
+    GameOver
 }
 
 [Flags] // Bitwise enum (https://www.c-sharpcorner.com/article/understanding-bitwise-enums-in-c-sharp/)

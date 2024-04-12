@@ -2767,6 +2767,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameOverScreen: {fileID: 56287041}
   storeTowerUpgradeData: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+  waveSpawner: {fileID: 1798962332}
 --- !u!1 &1643746013
 GameObject:
   m_ObjectHideFlags: 0
@@ -3581,18 +3582,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fb8052d7a1a2304da2d68463f8cd9f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BeeTowerPrefab: {fileID: 971902319036964014, guid: 6c1bcac6b019a5445a29397b2e5fbdbd, type: 3}
-  MortarTowerPrefab: {fileID: 4802165041365209427, guid: 6b391e1d30df3bf40982d80495c75b4a, type: 3}
-  TetherTowerPrefab: {fileID: 4697445435849318074, guid: d683e4508f9f8474e99a3210a2578de0, type: 3}
-  FlameTowerPrefab: {fileID: 3496186726202727201, guid: 6c1a92e71725f8e4d87187e45f71fa2e, type: 3}
-  MeleeTowerPrefab: {fileID: 5638637389332727884, guid: 4e4f33efe7895774986c5a0f0a79ecce, type: 3}
-  MortarAntPrefab: {fileID: 7528787299345294700, guid: 77aa7cae226f46a4d970e9b2d11fdf72, type: 3}
-  AttackBeePrefab: {fileID: 9090199576069704506, guid: 43408111086a3e34db3441bd1aa0baab, type: 3}
-  BeeSwarmPrefab: {fileID: 9099372547338785898, guid: 9550a6addcd9c354bb98e29b39814b80, type: 3}
-  BuffingBeePrefab: {fileID: 68215039139777297, guid: cd5c3652db6025942b286581eeb80dc8, type: 3}
-  WaspTowerPrefab: {fileID: 5375419024465267202, guid: 9615296694b34664ba234ff1db9775dd, type: 3}
-  WaspMeleePrefab: {fileID: 7531189038630079958, guid: f1e522ec82051554684e9168369f9564, type: 3}
-  SpiderTowerPrefab: {fileID: 5375419024465267202, guid: 038281cb77a244742a6c90eadb25957a, type: 3}
+  CentipedePrefab: {fileID: 0}
+  MantisPrefab: {fileID: 0}
+  BeetlePrefab: {fileID: 0}
+  StagBeetlePrefab: {fileID: 0}
+  SpiderPrefab: {fileID: 0}
+  GrassHopperPrefab: {fileID: 0}
+  MothPrefab: {fileID: 0}
   LoadTowerArray: []
   SaveTowerArray: []
 --- !u!114 &1798962341

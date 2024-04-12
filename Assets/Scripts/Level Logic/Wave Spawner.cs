@@ -122,6 +122,11 @@ public class WaveSpawner : MonoBehaviour
                 StartCoroutine(LoadNextLevel());
             }
         }
+        else if(gameState == GameStates.GameOver)
+        {
+            //Debug.Log("Game Over!");
+            // Do nothing, this is a trap state.
+        }
 
         waveCountDownText.text = "Wave: " + currentWaveCount + " / " + maxWaveCount;
     }
