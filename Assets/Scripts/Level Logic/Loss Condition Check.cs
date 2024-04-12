@@ -13,6 +13,7 @@ public class LossConditionCheck : MonoBehaviour
 
     public StoreTowerUpgradeData storeTowerUpgradeData;
     public WaveSpawner waveSpawner;
+    public PlayerData playerData;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +31,7 @@ public class LossConditionCheck : MonoBehaviour
         {
             GameOverScreen.SetActive(true);
             waveSpawner.gameState = GameStates.GameOver;
+            playerData.PathsVisited.Clear();
         }
     }
 
