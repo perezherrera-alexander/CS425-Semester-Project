@@ -12,7 +12,7 @@ public class MainMenu : MonoBehaviour
     public TMP_Dropdown difficultyDropdown;
     public PlayerData playerData;
     public SaveLoadManager saveLoadManager;
-
+    public GameObject[] TutorialTowers;
     void Start(){
         if(volumeSlider != null) volumeSlider.value = SettingsValues.gameVolume;
         else Debug.Log("Volume Slider is null");
@@ -64,6 +64,18 @@ public class MainMenu : MonoBehaviour
         Debug.Log("Load World Map Save......");
         SceneManager.sceneLoaded += OnSceneLoaded; // Subscribe to the sceneLoaded event
         SceneManager.LoadScene("World Map Generation");
+    }
+
+    public void LoadTutorialWorld(){
+        playerData.Towers[0] = TutorialTowers[0];
+        playerData.Towers[1] = TutorialTowers[1];
+        playerData.Towers[2] = TutorialTowers[2];
+        playerData.TowersObtained = 3;
+        playerData.activeGeneral = Generals.Bee;
+        //generalSelected = true;
+        //nameOfGen = generalName;
+        SceneManager.LoadScene("Tutorial World");
+        
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)

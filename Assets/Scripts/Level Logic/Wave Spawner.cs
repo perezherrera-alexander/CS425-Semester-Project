@@ -45,7 +45,7 @@ public class WaveSpawner : MonoBehaviour
     public int currentWaveCount = 1; // These are important
     public int maxWaveCount; // me too
     //private float timeBetweenWavesTimer;
-    
+    public bool tutorialMode = false;
     [Header("UI")]
     public TextMeshProUGUI waveCountDownText;
     public TextMeshProUGUI levelCompleteText;
@@ -193,6 +193,12 @@ public class WaveSpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         // Load the next level
+
+        if(tutorialMode)
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Main Menu");
+            yield break;
+        }
 
         PlayerData.UpdateData(true);
         PlayerData.WorldsCompleted[PlayerData.NumberOfWorldsCompleted] = PlayerData.CurrentWorld;
