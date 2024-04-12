@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;// Required when using Event data.
 using System;
 using System.Linq;
 
@@ -34,6 +35,11 @@ public class SelectTower : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
+            // If we're over a ShopButton, don't select the tower
+            if (EventSystem.current.IsPointerOverGameObject())
+            {
+                return;
+            }
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
