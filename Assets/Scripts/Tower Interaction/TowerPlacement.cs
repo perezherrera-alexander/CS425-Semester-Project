@@ -177,7 +177,10 @@ public class TowerPlacement : MonoBehaviour
     IEnumerator StopParticleEffect(ParticleSystem particleSystem)
     {
         yield return new WaitForSeconds(3f);
-        particleSystem.Stop();
+        if(particleSystem != null)
+        {
+            particleSystem.Stop();
+        }
     }
 
     private void ProcessRefund() // Refund the player the cost of the tower

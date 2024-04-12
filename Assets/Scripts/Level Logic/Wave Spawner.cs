@@ -122,6 +122,11 @@ public class WaveSpawner : MonoBehaviour
                 StartCoroutine(LoadNextLevel());
             }
         }
+        else if(gameState == GameStates.GameOver)
+        {
+            //Debug.Log("Game Over!");
+            // Do nothing, this is a trap state.
+        }
 
         waveCountDownText.text = "Wave: " + currentWaveCount + " / " + maxWaveCount;
     }
@@ -192,9 +197,13 @@ public class WaveSpawner : MonoBehaviour
         PlayerData.UpdateData(true);
         PlayerData.WorldsCompleted[PlayerData.NumberOfWorldsCompleted] = PlayerData.CurrentWorld;
         PlayerData.NumberOfWorldsCompleted += 1;
-        Debug.Log("Loading Next Level (Go into code and change this to the next level)");
+        //Debug.Log("Loading Next Level (Go into code and change this to the next level)");
         if (PlayerData.NumberOfWorldsCompleted < 12)
         {
+            GameObject Path = GameObject.Find("World Objects");
+            Path = Path.transform.GetChild(0).gameObject;
+            // Remove the word "(Clone)" from the end of the path name
+            PlayerData.PathsVisited.Add(Path.name.Substring(0, Path.name.Length - 7));
             UnityEngine.SceneManagement.SceneManager.LoadScene("World Map Generation");
         }
         else if (PlayerData.NumberOfWorldsCompleted == 12)

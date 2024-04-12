@@ -12,6 +12,8 @@ public class LossConditionCheck : MonoBehaviour
     public GameObject GameOverScreen;
 
     public StoreTowerUpgradeData storeTowerUpgradeData;
+    public WaveSpawner waveSpawner;
+    public PlayerData playerData;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +30,8 @@ public class LossConditionCheck : MonoBehaviour
         if (CurrentMorale <= 0)
         {
             GameOverScreen.SetActive(true);
+            waveSpawner.gameState = GameStates.GameOver;
+            playerData.PathsVisited.Clear();
         }
     }
 
