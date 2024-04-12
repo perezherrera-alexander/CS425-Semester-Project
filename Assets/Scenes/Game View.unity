@@ -2768,6 +2768,7 @@ MonoBehaviour:
   GameOverScreen: {fileID: 56287041}
   storeTowerUpgradeData: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
   waveSpawner: {fileID: 1798962332}
+  playerData: {fileID: 0}
 --- !u!1 &1643746013
 GameObject:
   m_ObjectHideFlags: 0
@@ -3467,6 +3468,7 @@ MonoBehaviour:
   enemiesDoneSpawning: 0
   currentWaveCount: 1
   maxWaveCount: 10
+  tutorialMode: 0
   waveCountDownText: {fileID: 2015734061}
   levelCompleteText: {fileID: 1738038850}
   beginNextWaveText: {fileID: 1826386579}
@@ -4266,10 +4268,26 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 655933921}
+    - target: {fileID: 6262644495198134075, guid: 350a361b60835f34283d38c68554d0b8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6918063446793253074, guid: 350a361b60835f34283d38c68554d0b8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7256178670946983894, guid: 350a361b60835f34283d38c68554d0b8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7578514476989904819, guid: 350a361b60835f34283d38c68554d0b8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 655933921}
+    - target: {fileID: 7617821175890735711, guid: 350a361b60835f34283d38c68554d0b8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7804353323525568560, guid: 350a361b60835f34283d38c68554d0b8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
