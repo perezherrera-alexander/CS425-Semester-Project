@@ -61,13 +61,13 @@ public class MothTower : BaseTowerLogic
 
     public void AddUpgradeEffects()
     {
-        int count = 0;
+        int count = 1;
         while (count <= storeTowerUpgradeData.ListOfUpgradesObtained.Count)
         {
-            if (storeTowerUpgradeData.ListOfUpgradesObtained[count] == "Moth Upgrade 1")
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Moth Upgrade 1")
             {
             }
-            if (storeTowerUpgradeData.ListOfUpgradesObtained[count] == "Moth Upgrade 2")
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Moth Upgrade 2")
             {
             }
             count++;

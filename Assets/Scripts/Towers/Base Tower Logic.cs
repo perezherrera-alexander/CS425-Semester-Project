@@ -321,6 +321,7 @@ public class BaseTowerLogic : MonoBehaviour, Effectable
         {
             fireRate = curAttackSpeed;
             isBuffed = false;
+            data.effectParticles.GetComponent<ParticleSystem>().Stop();
         }
         data = null;
         currentEffectTime = 0;

@@ -18,7 +18,7 @@ public class TowerPanelManager : MonoBehaviour
     private Material[] originalMaterials;
     public Material highlightMaterial;
 
-    private bool PanelState = false;
+    public bool PanelState = false;
 
     public string TowerID;
 

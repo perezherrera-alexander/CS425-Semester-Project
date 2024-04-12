@@ -21,7 +21,7 @@ public class nestPanelManager : MonoBehaviour
 
     [SerializeField] public nestTargetPlacement targetPlacement;
 
-    private bool panelState = false;
+    public bool panelState = false;
     private Image timer;
 
     // Start is called before the first frame update
@@ -87,7 +87,7 @@ public class nestPanelManager : MonoBehaviour
         if (waspNest.nestName == "Bee Nest")
         {
             nestPanelInstance = Instantiate(beeNestPanelPrefab) as GameObject;
-            timer = nestPanelInstance.transform.GetChild(0).GetChild(1).GetChild(1).GetComponent<Image>();
+            timer = nestPanelInstance.transform.GetChild(0).GetChild(3).GetComponent<Image>();
         }
         else
         {
@@ -108,7 +108,7 @@ public class nestPanelManager : MonoBehaviour
             Debug.Log(scriptName);
 
             TMP_Text output = nestPanelInstance.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
-            output.text = "Nest Name: " + scriptName;
+            output.text = scriptName;
 
             if (scriptName == "beeNest")
             {
@@ -118,13 +118,16 @@ public class nestPanelManager : MonoBehaviour
 
         if (targetButton != null)
         {
+            
             if (waspNest.nestName == "Bee Nest")
             {
+                
                 targetButton.onClick.AddListener(activateNest);
             }
             else
             {
-                targetButton.onClick.AddListener(moveTarget);
+                
+                targetButton.onClick.AddListener(delegate { moveTarget(nestPanelInstance); });
             }
         }
 
@@ -135,9 +138,13 @@ public class nestPanelManager : MonoBehaviour
 
     }
 
-    public void moveTarget()
+    public void moveTarget(GameObject nestInstance)
     {
+        
         targetPlacement.placeTarget(targetPrefab,selectedNest);
+
+
+
     }
 
     public void activateNest()

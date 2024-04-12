@@ -57,13 +57,13 @@ public class StraightShooter : BaseTowerLogic
 
     public void AddUpgradeEffects()
     {
-        int count = 0;
+        int count = 1;
         while (count <= storeTowerUpgradeData.ListOfUpgradesObtained.Count)
         {
-            if (storeTowerUpgradeData.ListOfUpgradesObtained[count] == "Wasp Upgrade 1")
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Wasp Upgrade 1")
             {
             }
-            if (storeTowerUpgradeData.ListOfUpgradesObtained[count] == "Wasp Upgrade 2")
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Wasp Upgrade 2")
             {
             }
             count++;

@@ -14,11 +14,23 @@ public class SelectTower : MonoBehaviour
     [SerializeField]
     private PauseMenu pauseMenu;
 
+    [SerializeField]
+    private nestPanelManager nestMenu;
+
+    [SerializeField]
+    private ShopLogic shopLogic;
+
+    [SerializeField]
+    private nestPanelManager nestPanel;
+
     // Start is called before the first frame update
     void Start()
     {
         towerPlacement = FindObjectOfType<TowerPlacement>();
         pauseMenu = FindObjectOfType<PauseMenu>();
+        nestMenu = FindObjectOfType<nestPanelManager>();
+        shopLogic = FindObjectOfType<ShopLogic>();
+        nestPanel = FindObjectOfType<nestPanelManager>();
     }
 
     private void OnMouseDown()
@@ -29,6 +41,21 @@ public class SelectTower : MonoBehaviour
         }
 
         if (pauseMenu.GameIsPaused)
+        {
+            return;
+        }
+
+        if (nestMenu.panelState)
+        {
+            return;
+        }
+
+        if (shopLogic.shopIsOpen)
+        {
+            return;
+        }
+
+        if (nestPanel.panelState)
         {
             return;
         }

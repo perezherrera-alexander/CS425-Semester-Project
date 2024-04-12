@@ -10,16 +10,30 @@ public class nestSelect : MonoBehaviour
     public GameObject nestCanvasPrefab;
     [SerializeField]
     private PauseMenu pauseMenu;
+    private ShopLogic shopLogic;
+    private TowerPanelManager towerPanel;
     // Start is called before the first frame update
     void Start()
     {
         pauseMenu = FindObjectOfType<PauseMenu>();
         nestPanelManage = FindObjectOfType<nestPanelManager>();
+        shopLogic = FindObjectOfType<ShopLogic>();
+        towerPanel = FindObjectOfType<TowerPanelManager>();
     }
 
     private void OnMouseDown()
     {
         if (pauseMenu.GameIsPaused)
+        {
+            return;
+        }
+
+        if (shopLogic.shopIsOpen)
+        {
+            return;
+        }
+
+        if (towerPanel.PanelState)
         {
             return;
         }

@@ -119,14 +119,14 @@ public class BeeSwarm : BaseTowerLogic
 
     public void AddUpgradeEffects()
     {
-        int count = 0;
+        int count = 1;
         while (count <= storeTowerUpgradeData.ListOfUpgradesObtained.Count)
         {
-            if (storeTowerUpgradeData.ListOfUpgradesObtained[count] == "Bee Swarm Upgrade 1")
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Bee Swarm Upgrade 1")
             {
                 swarmAmount = 10;
             }
-            if (storeTowerUpgradeData.ListOfUpgradesObtained[count] == "Bee Swarm Upgrade 2")
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Bee Swarm Upgrade 2")
             {
                 fireRate = 3f;
             }

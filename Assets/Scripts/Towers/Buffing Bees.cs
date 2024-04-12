@@ -118,13 +118,13 @@ public class BuffingBees : BaseTowerLogic
 
     public void AddUpgradeEffects()
     {
-        int count = 0;
+        int count = 1;
         while (count <= storeTowerUpgradeData.ListOfUpgradesObtained.Count)
         {
-            if (storeTowerUpgradeData.ListOfUpgradesObtained[count] == "Buffing Bee Upgrade 1")
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Buffing Bee Upgrade 1")
             {
             }
-            if (storeTowerUpgradeData.ListOfUpgradesObtained[count] == "Buffing Bee Upgrade 2")
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Buffing Bee Upgrade 2")
             {
             }
             count++;

@@ -54,13 +54,13 @@ public class grassHopperTower : BaseTowerLogic
 
     public void AddUpgradeEffects()
     {
-        int count = 0;
+        int count = 1;
         while (count <= storeTowerUpgradeData.ListOfUpgradesObtained.Count)
         {
-            if (storeTowerUpgradeData.ListOfUpgradesObtained[count] == "Grass Hopper Upgrade 1")
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Grass Hopper Upgrade 1")
             {
             }
-            if (storeTowerUpgradeData.ListOfUpgradesObtained[count] == "Grass Hopper Upgrade 2")
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Grass Hopper Upgrade 2")
             {
             }
             count++;

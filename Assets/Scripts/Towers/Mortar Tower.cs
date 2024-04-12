@@ -55,13 +55,13 @@ public class mortarTower : BaseTowerLogic
 
     public void AddUpgradeEffects()
     {
-        int count = 0;
+        int count = 1;
         while (count <= storeTowerUpgradeData.ListOfUpgradesObtained.Count)
         {
-            if (storeTowerUpgradeData.ListOfUpgradesObtained[count] == "Mortar Ant Upgrade 1")
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Mortar Ant Upgrade 1")
             {
             }
-            if (storeTowerUpgradeData.ListOfUpgradesObtained[count] == "Mortar Ant Upgrade 2")
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Mortar Ant Upgrade 2")
             {
             }
             count++;

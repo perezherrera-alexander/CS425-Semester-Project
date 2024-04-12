@@ -24,6 +24,7 @@ public class BeetleScript : BaseTowerLogic
         MakeSphere();
         fireRate = 1f;
         curAttackSpeed = fireRate;
+        AddUpgradeEffects();
         //animate = GetComponentInChildren<Animator>();
     }
 
@@ -36,7 +37,7 @@ public class BeetleScript : BaseTowerLogic
         }
         Track();
         ListPrune();
-        AddUpgradeEffects();
+        
     }
 
     public override void Track()
@@ -92,13 +93,13 @@ public class BeetleScript : BaseTowerLogic
 
     public void AddUpgradeEffects()
     {
-        int count = 0;
+        int count = 1;
         while (count <= storeTowerUpgradeData.ListOfUpgradesObtained.Count)
         {
-            if (storeTowerUpgradeData.ListOfUpgradesObtained[count] == "Beetle Upgrade 1")
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Beetle Upgrade 1")
             {
             }
-            if (storeTowerUpgradeData.ListOfUpgradesObtained[count] == "Beetle Upgrade 2")
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Beetle Upgrade 2")
             {
             }
             count++;
