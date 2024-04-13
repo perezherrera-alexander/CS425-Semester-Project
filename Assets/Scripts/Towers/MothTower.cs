@@ -12,6 +12,8 @@ public class MothTower : BaseTowerLogic
     private float angle = 0f;
     public bool stronger = false;
     public bool bigger = false;
+    public Material upgrade;
+    public List<Material> materials;
 
 
     // Start is called before the first frame update
@@ -19,6 +21,7 @@ public class MothTower : BaseTowerLogic
     {
         fireRate = 0.3f;
         towerName = "Moth Man";
+        transform.GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>().GetMaterials(materials);
         AddUpgradeEffects();
     }
 
@@ -85,7 +88,8 @@ public class MothTower : BaseTowerLogic
             if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Moth Upgrade 1")
             {
                 stronger = true;
-                
+                materials[5] = upgrade;
+                transform.GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>().materials = materials.ToArray();
             }
             if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Moth Upgrade 2")
             {
