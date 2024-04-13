@@ -5,7 +5,7 @@ using System;
 
 public class SwarmingBee : MonoBehaviour
 {
-    public StoreTowerUpgradeData storeTowerUpgradeData;
+
     public Transform target;
     private float timer = 0f;
     private float speed = 30f;
@@ -21,7 +21,7 @@ public class SwarmingBee : MonoBehaviour
     {
         center = transform.position;
 
-        AddUpgradeEffects();
+        
 
     }
     void Update()
@@ -111,18 +111,5 @@ public class SwarmingBee : MonoBehaviour
         return id;
     }
 
-    public void AddUpgradeEffects()
-    {
-        int count = 0;
-        while (count <= storeTowerUpgradeData.ListOfUpgradesObtained.Count)
-        {
-            if (storeTowerUpgradeData.ListOfUpgradesObtained[count] == "Bee Swarm Upgrade 1")
-            {
-            }
-            if (storeTowerUpgradeData.ListOfUpgradesObtained[count] == "Bee Swarm Upgrade 2")
-            {
-            }
-            count++;
-        }
-    }
+
 }

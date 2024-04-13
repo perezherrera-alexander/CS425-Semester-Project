@@ -14,21 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Morale: 100
   MoraleDuringWorld: 100
-  EvolutionPoints: 19
-  EvolutionPointsDuringWorld: 19
+  EvolutionPoints: 20
+  EvolutionPointsDuringWorld: 20
   EnemiesKilled: 0
   EnemiesKilledDuringWorld: 0
-  NumberOfWorldsCompleted: 8
-  CurrentWorld: 8,3
+  NumberOfWorldsCompleted: 0
+  CurrentWorld: 0,3
   WorldsCompleted:
-  - 0,3
-  - 1,2
-  - 2,2
-  - 3,1
-  - 4,1
-  - 5,2
-  - 6,3
-  - 7,3
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -122,12 +122,12 @@ MonoBehaviour:
   - 
   - 
   LocationOfTowerUnlock:
-  - 1,2
-  - 2,2
-  - 3,1
-  - 4,2
-  - 5,2
-  - 6,1
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   TowersObtained: 10
   Towers:
   - {fileID: 971902319036964014, guid: 6c1bcac6b019a5445a29397b2e5fbdbd, type: 3}
@@ -140,10 +140,10 @@ MonoBehaviour:
   - {fileID: 5375419024465267202, guid: 038281cb77a244742a6c90eadb25957a, type: 3}
   - {fileID: 1071273790937799345, guid: 8a69c412e80b649459dcfa6570d5f355, type: 3}
   - {fileID: 8433493587229939750, guid: 3f9bf1ad1c016644bacaebcec1d930ed, type: 3}
-  - {fileID: 1587570604612605659, guid: 7df61434015697245b3e946ffe96167e, type: 3}
-  - {fileID: 1071273790937799345, guid: 8a69c412e80b649459dcfa6570d5f355, type: 3}
-  - {fileID: 1779559047980987579, guid: e6d988cee754c7c4db9d4e5088529d64, type: 3}
-  - {fileID: 7159842274490414621, guid: 755addfaf130171459f81e3a8a284933, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -172,13 +172,12 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   TowerUnlockOrder:
-  - {fileID: 1587570604612605659, guid: 7df61434015697245b3e946ffe96167e, type: 3}
-  - {fileID: 1071273790937799345, guid: 8a69c412e80b649459dcfa6570d5f355, type: 3}
-  - {fileID: 1779559047980987579, guid: e6d988cee754c7c4db9d4e5088529d64, type: 3}
-  - {fileID: 8433493587229939750, guid: 3f9bf1ad1c016644bacaebcec1d930ed, type: 3}
-  - {fileID: 7159842274490414621, guid: 755addfaf130171459f81e3a8a284933, type: 3}
-  - {fileID: 5375419024465267202, guid: 038281cb77a244742a6c90eadb25957a, type: 3}
-  - {fileID: 8433493587229939750, guid: 3f9bf1ad1c016644bacaebcec1d930ed, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   activeGeneral: 4
   activeModifier: 0
   LevelLoaded: 0

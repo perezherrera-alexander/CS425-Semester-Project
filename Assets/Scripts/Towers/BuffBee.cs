@@ -5,9 +5,10 @@ using System;
 
 public class BuffBee : MonoBehaviour
 {
-    public StoreTowerUpgradeData storeTowerUpgradeData;
+
     public string id;
-    [SerializeField] StatusEffects data;
+    [SerializeField] 
+    public StatusEffects data;
     private Transform target;
 
     public float speed = 15f;
@@ -15,7 +16,7 @@ public class BuffBee : MonoBehaviour
 
     public void Start()
     {
-       AddUpgradeEffects();
+       
     }
     public void Seek(Transform newTarget)
     {
@@ -65,18 +66,5 @@ public class BuffBee : MonoBehaviour
         return id;
     }
 
-    public void AddUpgradeEffects()
-    {
-        int count = 0;
-        while (count <= storeTowerUpgradeData.ListOfUpgradesObtained.Count)
-        {
-            if (storeTowerUpgradeData.ListOfUpgradesObtained[count] == "Buffing Bee Upgrade 1")
-            {
-            }
-            if (storeTowerUpgradeData.ListOfUpgradesObtained[count] == "Buffing Bee Upgrade 2")
-            {
-            }
-            count++;
-        }
-    }
+
 }

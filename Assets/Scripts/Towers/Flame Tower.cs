@@ -92,9 +92,14 @@ public class FlameTower : BaseTowerLogic
         {
             if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Flame Ant Upgrade 1")
             {
+                fireArea.radius = 4.32f;
+                fireArea.height = 13.14f;
+                fireArea.center = new Vector3(0f, 0.71f, 8.63f);
+                visual.transform.localScale = new Vector3(7.38f, 7.38f, 3.5f);
             }
             if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Flame Ant Upgrade 2")
             {
+                damage = 2.5f;
             }
             count++;
         }

@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class StandardProjectile : MonoBehaviour
 {
-    private float moveSpeed = 50f;
+    public float moveSpeed = 50f;
     private float pierceAmount = 2f;
-    private float damage = 1.5f;
+    public float damage = 1.5f;
 
     public float lifeTime = 2f;
     public bool isActive = false;

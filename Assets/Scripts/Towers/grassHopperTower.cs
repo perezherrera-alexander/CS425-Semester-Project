@@ -59,9 +59,11 @@ public class grassHopperTower : BaseTowerLogic
         {
             if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Grass Hopper Upgrade 1")
             {
+                projectilePrefab.GetComponent<grassHopperProjectile>().bounces = 4f;
             }
             if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Grass Hopper Upgrade 2")
             {
+                projectilePrefab.GetComponent<grassHopperProjectile>().waved = true;
             }
             count++;
         }

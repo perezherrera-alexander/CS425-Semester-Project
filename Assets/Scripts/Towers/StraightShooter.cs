@@ -9,6 +9,7 @@ public class StraightShooter : BaseTowerLogic
     public StoreTowerUpgradeData storeTowerUpgradeData;
     public string id;
     private Animator animate;
+    private bool tripleShot = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,10 +36,20 @@ public class StraightShooter : BaseTowerLogic
     public override void Shoot()
     {
         animate.SetTrigger("attack");
-        GameObject shot = (GameObject)Instantiate(projectilePrefab, locationToFireFrom.position, locationToFireFrom.rotation);
+        if (tripleShot)
+        {
+            Instantiate(projectilePrefab, locationToFireFrom.position, locationToFireFrom.rotation);
+            GameObject stung = Instantiate(projectilePrefab, locationToFireFrom.position, locationToFireFrom.rotation);
+            stung.transform.Rotate(Vector3.up * 15f);
+            GameObject stang = Instantiate(projectilePrefab, locationToFireFrom.position, locationToFireFrom.rotation);
+            stang.transform.Rotate(Vector3.up * -15f);
+
+        }
+        else
+        {
+            Instantiate(projectilePrefab, locationToFireFrom.position, locationToFireFrom.rotation);
+        }
         
-        StandardProjectile sting = shot.GetComponent<StandardProjectile>();
- 
 
     }
 
@@ -62,9 +73,12 @@ public class StraightShooter : BaseTowerLogic
         {
             if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Wasp Upgrade 1")
             {
+                tripleShot = true;
             }
             if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Wasp Upgrade 2")
             {
+                projectilePrefab.GetComponent<StandardProjectile>().damage = 2.5f;
+                projectilePrefab.GetComponent<StandardProjectile>().moveSpeed = 70f;
             }
             count++;
         }

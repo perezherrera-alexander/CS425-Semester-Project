@@ -321,7 +321,7 @@ public class BaseTowerLogic : MonoBehaviour, Effectable
         {
             fireRate = curAttackSpeed;
             isBuffed = false;
-            data.effectParticles.GetComponent<ParticleSystem>().Stop();
+            Destroy(transform.Find("CFX4 Aura Bubble C(Clone)").gameObject);
         }
         data = null;
         currentEffectTime = 0;

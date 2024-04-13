@@ -16,6 +16,7 @@ public class meleeTower : BaseTowerLogic
     public string id;
     public Transform center;
     private bool attacking;
+    private bool stun = false;
     
     
 
@@ -92,6 +93,10 @@ public class meleeTower : BaseTowerLogic
     {
         //pending animation/sound/visual effects code
         //animate.Play("Base Layer.New Animation");
+        if (stun)
+        {
+            target.GetComponent<BaseEnemyLogic>().stun(1.5f);
+        }
         target.GetComponent<BaseEnemyLogic>().reduceHealth(directDamage);
 
 
@@ -129,9 +134,13 @@ public class meleeTower : BaseTowerLogic
         {
             if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Melee Ant Upgrade 1")
             {
+                targettingRange = 15f;
+                proximitySphere = GetComponent<SphereCollider>();
+                proximitySphere.radius = 9f;
             }
             if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Melee Ant Upgrade 2")
             {
+                stun = true;
             }
             count++;
         }

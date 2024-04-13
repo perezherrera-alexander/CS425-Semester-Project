@@ -60,9 +60,14 @@ public class mortarTower : BaseTowerLogic
         {
             if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Mortar Ant Upgrade 1")
             {
+                projectilePrefab.GetComponent<MortarLikeProjectile>().splashDamage = 5f;
             }
             if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Mortar Ant Upgrade 2")
             {
+                targettingRange = 30f;
+                proximitySphere = GetComponent<SphereCollider>();
+                proximitySphere.radius = 17.98f;
+                projectilePrefab.GetComponent<MortarLikeProjectile>().speed = 30f;
             }
             count++;
         }

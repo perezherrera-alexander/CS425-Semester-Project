@@ -56,7 +56,7 @@ MonoBehaviour:
   towerDescription: An ant with a powerful charge attack, but needs time to charge
     it up.
   towerImage: {fileID: 2800000, guid: 33fcab2293cebcd46a9b781d312c71ab, type: 3}
-  targettingRange: 9.2
+  targettingRange: 15
   fireRate: 0.5
   fireCountdown: 0
   isActive: 0
@@ -87,7 +87,7 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -235,6 +235,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerPlacement: {fileID: 0}
   pauseMenu: {fileID: 0}
+  nestMenu: {fileID: 0}
+  shopLogic: {fileID: 0}
+  nestPanel: {fileID: 0}
 --- !u!1001 &1644532108495110121
 PrefabInstance:
   m_ObjectHideFlags: 0

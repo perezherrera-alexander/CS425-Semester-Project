@@ -53,7 +53,7 @@ MonoBehaviour:
   enemyTag: Enemy
   outlineThickness: 10
   buildCost: 10
-  towerDescription: A centipede that shoots out minipedes that walk along the track
+  towerDescription: A centipede that summons out minipedes that walk along the track
     to damage enemies it encounters
   towerImage: {fileID: 2800000, guid: 53016e13213addf4095d50a89b45856a, type: 3}
   targettingRange: 20
@@ -138,6 +138,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerPlacement: {fileID: 0}
   pauseMenu: {fileID: 0}
+  nestMenu: {fileID: 0}
+  shopLogic: {fileID: 0}
+  nestPanel: {fileID: 0}
 --- !u!65 &2366764028648404128
 BoxCollider:
   m_ObjectHideFlags: 0

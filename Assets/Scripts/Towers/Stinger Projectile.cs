@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UIElements;
 
 public class stingerScript : MonoBehaviour
 {
@@ -14,12 +16,22 @@ public class stingerScript : MonoBehaviour
     public float radius = 50f;
     public bool exists = false;
     private float bounce = 2f;
+
+    private Vector3 center;
+    private bool centerSet = false;
+    private float angle = 0f;
+    private float timer = 0f;
 #pragma warning restore 0414
     public void Seek( Transform newTarget)
     {
         target = newTarget;
         lastKnown = target;
 
+    }
+    void setCenter()
+    {
+        center = transform.position;
+        centerSet = true;
     }
 
     // Update is called once per frame
@@ -28,18 +40,20 @@ public class stingerScript : MonoBehaviour
 
         if (target == null)
         {
-            if (exists)
+            timer += Time.deltaTime;
+            if(centerSet == false)
             {
-                findNewTarget();
+                setCenter();
             }
-            else
+            Circle(timer);
+            findNewTarget();
+            
 
-                Destroy(gameObject);
                 return;
         }
 
-        
 
+        centerSet = false;
         Vector3 dir = target.position - transform.position;
         float distancePerFrame = speed * Time.deltaTime;
         exists = true;
@@ -77,6 +91,16 @@ public class stingerScript : MonoBehaviour
         {
             target = closeEnemy.transform;
         }
+
+    }
+
+    public void Circle(float time)
+    {
+
+        angle = time * speed;
+        var offset = new Vector3(Mathf.Sin(angle), 0, Mathf.Cos(angle)) * 2f;
+        transform.position = center + offset;
+
 
     }
 

@@ -81,16 +81,6 @@ public class BeetleScript : BaseTowerLogic
         proximitySphere = transform.GetComponentInParent<SphereCollider>();
         proximitySphere.radius = 4.47f;
     }
-
-    IEnumerator Timer()
-    {
-        Debug.Log("Timer start");
-        yield return new WaitForSeconds(10);
-        Debug.Log("Timer end");
-        yield return null;
-    }
-
-
     public void AddUpgradeEffects()
     {
         int count = 1;
@@ -98,9 +88,13 @@ public class BeetleScript : BaseTowerLogic
         {
             if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Beetle Upgrade 1")
             {
+                proximitySphere.radius = 5.6f;
+                targettingRange = 25f;
             }
             if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Beetle Upgrade 2")
             {
+                proximitySphere.radius = 6.7f;
+                targettingRange = 40f;
             }
             count++;
         }

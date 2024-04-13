@@ -17,6 +17,7 @@ public class BeeSwarm : BaseTowerLogic
         towerName = "Bee Swarm";
         Invoke();
         MakeSphere();
+        fireRate = 0.75f;
         curAttackSpeed = fireRate;
         AddUpgradeEffects();
     }

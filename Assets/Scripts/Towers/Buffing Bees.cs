@@ -123,9 +123,12 @@ public class BuffingBees : BaseTowerLogic
         {
             if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Buffing Bee Upgrade 1")
             {
+                fireRate = 0.6f;
             }
             if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Buffing Bee Upgrade 2")
             {
+                projectilePrefab.GetComponent<BuffBee>().data.lifeTime = 18;
+                projectilePrefab.GetComponent<BuffBee>().data.attackSpeedIncrease = 0.75f;
             }
             count++;
         }

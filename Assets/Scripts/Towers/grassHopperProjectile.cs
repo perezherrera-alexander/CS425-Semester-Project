@@ -6,6 +6,8 @@ using static UnityEngine.GraphicsBuffer;
 public class grassHopperProjectile : mortarProjectile
 {
     private Animator animate;
+    public bool waved = false;
+    public ParticleSystem shock;
     // Start is called before the first frame update
     void Start()
     {
@@ -64,6 +66,11 @@ public class grassHopperProjectile : mortarProjectile
             if (bounces > 0)
             {
                 other.GetComponent<BaseEnemyLogic>().reduceHealth(directDamage);
+                if (waved)
+                {
+                    shockWave();
+                    Instantiate(shock, transform.position, transform.rotation);
+                }
                 bounces -= 1;
                 findNewTarget();
                 animate.SetTrigger("Attack");
@@ -88,6 +95,7 @@ public class grassHopperProjectile : mortarProjectile
             else if (bounces == 0)
             {
                 //shockWave();
+                shockWave();
                 Destroy(gameObject);
 
             }

@@ -186,6 +186,13 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
         stunTimer = stunTime;
     }
 
+    public void stunByPass(float stunTime)
+    {
+        ParticleSystem parts = Instantiate(stunned, transform);
+        StartCoroutine(turnOffStun(stunTime, parts));
+        stunTimer = stunTime;
+    }
+
 
     public void applyEffect(StatusEffects effect)
     {

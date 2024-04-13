@@ -9,6 +9,10 @@ public class mantisTower : BaseTowerLogic
     private Animator animate;
     public string id;
     public float sliceDmg = 0.75f;
+    public ParticleSystem holy;
+    public Transform crown;
+    public Material upgrade;
+    public List<Material> materials;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +22,7 @@ public class mantisTower : BaseTowerLogic
         MakeSphere();
         fireRate = 3f;
         curAttackSpeed = fireRate;
+        transform.GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>().GetMaterials(materials);
         animate = GetComponentInChildren<Animator>();
         AddUpgradeEffects();
         
@@ -91,9 +96,15 @@ public class mantisTower : BaseTowerLogic
         {
             if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Mantis Upgrade 1")
             {
+                fireRate = 5f;
+                Instantiate(holy, crown);
             }
             if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Mantis Upgrade 2")
             {
+                targettingRange = 18f;
+                proximitySphere.radius = 17.99f;
+                materials[0] = upgrade;
+                transform.GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>().materials = materials.ToArray();
             }
             count++;
         }

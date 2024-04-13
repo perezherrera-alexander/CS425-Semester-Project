@@ -49,8 +49,12 @@ MonoBehaviour:
   data: {fileID: 0}
   speed: 10
   arcHeight: 4
-  blastRadius: 0
+  blastRadius: 5
   directDamage: 1
+  splashDamage: 2.5
+  bounces: 3
+  waved: 0
+  shock: {fileID: 7191694953991245633, guid: b098c25d64bb0c8458fc6a642baad6f0, type: 3}
 --- !u!136 &3791266077940532628
 CapsuleCollider:
   m_ObjectHideFlags: 0

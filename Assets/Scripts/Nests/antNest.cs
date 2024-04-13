@@ -9,7 +9,7 @@ public class antNest : baseNests
     public Transform center;
     public GameObject ant;
 
-    private float damage = 1f;
+    private float damage = 2f;
     private float fireRate = 1f;
     private float fireCountdown = 0f;
 

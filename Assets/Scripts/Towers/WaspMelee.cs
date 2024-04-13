@@ -87,9 +87,12 @@ public class WaspMelee : BaseTowerLogic
         {
             if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Wasp Melee Upgrade 1")
             {
+                fireRate = 2.5f;
             }
             if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Wasp Melee Upgrade 2")
             {
+                targettingRange = 11.5f;
+                proximitySphere.radius = 6.91f;
             }
             count++;
         }

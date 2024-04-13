@@ -9,7 +9,7 @@ public class CentipedeSeeker : MonoBehaviour
     public int waypointIndex = 0;
     public int damage = 2;
     public bool firedOut = true;
-    public float lifeTime = 3f;
+    public float lifeTime = 13f;
     public ParticleSystem particles;
     // Start is called before the first frame update
     void Start()
