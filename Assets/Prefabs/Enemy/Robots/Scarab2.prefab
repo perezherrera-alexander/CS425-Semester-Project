@@ -67,6 +67,11 @@ MonoBehaviour:
   target: {fileID: 0}
   waypointindex: 0
   differentStart: 0
+  body: {fileID: 2915129106445184539}
+  head: {fileID: 8921946033542721378}
+  colors:
+  - {r: 1, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 1, a: 0}
   recoveryRate: 1
 --- !u!54 &-8389395977931446881
 Rigidbody:
@@ -250,3 +255,13 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &2915129106445184539 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3035682765504460397, guid: 98eefc5ef23d91940bba8649fa1848f4, type: 3}
+  m_PrefabInstance: {fileID: 167890056998688886}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8921946033542721378 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -466850731626924268, guid: 98eefc5ef23d91940bba8649fa1848f4, type: 3}
+  m_PrefabInstance: {fileID: 167890056998688886}
+  m_PrefabAsset: {fileID: 0}
