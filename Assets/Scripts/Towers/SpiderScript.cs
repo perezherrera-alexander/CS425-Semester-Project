@@ -5,6 +5,7 @@ using System;
 
 public class SpiderScript : BaseTowerLogic
 {
+    public GameObject secondRange;
     public StoreTowerUpgradeData storeTowerUpgradeData;
     private Animator animate;
     public string id;
@@ -74,6 +75,8 @@ public class SpiderScript : BaseTowerLogic
             {
                 targettingRange = 20f;
                 proximitySphere.radius = 59.88f;
+                rangeFinder.SetActive(false);
+                rangeFinder = secondRange;
             }
             count++;
         }

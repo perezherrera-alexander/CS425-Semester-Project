@@ -13,6 +13,7 @@ public class nestPanelManager : MonoBehaviour
 
     public static nestPanelManager Instance {  get { return instance; } }
 
+    public ParticleSystem star;
     public GameObject selectedNest;
     public GameObject nestPanelInstance;
     public GameObject nestPanelPrefab;
@@ -153,6 +154,8 @@ public class nestPanelManager : MonoBehaviour
         if (selectedNest.GetComponentInChildren<beeNest>().abilityActive == false)
         {
             selectedNest.GetComponentInChildren<beeNest>().abilityActivate();
+            Vector3 vect = new Vector3(28.8f, 12.5f, 37.4f);
+            Instantiate(star, vect, Quaternion.identity);
             StartCoroutine(Timer());
             StartCoroutine(TimerVisual());
         }
@@ -193,17 +196,41 @@ public class nestPanelManager : MonoBehaviour
 
     IEnumerator TimerVisual()
     {
+        if(timer == null)
+        {
+            yield return null;
+        }
         timer.enabled = true;
         timer.fillAmount = 0;
         yield return new WaitForSeconds(2);
+        if (timer == null)
+        {
+            yield return null;
+        }
         timer.fillAmount = 0.2f;
         yield return new WaitForSeconds(2);
+        if (timer == null)
+        {
+            yield return null;
+        }
         timer.fillAmount = 0.4f;
         yield return new WaitForSeconds(2);
+        if (timer == null)
+        {
+            yield return null;
+        }
         timer.fillAmount = 0.6f;
         yield return new WaitForSeconds(2);
+        if (timer == null)
+        {
+            yield return null;
+        }
         timer.fillAmount = 0.8f;
         yield return new WaitForSeconds(2);
+        if (timer == null)
+        {
+            yield return null;
+        }
         timer.fillAmount = 1f;
         timer.enabled = false;
         yield return null;

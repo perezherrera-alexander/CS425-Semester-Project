@@ -6,6 +6,8 @@ using System;
 public class grassHopperTower : BaseTowerLogic
 {
     public StoreTowerUpgradeData storeTowerUpgradeData;
+    public GameObject grassHop1;
+    public GameObject grassHop2;
     public string id;
     // Start is called before the first frame update
     void Start()
@@ -14,6 +16,8 @@ public class grassHopperTower : BaseTowerLogic
         towerName = "Grasshopper Lair";
         Invoke();
         MakeSphere();
+        grassHop1.SetActive(false);
+        grassHop2.SetActive(false);
         curAttackSpeed = fireRate;
         AddUpgradeEffects();
     }
@@ -59,11 +63,13 @@ public class grassHopperTower : BaseTowerLogic
         {
             if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Grass Hopper Upgrade 1")
             {
+                grassHop1.SetActive(true);
                 projectilePrefab.GetComponent<grassHopperProjectile>().bounces = 4f;
                 projectilePrefab.GetComponent<grassHopperProjectile>().jumper = true;
             }
             if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Grass Hopper Upgrade 2")
             {
+                grassHop2.SetActive(true);
                 projectilePrefab.GetComponent<grassHopperProjectile>().waved = true;
             }
             count++;

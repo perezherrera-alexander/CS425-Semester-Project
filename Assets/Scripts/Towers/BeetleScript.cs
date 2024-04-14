@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class BeetleScript : BaseTowerLogic
 {
+    public GameObject secondRange;
+    public GameObject thirdRange;
     public StoreTowerUpgradeData storeTowerUpgradeData;
     //private Animator animate;
     public string id;
@@ -96,6 +98,8 @@ public class BeetleScript : BaseTowerLogic
             {
                 proximitySphere.radius = 5.6f;
                 targettingRange = 25f;
+                rangeFinder.SetActive(false);
+                rangeFinder = secondRange;
                 materials[3] = upgrade1;
                 materials[4] = upgrade2;
                 transform.GetChild(0).GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>().materials = materials.ToArray();
@@ -104,6 +108,8 @@ public class BeetleScript : BaseTowerLogic
             {
                 proximitySphere.radius = 6.7f;
                 targettingRange = 40f;
+                rangeFinder.SetActive(false);
+                rangeFinder = thirdRange;
                 satellite.SetActive(true);
             }
             count++;

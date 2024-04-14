@@ -5,6 +5,7 @@ using System;
 
 public class mortarTower : BaseTowerLogic
 {
+    public GameObject secondRange;
     public StoreTowerUpgradeData storeTowerUpgradeData;
     public string id;
     public GameObject grenades;
@@ -71,6 +72,8 @@ public class mortarTower : BaseTowerLogic
                 targettingRange = 30f;
                 proximitySphere = GetComponent<SphereCollider>();
                 proximitySphere.radius = 17.98f;
+                rangeFinder.SetActive(false);
+                rangeFinder = secondRange;
                 projectilePrefab.GetComponent<MortarLikeProjectile>().speed = 45f; ;
                 Instantiate(grenades, bandolier);
 

@@ -95,7 +95,7 @@ public class BeetleMelee : BaseTowerLogic
     public override void MakeSphere()
     {
         proximitySphere = GetComponent<SphereCollider>();
-        proximitySphere.radius = 3.7f;
+        proximitySphere.radius = 5.41f;
     }
 
     [ContextMenu("Generate ID")]

@@ -7,6 +7,7 @@ using Codice.CM.Common;
 
 public class meleeTower : BaseTowerLogic
 {
+    public GameObject secondRange;
     public StoreTowerUpgradeData storeTowerUpgradeData;
     private float directDamage = 5f;
 
@@ -140,6 +141,8 @@ public class meleeTower : BaseTowerLogic
                 targettingRange = 15f;
                 proximitySphere = GetComponent<SphereCollider>();
                 proximitySphere.radius = 9f;
+                rangeFinder.SetActive(false);
+                rangeFinder = secondRange;
                 Instantiate(knife, k1);
                 Instantiate(knife, k2);
             }

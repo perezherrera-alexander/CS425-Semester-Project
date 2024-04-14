@@ -11,6 +11,7 @@ public class WaspMelee : BaseTowerLogic
     public Material upgrade2;
     public List<Material> mats;
     private Animator animate;
+    public GameObject secondRange;
 
     private float directDamage = 0.5f;
     private float attackRate = 0f;
@@ -99,6 +100,8 @@ public class WaspMelee : BaseTowerLogic
             {
                 targettingRange = 11.5f;
                 proximitySphere.radius = 6.91f;
+                rangeFinder.SetActive(false);
+                rangeFinder = secondRange;
                 mats[3] = upgrade2;
                 transform.GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>().materials = mats.ToArray();
             }

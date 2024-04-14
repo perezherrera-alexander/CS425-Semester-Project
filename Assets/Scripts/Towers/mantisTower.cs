@@ -5,6 +5,7 @@ using System;
 
 public class mantisTower : BaseTowerLogic
 {
+    public GameObject secondRange;
     public StoreTowerUpgradeData storeTowerUpgradeData;
     private Animator animate;
     public string id;
@@ -103,6 +104,8 @@ public class mantisTower : BaseTowerLogic
             {
                 targettingRange = 18f;
                 proximitySphere.radius = 17.99f;
+                rangeFinder.SetActive(false);
+                rangeFinder = secondRange;
                 materials[0] = upgrade;
                 transform.GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>().materials = materials.ToArray();
             }

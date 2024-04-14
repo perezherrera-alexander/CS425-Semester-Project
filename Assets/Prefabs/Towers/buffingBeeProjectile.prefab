@@ -135,6 +135,10 @@ MonoBehaviour:
   id: 
   data: {fileID: 11400000, guid: b9f23ef56e489654dbae6e30c8012854, type: 2}
   speed: 15
+  bag: {fileID: 1844760932492580879}
+  bagTog: 0
+  buff: {fileID: 9145659688421270991, guid: bbcbca1fd49ab9f458f311b580082c34, type: 3}
+  buffTog: 0
 --- !u!136 &4933943391893399872
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -231,6 +235,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b72376e41389edc428675590d7e711d5, type: 3}
+--- !u!1 &1844760932492580879 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1238448660078114444, guid: b72376e41389edc428675590d7e711d5, type: 3}
+  m_PrefabInstance: {fileID: 627744405108731523}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5833761590175162459 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6360100220630191832, guid: b72376e41389edc428675590d7e711d5, type: 3}
