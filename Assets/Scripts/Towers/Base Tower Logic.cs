@@ -1,4 +1,4 @@
-    using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -36,6 +36,7 @@ public class BaseTowerLogic : MonoBehaviour, Effectable
     public float curAttackSpeed;
     private float currentEffectTime = 0f;
     public bool isBuffed = false;
+    public GameObject rangeFinder;
     void Start()
     {
         Invoke();

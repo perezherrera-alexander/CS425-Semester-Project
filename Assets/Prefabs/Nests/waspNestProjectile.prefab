@@ -961,6 +961,7 @@ GameObject:
   - component: {fileID: 3172242318798886068}
   - component: {fileID: 8205398317635712566}
   - component: {fileID: 2745799746064854420}
+  - component: {fileID: 6283891748847855389}
   m_Layer: 0
   m_Name: waspNestProjectile
   m_TagString: Untagged
@@ -1018,8 +1019,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9d24680c7c2c6c48ab6990275c4d643, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 50
+  damage: 1.5
   lifeTime: 2
   isActive: 0
+--- !u!95 &6283891748847855389
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7241673889985896534}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: aedc311eaef64024bb545a7eec5fc892, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7290201037900298870
 GameObject:
   m_ObjectHideFlags: 0

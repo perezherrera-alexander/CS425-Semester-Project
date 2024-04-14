@@ -21,6 +21,10 @@ public class centipedeTower : BaseTowerLogic
             {
                 waypointIndex = i;
             }
+            else
+            {
+                waypointIndex++;
+            }
         }
         target = Path.waypoints[waypointIndex - 1];
         fireRate = 0.3f;

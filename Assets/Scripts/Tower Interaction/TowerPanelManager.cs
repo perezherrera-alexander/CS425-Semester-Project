@@ -224,12 +224,16 @@ public class TowerPanelManager : MonoBehaviour
     {
         var outline = SelectedTower.GetComponent<Outline>();
         outline.enabled = true;
+        var range = SelectedTower.GetComponentInChildren<BaseTowerLogic>();
+        range.rangeFinder.SetActive(true);
     }
 
     private void TurnOffTowerOutline()
     {
         var outline = SelectedTower.GetComponent<Outline>();
         outline.enabled = false;
+        var range = SelectedTower.GetComponentInChildren<BaseTowerLogic>();
+        range.rangeFinder.SetActive(false);
     }
 
     public void TowerTargeting(int selectedTargetingType)

@@ -32,6 +32,11 @@ public class TowerPlacement : MonoBehaviour
             if (Physics.Raycast(CameraRay, out HitInfo, 100f))
             {
                 Tower.transform.position = HitInfo.point;
+                if(Tower.transform.Find("Rotate").GetComponentInChildren<BaseTowerLogic>().rangeFinder != null)
+                {
+                    Tower.transform.Find("Rotate").GetComponentInChildren<BaseTowerLogic>().rangeFinder.SetActive(true);
+                }
+                
             }
 
             if (Input.GetMouseButtonDown(0) && HitInfo.collider.CompareTag("Floor"))
@@ -44,6 +49,10 @@ public class TowerPlacement : MonoBehaviour
 
                 // Call the ActivateTower function of the tower's script
                 Tower.transform.GetComponentInChildren<BaseTowerLogic>().ActivateTower(); // We don't actually need the towername, we can just do it this way
+                if (Tower.transform.Find("Rotate").GetComponentInChildren<BaseTowerLogic>().rangeFinder != null)
+                {
+                    Tower.transform.Find("Rotate").GetComponentInChildren<BaseTowerLogic>().rangeFinder.SetActive(false);
+                }
                 Debug.Log("Tower activated");
 
                 if (towerName == "Bee Tower")

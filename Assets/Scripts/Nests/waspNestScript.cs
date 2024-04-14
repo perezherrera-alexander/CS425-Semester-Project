@@ -51,17 +51,12 @@ public class waspNestScript : baseNests
 
     void Shoot()
     {
-        float randx = Random.Range(-10f, 10f);
-        float y = target.transform.position.y;
-        float z = target.transform.position.z;
-        Transform firePos = target.transform;
-        randx = target.transform.position.x + randx;
-        firePos.position = new Vector3(randx, y, z);
+        float randx = Random.Range(-20f, 20f);
         GameObject wasp = (GameObject)Instantiate(projectilePrefab, locationToFireFrom.position, locationToFireFrom.rotation);
         waspNestProjectile sting = wasp.GetComponent<waspNestProjectile>();
         if (sting != null)
         {
-            sting.Look(firePos);
+            sting.transform.Rotate(Vector3.up * randx);
         }
     }
 }

@@ -31,12 +31,20 @@ public class MothTower : BaseTowerLogic
         timer += Time.deltaTime;
         circle(timer);
 
+        if(isActive != true)
+        {
+
+        }
+        else
+        {
             if (fireCountdown <= 0f)
             {
                 Shoot();
                 Instantiate(particles, transform);
                 fireCountdown = 1f / fireRate;
             }
+        }
+
             
         
         fireCountdown -= Time.deltaTime;
