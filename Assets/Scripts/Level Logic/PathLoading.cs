@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 
 public class PathLoading : MonoBehaviour, ISaveable
 {
@@ -13,6 +14,8 @@ public class PathLoading : MonoBehaviour, ISaveable
     public GameObject[] pathPrefabs;
     public PlayerData playerData;
     public int LevelChoice = 0; // I feel like this can private
+    public GameObject levelLight;
+    public int choice = 0;
     void Start()
     {
         if(enableDebug) return; // If debug is enabled, don't load saved level or randomly pick one (use the one already in the scene)
@@ -33,6 +36,15 @@ public class PathLoading : MonoBehaviour, ISaveable
         // If there is save data, load the level from the save data, otherwise load a random level
         if (playerData.LevelLoaded == false)
         {
+            choice = UnityEngine.Random.Range(0, 10);
+            if (choice <= 5)
+            {
+                levelLight.GetComponent<Light>().intensity = 0;
+            }
+            else
+            {
+
+            }
             // Assign one of the prefab paths to the "World Objects" game object
             int pathIndex = LoadRandomLevel();
             LevelChoice = pathIndex;
