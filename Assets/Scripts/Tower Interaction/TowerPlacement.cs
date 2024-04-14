@@ -10,6 +10,7 @@ public class TowerPlacement : MonoBehaviour
     private GameObject Tower;
     private string towerName;
     private TargetingTypes savedTargettingType;
+    public bool tutorialMode = false;
 
     [SerializeField] TowerSaveLoadManager towerSaveLoadManager;
 
@@ -54,93 +55,95 @@ public class TowerPlacement : MonoBehaviour
                     Tower.transform.Find("Rotate").GetComponentInChildren<BaseTowerLogic>().rangeFinder.SetActive(false);
                 }
                 Debug.Log("Tower activated");
-
-                if (towerName == "Bee Tower")
+                if(!tutorialMode)
                 {
-                    string ID = Tower.transform.GetChild(1).gameObject.GetComponent<BeeTower>().GenerateId().ToString();
-                    savedTargettingType = Tower.transform.GetChild(1).gameObject.GetComponent<BeeTower>().targetingType;
-                    Vector3 pos = Tower.transform.position;
-                    towerSaveLoadManager.AddTower(ID, pos, towerName, savedTargettingType);
-                }
+                    if (towerName == "Bee Tower")
+                    {
+                        string ID = Tower.transform.GetChild(1).gameObject.GetComponent<BeeTower>().GenerateId().ToString();
+                        savedTargettingType = Tower.transform.GetChild(1).gameObject.GetComponent<BeeTower>().targetingType;
+                        Vector3 pos = Tower.transform.position;
+                        towerSaveLoadManager.AddTower(ID, pos, towerName, savedTargettingType);
+                    }
 
-                if (towerName == "Mortar Tower")
-                {
-                    string ID = Tower.transform.GetChild(1).gameObject.GetComponent<mortarTower>().GenerateId().ToString();
-                    savedTargettingType = Tower.transform.GetChild(1).gameObject.GetComponent<mortarTower>().targetingType;
-                    Vector3 pos = Tower.transform.position;
-                    towerSaveLoadManager.AddTower(ID, pos, towerName, savedTargettingType);
-                }
+                    if (towerName == "Mortar Tower")
+                    {
+                        string ID = Tower.transform.GetChild(1).gameObject.GetComponent<mortarTower>().GenerateId().ToString();
+                        savedTargettingType = Tower.transform.GetChild(1).gameObject.GetComponent<mortarTower>().targetingType;
+                        Vector3 pos = Tower.transform.position;
+                        towerSaveLoadManager.AddTower(ID, pos, towerName, savedTargettingType);
+                    }
 
-                if (towerName == "Tether Tower")
-                {
-                    string ID = Tower.transform.GetChild(1).gameObject.GetComponent<tetherTower>().GenerateId().ToString();
-                    savedTargettingType = Tower.transform.GetChild(1).gameObject.GetComponent<tetherTower>().targetingType;
-                    Vector3 pos = Tower.transform.position;
-                    towerSaveLoadManager.AddTower(ID, pos, towerName, savedTargettingType);
-                }
+                    if (towerName == "Tether Tower")
+                    {
+                        string ID = Tower.transform.GetChild(1).gameObject.GetComponent<tetherTower>().GenerateId().ToString();
+                        savedTargettingType = Tower.transform.GetChild(1).gameObject.GetComponent<tetherTower>().targetingType;
+                        Vector3 pos = Tower.transform.position;
+                        towerSaveLoadManager.AddTower(ID, pos, towerName, savedTargettingType);
+                    }
 
-                if (towerName == "Fire Ant") // Previously Flame Tower
-                {
-                    string ID = Tower.transform.GetChild(0).gameObject.GetComponent<FlameTower>().GenerateId().ToString();
-                    savedTargettingType = Tower.transform.GetChild(0).gameObject.GetComponent<FlameTower>().targetingType;
-                    Vector3 pos = Tower.transform.position;
-                    towerSaveLoadManager.AddTower(ID, pos, towerName, savedTargettingType);
-                }
+                    if (towerName == "Fire Ant") // Previously Flame Tower
+                    {
+                        string ID = Tower.transform.GetChild(0).gameObject.GetComponent<FlameTower>().GenerateId().ToString();
+                        savedTargettingType = Tower.transform.GetChild(0).gameObject.GetComponent<FlameTower>().targetingType;
+                        Vector3 pos = Tower.transform.position;
+                        towerSaveLoadManager.AddTower(ID, pos, towerName, savedTargettingType);
+                    }
 
-                if (towerName == "Army Ant") // Previously Melee Tower
-                {
-                    string ID = Tower.transform.GetChild(0).gameObject.GetComponent<meleeTower>().GenerateId().ToString();
-                    savedTargettingType = Tower.transform.GetChild(0).gameObject.GetComponent<meleeTower>().targetingType;
-                    Vector3 pos = Tower.transform.position;
-                    towerSaveLoadManager.AddTower(ID, pos, towerName, savedTargettingType);
-                }
+                    if (towerName == "Army Ant") // Previously Melee Tower
+                    {
+                        string ID = Tower.transform.GetChild(0).gameObject.GetComponent<meleeTower>().GenerateId().ToString();
+                        savedTargettingType = Tower.transform.GetChild(0).gameObject.GetComponent<meleeTower>().targetingType;
+                        Vector3 pos = Tower.transform.position;
+                        towerSaveLoadManager.AddTower(ID, pos, towerName, savedTargettingType);
+                    }
 
-                if (towerName == "Mortar Ant")
-                {
-                    string ID = Tower.transform.GetChild(0).gameObject.GetComponent<mortarTower>().GenerateId().ToString();
-                    savedTargettingType = Tower.transform.GetChild(0).gameObject.GetComponent<mortarTower>().targetingType;
-                    Vector3 pos = Tower.transform.position;
-                    towerSaveLoadManager.AddTower(ID, pos, towerName, savedTargettingType);
-                }
+                    if (towerName == "Mortar Ant")
+                    {
+                        string ID = Tower.transform.GetChild(0).gameObject.GetComponent<mortarTower>().GenerateId().ToString();
+                        savedTargettingType = Tower.transform.GetChild(0).gameObject.GetComponent<mortarTower>().targetingType;
+                        Vector3 pos = Tower.transform.position;
+                        towerSaveLoadManager.AddTower(ID, pos, towerName, savedTargettingType);
+                    }
 
-                if (towerName == "Attack Bee")
-                {
-                    string ID = Tower.transform.GetChild(1).gameObject.GetComponent<BeeTower>().GenerateId().ToString();
-                    savedTargettingType = Tower.transform.GetChild(1).gameObject.GetComponent<BeeTower>().targetingType;
-                    Vector3 pos = Tower.transform.position;
-                    towerSaveLoadManager.AddTower(ID, pos, towerName, savedTargettingType);
-                }
+                    if (towerName == "Attack Bee")
+                    {
+                        string ID = Tower.transform.GetChild(1).gameObject.GetComponent<BeeTower>().GenerateId().ToString();
+                        savedTargettingType = Tower.transform.GetChild(1).gameObject.GetComponent<BeeTower>().targetingType;
+                        Vector3 pos = Tower.transform.position;
+                        towerSaveLoadManager.AddTower(ID, pos, towerName, savedTargettingType);
+                    }
 
-                if (towerName == "Bee Swarm")
-                {
-                    string ID = Tower.transform.GetChild(1).gameObject.GetComponent<BeeSwarm>().GenerateId().ToString();
-                    savedTargettingType = Tower.transform.GetChild(1).gameObject.GetComponent<BeeSwarm>().targetingType;
-                    Vector3 pos = Tower.transform.position;
-                    towerSaveLoadManager.AddTower(ID, pos, towerName, savedTargettingType);
-                }
+                    if (towerName == "Bee Swarm")
+                    {
+                        string ID = Tower.transform.GetChild(1).gameObject.GetComponent<BeeSwarm>().GenerateId().ToString();
+                        savedTargettingType = Tower.transform.GetChild(1).gameObject.GetComponent<BeeSwarm>().targetingType;
+                        Vector3 pos = Tower.transform.position;
+                        towerSaveLoadManager.AddTower(ID, pos, towerName, savedTargettingType);
+                    }
 
-                if (towerName == "Buffing Bee")
-                {
-                    string ID = Tower.transform.GetChild(1).gameObject.GetComponent<BuffingBees>().GenerateId().ToString();
-                    savedTargettingType = Tower.transform.GetChild(1).gameObject.GetComponent<BuffingBees>().targetingType;
-                    Vector3 pos = Tower.transform.position;
-                    towerSaveLoadManager.AddTower(ID, pos, towerName, savedTargettingType);
-                }
+                    if (towerName == "Buffing Bee")
+                    {
+                        string ID = Tower.transform.GetChild(1).gameObject.GetComponent<BuffingBees>().GenerateId().ToString();
+                        savedTargettingType = Tower.transform.GetChild(1).gameObject.GetComponent<BuffingBees>().targetingType;
+                        Vector3 pos = Tower.transform.position;
+                        towerSaveLoadManager.AddTower(ID, pos, towerName, savedTargettingType);
+                    }
 
-                if (towerName == "Wasp Melee")
-                {
-                    string ID = Tower.transform.GetChild(0).gameObject.GetComponent<WaspMelee>().GenerateId().ToString();
-                    savedTargettingType = Tower.transform.GetChild(0).gameObject.GetComponent<WaspMelee>().targetingType;
-                    Vector3 pos = Tower.transform.position;
-                    towerSaveLoadManager.AddTower(ID, pos, towerName, savedTargettingType);
-                }
+                    if (towerName == "Wasp Melee")
+                    {
+                        string ID = Tower.transform.GetChild(0).gameObject.GetComponent<WaspMelee>().GenerateId().ToString();
+                        savedTargettingType = Tower.transform.GetChild(0).gameObject.GetComponent<WaspMelee>().targetingType;
+                        Vector3 pos = Tower.transform.position;
+                        towerSaveLoadManager.AddTower(ID, pos, towerName, savedTargettingType);
+                    }
 
-                if (towerName == "Wasp Tower")
-                {
-                    string ID = Tower.transform.GetChild(0).gameObject.GetComponent<StraightShooter>().GenerateId().ToString();
-                    savedTargettingType = Tower.transform.GetChild(0).gameObject.GetComponent<StraightShooter>().targetingType;
-                    Vector3 pos = Tower.transform.position;
-                    towerSaveLoadManager.AddTower(ID, pos, towerName, savedTargettingType);
+                    if (towerName == "Wasp Tower")
+                    {
+                        string ID = Tower.transform.GetChild(0).gameObject.GetComponent<StraightShooter>().GenerateId().ToString();
+                        savedTargettingType = Tower.transform.GetChild(0).gameObject.GetComponent<StraightShooter>().targetingType;
+                        Vector3 pos = Tower.transform.position;
+                        towerSaveLoadManager.AddTower(ID, pos, towerName, savedTargettingType);
+                    }
                 }
 
                 Tower = null;
