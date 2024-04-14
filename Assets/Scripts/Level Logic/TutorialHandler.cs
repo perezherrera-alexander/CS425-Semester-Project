@@ -12,8 +12,7 @@ public class TutorialHandler : MonoBehaviour
     public List<Vector2> tutorialPanelPositions;
     private List<GameObject> gameObjects = new List<GameObject>();
     private GameObject playerInterface;
-    public bool activePanel = false;
-    public int panelIndex = 0;
+    public int indexOfCurrentlyActivePanel = 0;
     // Acount for canvas scaling
 
     private void Start()
@@ -50,21 +49,24 @@ public class TutorialHandler : MonoBehaviour
 
     void Update()
     {
-
-        // Find a tutorial panel that is active
-        if(gameObjects[panelIndex] == null)
+        if(indexOfCurrentlyActivePanel >= gameObjects.Count)
         {
-            panelIndex++;
+            return;
+        }
+        // Find a tutorial panel that is active
+        if(gameObjects[indexOfCurrentlyActivePanel] == null)
+        {
+            indexOfCurrentlyActivePanel++;
         }
 
-        if(panelIndex >= gameObjects.Count)
+        if(indexOfCurrentlyActivePanel >= gameObjects.Count)
         {
             return;
         }
 
-        if (!gameObjects[panelIndex].activeSelf)
+        if (!gameObjects[indexOfCurrentlyActivePanel].activeSelf)
         {
-            gameObjects[panelIndex].SetActive(true);
+            gameObjects[indexOfCurrentlyActivePanel].SetActive(true);
         }
     }
 

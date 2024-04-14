@@ -1863,6 +1863,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Path Stuff 01
       objectReference: {fileID: 0}
+    - target: {fileID: 6908012514306650932, guid: 95c04e9ab2c2a5e449d242bead5265c2, type: 3}
+      propertyPath: playerData
+      value: 
+      objectReference: {fileID: 11400000, guid: e5182c4790afae948a360981dc4d0e9a, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3000,7 +3004,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dcada2d496e5c645adf2023d367ab20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerData: {fileID: 11400000, guid: 5e3cd046013d0654b91f369ecf77ee21, type: 2}
+  PlayerData: {fileID: 11400000, guid: e5182c4790afae948a360981dc4d0e9a, type: 2}
   enemy1: {fileID: 8368731085636143380, guid: 1efa8932789fd854fb50e90e40f5c39b, type: 3}
   enemy2: {fileID: 493985169150360010, guid: 8b446b714c3ff954baca0c6386ecfbe7, type: 3}
   enemy3: {fileID: 5512348237283082412, guid: decd8ce85050ec542ac1946a45a530f3, type: 3}
@@ -3129,19 +3133,48 @@ MonoBehaviour:
   - Welcome to the Creature Conquest tutorial! Panels like this one will guide you
     through the game. When you're ready to continue, click the X in the top right
     corner of this panel. Good luck!
-  - You goal is to prevent enemies from reaching your next. They will begin marching
-    from the left side of the screen and follow the path until the reach your nest
-    at the center.
+  - An evil AI has risen from the depths after a millenia of peace. You are leading
+    a campaign to take the fight to them. However, you are not alone. You have recruited
+    a number of critters to your cause.
+  - Your goal is to prevent enemies from reaching your nest, located near at the
+    end of the path (near the center of the screen.) These enemies will begin marching
+    from the left side of the screen and follow the path until they reach your nest.
   - If enemies reach the center next, you will lose Morale. Lose all your morale
-    and you will lose the campaign and must start again. Thankfully, you have recruited
-    a number of critters to your cause. Open the shop to the right by clicking the
+    and you will lose the campaign and must start again. You can use the shop to
+    purhcase towers to help you defned. Open the shop to the right by clicking the
     DNA icon.
+  - In this game you have "Evoluton Points". This is the curreny you'll use to buy
+    new towers from the shop. As you mouse over a tower in the shop, you'll see it's
+    name, price, and description. Try purchasing one of each tower and placing them
+    along the path.
+  - Once you are happy with your selection. Hit the spacebar to begin the wave. This
+    will begin the march of enemies. You must defeat all of the approaching enemies
+    to advance to the next wave. As you defeat enemies, you will accumulate additional
+    Evolution Points to purchase more towers.
+  - You represent the "General" of your army as well as a specific faction of bugs.
+    In this instance, you are the Bee General. As part of this, you have access to
+    the Bee nest and it's special ability. Click the nest to open it's panel. Start
+    a wave and try out its ability.
+  - The Bee nest ability temporarily increases the money earned on enemy death. Use
+    it during busy waves to maximize it's effectiveness.
+  - In the full game, you will choose a general before each run which determines
+    which towers you begin with as well as the nest ability. You will also be able
+    to unlock new towers depending on which levels you tackle. Your goal is to make
+    it across the world map to successfully repel the AI invaders.
+  - Feel free to complete the rest of the waves if you have not already done so.
+    Good Luck!
   tutorialPanelPositions:
   - {x: 800, y: -800}
   - {x: 800, y: -800}
+  - {x: 800, y: -800}
   - {x: 1200, y: -450}
-  activePanel: 0
-  panelIndex: 0
+  - {x: 1200, y: -450}
+  - {x: 1230, y: -950}
+  - {x: 1200, y: -950}
+  - {x: 1200, y: -950}
+  - {x: 1200, y: -950}
+  - {x: 1200, y: -950}
+  indexOfCurrentlyActivePanel: 0
 --- !u!1 &1826386577
 GameObject:
   m_ObjectHideFlags: 0
