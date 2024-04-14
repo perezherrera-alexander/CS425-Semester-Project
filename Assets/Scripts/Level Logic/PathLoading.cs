@@ -36,18 +36,26 @@ public class PathLoading : MonoBehaviour, ISaveable
         // If there is save data, load the level from the save data, otherwise load a random level
         if (playerData.LevelLoaded == false)
         {
-            choice = UnityEngine.Random.Range(0, 10);
-            if (choice <= 5)
-            {
-                levelLight.GetComponent<Light>().intensity = 0;
-            }
-            else
-            {
 
-            }
             // Assign one of the prefab paths to the "World Objects" game object
             int pathIndex = LoadRandomLevel();
             LevelChoice = pathIndex;
+            if(pathIndex == 3)
+            {
+
+            }
+            else
+            {
+                choice = UnityEngine.Random.Range(0, 10);
+                if (choice <= 5)
+                {
+                    levelLight.GetComponent<Light>().intensity = UnityEngine.Random.Range(0f,1f);
+                }
+                else
+                {
+
+                }
+            }
             GameObject path = Instantiate(pathPrefabs[pathIndex], transform.position, Quaternion.identity);
             path.transform.parent = transform;
 
