@@ -93,13 +93,13 @@ public class MothTower : BaseTowerLogic
         int count = 1;
         while (count <= storeTowerUpgradeData.ListOfUpgradesObtained.Count)
         {
-            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Moth Upgrade 1")
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Reflector Wings")
             {
                 stronger = true;
                 materials[5] = upgrade;
                 transform.GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>().materials = materials.ToArray();
             }
-            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Moth Upgrade 2")
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Monstrous Evolution")
             {
                 bigger = true;
                 transform.GetChild(0).transform.localScale = new Vector3(2.04f,2.04f,2.04f);

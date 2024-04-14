@@ -123,12 +123,12 @@ public class BuffingBees : BaseTowerLogic
         int count = 1;
         while (count <= storeTowerUpgradeData.ListOfUpgradesObtained.Count)
         {
-            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Buffing Bee Upgrade 1")
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Traveling Salesman")
             {
                 fireRate = 0.6f;
                 bag.SetActive(true);
             }
-            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Buffing Bee Upgrade 2")
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Thicker Than Molasses")
             {
                 projectilePrefab.GetComponent<BuffBee>().data.lifeTime = 18;
                 projectilePrefab.GetComponent<BuffBee>().data.attackSpeedIncrease = 0.75f;

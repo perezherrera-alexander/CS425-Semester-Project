@@ -185,26 +185,6 @@ public class TowerPanelManager : MonoBehaviour
             string scriptName = scriptType.Name;
             Debug.Log(scriptName);
 
-            if (scriptName == "BeeTower")
-            {
-                TowerID = SelectedTower.transform.GetChild(1).gameObject.GetComponent<BeeTower>().id;
-                Debug.Log(TowerID);
-                towerSaveLoadManager.RemoveTower(TowerID);
-            }
-
-            if (scriptName == "mortarTower")
-            {
-                TowerID = SelectedTower.transform.GetChild(1).gameObject.GetComponent<mortarTower>().id;
-                Debug.Log(TowerID);
-                towerSaveLoadManager.RemoveTower(TowerID);
-            }
-
-            if (scriptName == "tetherTower")
-            {
-                TowerID = SelectedTower.transform.GetChild(1).gameObject.GetComponent<tetherTower>().id;
-                Debug.Log(TowerID);
-                towerSaveLoadManager.RemoveTower(TowerID);
-            }
 
             if (scriptName == "BeeSwarm")
             {

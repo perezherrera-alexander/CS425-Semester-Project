@@ -61,13 +61,13 @@ public class grassHopperTower : BaseTowerLogic
         int count = 1;
         while (count <= storeTowerUpgradeData.ListOfUpgradesObtained.Count)
         {
-            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Grass Hopper Upgrade 1")
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Jumping Jacks")
             {
                 grassHop1.SetActive(true);
                 projectilePrefab.GetComponent<grassHopperProjectile>().bounces = 4f;
                 projectilePrefab.GetComponent<grassHopperProjectile>().jumper = true;
             }
-            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Grass Hopper Upgrade 2")
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Locust Swarm")
             {
                 grassHop2.SetActive(true);
                 projectilePrefab.GetComponent<grassHopperProjectile>().waved = true;

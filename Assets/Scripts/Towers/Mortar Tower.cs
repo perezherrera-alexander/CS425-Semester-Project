@@ -16,7 +16,7 @@ public class mortarTower : BaseTowerLogic
     void Start()
     {
         createOutline();
-        towerName = "Mortar Ant";
+        towerName = "Grenadier Ant";
         Invoke();
         MakeSphere();
         curAttackSpeed = fireRate;
@@ -62,12 +62,12 @@ public class mortarTower : BaseTowerLogic
         int count = 1;
         while (count <= storeTowerUpgradeData.ListOfUpgradesObtained.Count)
         {
-            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Mortar Ant Upgrade 1")
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Nuclear Payload")
             {
                 projectilePrefab.GetComponent<MortarLikeProjectile>().splashDamage = 5f;
                 Instantiate(nuclear, transform);
             }
-            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Mortar Ant Upgrade 2")
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Project Orion")
             {
                 targettingRange = 30f;
                 proximitySphere = GetComponent<SphereCollider>();

@@ -23,8 +23,8 @@ public class stingerScript : MonoBehaviour
     private float timer = 0f;
     public GameObject wing1;
     public GameObject wing2;
-    public bool wingToggle;
-    public bool once;
+    public bool wingToggle = false;
+    public bool once = false;
 #pragma warning restore 0414
     public void Seek( Transform newTarget)
     {
@@ -32,6 +32,13 @@ public class stingerScript : MonoBehaviour
         lastKnown = target;
         wing1.GetComponent<MeshRenderer>().enabled = false;
         wing2.GetComponent<MeshRenderer>().enabled = false;
+
+        if (wingToggle == true)
+        {
+            wing1.GetComponent<MeshRenderer>().enabled = true;
+            wing2.GetComponent<MeshRenderer>().enabled = true;
+
+        }
 
     }
     void setCenter()
@@ -44,16 +51,9 @@ public class stingerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!once)
-        {
-            if (wingToggle)
-            {
-                wing1.GetComponent<MeshRenderer>().enabled = true;
-                wing2.GetComponent<MeshRenderer>().enabled = true;
-                once = true;
-            }
 
-        }
+
+
 
 
         if (target == null)

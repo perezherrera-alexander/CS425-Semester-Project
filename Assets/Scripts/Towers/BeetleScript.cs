@@ -94,7 +94,7 @@ public class BeetleScript : BaseTowerLogic
         int count = 1;
         while (count <= storeTowerUpgradeData.ListOfUpgradesObtained.Count)
         {
-            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Beetle Upgrade 1")
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Aerial Ace")
             {
                 proximitySphere.radius = 5.6f;
                 targettingRange = 25f;
@@ -104,7 +104,7 @@ public class BeetleScript : BaseTowerLogic
                 materials[4] = upgrade2;
                 transform.GetChild(0).GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>().materials = materials.ToArray();
             }
-            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Beetle Upgrade 2")
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Satellite Tracking")
             {
                 proximitySphere.radius = 6.7f;
                 targettingRange = 40f;

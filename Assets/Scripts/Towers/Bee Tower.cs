@@ -66,13 +66,13 @@ public class BeeTower : BaseTowerLogic
         int count = 1;
         while (count <= storeTowerUpgradeData.ListOfUpgradesObtained.Count)
         {
-            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Attack Bee Upgrade 1")
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Bigger Bees")
             {
                 fireRate = 2f;
                 projectilePrefab.GetComponent<stingerScript>().directDamage = 1f;
                 projectilePrefab.GetComponent<Transform>().localScale = new Vector3(0.66f, 0.66f, 0.66f);
             }
-            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Attack Bee Upgrade 2")
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Improved Wing Strength")
             {
                 projectilePrefab.GetComponent<stingerScript>().speed = 45f;
                 projectilePrefab.GetComponent<stingerScript>().wingToggle = true;
