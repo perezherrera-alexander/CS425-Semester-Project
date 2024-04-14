@@ -125,6 +125,10 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
         if (waypointindex >= Path.waypoints.Length){ // Enemy reaches end of path
             //decrement player health according to
             float EnemyHealth = getHealth();
+            if(EnemyHealth < 1f)
+            {
+                EnemyHealth = 1f;
+            }
             int MoraleLost = (int)EnemyHealth;
             PlayerStatistics.Instance.ReduceMorale(MoraleLost);
             //subtract present enemies count by 1
@@ -235,7 +239,6 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
 
     public void applyEffect(StatusEffects effect)
     {
-        //this.data = effect;
         effects.Add(effect);
         Instantiate(effect.effectParticles, transform);
         effect.lifeTime = effect.initLifeTime;
@@ -264,22 +267,7 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
     public virtual void handleEffect()
     {
 
-
-       
         currentEffectTime += Time.deltaTime;
-        /*if (effects.Count > 1)
-        {
-            var effectCount = effects.Count;
-        }
-        if (currentEffectTime > effects.First().lifeTime) 
-            removeEffect(0);
-        if (effects.First() == null)
-            return;
-        if (effects.First().dotAmount != 0 && currentEffectTime > lastTickTime)
-        {
-            lastTickTime += effects.First().tickSpeed;
-            health -= effects.First().dotAmount;
-        }*/
 
         var j = 0;
         
@@ -380,7 +368,6 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
 
     IEnumerator turnOffStun(float time, ParticleSystem particles)
     {
-        Debug.Log("Calling stun ");
         yield return new WaitForSeconds(time);
         particles.Stop();
 
