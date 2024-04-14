@@ -70,6 +70,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerPlacement: {fileID: 0}
   pauseMenu: {fileID: 0}
+  nestMenu: {fileID: 0}
+  shopLogic: {fileID: 0}
+  nestPanel: {fileID: 0}
 --- !u!54 &3689859229407269473
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -97,6 +100,37 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!1 &5128905801980972221
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6858576190925466795}
+  m_Layer: 2
+  m_Name: faith
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6858576190925466795
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5128905801980972221}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 8.08, z: 3.36}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1512327341499027984}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9220493794851006845
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,6 +164,7 @@ Transform:
   m_Children:
   - {fileID: 8746215971751240608}
   - {fileID: 8060065654507668141}
+  - {fileID: 6858576190925466795}
   m_Father: {fileID: 485808280407978274}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &558183958227964561
@@ -149,7 +184,7 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -186,6 +221,9 @@ MonoBehaviour:
   storeTowerUpgradeData: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
   id: 
   sliceDmg: 0.75
+  holy: {fileID: 6366792309168335411, guid: 94d3d533f95151d4db955d17e8dd1402, type: 3}
+  crown: {fileID: 6858576190925466795}
+  upgrade: {fileID: -6478536213147159724, guid: 98eefc5ef23d91940bba8649fa1848f4, type: 3}
 --- !u!1001 &8701923872862697761
 PrefabInstance:
   m_ObjectHideFlags: 0

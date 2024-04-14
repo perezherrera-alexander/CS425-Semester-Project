@@ -6,6 +6,9 @@ using static UnityEngine.GraphicsBuffer;
 public class grassHopperProjectile : mortarProjectile
 {
     private Animator animate;
+    public bool waved = false;
+    public ParticleSystem shock;
+    public bool jumper = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +26,15 @@ public class grassHopperProjectile : mortarProjectile
     // Update is called once per frame
     void Update()
     {
-        animate.SetTrigger("Attack");
+        if(jumper)
+        {
+            animate.SetBool("Atrtacking", true);
+        }
+        else
+        {
+            animate.SetTrigger("Attack");
+        }
+        
         if (target == null)
         {
 
@@ -64,9 +75,21 @@ public class grassHopperProjectile : mortarProjectile
             if (bounces > 0)
             {
                 other.GetComponent<BaseEnemyLogic>().reduceHealth(directDamage);
+                if (waved)
+                {
+                    shockWave();
+                    Instantiate(shock, transform.position, transform.rotation);
+                }
                 bounces -= 1;
                 findNewTarget();
-                animate.SetTrigger("Attack");
+                if (jumper)
+                {
+                    animate.SetBool("Atrtacking", true);
+                }
+                else
+                {
+                    animate.SetTrigger("Attack");
+                }
 
                 if (target == null)
                 {
@@ -88,6 +111,7 @@ public class grassHopperProjectile : mortarProjectile
             else if (bounces == 0)
             {
                 //shockWave();
+                shockWave();
                 Destroy(gameObject);
 
             }

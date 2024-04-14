@@ -39,7 +39,7 @@ public class waspNestScript : baseNests
         Vector3 rotation = lookRotation.eulerAngles;
         barrelToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
 
-        float rand = Random.Range(1f, 5f);
+        float rand = Random.Range(0.5f, 1f);
 
         if (fireCountdown <= 0f)
         {
@@ -51,16 +51,17 @@ public class waspNestScript : baseNests
 
     void Shoot()
     {
-        //float randx = Random.Range(-0.5f, 0.5f);
-        //float y = locationToFireFrom.position.y;
-        //float z = locationToFireFrom.position.z;
-        Transform firePos = locationToFireFrom;
-        //firePos.position = new Vector3(randx, y, z);
-        GameObject wasp = (GameObject)Instantiate(projectilePrefab, firePos.position, locationToFireFrom.rotation);
+        float randx = Random.Range(-10f, 10f);
+        float y = target.transform.position.y;
+        float z = target.transform.position.z;
+        Transform firePos = target.transform;
+        randx = target.transform.position.x + randx;
+        firePos.position = new Vector3(randx, y, z);
+        GameObject wasp = (GameObject)Instantiate(projectilePrefab, locationToFireFrom.position, locationToFireFrom.rotation);
         waspNestProjectile sting = wasp.GetComponent<waspNestProjectile>();
         if (sting != null)
         {
-            sting.Look(target.transform);
+            sting.Look(firePos);
         }
     }
 }

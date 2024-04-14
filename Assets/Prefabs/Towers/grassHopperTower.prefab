@@ -253,6 +253,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerPlacement: {fileID: 0}
   pauseMenu: {fileID: 0}
+  nestMenu: {fileID: 0}
+  shopLogic: {fileID: 0}
+  nestPanel: {fileID: 0}
 --- !u!65 &820102307971036065
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -272,8 +275,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 6.6206837, y: 6.1982822, z: 4.8185806}
-  m_Center: {x: -0.43820286, y: 2.5991411, z: -0.7425308}
+  m_Size: {x: 6.6206837, y: 6.1982822, z: 6.98}
+  m_Center: {x: -0.43820286, y: 2.5991411, z: 0.98}
 --- !u!54 &6929230659319698690
 Rigidbody:
   m_ObjectHideFlags: 0

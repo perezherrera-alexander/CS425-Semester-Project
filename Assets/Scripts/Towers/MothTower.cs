@@ -10,6 +10,10 @@ public class MothTower : BaseTowerLogic
     public ParticleSystem particles;
     private float timer = 0f;
     private float angle = 0f;
+    public bool stronger = false;
+    public bool bigger = false;
+    public Material upgrade;
+    public List<Material> materials;
 
 
     // Start is called before the first frame update
@@ -17,6 +21,7 @@ public class MothTower : BaseTowerLogic
     {
         fireRate = 0.3f;
         towerName = "Moth Man";
+        transform.GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>().GetMaterials(materials);
         AddUpgradeEffects();
     }
 
@@ -45,7 +50,23 @@ public class MothTower : BaseTowerLogic
         {
             if (c.GetComponent<BaseEnemyLogic>())
             {
-                c.GetComponent<BaseEnemyLogic>().stun(2f);
+                if (bigger)
+                {
+                    c.GetComponent<BaseEnemyLogic>().stunByPass(4f);
+                }
+                else
+                {
+                    if (stronger)
+                    {
+                        c.GetComponent<BaseEnemyLogic>().stun(4f);
+                    }
+                    else
+                    {
+                        c.GetComponent<BaseEnemyLogic>().stun(2f);
+                    }
+                }
+
+                
                 //Have this tower do knockback for now to test functionality, this tower will stun enemies when the stun effect is implemented
             }
         }
@@ -66,9 +87,14 @@ public class MothTower : BaseTowerLogic
         {
             if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Moth Upgrade 1")
             {
+                stronger = true;
+                materials[5] = upgrade;
+                transform.GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>().materials = materials.ToArray();
             }
             if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Moth Upgrade 2")
             {
+                bigger = true;
+                transform.GetChild(0).transform.localScale = new Vector3(2.04f,2.04f,2.04f);
             }
             count++;
         }

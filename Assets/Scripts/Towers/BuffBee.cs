@@ -5,21 +5,39 @@ using System;
 
 public class BuffBee : MonoBehaviour
 {
-    public StoreTowerUpgradeData storeTowerUpgradeData;
+
     public string id;
-    [SerializeField] StatusEffects data;
+    [SerializeField] 
+    public StatusEffects data;
     private Transform target;
 
     public float speed = 15f;
+    public GameObject bag;
+    public bool bagTog = false;
+    public ParticleSystem buff;
+    public bool buffTog = false;
     // Start is called before the first frame update
 
     public void Start()
     {
-       AddUpgradeEffects();
+       bag.SetActive(false);
     }
     public void Seek(Transform newTarget)
     {
         target = newTarget;
+        if (bagTog)
+        {
+            bag.SetActive(true);
+        }
+        else
+        {
+
+        }
+        if (buffTog)
+        {
+            Instantiate(buff, transform);
+        }
+
     }
 
     // Update is called once per frame
@@ -65,18 +83,5 @@ public class BuffBee : MonoBehaviour
         return id;
     }
 
-    public void AddUpgradeEffects()
-    {
-        int count = 0;
-        while (count <= storeTowerUpgradeData.ListOfUpgradesObtained.Count)
-        {
-            if (storeTowerUpgradeData.ListOfUpgradesObtained[count] == "Buffing Bee Upgrade 1")
-            {
-            }
-            if (storeTowerUpgradeData.ListOfUpgradesObtained[count] == "Buffing Bee Upgrade 2")
-            {
-            }
-            count++;
-        }
-    }
+
 }

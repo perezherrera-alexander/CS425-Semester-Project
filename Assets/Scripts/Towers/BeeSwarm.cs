@@ -9,14 +9,17 @@ public class BeeSwarm : BaseTowerLogic
     public string id;
     public List<SwarmingBee> projectiles = new List<SwarmingBee>();
     private float swarmAmount = 5f;
+    public GameObject honeyPot;
 
     // Start is called before the first frame update
     void Start()
     {
         createOutline();
+        honeyPot.SetActive(false);
         towerName = "Bee Swarm";
         Invoke();
         MakeSphere();
+        fireRate = 0.75f;
         curAttackSpeed = fireRate;
         AddUpgradeEffects();
     }
@@ -125,6 +128,7 @@ public class BeeSwarm : BaseTowerLogic
             if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Bee Swarm Upgrade 1")
             {
                 swarmAmount = 10;
+                honeyPot.SetActive(true);
             }
             if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Bee Swarm Upgrade 2")
             {

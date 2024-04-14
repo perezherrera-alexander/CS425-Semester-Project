@@ -69,6 +69,9 @@ MonoBehaviour:
   storeTowerUpgradeData: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
   center: {fileID: 5714891471211224874}
   particles: {fileID: 19800004, guid: 757df604761b8ef42831192c70ee1099, type: 3}
+  stronger: 0
+  bigger: 0
+  upgrade: {fileID: -3035101939719975992, guid: 225ab5fefcb0f274eaf7a6f77b75add7, type: 3}
 --- !u!135 &7840047790242356121
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -144,7 +147,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 3.7003593, y: 13.093191, z: 2.6080704}
+  m_Size: {x: 3.7003593, y: 11.66, z: 2.6080704}
   m_Center: {x: 0, y: 3, z: 0}
 --- !u!114 &1985490053377430390
 MonoBehaviour:
@@ -160,6 +163,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerPlacement: {fileID: 0}
   pauseMenu: {fileID: 0}
+  nestMenu: {fileID: 0}
+  shopLogic: {fileID: 0}
+  nestPanel: {fileID: 0}
 --- !u!1 &3131095999295476208
 GameObject:
   m_ObjectHideFlags: 0

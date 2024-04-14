@@ -7,6 +7,9 @@ public class WaspMelee : BaseTowerLogic
 {
     public StoreTowerUpgradeData storeTowerUpgradeData;
     public string id;
+    public Material upgrade1;
+    public Material upgrade2;
+    public List<Material> mats;
     private Animator animate;
 
     private float directDamage = 0.5f;
@@ -23,6 +26,7 @@ public class WaspMelee : BaseTowerLogic
         fireRate = 1.5f;
         curAttackSpeed = fireRate;
         animate = GetComponentInChildren<Animator>();
+        transform.GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>().GetMaterials(mats);
         AddUpgradeEffects();
     }
 
@@ -87,9 +91,16 @@ public class WaspMelee : BaseTowerLogic
         {
             if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Wasp Melee Upgrade 1")
             {
+                fireRate = 2.5f;
+                mats[2] = upgrade1;
+                transform.GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>().materials = mats.ToArray();
             }
             if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Wasp Melee Upgrade 2")
             {
+                targettingRange = 11.5f;
+                proximitySphere.radius = 6.91f;
+                mats[3] = upgrade2;
+                transform.GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>().materials = mats.ToArray();
             }
             count++;
         }

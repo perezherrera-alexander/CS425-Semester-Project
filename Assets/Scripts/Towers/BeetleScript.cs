@@ -15,6 +15,10 @@ public class BeetleScript : BaseTowerLogic
     public bool isHome = true;
     private bool isAttacking = false;
     public float bound = 1f;
+    public Material upgrade1;
+    public Material upgrade2;
+    public List<Material> materials;
+    public GameObject satellite;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +28,8 @@ public class BeetleScript : BaseTowerLogic
         MakeSphere();
         fireRate = 1f;
         curAttackSpeed = fireRate;
+        satellite.SetActive(false);
+        transform.GetChild(0).GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>().GetMaterials(materials);
         AddUpgradeEffects();
         //animate = GetComponentInChildren<Animator>();
     }
@@ -81,16 +87,6 @@ public class BeetleScript : BaseTowerLogic
         proximitySphere = transform.GetComponentInParent<SphereCollider>();
         proximitySphere.radius = 4.47f;
     }
-
-    IEnumerator Timer()
-    {
-        Debug.Log("Timer start");
-        yield return new WaitForSeconds(10);
-        Debug.Log("Timer end");
-        yield return null;
-    }
-
-
     public void AddUpgradeEffects()
     {
         int count = 1;
@@ -98,9 +94,17 @@ public class BeetleScript : BaseTowerLogic
         {
             if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Beetle Upgrade 1")
             {
+                proximitySphere.radius = 5.6f;
+                targettingRange = 25f;
+                materials[3] = upgrade1;
+                materials[4] = upgrade2;
+                transform.GetChild(0).GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>().materials = materials.ToArray();
             }
             if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Beetle Upgrade 2")
             {
+                proximitySphere.radius = 6.7f;
+                targettingRange = 40f;
+                satellite.SetActive(true);
             }
             count++;
         }

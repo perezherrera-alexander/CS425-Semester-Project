@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEditor;
 
 public class BeetleMelee : BaseTowerLogic
 {
@@ -9,6 +10,11 @@ public class BeetleMelee : BaseTowerLogic
     private Animator animate;
     public string id;
     public float damage = 0.5f;
+    public bool toss = false;
+    public bool hunger = false;
+    public Material upgrade;
+    public Material upgrade2;
+    public List<Material> mat;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +25,7 @@ public class BeetleMelee : BaseTowerLogic
         fireRate = 0.5f;
         curAttackSpeed = fireRate;
         animate = GetComponentInChildren<Animator>();
+        transform.GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>().GetMaterials(mat);
         AddUpgradeEffects();
     }
 
@@ -56,12 +63,33 @@ public class BeetleMelee : BaseTowerLogic
 
     public override void Shoot()
     {
-        animate.ResetTrigger("Attack");
-
-        target.GetComponent<BaseEnemyLogic>().reduceHealth(damage);
-        target.GetComponent<BaseEnemyLogic>().knockback(75);
-
         animate.SetTrigger("Attack");
+        if (toss)
+        {
+            if (hunger)
+            {
+                if(target.GetComponent<RobotScript>() != null) 
+                {
+                    target.GetComponent<BaseEnemyLogic>().reduceHealth(5);
+                }
+                else
+                {
+                    target.GetComponent<BaseEnemyLogic>().knockbackByPass(100);
+                }
+            }
+            else
+            {
+                target.GetComponent<BaseEnemyLogic>().knockback(100);
+            }
+            
+        }
+        else
+        {
+            target.GetComponent<BaseEnemyLogic>().knockback(75);
+        }
+       
+
+
     }
 
     public override void MakeSphere()
@@ -84,9 +112,16 @@ public class BeetleMelee : BaseTowerLogic
         {
             if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Stag Beetle Upgrade 1")
             {
+                fireRate = 0.75f;
+                toss = true;
+                mat[2] = upgrade;
+                transform.GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>().materials = mat.ToArray();
             }
             if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Stag Beetle Upgrade 2")
             {
+                hunger = true;
+                mat[4] = upgrade2;
+                transform.GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>().materials = mat.ToArray();
             }
             count++;
         }

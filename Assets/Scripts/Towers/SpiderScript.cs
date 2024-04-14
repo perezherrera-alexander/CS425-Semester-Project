@@ -17,6 +17,7 @@ public class SpiderScript : BaseTowerLogic
         Invoke();
         animate = GetComponentInChildren<Animator>();
         MakeSphere();
+        projectilePrefab.GetComponent<spiderweb>().data.movementPenalty = 0.25f;
         AddUpgradeEffects();
     }
 
@@ -66,9 +67,13 @@ public class SpiderScript : BaseTowerLogic
         {
             if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Spider Upgrade 1")
             {
+                projectilePrefab.GetComponent<spiderweb>().data.movementPenalty = 0.70f;
+                projectilePrefab.GetComponent<spiderweb>().damage = 1f;
             }
             if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Spider Upgrade 2")
             {
+                targettingRange = 20f;
+                proximitySphere.radius = 59.88f;
             }
             count++;
         }

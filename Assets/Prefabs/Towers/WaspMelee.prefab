@@ -84,9 +84,9 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1058077958007838264
 MonoBehaviour:
@@ -108,7 +108,7 @@ MonoBehaviour:
   buildCost: 3
   towerDescription: A fast attacking melee wasp.
   towerImage: {fileID: 2800000, guid: 34313aa8cd2d0ec4ba45b32c531c1e87, type: 3}
-  targettingRange: 5.9
+  targettingRange: 11.5
   fireRate: 1
   fireCountdown: 0
   isActive: 0
@@ -120,6 +120,9 @@ MonoBehaviour:
   isBuffed: 0
   storeTowerUpgradeData: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
   id: 
+  upgrade1: {fileID: 2100000, guid: 42b68338e43eba241b3992e8a5ec06c4, type: 2}
+  upgrade2: {fileID: 2100000, guid: 88a3527d9d0690d46b3902efc69800ca, type: 2}
+  mats: []
 --- !u!1 &7531189038630079958
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,6 +240,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerPlacement: {fileID: 0}
   pauseMenu: {fileID: 0}
+  nestMenu: {fileID: 0}
+  shopLogic: {fileID: 0}
+  nestPanel: {fileID: 0}
 --- !u!222 &6403201949902265858
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -703,6 +709,14 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2882194867265948552, guid: ceb0bad3af1e74c42b55d925a59858d9, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 88a3527d9d0690d46b3902efc69800ca, type: 2}
+    - target: {fileID: 2882194867265948552, guid: ceb0bad3af1e74c42b55d925a59858d9, type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: ee46f73b1d3b42f4ba6200bd7540d265, type: 2}
     - target: {fileID: 2891315153684516919, guid: ceb0bad3af1e74c42b55d925a59858d9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -89.98021

@@ -8,6 +8,7 @@ public class antwalking : MonoBehaviour
     // Start is called before the first frame update
     public Transform target;
     public float speed = 15f;
+    public Vector3 minScale = new Vector3(0.5f, 0.5f, 0.5f);
 
     public void seek(Transform newTarget)
     {
@@ -23,13 +24,21 @@ public class antwalking : MonoBehaviour
     {
         if (target == null)
         {
-            Destroy(gameObject);
+            transform.localScale = Vector3.Lerp(transform.localScale, -minScale, 2 * Time.deltaTime);
+            if(transform.localScale.x < 0 )
+            {
+                Destroy(gameObject);
+            }
         }
         else
         {
             if (checkDistance())
             {
-                Destroy(gameObject);
+                transform.localScale = Vector3.Lerp(transform.localScale, -minScale, 2 * Time.deltaTime);
+                if (transform.localScale.x < 0)
+                {
+                    Destroy(gameObject);
+                }
             }
             else
             {

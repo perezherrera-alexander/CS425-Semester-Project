@@ -73,9 +73,13 @@ public class centipedeTower : BaseTowerLogic
         {
             if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Centipede Upgrade 1")
             {
+                projectilePrefab.GetComponent<CentipedeSeeker>().lifeTime = 20f;
+                fireRate = 0.6f;
             }
             if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Centipede Upgrade 2")
             {
+                projectilePrefab.GetComponent<CentipedeSeeker>().damage = 3;
+                projectilePrefab.GetComponent<CentipedeSeeker>().upgraded = true;
             }
             count++;
         }

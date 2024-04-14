@@ -4,13 +4,14 @@ public class spiderweb : MonoBehaviour
 {
 #pragma warning disable 0414
 
-    [SerializeField] StatusEffects data;    
+    [SerializeField] public StatusEffects data;    
 
 
 
     public float speed = 35f;
     private float lifeTime = 2f;
-    private float pierceAmount = 3f; 
+    private float pierceAmount = 3f;
+    public float damage = 0f;
 
     public bool isActive = false;
 
@@ -53,6 +54,7 @@ public class spiderweb : MonoBehaviour
                 if (pierceAmount > 0)
                 {
                     effect.applyEffect(data);
+                    other.GetComponent<BaseEnemyLogic>().reduceHealth(damage);
                     pierceAmount -= 1;
                 }
                 else if (pierceAmount == 0)
@@ -60,6 +62,8 @@ public class spiderweb : MonoBehaviour
                     Destroy(gameObject);
                 }
             }
+
+            
         }
 
         

@@ -7,6 +7,7 @@ public class BuffingBees : BaseTowerLogic
 {
     public StoreTowerUpgradeData storeTowerUpgradeData;
     public string id;
+    public GameObject bag;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +17,7 @@ public class BuffingBees : BaseTowerLogic
         fireRate = 0.2f;
         Invoke();
         MakeSphere();
+        bag.SetActive(false);
         AddUpgradeEffects();
     }
 
@@ -123,9 +125,14 @@ public class BuffingBees : BaseTowerLogic
         {
             if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Buffing Bee Upgrade 1")
             {
+                fireRate = 0.6f;
+                bag.SetActive(true);
             }
             if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Buffing Bee Upgrade 2")
             {
+                projectilePrefab.GetComponent<BuffBee>().data.lifeTime = 18;
+                projectilePrefab.GetComponent<BuffBee>().data.attackSpeedIncrease = 0.75f;
+                projectilePrefab.GetComponent<BuffBee>().buffTog = true;
             }
             count++;
         }

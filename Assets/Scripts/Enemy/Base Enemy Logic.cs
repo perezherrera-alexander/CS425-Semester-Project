@@ -172,6 +172,45 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
         
     }
 
+    public void knockbackByPass(int knockbackForce)
+    {
+
+        //Calculate the distance between the current position and the next waypoint
+
+        float travelDistance = 0;
+        //make waypointLengths an array of floats with the length of the number of waypoints
+        float[] waypointLengths = new float[waypointindex - 1];
+        waypointLengths[0] = 0;
+        for (int i = 0; i < waypointindex - 1; i++)
+        {
+            travelDistance += Vector3.Distance(Path.waypoints[i].position, Path.waypoints[i + 1].position);
+            waypointLengths[i] = travelDistance;
+        }
+        travelDistance += Vector3.Distance(Path.waypoints[waypointindex].position, transform.position);
+        float knockbackLength = knockbackForce * travelDistance * .01f;
+
+        //Debug.Log("Distance: " + travelDistance);
+        //Debug.Log("Knockback length: " + knockbackLength);
+
+        //index of the last waypoint that holds a length less than the knockback length
+        int newIndex = 0;
+        for (int i = 0; i < waypointLengths.Length; i++)
+        {
+            if (knockbackLength < waypointLengths[i])
+            {
+                newIndex = i - 1;
+                waypointindex = i;
+                target = Path.waypoints[newIndex];
+                //Debug.Log("New Index: " + newIndex);
+                break;
+            }
+        }
+        // Debug.Log("New Index: " + newIndex);
+        // Debug.Log("Waypoint index: " + waypointindex);
+        // Debug.Log("Length of new knockback length: " + waypointLengths[newIndex]);
+
+
+    }
 
 
     public void slowDown(float slowFactor)
@@ -182,6 +221,13 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
     public virtual void stun(float stunTime)
     {
         ParticleSystem parts =  Instantiate(stunned, transform);
+        StartCoroutine(turnOffStun(stunTime, parts));
+        stunTimer = stunTime;
+    }
+
+    public void stunByPass(float stunTime)
+    {
+        ParticleSystem parts = Instantiate(stunned, transform);
         StartCoroutine(turnOffStun(stunTime, parts));
         stunTimer = stunTime;
     }
