@@ -12,6 +12,8 @@ public class FlameTower : BaseTowerLogic
     public ParticleSystem visual;
     public CapsuleCollider fireArea;
     private float damage = 0.333f;
+    public Transform tank;
+    public GameObject flametan;
 
     // Start is called before the first frame update
     void Start()
@@ -99,7 +101,8 @@ public class FlameTower : BaseTowerLogic
             }
             if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Flame Ant Upgrade 2")
             {
-                damage = 2.5f;
+                damage = 1.5f;
+                Instantiate(flametan, tank);
             }
             count++;
         }

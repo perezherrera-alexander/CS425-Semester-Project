@@ -17,6 +17,9 @@ public class meleeTower : BaseTowerLogic
     public Transform center;
     private bool attacking;
     private bool stun = false;
+    public GameObject knife;
+    public Transform k1;
+    public Transform k2;
     
     
 
@@ -137,6 +140,8 @@ public class meleeTower : BaseTowerLogic
                 targettingRange = 15f;
                 proximitySphere = GetComponent<SphereCollider>();
                 proximitySphere.radius = 9f;
+                Instantiate(knife, k1);
+                Instantiate(knife, k2);
             }
             if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Melee Ant Upgrade 2")
             {

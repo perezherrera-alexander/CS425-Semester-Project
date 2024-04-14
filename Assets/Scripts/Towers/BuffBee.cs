@@ -12,15 +12,32 @@ public class BuffBee : MonoBehaviour
     private Transform target;
 
     public float speed = 15f;
+    public GameObject bag;
+    public bool bagTog = false;
+    public ParticleSystem buff;
+    public bool buffTog = false;
     // Start is called before the first frame update
 
     public void Start()
     {
-       
+       bag.SetActive(false);
     }
     public void Seek(Transform newTarget)
     {
         target = newTarget;
+        if (bagTog)
+        {
+            bag.SetActive(true);
+        }
+        else
+        {
+
+        }
+        if (buffTog)
+        {
+            Instantiate(buff, transform);
+        }
+
     }
 
     // Update is called once per frame

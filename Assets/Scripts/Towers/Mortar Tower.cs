@@ -7,6 +7,9 @@ public class mortarTower : BaseTowerLogic
 {
     public StoreTowerUpgradeData storeTowerUpgradeData;
     public string id;
+    public GameObject grenades;
+    public Transform bandolier;
+    public ParticleSystem nuclear;
 
     // Start is called before the first frame update
     void Start()
@@ -61,13 +64,16 @@ public class mortarTower : BaseTowerLogic
             if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Mortar Ant Upgrade 1")
             {
                 projectilePrefab.GetComponent<MortarLikeProjectile>().splashDamage = 5f;
+                Instantiate(nuclear, transform);
             }
             if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Mortar Ant Upgrade 2")
             {
                 targettingRange = 30f;
                 proximitySphere = GetComponent<SphereCollider>();
                 proximitySphere.radius = 17.98f;
-                projectilePrefab.GetComponent<MortarLikeProjectile>().speed = 30f;
+                projectilePrefab.GetComponent<MortarLikeProjectile>().speed = 45f; ;
+                Instantiate(grenades, bandolier);
+
             }
             count++;
         }

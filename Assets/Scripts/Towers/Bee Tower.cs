@@ -70,10 +70,12 @@ public class BeeTower : BaseTowerLogic
             {
                 fireRate = 2f;
                 projectilePrefab.GetComponent<stingerScript>().directDamage = 1f;
+                projectilePrefab.GetComponent<Transform>().localScale = new Vector3(0.66f, 0.66f, 0.66f);
             }
             if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Attack Bee Upgrade 2")
             {
                 projectilePrefab.GetComponent<stingerScript>().speed = 45f;
+                projectilePrefab.GetComponent<stingerScript>().wingToggle = true;
             }
             count++;
         }

@@ -79,6 +79,7 @@ public class centipedeTower : BaseTowerLogic
             if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Centipede Upgrade 2")
             {
                 projectilePrefab.GetComponent<CentipedeSeeker>().damage = 3;
+                projectilePrefab.GetComponent<CentipedeSeeker>().upgraded = true;
             }
             count++;
         }

@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 6745758708775144120}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 50.1, y: 0, z: 51.7}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -53,6 +53,9 @@ MonoBehaviour:
   firedOut: 1
   lifeTime: 13
   particles: {fileID: 407985019193547632, guid: 7944b8bc4d508b64b947cc2e9a7b2ee7, type: 3}
+  upgrade1: {fileID: -4918501577507080001, guid: 020aab87a4d05164593f37c70a8fed49, type: 3}
+  mats: []
+  upgraded: 0
 --- !u!65 &5071651142899262560
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -88,7 +91,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0b4ece2c4ccf6d44f81c5e01f831eab2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0b4ece2c4ccf6d44f81c5e01f831eab2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -126,6 +129,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Centipede
       objectReference: {fileID: 0}
+    - target: {fileID: 1630794972795428178, guid: 0b4ece2c4ccf6d44f81c5e01f831eab2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2246059735977872592, guid: 729a98f67ea907e459e5b6b956cff61a, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

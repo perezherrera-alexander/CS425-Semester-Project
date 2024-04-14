@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3204842043252237219
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6229147975871658504}
+  m_Layer: 2
+  m_Name: Bandolier
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6229147975871658504
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3204842043252237219}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5749100550686840626}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6930219240968396495
 GameObject:
   m_ObjectHideFlags: 0
@@ -26,7 +57,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6930219240968396495}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.008032288, z: -0, w: 0.99996775}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.007666588, y: 0.04833334, z: 0.010333333}
   m_LocalScale: {x: 0.3333333, y: 0.3333333, z: 0.3333333}
   m_ConstrainProportionsScale: 0
@@ -34,8 +65,9 @@ Transform:
   - {fileID: 5775921952513503475}
   - {fileID: 3973039760227149090}
   - {fileID: 3306525037678616073}
+  - {fileID: 6229147975871658504}
   m_Father: {fileID: 1247967030258812911}
-  m_LocalEulerAnglesHint: {x: 0, y: -719.08, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3258889035992898753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,6 +101,9 @@ MonoBehaviour:
   isBuffed: 0
   storeTowerUpgradeData: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
   id: 
+  grenades: {fileID: 463109141652005432, guid: f9f24d08a0256c148b3800fdf7ed0c5a, type: 3}
+  bandolier: {fileID: 6229147975871658504}
+  nuclear: {fileID: 9186446616439801708, guid: acdb90624a404aa438447006f1026065, type: 3}
 --- !u!135 &5820353469049178377
 SphereCollider:
   m_ObjectHideFlags: 0

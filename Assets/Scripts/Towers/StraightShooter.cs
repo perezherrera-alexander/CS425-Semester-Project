@@ -10,6 +10,9 @@ public class StraightShooter : BaseTowerLogic
     public string id;
     private Animator animate;
     private bool tripleShot = false;
+    public GameObject missleRack;
+    public Transform M1;
+    public Transform M2;
     // Start is called before the first frame update
     void Start()
     {
@@ -74,6 +77,8 @@ public class StraightShooter : BaseTowerLogic
             if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Wasp Upgrade 1")
             {
                 tripleShot = true;
+                Instantiate(missleRack, M1);
+                Instantiate(missleRack, M2);
             }
             if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Wasp Upgrade 2")
             {
