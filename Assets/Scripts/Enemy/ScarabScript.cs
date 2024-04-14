@@ -6,6 +6,8 @@ using System.Linq;
 public class ScarabScript : BaseEnemyLogic
 {
     public int recoveryRate = 1;
+    //Slider for changing material colors based on health
+    
     public override void Update (){
         healthCheck();
         if(health<maxHealth)

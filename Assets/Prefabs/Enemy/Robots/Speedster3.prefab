@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 2483049581035850908}
   - component: {fileID: 371872468891726021}
   m_Layer: 0
-  m_Name: FastEnemy
+  m_Name: Speedster3
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -150,8 +150,8 @@ MonoBehaviour:
   stunned: {fileID: 189072712425041892, guid: 182388158bfb28a49b1f764932fdc931, type: 3}
   death: {fileID: 4783692702609254861, guid: a7346f514b8940b4ca5f2b14632a6a70, type: 3}
   model: {fileID: 0}
-  maxHealth: 10
-  health: 10
+  maxHealth: 7
+  health: 7
   goldIncreased: 0
   speed: 8
   slowFactor: 1
