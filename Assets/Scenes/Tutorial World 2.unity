@@ -2980,6 +2980,7 @@ GameObject:
   - component: {fileID: 1798962338}
   - component: {fileID: 1798962341}
   - component: {fileID: 1798962342}
+  - component: {fileID: 1798962344}
   m_Layer: 0
   m_Name: Game Master
   m_TagString: Untagged
@@ -3110,6 +3111,37 @@ MonoBehaviour:
   CurrentEvolutionPoints: 20
   enemiesPresent: 0
   GameObjectConversion: {fileID: 0}
+--- !u!114 &1798962344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1798962331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fda2dbb22d2e36e49a1adeabe9a8564c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveSpawner: {fileID: 1798962332}
+  tutorialPanelPrefab: {fileID: 364750545429970370, guid: 506050cd32bb73e4eb6c92c7ec5aa611, type: 3}
+  tutorialTexts:
+  - Welcome to the Creature Conquest tutorial! Panels like this one will guide you
+    through the game. When you're ready to continue, click the X in the top right
+    corner of this panel. Good luck!
+  - You goal is to prevent enemies from reaching your next. They will begin marching
+    from the left side of the screen and follow the path until the reach your nest
+    at the center.
+  - If enemies reach the center next, you will lose Morale. Lose all your morale
+    and you will lose the campaign and must start again. Thankfully, you have recruited
+    a number of critters to your cause. Open the shop to the right by clicking the
+    DNA icon.
+  tutorialPanelPositions:
+  - {x: 800, y: -800}
+  - {x: 800, y: -800}
+  - {x: 1200, y: -450}
+  activePanel: 0
+  panelIndex: 0
 --- !u!1 &1826386577
 GameObject:
   m_ObjectHideFlags: 0
