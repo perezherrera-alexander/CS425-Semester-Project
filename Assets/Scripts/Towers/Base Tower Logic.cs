@@ -62,6 +62,13 @@ public class BaseTowerLogic : MonoBehaviour, Effectable
     {
         InvokeRepeating("UpdateTarget", 0, 0.5f);
     }
+
+    public void freeze(float time)
+    {
+        isActive = false;
+        StartCoroutine(restart(time));
+
+    }
     public virtual void Track()
     {
         if (target == null)
@@ -353,5 +360,11 @@ public class BaseTowerLogic : MonoBehaviour, Effectable
         outline.OutlineMode = Outline.Mode.OutlineAll;
         outline.OutlineWidth = outlineThickness;
         outline.enabled = false;
+    }
+
+    IEnumerator restart(float time)
+    {
+        yield return new WaitForSeconds(time);
+        isActive = true;
     }
 }
