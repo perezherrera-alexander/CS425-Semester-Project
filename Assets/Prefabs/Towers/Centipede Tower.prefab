@@ -64,8 +64,10 @@ MonoBehaviour:
   targetingType: 2
   targets: []
   towerName: Centipede Tower
+  frozen: {fileID: 9027514048236820043, guid: effb650189dc5714e9e9801b1cfb3991, type: 3}
   curAttackSpeed: 0
   isBuffed: 0
+  rangeFinder: {fileID: 0}
   storeTowerUpgradeData: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
   waypointIndex: 0
 --- !u!135 &7762516213997920783

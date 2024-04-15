@@ -24,6 +24,10 @@ public class BeeTower : BaseTowerLogic
 
     void Update()
     {
+        if (isActive == false)
+        {
+            return;
+        }
         if (data != null)
         {
             handleEffect();

@@ -31,6 +31,10 @@ public class FlameTower : BaseTowerLogic
     // Update is called once per frame
     void Update()
     {
+        if (isActive == false)
+        {
+            return;
+        }
         Track();
         ListPrune();
     }

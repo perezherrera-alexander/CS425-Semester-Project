@@ -32,6 +32,8 @@ public class BaseTowerLogic : MonoBehaviour, Effectable
     // I feel like there has to be a better way to do this though
     [Header("Status Effects")]
     protected StatusEffects data;
+    public ParticleSystem frozen;
+    private ParticleSystem stop;
 
     public float curAttackSpeed;
     private float currentEffectTime = 0f;
@@ -66,6 +68,7 @@ public class BaseTowerLogic : MonoBehaviour, Effectable
     public void freeze(float time)
     {
         isActive = false;
+        stop = Instantiate(frozen, transform);
         StartCoroutine(restart(time));
 
     }
@@ -365,6 +368,7 @@ public class BaseTowerLogic : MonoBehaviour, Effectable
     IEnumerator restart(float time)
     {
         yield return new WaitForSeconds(time);
+        stop.Stop();
         isActive = true;
     }
 }

@@ -24,6 +24,10 @@ public class BuffingBees : BaseTowerLogic
     // Update is called once per frame
     void Update()
     {
+        if (isActive == false)
+        {
+            return;
+        }
         if (data != null)
         {
             handleEffect();

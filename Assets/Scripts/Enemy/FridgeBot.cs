@@ -7,11 +7,28 @@ public class FridgeBot : BaseEnemyLogic
 {
     public string enemyTag;
     public float targettingRange = 20f;
-    public float fireRate = 1f;
+    public float fireRate = 0.5f;
     public float fireCountdown = 0f;
     public Transform towerTarget;
     public Transform locationToFireFrom;
     public GameObject projectilePrefab;
+    public ParticleSystem charge;
+    public ParticleSystem fire;
+    public ParticleSystem control;
+
+    public override void Start()
+    {
+        control = Instantiate(charge, locationToFireFrom);
+
+        PlayerStatistics = FindObjectOfType<PlayerStatistics>();
+        maxHealth = health;
+
+        //increase number of enemies counter by 1
+        PlayerStatistics.Instance.enemiesPresent++;
+        //code to deal with the enemy being spawned from another enemy
+        if (!differentStart) target = Path.waypoints[0];
+        curSpeed = speed;
+    }
     public override void Update()
     {
         healthCheck();
@@ -36,9 +53,12 @@ public class FridgeBot : BaseEnemyLogic
         Track();
         if(fireCountdown <= 0f && towerTarget != null)
         {
+            control.Stop();
+            Instantiate(fire, locationToFireFrom);
             Shoot();
             fireCountdown = 1f / fireRate;
         }
+        control.Play();
         fireCountdown -= Time.deltaTime;
     }
 
@@ -63,8 +83,12 @@ public class FridgeBot : BaseEnemyLogic
             float enemyDistance = Vector3.Distance(transform.position, enemy.transform.position);
             if (enemyDistance < shortestDistance)
             {
-                shortestDistance = enemyDistance;
-                closeEnemy = enemy;
+                if(enemy.isActive == true)
+                {
+                    shortestDistance = enemyDistance;
+                    closeEnemy = enemy;
+                }
+
             }
         }
 

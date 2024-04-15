@@ -39,7 +39,11 @@ public class BeetleScript : BaseTowerLogic
     // Update is called once per frame
     void Update()
     {
-        if(data != null)
+        if (isActive == false)
+        {
+            return;
+        }
+        if (data != null)
         {
             handleEffect();
         }

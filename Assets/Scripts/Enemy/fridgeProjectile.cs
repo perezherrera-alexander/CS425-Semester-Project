@@ -7,17 +7,14 @@ public class fridgeProjectile : MonoBehaviour
     public Transform target;
     public float speed = 30f;
     public float freeze = 4f;
-    public ParticleSystem parts;
+
 
     // Update is called once per frame
     public void Seek(Transform newTarget)
     {
         target = newTarget;
     }
-    private void Start()
-    {
-        Instantiate(parts, transform);
-    }
+
     void Update()
     {
         if (target == null)

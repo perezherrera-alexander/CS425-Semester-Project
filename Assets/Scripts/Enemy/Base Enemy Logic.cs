@@ -25,11 +25,11 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
 
     public bool goldIncreased = false;
 
-    private float curSpeed;
+    protected float curSpeed;
     private bool isSlowed = false;
     // float health = 5;
     // Start is called before the first frame update
-    public void Start(){
+    public virtual void Start(){
 
         PlayerStatistics = FindObjectOfType<PlayerStatistics>();
         maxHealth = health;

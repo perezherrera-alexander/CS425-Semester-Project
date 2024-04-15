@@ -32,7 +32,11 @@ public class mantisTower : BaseTowerLogic
     // Update is called once per frame
     void Update()
     {
-        if(data != null)
+        if (isActive == false)
+        {
+            return;
+        }
+        if (data != null)
         {
             handleEffect();
         }
@@ -66,14 +70,8 @@ public class mantisTower : BaseTowerLogic
         animate.SetTrigger("Attack");
 
         var targ = target.GetComponent<BaseEnemyLogic>();
-        if(targ == null)
-        {
-            Debug.Log("Scarab");
-        }
-        else
-        {
             targ.reduceHealth(sliceDmg);
-        }
+        
 
     }
 

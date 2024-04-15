@@ -118,11 +118,14 @@ MonoBehaviour:
   differentStart: 0
   enemyTag: 
   targettingRange: 20
-  fireRate: 1
+  fireRate: 0.3
   fireCountdown: 0
   towerTarget: {fileID: 0}
   locationToFireFrom: {fileID: 7261996995442604417}
   projectilePrefab: {fileID: 8672070985109260779, guid: 83e491e53ac20074b863b2f1cff2594c, type: 3}
+  charge: {fileID: 5824670795371433368, guid: f6fd568b816c64943a44efc3add3a881, type: 3}
+  fire: {fileID: 198927480420149238, guid: b395d5d6eb4b4b846acc021ee036b744, type: 3}
+  control: {fileID: 0}
 --- !u!1 &7952903804358722130
 GameObject:
   m_ObjectHideFlags: 0
