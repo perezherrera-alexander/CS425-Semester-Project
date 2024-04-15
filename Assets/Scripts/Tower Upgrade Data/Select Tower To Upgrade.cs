@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SelectTowerToUpgrade : MonoBehaviour
 {
@@ -30,6 +31,50 @@ public class SelectTowerToUpgrade : MonoBehaviour
     public bool OpenClosed = false;
     public string ButtonNameHolder;
 
+    private void Start()
+    {
+        if(playerData.activeGeneral == Generals.Bee)
+        {
+            transform.GetChild(2).GetChild(2).GetChild(1).GetChild(0).gameObject.SetActive(true);
+            transform.GetChild(2).GetChild(2).GetChild(1).GetChild(1).gameObject.SetActive(true);
+            transform.GetChild(2).GetChild(2).GetChild(1).GetChild(2).gameObject.SetActive(true);
+
+            transform.GetChild(2).GetChild(2).GetChild(1).GetChild(3).gameObject.SetActive(false);
+            transform.GetChild(2).GetChild(2).GetChild(1).GetChild(4).gameObject.SetActive(false);
+            transform.GetChild(2).GetChild(2).GetChild(1).GetChild(5).gameObject.SetActive(false);
+
+            transform.GetChild(2).GetChild(2).GetChild(1).GetChild(6).gameObject.SetActive(false);
+            transform.GetChild(2).GetChild(2).GetChild(1).GetChild(7).gameObject.SetActive(false);
+
+
+        }
+        else if(playerData.activeGeneral == Generals.Ant)
+        {
+            transform.GetChild(2).GetChild(2).GetChild(1).GetChild(0).gameObject.SetActive(false);
+            transform.GetChild(2).GetChild(2).GetChild(1).GetChild(1).gameObject.SetActive(false);
+            transform.GetChild(2).GetChild(2).GetChild(1).GetChild(2).gameObject.SetActive(false);
+
+            transform.GetChild(2).GetChild(2).GetChild(1).GetChild(3).gameObject.SetActive(true);
+            transform.GetChild(2).GetChild(2).GetChild(1).GetChild(4).gameObject.SetActive(true);
+            transform.GetChild(2).GetChild(2).GetChild(1).GetChild(5).gameObject.SetActive(true);
+
+            transform.GetChild(2).GetChild(2).GetChild(1).GetChild(6).gameObject.SetActive(false);
+            transform.GetChild(2).GetChild(2).GetChild(1).GetChild(7).gameObject.SetActive(false);
+        }
+        else if(playerData.activeGeneral == Generals.Wasp)
+        {
+            transform.GetChild(2).GetChild(2).GetChild(1).GetChild(0).gameObject.SetActive(false);
+            transform.GetChild(2).GetChild(2).GetChild(1).GetChild(1).gameObject.SetActive(false);
+            transform.GetChild(2).GetChild(2).GetChild(1).GetChild(2).gameObject.SetActive(false);
+
+            transform.GetChild(2).GetChild(2).GetChild(1).GetChild(3).gameObject.SetActive(false);
+            transform.GetChild(2).GetChild(2).GetChild(1).GetChild(4).gameObject.SetActive(false);
+            transform.GetChild(2).GetChild(2).GetChild(1).GetChild(5).gameObject.SetActive(false);
+
+            transform.GetChild(2).GetChild(2).GetChild(1).GetChild(6).gameObject.SetActive(true);
+            transform.GetChild(2).GetChild(2).GetChild(1).GetChild(7).gameObject.SetActive(true);
+        }
+    }
     public void Update()
     {
         TokenCounter.text = "Tokens Left: " + storeTowerUpgradeData.TokensObtained.ToString();
