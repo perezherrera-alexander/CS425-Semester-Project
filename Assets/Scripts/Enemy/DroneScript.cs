@@ -10,6 +10,10 @@ public class DroneScript : BaseEnemyLogic
         if (waypointindex >= Path.waypoints.Length){ // Enemy reaches end of path
             //decrement player health according to
             float EnemyHealth = getHealth();
+            if (EnemyHealth < 1f)
+            {
+                EnemyHealth = 1f;
+            }
             int MoraleLost = (int)EnemyHealth;
             PlayerStatistics.Instance.ReduceMorale(MoraleLost);
             //subtract present enemies count by 1
