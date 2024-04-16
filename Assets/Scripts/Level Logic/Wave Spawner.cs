@@ -222,9 +222,6 @@ public class WaveSpawner : MonoBehaviour
             case 21:
                 Instantiate(enemyM, SpawnPoint.position, SpawnPoint.rotation);
                 break;
-            case 22:
-                Instantiate(enemyW, SpawnPoint.position, SpawnPoint.rotation);
-                break;
         }
     }
 
