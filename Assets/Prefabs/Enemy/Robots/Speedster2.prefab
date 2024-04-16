@@ -150,10 +150,10 @@ MonoBehaviour:
   stunned: {fileID: 189072712425041892, guid: 182388158bfb28a49b1f764932fdc931, type: 3}
   death: {fileID: 4783692702609254861, guid: a7346f514b8940b4ca5f2b14632a6a70, type: 3}
   model: {fileID: 0}
-  maxHealth: 7
-  health: 7
+  maxHealth: 10
+  health: 10
   goldIncreased: 0
-  speed: 8
+  speed: 10
   slowFactor: 1
   slowDownTimer: 0
   dotDamage: 0
@@ -162,6 +162,7 @@ MonoBehaviour:
   target: {fileID: 0}
   waypointindex: 0
   differentStart: 0
+  maxBoost: 6
 --- !u!65 &2483049581035850908
 BoxCollider:
   m_ObjectHideFlags: 0
