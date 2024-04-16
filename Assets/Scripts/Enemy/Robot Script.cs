@@ -10,6 +10,10 @@ public class RobotScript : BaseEnemyLogic
     public GameObject armL;
     public GameObject armR;
     public GameObject head;
+
+    public AudioSource audioSource;
+    public AudioClip deathSound;
+    public AudioClip hitSound;
     public override void healthCheck()
     {   
         if (health <= 0){
