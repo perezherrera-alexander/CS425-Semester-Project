@@ -17,8 +17,8 @@ public class FastEnemy : BaseEnemyLogic
         Vector3 direction = target.position - transform.position;
 
         //Enemy speeds up depending on the damage taken
-        float rounded = (float)Math.Round(health,1);
-        transform.Translate(direction.normalized * speed * Time.deltaTime * Math.Min(maxBoost, 1/(rounded/maxHealth)), Space.World);
+        //float rounded = ((float)Math.Round(health,1));
+        transform.Translate(direction.normalized * speed * Time.deltaTime * Math.Min(maxBoost, 1/(((float)Math.Round(health,1))/maxHealth)), Space.World);
 
         if (Vector3.Distance(transform.position, target.position) <= 0.4f){
             GetNextWaypoint();
