@@ -335,25 +335,50 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
         }
 
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<SphereCollider>())
+        {
+            if (other.GetComponentInParent<FlameTower>() != null)
+            {
+                var og = other.GetComponentInParent<FlameTower>().targets;
+                og.Add(gameObject.GetComponent<BaseEnemyLogic>());
+                other.GetComponentInParent<FlameTower>().UpdateTarget();
+            }
+        }
+    }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.GetComponent<SphereCollider>())
+        {
+
+            if (other.GetComponentInParent<FlameTower>() != null)
+            {
+                var og = other.GetComponentInParent<FlameTower>().targets;
+                og.Remove(gameObject.GetComponent<BaseEnemyLogic>());
+                other.GetComponentInParent<FlameTower>().UpdateTarget();
+            }
+        }
+    }
     private void OnTriggerStay(Collider other)
     {
 
 
-        if (other.GetComponent<CapsuleCollider>())
+        if (other.GetComponent<BoxCollider>())
         {
             if (other.GetComponent<FlameTower>() != null)
             {
-                if(other.GetComponent<FlameTower>().isActive == false)
-                {
 
-                }
-                else
+                if(other.GetComponent<BoxCollider>() != null)
                 {
                     float damage = other.GetComponent<FlameTower>().getDamage();
                     float dmgFrame = damage * Time.deltaTime;
                     reduceHealth(dmgFrame);
                 }
+
+
+
 
             }
         }

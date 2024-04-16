@@ -10,7 +10,7 @@ public class FlameTower : BaseTowerLogic
     public string id;
     private bool firing = false;
     public ParticleSystem visual;
-    public CapsuleCollider fireArea;
+    public BoxCollider fireA;
     private float damage = 0.333f;
     public Transform tank;
     public GameObject flametan;
@@ -23,8 +23,8 @@ public class FlameTower : BaseTowerLogic
         Invoke();
         MakeSphere();
         visual.Pause();
-        fireArea = GetComponent<CapsuleCollider>();
-        fireArea.enabled = false;
+
+        fireA.enabled = false;
         AddUpgradeEffects();
     }
 
@@ -50,7 +50,7 @@ public class FlameTower : BaseTowerLogic
         {
             if (firing == true)
                 firing = false;
-                fireArea.enabled = false;
+                fireA.enabled = false;
                 visual.Stop();
             return;
         }
@@ -70,7 +70,7 @@ public class FlameTower : BaseTowerLogic
 
         if (!firing){
             firing = true;
-            fireArea.enabled = true;
+            fireA.enabled = true;
             visual.Play();
         }
 
@@ -78,7 +78,7 @@ public class FlameTower : BaseTowerLogic
 
     public override void MakeSphere()
     {
-        proximitySphere = GetComponent<SphereCollider>();
+        proximitySphere = GetComponentInChildren<SphereCollider>();
         proximitySphere.radius = 7.81f;
     }   
 
@@ -98,9 +98,8 @@ public class FlameTower : BaseTowerLogic
         {
             if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Flame Ant Upgrade 1")
             {
-                fireArea.radius = 4.32f;
-                fireArea.height = 13.14f;
-                fireArea.center = new Vector3(0f, 0.71f, 8.63f);
+                fireA.size = new Vector3(8.55f, 8.59f, 13.02f);
+                fireA.center = new Vector3(0f, 0.71f, 8.63f);
                 visual.transform.localScale = new Vector3(7.38f, 7.38f, 3.5f);
             }
             if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Flame Ant Upgrade 2")
