@@ -338,15 +338,27 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
 
     private void OnTriggerStay(Collider other)
     {
+
+
         if (other.GetComponent<CapsuleCollider>())
         {
             if (other.GetComponent<FlameTower>() != null)
             {
-                float damage = other.GetComponent<FlameTower>().getDamage();
-                float dmgFrame = damage * Time.deltaTime;
-                reduceHealth(dmgFrame);
+                if(other.GetComponent<FlameTower>().isActive == false)
+                {
+
+                }
+                else
+                {
+                    float damage = other.GetComponent<FlameTower>().getDamage();
+                    float dmgFrame = damage * Time.deltaTime;
+                    reduceHealth(dmgFrame);
+                }
+
             }
         }
+
+
 
         if (other.GetComponent<BoxCollider>())
         {
