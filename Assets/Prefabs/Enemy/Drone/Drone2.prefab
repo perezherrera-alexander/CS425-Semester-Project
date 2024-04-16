@@ -28,8 +28,8 @@ Transform:
   m_GameObject: {fileID: 8349938124672828260}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.004, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 2.0004, y: 0, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1263281857103728948}
@@ -81,7 +81,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3.21, y: 1, z: 2.76}
+  m_Size: {x: 1.29, y: 0.31, z: 1.1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7751639899573719893
 MonoBehaviour:
@@ -99,8 +99,8 @@ MonoBehaviour:
   objectCollider: {fileID: 0}
   GoldWorth: 1
   PlayerStatistics: {fileID: 0}
-  particles: {fileID: 5065363750106160447, guid: 6e9dcf273246cca47901c15ebc107d3d, type: 3}
-  stunned: {fileID: 189072712425041892, guid: 182388158bfb28a49b1f764932fdc931, type: 3}
+  particles: {fileID: 6071689899610289544, guid: 34824f55290175b4cbb57e0cd606322e, type: 3}
+  stunned: {fileID: 7322296965827939729, guid: 6e451b576b881794fb23022008015e2f, type: 3}
   death: {fileID: 4783692702609254861, guid: a7346f514b8940b4ca5f2b14632a6a70, type: 3}
   model: {fileID: 0}
   maxHealth: 10
@@ -125,15 +125,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 7dc323ed5c64cd143b9663d1aad511ca, type: 3}
       propertyPath: m_LocalScale.x
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7dc323ed5c64cd143b9663d1aad511ca, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7dc323ed5c64cd143b9663d1aad511ca, type: 3}
       propertyPath: m_LocalScale.z
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7dc323ed5c64cd143b9663d1aad511ca, type: 3}
       propertyPath: m_LocalPosition.x
