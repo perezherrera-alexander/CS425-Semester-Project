@@ -276,9 +276,21 @@ PrefabInstance:
       value: LittleRobot
       objectReference: {fileID: 0}
     - target: {fileID: 3487097227973384852, guid: fa67f20f6bd90d74b8eca8b7cf1e2274, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0199bac456d1321418371fe01755b7e5, type: 2}
+    - target: {fileID: 3487097227973384852, guid: fa67f20f6bd90d74b8eca8b7cf1e2274, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: f95dc4949ff704341806c75658417b4a, type: 2}
+    - target: {fileID: 3487097227973384852, guid: fa67f20f6bd90d74b8eca8b7cf1e2274, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0199bac456d1321418371fe01755b7e5, type: 2}
+    - target: {fileID: 3487097227973384852, guid: fa67f20f6bd90d74b8eca8b7cf1e2274, type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0199bac456d1321418371fe01755b7e5, type: 2}
     - target: {fileID: 3487097227973384852, guid: fa67f20f6bd90d74b8eca8b7cf1e2274, type: 3}
       propertyPath: m_Materials.Array.data[4]
       value: 
