@@ -17,16 +17,25 @@ public class WaveSpawner : MonoBehaviour
     public GameObject enemy3; //Robot3
     public GameObject enemy4; //Robot4
     public GameObject enemy5; //Robot5
-    public GameObject enemyA; //SpaceShip1
-    public GameObject enemyB; //SpaceShip2
-    public GameObject enemyC; //SpaceShip3
-    public GameObject enemyD; //SpaceShip4
-    public GameObject enemyE; //SpaceShip5
+    public GameObject enemy6; //SpaceShip1
+    public GameObject enemy7; //SpaceShip2
+    public GameObject enemy8; //SpaceShip3
+    public GameObject enemy9; //SpaceShip4
+    public GameObject enemy10; //SpaceShip5
 
-    public GameObject enemyV; //Fast Enemy
-    public GameObject enemyW; //Scarab
-    public GameObject enemyX; //Drone
-
+    public GameObject enemyS1; //Speedster 1
+    public GameObject enemyS2; //Speedster 2
+    public GameObject enemyS3; //Speedster 3
+    public GameObject enemyD1; //Drone 1
+    public GameObject enemyD2; //Drone 2
+    public GameObject enemyD3; //Drone 3
+    public GameObject enemyC1; //Crawler 1
+    public GameObject enemyC2; //Crawler 2
+    public GameObject enemyC3; //Crawler 3
+    public GameObject enemyF; //Fridge
+    public GameObject enemyM; //MiniBoss 1
+    public GameObject enemyW; //Boss 1
+    
     
     public struct waveFormation
     {
@@ -45,7 +54,7 @@ public class WaveSpawner : MonoBehaviour
     public int currentWaveCount = 1; // These are important
     public int maxWaveCount; // me too
     //private float timeBetweenWavesTimer;
-    
+    public bool tutorialMode = false;
     [Header("UI")]
     public TextMeshProUGUI waveCountDownText;
     public TextMeshProUGUI levelCompleteText;
@@ -122,6 +131,11 @@ public class WaveSpawner : MonoBehaviour
                 StartCoroutine(LoadNextLevel());
             }
         }
+        else if(gameState == GameStates.GameOver)
+        {
+            //Debug.Log("Game Over!");
+            // Do nothing, this is a trap state.
+        }
 
         waveCountDownText.text = "Wave: " + currentWaveCount + " / " + maxWaveCount;
     }
@@ -161,25 +175,52 @@ public class WaveSpawner : MonoBehaviour
                 Instantiate(enemy5, SpawnPoint.position, SpawnPoint.rotation);
                 break;
             case 6:
-                Instantiate(enemyA, SpawnPoint.position, SpawnPoint.rotation);
+                Instantiate(enemy6, SpawnPoint.position, SpawnPoint.rotation);
                 break;
             case 7:
-                Instantiate(enemyB, SpawnPoint.position, SpawnPoint.rotation);
+                Instantiate(enemy7, SpawnPoint.position, SpawnPoint.rotation);
                 break;
             case 8:
-                Instantiate(enemyC, SpawnPoint.position, SpawnPoint.rotation);
+                Instantiate(enemy8, SpawnPoint.position, SpawnPoint.rotation);
                 break;
             case 9:
-                Instantiate(enemyD, SpawnPoint.position, SpawnPoint.rotation);
+                Instantiate(enemy9, SpawnPoint.position, SpawnPoint.rotation);
                 break;
             case 10:
-                Instantiate(enemyE, SpawnPoint.position, SpawnPoint.rotation);
+                Instantiate(enemy10, SpawnPoint.position, SpawnPoint.rotation);
                 break;
             case 11:
-                Instantiate(enemyV, SpawnPoint.position, SpawnPoint.rotation);
+                Instantiate(enemyS1, SpawnPoint.position, SpawnPoint.rotation);
                 break;
             case 12:
-                Instantiate(enemyW, SpawnPoint.position, SpawnPoint.rotation);
+                Instantiate(enemyS2, SpawnPoint.position, SpawnPoint.rotation);
+                break;
+            case 13:
+                Instantiate(enemyS3, SpawnPoint.position, SpawnPoint.rotation);
+                break;
+            case 14:
+                Instantiate(enemyD1, SpawnPoint.position, SpawnPoint.rotation);
+                break;
+            case 15:
+                Instantiate(enemyD2, SpawnPoint.position, SpawnPoint.rotation);
+                break;
+            case 16:
+                Instantiate(enemyD3, SpawnPoint.position, SpawnPoint.rotation);
+                break;
+            case 17:
+                Instantiate(enemyC1, SpawnPoint.position, SpawnPoint.rotation);
+                break;
+            case 18:
+                Instantiate(enemyC2, SpawnPoint.position, SpawnPoint.rotation);
+                break;
+            case 19:
+                Instantiate(enemyC3, SpawnPoint.position, SpawnPoint.rotation);
+                break;
+            case 20:
+                Instantiate(enemyF, SpawnPoint.position, SpawnPoint.rotation);
+                break;
+            case 21:
+                Instantiate(enemyM, SpawnPoint.position, SpawnPoint.rotation);
                 break;
         }
     }
@@ -189,12 +230,22 @@ public class WaveSpawner : MonoBehaviour
         yield return new WaitForSeconds(3f);
         // Load the next level
 
+        if(tutorialMode)
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Main Menu");
+            yield break;
+        }
+
         PlayerData.UpdateData(true);
         PlayerData.WorldsCompleted[PlayerData.NumberOfWorldsCompleted] = PlayerData.CurrentWorld;
         PlayerData.NumberOfWorldsCompleted += 1;
-        Debug.Log("Loading Next Level (Go into code and change this to the next level)");
+        //Debug.Log("Loading Next Level (Go into code and change this to the next level)");
         if (PlayerData.NumberOfWorldsCompleted < 12)
         {
+            GameObject Path = GameObject.Find("World Objects");
+            Path = Path.transform.GetChild(0).gameObject;
+            // Remove the word "(Clone)" from the end of the path name
+            PlayerData.PathsVisited.Add(Path.name.Substring(0, Path.name.Length - 7));
             UnityEngine.SceneManagement.SceneManager.LoadScene("World Map Generation");
         }
         else if (PlayerData.NumberOfWorldsCompleted == 12)

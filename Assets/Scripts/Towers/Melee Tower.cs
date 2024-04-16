@@ -7,6 +7,8 @@ using static UnityEngine.Playables.AnimationPlayableUtilities;
 
 public class meleeTower : BaseTowerLogic
 {
+    public GameObject secondRange;
+    public StoreTowerUpgradeData storeTowerUpgradeData;
     private float directDamage = 5f;
 
     private float attackRate = 0f;
@@ -15,6 +17,10 @@ public class meleeTower : BaseTowerLogic
     public string id;
     public Transform center;
     private bool attacking;
+    private bool stun = false;
+    public GameObject knife;
+    public Transform k1;
+    public Transform k2;
     
     
 
@@ -30,11 +36,16 @@ public class meleeTower : BaseTowerLogic
         fireRate = 0.2f;
         curAttackSpeed = fireRate;
         animate = GetComponentInChildren<Animator>();
+        AddUpgradeEffects();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (isActive == false)
+        {
+            return;
+        }
         if (data != null)
         {
             handleEffect();
@@ -90,6 +101,10 @@ public class meleeTower : BaseTowerLogic
     {
         //pending animation/sound/visual effects code
         //animate.Play("Base Layer.New Animation");
+        if (stun)
+        {
+            target.GetComponent<BaseEnemyLogic>().stun(1.5f);
+        }
         target.GetComponent<BaseEnemyLogic>().reduceHealth(directDamage);
 
 
@@ -118,5 +133,28 @@ public class meleeTower : BaseTowerLogic
     {
         id = Guid.NewGuid().ToString();
         return id;
+    }
+
+    public void AddUpgradeEffects()
+    {
+        int count = 1;
+        while (count <= storeTowerUpgradeData.ListOfUpgradesObtained.Count)
+        {
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Military Training")
+            {
+                targettingRange = 15f;
+                proximitySphere = GetComponent<SphereCollider>();
+                proximitySphere.radius = 9f;
+                rangeFinder.SetActive(false);
+                rangeFinder = secondRange;
+                Instantiate(knife, k1);
+                Instantiate(knife, k2);
+            }
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Surprise The Enemy")
+            {
+                stun = true;
+            }
+            count++;
+        }
     }
 }

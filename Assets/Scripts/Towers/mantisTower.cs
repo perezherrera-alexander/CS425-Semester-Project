@@ -5,10 +5,15 @@ using System;
 
 public class mantisTower : BaseTowerLogic
 {
-
+    public GameObject secondRange;
+    public StoreTowerUpgradeData storeTowerUpgradeData;
     private Animator animate;
     public string id;
     public float sliceDmg = 0.75f;
+    public ParticleSystem holy;
+    public Transform crown;
+    public Material upgrade;
+    public List<Material> materials;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,14 +23,20 @@ public class mantisTower : BaseTowerLogic
         MakeSphere();
         fireRate = 3f;
         curAttackSpeed = fireRate;
+        transform.GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>().GetMaterials(materials);
         animate = GetComponentInChildren<Animator>();
+        AddUpgradeEffects();
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(data != null)
+        if (isActive == false)
+        {
+            return;
+        }
+        if (data != null)
         {
             handleEffect();
         }
@@ -59,14 +70,8 @@ public class mantisTower : BaseTowerLogic
         animate.SetTrigger("Attack");
 
         var targ = target.GetComponent<BaseEnemyLogic>();
-        if(targ == null)
-        {
-            Debug.Log("Scarab");
-        }
-        else
-        {
             targ.reduceHealth(sliceDmg);
-        }
+        
 
     }
 
@@ -81,5 +86,28 @@ public class mantisTower : BaseTowerLogic
     {
         id = Guid.NewGuid().ToString();
         return id;
+    }
+
+    public void AddUpgradeEffects()
+    {
+        int count = 1;
+        while (count <= storeTowerUpgradeData.ListOfUpgradesObtained.Count)
+        {
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Unwavering Faith")
+            {
+                fireRate = 5f;
+                Instantiate(holy, crown);
+            }
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Inquisitorius")
+            {
+                targettingRange = 18f;
+                proximitySphere.radius = 17.99f;
+                rangeFinder.SetActive(false);
+                rangeFinder = secondRange;
+                materials[0] = upgrade;
+                transform.GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>().materials = materials.ToArray();
+            }
+            count++;
+        }
     }
 }

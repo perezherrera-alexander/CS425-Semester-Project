@@ -1,4 +1,4 @@
-    using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -27,15 +27,18 @@ public class BaseTowerLogic : MonoBehaviour, Effectable
     public Transform target;
     public TargetingTypes targetingType = TargetingTypes.First;
     public List<BaseEnemyLogic> targets = new List<BaseEnemyLogic>(); 
-    protected SphereCollider proximitySphere;
+    public SphereCollider proximitySphere;
     public string towerName; // Name of the tower as displayed in the UI and used to figure out what tower a gameObject is when it's not obvious.
     // I feel like there has to be a better way to do this though
     [Header("Status Effects")]
     protected StatusEffects data;
+    public ParticleSystem frozen;
+    private ParticleSystem stop;
 
     public float curAttackSpeed;
     private float currentEffectTime = 0f;
     public bool isBuffed = false;
+    public GameObject rangeFinder;
     void Start()
     {
         Invoke();
@@ -60,6 +63,14 @@ public class BaseTowerLogic : MonoBehaviour, Effectable
     public virtual void Invoke()
     {
         InvokeRepeating("UpdateTarget", 0, 0.5f);
+    }
+
+    public void freeze(float time)
+    {
+        isActive = false;
+        stop = Instantiate(frozen, transform);
+        StartCoroutine(restart(time));
+
     }
     public virtual void Track()
     {
@@ -321,6 +332,7 @@ public class BaseTowerLogic : MonoBehaviour, Effectable
         {
             fireRate = curAttackSpeed;
             isBuffed = false;
+            Destroy(transform.Find("CFX4 Aura Bubble C(Clone)").gameObject);
         }
         data = null;
         currentEffectTime = 0;
@@ -351,5 +363,12 @@ public class BaseTowerLogic : MonoBehaviour, Effectable
         outline.OutlineMode = Outline.Mode.OutlineAll;
         outline.OutlineWidth = outlineThickness;
         outline.enabled = false;
+    }
+
+    IEnumerator restart(float time)
+    {
+        yield return new WaitForSeconds(time);
+        stop.Stop();
+        isActive = true;
     }
 }

@@ -18,7 +18,7 @@ public class TowerPanelManager : MonoBehaviour
     private Material[] originalMaterials;
     public Material highlightMaterial;
 
-    private bool PanelState = false;
+    public bool PanelState = false;
 
     public string TowerID;
 
@@ -185,26 +185,6 @@ public class TowerPanelManager : MonoBehaviour
             string scriptName = scriptType.Name;
             Debug.Log(scriptName);
 
-            if (scriptName == "BeeTower")
-            {
-                TowerID = SelectedTower.transform.GetChild(1).gameObject.GetComponent<BeeTower>().id;
-                Debug.Log(TowerID);
-                towerSaveLoadManager.RemoveTower(TowerID);
-            }
-
-            if (scriptName == "mortarTower")
-            {
-                TowerID = SelectedTower.transform.GetChild(1).gameObject.GetComponent<mortarTower>().id;
-                Debug.Log(TowerID);
-                towerSaveLoadManager.RemoveTower(TowerID);
-            }
-
-            if (scriptName == "tetherTower")
-            {
-                TowerID = SelectedTower.transform.GetChild(1).gameObject.GetComponent<tetherTower>().id;
-                Debug.Log(TowerID);
-                towerSaveLoadManager.RemoveTower(TowerID);
-            }
 
             if (scriptName == "BeeSwarm")
             {
@@ -224,12 +204,16 @@ public class TowerPanelManager : MonoBehaviour
     {
         var outline = SelectedTower.GetComponent<Outline>();
         outline.enabled = true;
+        var range = SelectedTower.GetComponentInChildren<BaseTowerLogic>();
+        range.rangeFinder.SetActive(true);
     }
 
     private void TurnOffTowerOutline()
     {
         var outline = SelectedTower.GetComponent<Outline>();
         outline.enabled = false;
+        var range = SelectedTower.GetComponentInChildren<BaseTowerLogic>();
+        range.rangeFinder.SetActive(false);
     }
 
     public void TowerTargeting(int selectedTargetingType)

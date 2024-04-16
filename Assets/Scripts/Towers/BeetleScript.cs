@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class BeetleScript : BaseTowerLogic
 {
-
+    public GameObject secondRange;
+    public GameObject thirdRange;
+    public StoreTowerUpgradeData storeTowerUpgradeData;
     //private Animator animate;
     public string id;
     //public float damage = 0.5f;
@@ -15,6 +17,10 @@ public class BeetleScript : BaseTowerLogic
     public bool isHome = true;
     private bool isAttacking = false;
     public float bound = 1f;
+    public Material upgrade1;
+    public Material upgrade2;
+    public List<Material> materials;
+    public GameObject satellite;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,18 +30,26 @@ public class BeetleScript : BaseTowerLogic
         MakeSphere();
         fireRate = 1f;
         curAttackSpeed = fireRate;
+        satellite.SetActive(false);
+        transform.GetChild(0).GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>().GetMaterials(materials);
+        AddUpgradeEffects();
         //animate = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(data != null)
+        if (isActive == false)
+        {
+            return;
+        }
+        if (data != null)
         {
             handleEffect();
         }
         Track();
         ListPrune();
+        
     }
 
     public override void Track()
@@ -79,15 +93,30 @@ public class BeetleScript : BaseTowerLogic
         proximitySphere = transform.GetComponentInParent<SphereCollider>();
         proximitySphere.radius = 4.47f;
     }
-
-    IEnumerator Timer()
+    public void AddUpgradeEffects()
     {
-        Debug.Log("Timer start");
-        yield return new WaitForSeconds(10);
-        Debug.Log("Timer end");
-        yield return null;
+        int count = 1;
+        while (count <= storeTowerUpgradeData.ListOfUpgradesObtained.Count)
+        {
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Aerial Ace")
+            {
+                proximitySphere.radius = 5.6f;
+                targettingRange = 25f;
+                rangeFinder.SetActive(false);
+                rangeFinder = secondRange;
+                materials[3] = upgrade1;
+                materials[4] = upgrade2;
+                transform.GetChild(0).GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>().materials = materials.ToArray();
+            }
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Satellite Tracking")
+            {
+                proximitySphere.radius = 6.7f;
+                targettingRange = 40f;
+                rangeFinder.SetActive(false);
+                rangeFinder = thirdRange;
+                satellite.SetActive(true);
+            }
+            count++;
+        }
     }
-
-
-
 }

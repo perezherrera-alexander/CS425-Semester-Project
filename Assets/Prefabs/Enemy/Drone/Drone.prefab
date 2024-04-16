@@ -468,18 +468,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effects: []
   objectCollider: {fileID: 9107400376225679032}
-  ob: {fileID: 3129493927702828240}
-  GoldWorth: 0
+  GoldWorth: 1
   PlayerStatistics: {fileID: 0}
+  particles: {fileID: 41876450650618886, guid: 79e30b8cb3f96b042a9d6f15c150b289, type: 3}
+  stunned: {fileID: 189072712425041892, guid: 182388158bfb28a49b1f764932fdc931, type: 3}
+  death: {fileID: 4783692702609254861, guid: a7346f514b8940b4ca5f2b14632a6a70, type: 3}
   model: {fileID: 0}
-  maxHealth: 5
-  health: 5
+  maxHealth: 7
+  health: 7
   goldIncreased: 0
   speed: 10
   slowFactor: 1
   slowDownTimer: 0
   dotDamage: 0
   dotTimer: 0
+  stunTimer: 0
   target: {fileID: 0}
   waypointindex: 0
   differentStart: 0

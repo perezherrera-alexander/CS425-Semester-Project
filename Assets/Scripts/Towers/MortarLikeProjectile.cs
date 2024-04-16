@@ -11,7 +11,7 @@ public class MortarLikeProjectile : mortarProjectile
     void Start()
     {
         startPos = transform.position;
-        speed = 15f;
+       
 
         float distance = Vector3.Distance(startPos, posOfTarget);
 

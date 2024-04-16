@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;// Required when using Event data.
 using System;
 using System.Linq;
 
@@ -13,11 +14,23 @@ public class SelectTower : MonoBehaviour
     [SerializeField]
     private PauseMenu pauseMenu;
 
+    [SerializeField]
+    private nestPanelManager nestMenu;
+
+    [SerializeField]
+    private ShopLogic shopLogic;
+
+    [SerializeField]
+    private nestPanelManager nestPanel;
+
     // Start is called before the first frame update
     void Start()
     {
         towerPlacement = FindObjectOfType<TowerPlacement>();
         pauseMenu = FindObjectOfType<PauseMenu>();
+        nestMenu = FindObjectOfType<nestPanelManager>();
+        shopLogic = FindObjectOfType<ShopLogic>();
+        nestPanel = FindObjectOfType<nestPanelManager>();
     }
 
     private void OnMouseDown()
@@ -32,8 +45,28 @@ public class SelectTower : MonoBehaviour
             return;
         }
 
+        if (nestMenu.panelState)
+        {
+            return;
+        }
+
+        if (shopLogic.shopIsOpen)
+        {
+            return;
+        }
+
+        if (nestPanel.panelState)
+        {
+            return;
+        }
+
         if (Input.GetMouseButtonDown(0))
         {
+            // If we're over a ShopButton, don't select the tower
+            if (EventSystem.current.IsPointerOverGameObject())
+            {
+                return;
+            }
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))

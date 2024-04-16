@@ -7,6 +7,7 @@ using UnityEngine.UIElements;
 
 public class BeeTower : BaseTowerLogic
 {
+    public StoreTowerUpgradeData storeTowerUpgradeData;
     //public float[] towerPosition; // This variable is seeming unused
     public string id;
     //public Outline outline;
@@ -18,10 +19,15 @@ public class BeeTower : BaseTowerLogic
         MakeSphere();
         Debug.Log("Targetting Type: " + targetingType);
         curAttackSpeed = fireRate;
+        AddUpgradeEffects();
     }
 
     void Update()
     {
+        if (isActive == false)
+        {
+            return;
+        }
         if (data != null)
         {
             handleEffect();
@@ -57,5 +63,25 @@ public class BeeTower : BaseTowerLogic
     {
         id = Guid.NewGuid().ToString();
         return id;
+    }
+
+    public void AddUpgradeEffects()
+    {
+        int count = 1;
+        while (count <= storeTowerUpgradeData.ListOfUpgradesObtained.Count)
+        {
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Bigger Bees")
+            {
+                fireRate = 2f;
+                projectilePrefab.GetComponent<stingerScript>().directDamage = 1f;
+                projectilePrefab.GetComponent<Transform>().localScale = new Vector3(0.66f, 0.66f, 0.66f);
+            }
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Improved Wing Strength")
+            {
+                projectilePrefab.GetComponent<stingerScript>().speed = 45f;
+                projectilePrefab.GetComponent<stingerScript>().wingToggle = true;
+            }
+            count++;
+        }
     }
 }

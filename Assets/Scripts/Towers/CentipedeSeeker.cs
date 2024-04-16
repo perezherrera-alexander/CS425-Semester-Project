@@ -9,11 +9,21 @@ public class CentipedeSeeker : MonoBehaviour
     public int waypointIndex = 0;
     public int damage = 2;
     public bool firedOut = true;
-    public float lifeTime = 3f;
+    public float lifeTime = 13f;
     public ParticleSystem particles;
+    public Material upgrade1;
+    public List<Material> mats;
+    public bool upgraded = false;
     // Start is called before the first frame update
     void Start()
     {
+        if (upgraded)
+        {
+            transform.GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>().GetMaterials(mats);
+            mats[0] = upgrade1;
+            transform.GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>().materials = mats.ToArray();
+        }
+
         for (int i = 0; i < Path.waypoints.Length; i++)
         {
             if (Vector3.Distance(transform.position, Path.waypoints[i].position) < Vector3.Distance(transform.position, Path.waypoints[waypointIndex].position))
@@ -24,6 +34,7 @@ public class CentipedeSeeker : MonoBehaviour
         transform.position = Path.waypoints[waypointIndex].position;
         target = Path.waypoints[waypointIndex-1];
         Instantiate(particles, transform);
+
     }
 
     // Update is called once per frame

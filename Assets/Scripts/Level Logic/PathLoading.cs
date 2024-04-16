@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 
 public class PathLoading : MonoBehaviour, ISaveable
 {
@@ -13,6 +14,8 @@ public class PathLoading : MonoBehaviour, ISaveable
     public GameObject[] pathPrefabs;
     public PlayerData playerData;
     public int LevelChoice = 0; // I feel like this can private
+    public GameObject levelLight;
+    public int choice = 0;
     void Start()
     {
         if(enableDebug) return; // If debug is enabled, don't load saved level or randomly pick one (use the one already in the scene)
@@ -33,9 +36,26 @@ public class PathLoading : MonoBehaviour, ISaveable
         // If there is save data, load the level from the save data, otherwise load a random level
         if (playerData.LevelLoaded == false)
         {
+
             // Assign one of the prefab paths to the "World Objects" game object
-            int pathIndex = UnityEngine.Random.Range(1, pathPrefabs.Length);
+            int pathIndex = LoadRandomLevel();
             LevelChoice = pathIndex;
+            if(pathIndex == 3)
+            {
+
+            }
+            else
+            {
+                choice = UnityEngine.Random.Range(0, 10);
+                if (choice <= 5)
+                {
+                    levelLight.GetComponent<Light>().intensity = UnityEngine.Random.Range(0f,1f);
+                }
+                else
+                {
+
+                }
+            }
             GameObject path = Instantiate(pathPrefabs[pathIndex], transform.position, Quaternion.identity);
             path.transform.parent = transform;
 
@@ -81,6 +101,26 @@ public class PathLoading : MonoBehaviour, ISaveable
         LevelChoice = saveData.LevelChoice;
         Debug.Log(LevelChoice);
         Debug.Log("Did Restore state even load");
+    }
+
+    private int LoadRandomLevel()
+    {
+        int pathIndex = UnityEngine.Random.Range(0, pathPrefabs.Length);
+        if(playerData.PathsVisited.Count == pathPrefabs.Length){ // If all levels have been visited, clear the list and take the random level
+            playerData.PathsVisited.Clear();
+        }
+        else { // Otherwise, find a level that hasn't been visited
+            for(int i = 0; i < playerData.PathsVisited.Count; i++)
+            {
+                if(pathPrefabs[pathIndex].name == playerData.PathsVisited[i])
+                {
+                    pathIndex = UnityEngine.Random.Range(0, pathPrefabs.Length);
+                    i = 0;
+                }
+            }
+        }
+
+        return pathIndex;
     }
 
     [Serializable]

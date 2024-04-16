@@ -12,6 +12,8 @@ public class LossConditionCheck : MonoBehaviour
     public GameObject GameOverScreen;
 
     public StoreTowerUpgradeData storeTowerUpgradeData;
+    public WaveSpawner waveSpawner;
+    public PlayerData playerData;
 
     // Start is called before the first frame update
     void Start()
@@ -28,13 +30,15 @@ public class LossConditionCheck : MonoBehaviour
         if (CurrentMorale <= 0)
         {
             GameOverScreen.SetActive(true);
+            waveSpawner.gameState = GameStates.GameOver;
+            playerData.PathsVisited.Clear();
         }
     }
 
     public void EnhanceYourCritters()
     {
-        storeTowerUpgradeData.TokensObtained = 1;
-        //SceneManager.LoadScene("Tower Upgrade");
+        storeTowerUpgradeData.TokensObtained = 3;
+        SceneManager.LoadScene("Tower Upgrade");
     }
 
     public void ReturnToMainMenu()

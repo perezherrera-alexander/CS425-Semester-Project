@@ -5,7 +5,9 @@ using System;
 
 public class BuffingBees : BaseTowerLogic
 {
+    public StoreTowerUpgradeData storeTowerUpgradeData;
     public string id;
+    public GameObject bag;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,11 +17,17 @@ public class BuffingBees : BaseTowerLogic
         fireRate = 0.2f;
         Invoke();
         MakeSphere();
+        bag.SetActive(false);
+        AddUpgradeEffects();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (isActive == false)
+        {
+            return;
+        }
         if (data != null)
         {
             handleEffect();
@@ -112,5 +120,25 @@ public class BuffingBees : BaseTowerLogic
     {
         id = Guid.NewGuid().ToString();
         return id;
+    }
+
+    public void AddUpgradeEffects()
+    {
+        int count = 1;
+        while (count <= storeTowerUpgradeData.ListOfUpgradesObtained.Count)
+        {
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Traveling Salesman")
+            {
+                fireRate = 0.6f;
+                bag.SetActive(true);
+            }
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Thicker Than Molasses")
+            {
+                projectilePrefab.GetComponent<BuffBee>().data.lifeTime = 18;
+                projectilePrefab.GetComponent<BuffBee>().data.attackSpeedIncrease = 0.75f;
+                projectilePrefab.GetComponent<BuffBee>().buffTog = true;
+            }
+            count++;
+        }
     }
 }

@@ -19,8 +19,8 @@ public class mortarProjectile : MonoBehaviour
     protected float progress = 0f;
 
     public float directDamage = 2f;
-    protected float splashDamage = 2.5f;
-    protected float bounces = 3f;
+    public float splashDamage = 2.5f;
+    public float bounces = 3f;
 
     bool exists = false;
 #pragma warning restore 0414

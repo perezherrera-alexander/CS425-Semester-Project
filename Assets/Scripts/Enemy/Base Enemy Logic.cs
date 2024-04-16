@@ -25,11 +25,11 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
 
     public bool goldIncreased = false;
 
-    private float curSpeed;
+    protected float curSpeed;
     private bool isSlowed = false;
     // float health = 5;
     // Start is called before the first frame update
-    public void Start(){
+    public virtual void Start(){
 
         PlayerStatistics = FindObjectOfType<PlayerStatistics>();
         maxHealth = health;
@@ -125,6 +125,10 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
         if (waypointindex >= Path.waypoints.Length){ // Enemy reaches end of path
             //decrement player health according to
             float EnemyHealth = getHealth();
+            if(EnemyHealth < 1f)
+            {
+                EnemyHealth = 1f;
+            }
             int MoraleLost = (int)EnemyHealth;
             PlayerStatistics.Instance.ReduceMorale(MoraleLost);
             //subtract present enemies count by 1
@@ -172,6 +176,45 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
         
     }
 
+    public void knockbackByPass(int knockbackForce)
+    {
+
+        //Calculate the distance between the current position and the next waypoint
+
+        float travelDistance = 0;
+        //make waypointLengths an array of floats with the length of the number of waypoints
+        float[] waypointLengths = new float[waypointindex - 1];
+        waypointLengths[0] = 0;
+        for (int i = 0; i < waypointindex - 1; i++)
+        {
+            travelDistance += Vector3.Distance(Path.waypoints[i].position, Path.waypoints[i + 1].position);
+            waypointLengths[i] = travelDistance;
+        }
+        travelDistance += Vector3.Distance(Path.waypoints[waypointindex].position, transform.position);
+        float knockbackLength = knockbackForce * travelDistance * .01f;
+
+        //Debug.Log("Distance: " + travelDistance);
+        //Debug.Log("Knockback length: " + knockbackLength);
+
+        //index of the last waypoint that holds a length less than the knockback length
+        int newIndex = 0;
+        for (int i = 0; i < waypointLengths.Length; i++)
+        {
+            if (knockbackLength < waypointLengths[i])
+            {
+                newIndex = i - 1;
+                waypointindex = i;
+                target = Path.waypoints[newIndex];
+                //Debug.Log("New Index: " + newIndex);
+                break;
+            }
+        }
+        // Debug.Log("New Index: " + newIndex);
+        // Debug.Log("Waypoint index: " + waypointindex);
+        // Debug.Log("Length of new knockback length: " + waypointLengths[newIndex]);
+
+
+    }
 
 
     public void slowDown(float slowFactor)
@@ -186,10 +229,16 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
         stunTimer = stunTime;
     }
 
+    public void stunByPass(float stunTime)
+    {
+        ParticleSystem parts = Instantiate(stunned, transform);
+        StartCoroutine(turnOffStun(stunTime, parts));
+        stunTimer = stunTime;
+    }
+
 
     public void applyEffect(StatusEffects effect)
     {
-        //this.data = effect;
         effects.Add(effect);
         Instantiate(effect.effectParticles, transform);
         effect.lifeTime = effect.initLifeTime;
@@ -218,22 +267,7 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
     public virtual void handleEffect()
     {
 
-
-       
         currentEffectTime += Time.deltaTime;
-        /*if (effects.Count > 1)
-        {
-            var effectCount = effects.Count;
-        }
-        if (currentEffectTime > effects.First().lifeTime) 
-            removeEffect(0);
-        if (effects.First() == null)
-            return;
-        if (effects.First().dotAmount != 0 && currentEffectTime > lastTickTime)
-        {
-            lastTickTime += effects.First().tickSpeed;
-            health -= effects.First().dotAmount;
-        }*/
 
         var j = 0;
         
@@ -304,15 +338,27 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
 
     private void OnTriggerStay(Collider other)
     {
+
+
         if (other.GetComponent<CapsuleCollider>())
         {
             if (other.GetComponent<FlameTower>() != null)
             {
-                float damage = other.GetComponent<FlameTower>().getDamage();
-                float dmgFrame = damage * Time.deltaTime;
-                reduceHealth(dmgFrame);
+                if(other.GetComponent<FlameTower>().isActive == false)
+                {
+
+                }
+                else
+                {
+                    float damage = other.GetComponent<FlameTower>().getDamage();
+                    float dmgFrame = damage * Time.deltaTime;
+                    reduceHealth(dmgFrame);
+                }
+
             }
         }
+
+
 
         if (other.GetComponent<BoxCollider>())
         {
@@ -334,7 +380,6 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
 
     IEnumerator turnOffStun(float time, ParticleSystem particles)
     {
-        Debug.Log("Calling stun ");
         yield return new WaitForSeconds(time);
         particles.Stop();
 

@@ -9,7 +9,6 @@ public class WorldMapLoadSave : MonoBehaviour, ISaveable
     public GameObjectConversion GameObjectConversion;
     public object CaptureState()
     {
-        Debug.Log("tower name is = " + playerData.TowerPool[3]);
         return new SaveData
         {
             CurrentEvolutionPoints = playerData.EvolutionPoints,

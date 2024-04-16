@@ -6,11 +6,14 @@ using System;
 
 public class FlameTower : BaseTowerLogic
 {
+    public StoreTowerUpgradeData storeTowerUpgradeData;
     public string id;
     private bool firing = false;
     public ParticleSystem visual;
     public CapsuleCollider fireArea;
     private float damage = 0.333f;
+    public Transform tank;
+    public GameObject flametan;
 
     // Start is called before the first frame update
     void Start()
@@ -22,12 +25,16 @@ public class FlameTower : BaseTowerLogic
         visual.Pause();
         fireArea = GetComponent<CapsuleCollider>();
         fireArea.enabled = false;
-
+        AddUpgradeEffects();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (isActive == false)
+        {
+            return;
+        }
         Track();
         ListPrune();
     }
@@ -82,5 +89,26 @@ public class FlameTower : BaseTowerLogic
     {
         id = Guid.NewGuid().ToString();
         return id;
+    }
+
+    public void AddUpgradeEffects()
+    {
+        int count = 1;
+        while (count <= storeTowerUpgradeData.ListOfUpgradesObtained.Count)
+        {
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Magnifying Glass")
+            {
+                fireArea.radius = 4.32f;
+                fireArea.height = 13.14f;
+                fireArea.center = new Vector3(0f, 0.71f, 8.63f);
+                visual.transform.localScale = new Vector3(7.38f, 7.38f, 3.5f);
+            }
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Thousand Suns")
+            {
+                damage = 1.5f;
+                Instantiate(flametan, tank);
+            }
+            count++;
+        }
     }
 }

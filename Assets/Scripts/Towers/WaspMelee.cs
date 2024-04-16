@@ -4,9 +4,14 @@ using UnityEngine;
 using System;
 
 public class WaspMelee : BaseTowerLogic
-{ 
+{
+    public StoreTowerUpgradeData storeTowerUpgradeData;
     public string id;
+    public Material upgrade1;
+    public Material upgrade2;
+    public List<Material> mats;
     private Animator animate;
+    public GameObject secondRange;
 
     private float directDamage = 0.5f;
     private float attackRate = 0f;
@@ -22,11 +27,17 @@ public class WaspMelee : BaseTowerLogic
         fireRate = 1.5f;
         curAttackSpeed = fireRate;
         animate = GetComponentInChildren<Animator>();
+        transform.GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>().GetMaterials(mats);
+        AddUpgradeEffects();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (isActive == false)
+        {
+            return;
+        }
         if (data != null)
         {
             handleEffect();
@@ -76,5 +87,29 @@ public class WaspMelee : BaseTowerLogic
     {
         id = Guid.NewGuid().ToString();
         return id;
+    }
+
+    public void AddUpgradeEffects()
+    {
+        int count = 1;
+        while (count <= storeTowerUpgradeData.ListOfUpgradesObtained.Count)
+        {
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Murder Hornet")
+            {
+                fireRate = 2.5f;
+                mats[2] = upgrade1;
+                transform.GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>().materials = mats.ToArray();
+            }
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Stinger Extender")
+            {
+                targettingRange = 11.5f;
+                proximitySphere.radius = 6.91f;
+                rangeFinder.SetActive(false);
+                rangeFinder = secondRange;
+                mats[3] = upgrade2;
+                transform.GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>().materials = mats.ToArray();
+            }
+            count++;
+        }
     }
 }

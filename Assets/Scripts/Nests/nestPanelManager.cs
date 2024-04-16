@@ -13,6 +13,7 @@ public class nestPanelManager : MonoBehaviour
 
     public static nestPanelManager Instance {  get { return instance; } }
 
+    public ParticleSystem star;
     public GameObject selectedNest;
     public GameObject nestPanelInstance;
     public GameObject nestPanelPrefab;
@@ -21,7 +22,7 @@ public class nestPanelManager : MonoBehaviour
 
     [SerializeField] public nestTargetPlacement targetPlacement;
 
-    private bool panelState = false;
+    public bool panelState = false;
     private Image timer;
 
     // Start is called before the first frame update
@@ -87,7 +88,7 @@ public class nestPanelManager : MonoBehaviour
         if (waspNest.nestName == "Bee Nest")
         {
             nestPanelInstance = Instantiate(beeNestPanelPrefab) as GameObject;
-            timer = nestPanelInstance.transform.GetChild(0).GetChild(1).GetChild(1).GetComponent<Image>();
+            timer = nestPanelInstance.transform.GetChild(0).GetChild(3).GetComponent<Image>();
         }
         else
         {
@@ -108,7 +109,7 @@ public class nestPanelManager : MonoBehaviour
             Debug.Log(scriptName);
 
             TMP_Text output = nestPanelInstance.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
-            output.text = "Nest Name: " + scriptName;
+            output.text = scriptName;
 
             if (scriptName == "beeNest")
             {
@@ -118,13 +119,16 @@ public class nestPanelManager : MonoBehaviour
 
         if (targetButton != null)
         {
+            
             if (waspNest.nestName == "Bee Nest")
             {
+                
                 targetButton.onClick.AddListener(activateNest);
             }
             else
             {
-                targetButton.onClick.AddListener(moveTarget);
+                
+                targetButton.onClick.AddListener(delegate { moveTarget(nestPanelInstance); });
             }
         }
 
@@ -135,9 +139,13 @@ public class nestPanelManager : MonoBehaviour
 
     }
 
-    public void moveTarget()
+    public void moveTarget(GameObject nestInstance)
     {
+        
         targetPlacement.placeTarget(targetPrefab,selectedNest);
+
+
+
     }
 
     public void activateNest()
@@ -146,6 +154,8 @@ public class nestPanelManager : MonoBehaviour
         if (selectedNest.GetComponentInChildren<beeNest>().abilityActive == false)
         {
             selectedNest.GetComponentInChildren<beeNest>().abilityActivate();
+            Vector3 vect = new Vector3(28.8f, 12.5f, 37.4f);
+            Instantiate(star, vect, Quaternion.identity);
             StartCoroutine(Timer());
             StartCoroutine(TimerVisual());
         }
@@ -186,17 +196,41 @@ public class nestPanelManager : MonoBehaviour
 
     IEnumerator TimerVisual()
     {
+        if(timer == null)
+        {
+            yield return null;
+        }
         timer.enabled = true;
         timer.fillAmount = 0;
         yield return new WaitForSeconds(2);
+        if (timer == null)
+        {
+            yield return null;
+        }
         timer.fillAmount = 0.2f;
         yield return new WaitForSeconds(2);
+        if (timer == null)
+        {
+            yield return null;
+        }
         timer.fillAmount = 0.4f;
         yield return new WaitForSeconds(2);
+        if (timer == null)
+        {
+            yield return null;
+        }
         timer.fillAmount = 0.6f;
         yield return new WaitForSeconds(2);
+        if (timer == null)
+        {
+            yield return null;
+        }
         timer.fillAmount = 0.8f;
         yield return new WaitForSeconds(2);
+        if (timer == null)
+        {
+            yield return null;
+        }
         timer.fillAmount = 1f;
         timer.enabled = false;
         yield return null;

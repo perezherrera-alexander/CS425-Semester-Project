@@ -6,6 +6,7 @@ using System.Linq;
 
 public class FastEnemy : BaseEnemyLogic
 {
+    public int maxBoost;
     public override void Update (){
         healthCheck();
         if(effects.Count > 0)
@@ -16,7 +17,8 @@ public class FastEnemy : BaseEnemyLogic
         Vector3 direction = target.position - transform.position;
 
         //Enemy speeds up depending on the damage taken
-        transform.Translate(direction.normalized * speed * Time.deltaTime * Math.Min(5, 1/(health/maxHealth)), Space.World);
+        //float rounded = ((float)Math.Round(health,1));
+        transform.Translate(direction.normalized * speed * Time.deltaTime * Math.Min(maxBoost, 1/(((float)Math.Round(health,1))/maxHealth)), Space.World);
 
         if (Vector3.Distance(transform.position, target.position) <= 0.4f){
             GetNextWaypoint();
