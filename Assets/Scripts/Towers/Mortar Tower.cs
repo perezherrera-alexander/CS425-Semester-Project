@@ -66,12 +66,12 @@ public class mortarTower : BaseTowerLogic
         int count = 1;
         while (count <= storeTowerUpgradeData.ListOfUpgradesObtained.Count)
         {
-            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Nuclear Payload")
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Mortar Ant Upgrade 1")
             {
                 projectilePrefab.GetComponent<MortarLikeProjectile>().splashDamage = 5f;
                 Instantiate(nuclear, transform);
             }
-            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Project Orion")
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Mortar Ant Upgrade 2")
             {
                 targettingRange = 30f;
                 proximitySphere = GetComponent<SphereCollider>();

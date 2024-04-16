@@ -93,12 +93,12 @@ public class mantisTower : BaseTowerLogic
         int count = 1;
         while (count <= storeTowerUpgradeData.ListOfUpgradesObtained.Count)
         {
-            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Unwavering Faith")
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Mantis Upgrade 1")
             {
                 fireRate = 5f;
                 Instantiate(holy, crown);
             }
-            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Inquisitorius")
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Mantis Upgrade 2")
             {
                 targettingRange = 18f;
                 proximitySphere.radius = 17.99f;

@@ -94,13 +94,13 @@ public class WaspMelee : BaseTowerLogic
         int count = 1;
         while (count <= storeTowerUpgradeData.ListOfUpgradesObtained.Count)
         {
-            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Murder Hornet")
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Wasp Melee Upgrade 1")
             {
                 fireRate = 2.5f;
                 mats[2] = upgrade1;
                 transform.GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>().materials = mats.ToArray();
             }
-            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Stinger Extender")
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Wasp Melee Upgrade 2")
             {
                 targettingRange = 11.5f;
                 proximitySphere.radius = 6.91f;

@@ -140,7 +140,7 @@ public class meleeTower : BaseTowerLogic
         int count = 1;
         while (count <= storeTowerUpgradeData.ListOfUpgradesObtained.Count)
         {
-            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Military Training")
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Melee Ant Upgrade 1")
             {
                 targettingRange = 15f;
                 proximitySphere = GetComponent<SphereCollider>();
@@ -150,7 +150,7 @@ public class meleeTower : BaseTowerLogic
                 Instantiate(knife, k1);
                 Instantiate(knife, k2);
             }
-            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Surprise The Enemy")
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Melee Ant Upgrade 2")
             {
                 stun = true;
             }

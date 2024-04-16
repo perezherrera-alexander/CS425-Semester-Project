@@ -78,13 +78,13 @@ public class StraightShooter : BaseTowerLogic
         int count = 1;
         while (count <= storeTowerUpgradeData.ListOfUpgradesObtained.Count)
         {
-            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Missle Racks")
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Wasp Upgrade 1")
             {
                 tripleShot = true;
                 Instantiate(missleRack, M1);
                 Instantiate(missleRack, M2);
             }
-            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Thorax Trainer")
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Wasp Upgrade 2")
             {
                 projectilePrefab.GetComponent<StandardProjectile>().damage = 2.5f;
                 projectilePrefab.GetComponent<StandardProjectile>().moveSpeed = 70f;

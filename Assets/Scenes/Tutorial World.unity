@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3010,14 +3010,23 @@ MonoBehaviour:
   enemy3: {fileID: 5512348237283082412, guid: decd8ce85050ec542ac1946a45a530f3, type: 3}
   enemy4: {fileID: 7379353672405591081, guid: 02ac2c2e74c4adb46a3ae451b6cc97df, type: 3}
   enemy5: {fileID: 1573580589347934921, guid: 1b9135f201d2e574a9ca2e2ce8d1a142, type: 3}
-  enemyA: {fileID: 5640239864949325077, guid: 4bf7c4f8980f8db4397e9a58cffe73d6, type: 3}
-  enemyB: {fileID: 5179322302110090897, guid: 8d99973a787a92a469789c993209bdbb, type: 3}
-  enemyC: {fileID: 2750475128477427218, guid: b6d097f65ab93b64e99ab284f8cb4d0d, type: 3}
-  enemyD: {fileID: 4087907735615080734, guid: 32ec49f45dd9c584a8ccb88c5f2ad886, type: 3}
-  enemyE: {fileID: 9159871299313499265, guid: 99010c75aefcddc4588b7ce4848193d6, type: 3}
-  enemyV: {fileID: 4610368972151047935, guid: 73a60b3198018d549bd29c22daccee0f, type: 3}
+  enemy6: {fileID: 0}
+  enemy7: {fileID: 0}
+  enemy8: {fileID: 0}
+  enemy9: {fileID: 0}
+  enemy10: {fileID: 0}
+  enemyS1: {fileID: 0}
+  enemyS2: {fileID: 0}
+  enemyS3: {fileID: 0}
+  enemyD1: {fileID: 0}
+  enemyD2: {fileID: 0}
+  enemyD3: {fileID: 0}
+  enemyC1: {fileID: 0}
+  enemyC2: {fileID: 0}
+  enemyC3: {fileID: 0}
+  enemyF: {fileID: 0}
+  enemyM: {fileID: 0}
   enemyW: {fileID: 652428192806326497, guid: 8a4380fe5adb0d14cb16cd9ea54348cd, type: 3}
-  enemyX: {fileID: 3129493927702828240, guid: 70022aab04a3d2746830400f0ed90128, type: 3}
   waveFormats:
   - {fileID: 11400000, guid: 91cc4e7db73c15d4faf1e07d50e5e990, type: 2}
   SpawnPoint: {fileID: 1163869961}
@@ -3734,6 +3743,10 @@ PrefabInstance:
     - target: {fileID: 1806071316947349072, guid: 350a361b60835f34283d38c68554d0b8, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -131
+      objectReference: {fileID: 0}
+    - target: {fileID: 3118599463864065845, guid: 350a361b60835f34283d38c68554d0b8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4334526510452767002, guid: 350a361b60835f34283d38c68554d0b8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

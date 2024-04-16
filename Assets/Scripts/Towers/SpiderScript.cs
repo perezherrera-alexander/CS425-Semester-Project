@@ -68,13 +68,13 @@ public class SpiderScript : BaseTowerLogic
         int count = 1;
         while (count <= storeTowerUpgradeData.ListOfUpgradesObtained.Count)
         {
-            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Stickier Silk")
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Spider Upgrade 1")
             {
                 projectilePrefab.GetComponent<spiderweb>().data.movementPenalty = 0.70f;
                 projectilePrefab.GetComponent<spiderweb>().damage = 1f;
                 upgrade1.SetActive(true);
             }
-            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Daddy Long Legs")
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Spider Upgrade 2")
             {
                 targettingRange = 20f;
                 proximitySphere.radius = 59.88f;

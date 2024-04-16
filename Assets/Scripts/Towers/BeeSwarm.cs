@@ -125,12 +125,12 @@ public class BeeSwarm : BaseTowerLogic
         int count = 1;
         while (count <= storeTowerUpgradeData.ListOfUpgradesObtained.Count)
         {
-            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Mob Mentality")
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Buffing Bee Upgrade 1")
             {
                 swarmAmount = 10;
                 honeyPot.SetActive(true);
             }
-            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Royal Jelly")
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Buffing Bee Upgrade 2")
             {
                 fireRate = 3f;
             }

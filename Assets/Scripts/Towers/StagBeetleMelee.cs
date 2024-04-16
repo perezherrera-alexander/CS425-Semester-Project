@@ -121,7 +121,7 @@ public class BeetleMelee : BaseTowerLogic
                 mat[2] = upgrade;
                 transform.GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>().materials = mat.ToArray();
             }
-            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Endless Hunger")
+            if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Stag Beetle Upgrade 2")
             {
                 hunger = true;
                 mat[4] = upgrade2;
