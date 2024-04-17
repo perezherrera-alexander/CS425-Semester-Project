@@ -508,8 +508,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enableDebug: 0
-  loadSpecificLevel: 0
-  specificLevelIndex: 0
+  loadSpecificLevel: 1
+  specificLevelIndex: 7
   pathPrefabs:
   - {fileID: 3283810633382655351, guid: e1bf61d465354b94fb3c406ab5fde9b0, type: 3}
   - {fileID: 7025646087115900231, guid: 5b19666bee5fbdb459c24867f6acfd97, type: 3}
@@ -518,6 +518,7 @@ MonoBehaviour:
   - {fileID: 5634187709461644724, guid: faf1f9c5bdc022747befe51349413f01, type: 3}
   - {fileID: 5867140428727287296, guid: a0a19c25d4b70c8449690ec6d5a01276, type: 3}
   - {fileID: 6437458586024079968, guid: 82722da3cfeee27488fcd1b208dcfc38, type: 3}
+  - {fileID: 3787614720830651488, guid: 6ea0523579221c340b113f3228a68383, type: 3}
   playerData: {fileID: 11400000, guid: 5e3cd046013d0654b91f369ecf77ee21, type: 2}
   LevelChoice: 1
   levelLight: {fileID: 1386453005}
