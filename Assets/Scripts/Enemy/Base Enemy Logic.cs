@@ -41,7 +41,7 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
         curSpeed = speed;
     }
 
-    public void reduceHealth(float damage)
+    public virtual void reduceHealth(float damage)
     {
         health = (health - damage);
         Instantiate(particles, transform);

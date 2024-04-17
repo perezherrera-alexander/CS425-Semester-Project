@@ -13,7 +13,11 @@ public class RobotScript : BaseEnemyLogic
 
     public AudioSource audioSource;
     public AudioClip deathSound;
-    public AudioClip hitSound;
+    public AudioClip hitSound1;
+    public AudioClip hitSound2;
+    public AudioClip hitSound3;
+    public AudioClip hitSound4;
+    public AudioClip hitSound5;
     public override void healthCheck()
     {   
         if (health <= 0){
@@ -48,6 +52,45 @@ public class RobotScript : BaseEnemyLogic
             DestroyImmediate(head);
         }
     }
+    public override void reduceHealth(float damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            //audioSource.PlayOneShot(deathSound);
+            //PlayerStatistics.AddMoney(GoldWorth);
+            //death.playParts(transform);
+            //Destroy(this.gameObject);
+            //subtract present enemies count by 1
+            //PlayerStatistics.Instance.enemiesPresent--;
+            //return;
+
+        }
+        else
+        {
+            int rand = Random.Range(1, 5);
+            switch (rand)
+            {
+                case 1:
+                    audioSource.PlayOneShot(hitSound1);
+                    break;
+                case 2:
+                    audioSource.PlayOneShot(hitSound2);
+                    break;
+                case 3:
+                    audioSource.PlayOneShot(hitSound3);
+                    break;
+                case 4:
+                    audioSource.PlayOneShot(hitSound4);
+                    break;
+                case 5:
+                    audioSource.PlayOneShot(hitSound5);
+                    break;
+            }
+        }
+        Instantiate(particles, transform);
+    }
+    
 }
         
 
