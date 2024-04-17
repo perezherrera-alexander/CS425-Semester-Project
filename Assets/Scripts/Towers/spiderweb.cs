@@ -15,6 +15,9 @@ public class spiderweb : MonoBehaviour
 
     public bool isActive = false;
 
+    //public AudioSource audioSource;
+    //public AudioClip audioClip;
+
 #pragma warning restore 0414
 
     private void Start()
@@ -43,18 +46,25 @@ public class spiderweb : MonoBehaviour
     }
 
 
-
+    //When encountering an enemy, apply the effect and reduce health
     private void OnTriggerEnter(Collider other)
     {
+        //check for enemy tag
         if (other.gameObject.tag == "Enemy")
         {
             var effect = other.GetComponent<Effectable>();
             if (effect != null)
-            { 
+            {
+                //play sound
+                //audioSource.PlayOneShot(audioClip);
+                //Deal with pierce amount
                 if (pierceAmount > 0)
                 {
+                    //slowness
                     effect.applyEffect(data);
+                    //damage
                     other.GetComponent<BaseEnemyLogic>().reduceHealth(damage);
+                    //reduce peirce amount
                     pierceAmount -= 1;
                 }
                 else if (pierceAmount == 0)

@@ -10,6 +10,8 @@ public class SpiderScript : BaseTowerLogic
     public GameObject upgrade1;
     private Animator animate;
     public string id;
+    public AudioSource audioSource;
+    public AudioClip audioClip;
     //private Animator animate;
     // Start is called before the first frame update
     void Start()
@@ -44,6 +46,8 @@ public class SpiderScript : BaseTowerLogic
     {
         animate.ResetTrigger("Attack");
         GameObject shot = (GameObject)Instantiate(projectilePrefab, locationToFireFrom.position, locationToFireFrom.rotation);
+        //Play sound
+        audioSource.PlayOneShot(audioClip);
         
         StandardProjectile sting = shot.GetComponent<StandardProjectile>();
         animate.SetTrigger("Attack");
