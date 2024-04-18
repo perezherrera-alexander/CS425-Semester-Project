@@ -8,7 +8,7 @@ public class BeetleProjectile : MonoBehaviour
     public Transform target;
     private float speed = 25;
     private Animator animate;
-    public float damage = 5f;
+    public float damage = 3f;
     public bool attacking = false;
 
     private void Start()
@@ -57,7 +57,7 @@ public class BeetleProjectile : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            float dam = damage * Time.deltaTime * 2f;
+            float dam = damage * Time.deltaTime;
             other.GetComponent<BaseEnemyLogic>().reduceHealth(dam);
         }
 

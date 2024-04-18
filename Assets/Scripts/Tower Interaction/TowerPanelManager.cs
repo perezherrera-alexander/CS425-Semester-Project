@@ -203,17 +203,31 @@ public class TowerPanelManager : MonoBehaviour
     private void TurnOnTowerOutline()
     {
         var outline = SelectedTower.GetComponent<Outline>();
-        outline.enabled = true;
-        var range = SelectedTower.GetComponentInChildren<BaseTowerLogic>();
-        range.rangeFinder.SetActive(true);
+        if (outline != null)
+        {
+            outline.enabled = true;
+        }
+        var range = SelectedTower.GetComponentInChildren<BaseTowerLogic>().rangeFinder;
+        if (range != null)
+        {
+            range.SetActive(true);
+        }
     }
 
     private void TurnOffTowerOutline()
     {
         var outline = SelectedTower.GetComponent<Outline>();
-        outline.enabled = false;
-        var range = SelectedTower.GetComponentInChildren<BaseTowerLogic>();
-        range.rangeFinder.SetActive(false);
+        if(outline != null)
+        {
+            outline.enabled = false;
+        }
+
+        var range = SelectedTower.GetComponentInChildren<BaseTowerLogic>().rangeFinder;
+        if(range != null)
+        {
+            range.SetActive(false);
+        }
+
     }
 
     public void TowerTargeting(int selectedTargetingType)
