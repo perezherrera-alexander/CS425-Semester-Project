@@ -53,6 +53,7 @@ public class WaveSpawner : MonoBehaviour
     public bool enemiesDoneSpawning = false;
     public int currentWaveCount = 1; // These are important
     public int maxWaveCount; // me too
+    public bool autostartNextWave = false;
     //private float timeBetweenWavesTimer;
     public bool tutorialMode = false;
     [Header("UI")]
@@ -88,11 +89,10 @@ public class WaveSpawner : MonoBehaviour
 
     void Update()
     {
-        
         if(gameState == GameStates.InbetweenWaves)
         {
-            beginNextWaveText.text = "Press SPACEBAR to begin next wave";
-            if(Input.GetKeyDown(KeyCode.Space))
+            if(!autostartNextWave) beginNextWaveText.text = "Press SPACEBAR to begin next wave";
+            if(Input.GetKeyDown(KeyCode.Space) || autostartNextWave)
             {
                 gameState = GameStates.WaveStarting;
             }
@@ -252,6 +252,11 @@ public class WaveSpawner : MonoBehaviour
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene("Main Menu");
         }
+    }
+
+    public void SetAutoStartNextWave()
+    {
+        autostartNextWave = !autostartNextWave;
     }
 
     
