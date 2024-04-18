@@ -44,7 +44,9 @@ public class WaveSpawner : MonoBehaviour
         public int enemyAmount;
         public float timeBetweenEnemySpawnsSeconds;
     }
-    public List<WaveFormat> waveFormats;
+    public List<WaveFormat> waveFormatsEasy;
+    public List<WaveFormat> waveFormatsNormal;
+    public List<WaveFormat> waveFormatsHard;
     private WaveFormat waveFormat;
     private List<List<waveFormation>> waves = new List<List<waveFormation>>(); // List of waves
     public Transform SpawnPoint;
@@ -65,8 +67,12 @@ public class WaveSpawner : MonoBehaviour
     {
         levelCompleteText.text = "";
 
-        // Pick a random waveFormat from the list
-        waveFormat = waveFormats[UnityEngine.Random.Range(0, waveFormats.Count)];
+        LoadWaveFormat();
+    }
+
+    void LoadWaveFormat()
+    {
+        PickWaveFormat();
 
         // Load wave data from waveFormat
         for(int i = 0; i < waveFormat.waveFormations.Length; i++)
@@ -80,11 +86,34 @@ public class WaveSpawner : MonoBehaviour
                 wave.id = int.Parse(enemyData[0]);                              // Set the enemy id
                 wave.enemyAmount = int.Parse(enemyData[1]);                     // Set the amount of enemies
                 wave.timeBetweenEnemySpawnsSeconds = float.Parse(enemyData[2], CultureInfo.InvariantCulture); // Set the time between enemy spawns
-                //Debug.Log("i: " + i + " j: " + j);
                 waves.ElementAt(i).Add(wave);                                   // Add the waveFormation to the list of waves
             }
         }
         maxWaveCount = waves.Count;// Set the max wave count
+    }
+    void PickWaveFormat() 
+    {
+        if(tutorialMode) {
+            waveFormat = waveFormatsEasy[0];
+            return;
+        }
+        switch (SettingsValues.difficulty)
+        {
+            case 0:
+                waveFormat = waveFormatsEasy[UnityEngine.Random.Range(0, waveFormatsEasy.Count)];
+                break;
+            case 1:
+                waveFormat = waveFormatsNormal[UnityEngine.Random.Range(0, waveFormatsNormal.Count)];
+                break;
+            case 2:
+                waveFormat = waveFormatsHard[UnityEngine.Random.Range(0, waveFormatsHard.Count)];
+                break;
+            default:
+                Debug.Log("Difficulty not set, defaulting to normal");
+                waveFormat = waveFormatsNormal[UnityEngine.Random.Range(0, waveFormatsNormal.Count)];
+                break;
+        }
+        Debug.Log("Difficulty: " + SettingsValues.difficulty);
     }
 
     void Update()

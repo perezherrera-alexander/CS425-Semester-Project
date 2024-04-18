@@ -3558,12 +3558,16 @@ MonoBehaviour:
   enemyF: {fileID: 2297590844402791568, guid: e4ddc61d45c37714286825b95a60afb6, type: 3}
   enemyM: {fileID: 8376091250487536424, guid: 27c25ab9e38b7a64cb8f2a011638bab3, type: 3}
   enemyW: {fileID: 3805554092895701301, guid: 69e221f209fbbf044abb0af30210f732, type: 3}
-  waveFormats:
+  waveFormatsEasy:
+  - {fileID: 11400000, guid: f2d894313115a8f429e2735282ef28de, type: 2}
+  waveFormatsNormal:
   - {fileID: 11400000, guid: f2d894313115a8f429e2735282ef28de, type: 2}
   - {fileID: 11400000, guid: 44bcaa6cc06623b49b4003f70d236767, type: 2}
   - {fileID: 11400000, guid: 9a0e58d7f331e1c4ca12f109506fc66b, type: 2}
   - {fileID: 11400000, guid: 11758b12873625f4e95610cd43f555cf, type: 2}
   - {fileID: 11400000, guid: 00501e770bf500c448b5b2b2a963f9e5, type: 2}
+  - {fileID: 11400000, guid: 497634533d21a66479e51971c8976e6a, type: 2}
+  waveFormatsHard:
   - {fileID: 11400000, guid: 497634533d21a66479e51971c8976e6a, type: 2}
   SpawnPoint: {fileID: 1869343153}
   gameState: 0

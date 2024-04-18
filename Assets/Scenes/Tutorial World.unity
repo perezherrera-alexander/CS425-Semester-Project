@@ -3027,13 +3027,18 @@ MonoBehaviour:
   enemyF: {fileID: 0}
   enemyM: {fileID: 0}
   enemyW: {fileID: 652428192806326497, guid: 8a4380fe5adb0d14cb16cd9ea54348cd, type: 3}
-  waveFormats:
+  waveFormatsEasy:
+  - {fileID: 11400000, guid: 91cc4e7db73c15d4faf1e07d50e5e990, type: 2}
+  waveFormatsNormal:
+  - {fileID: 11400000, guid: 91cc4e7db73c15d4faf1e07d50e5e990, type: 2}
+  waveFormatsHard:
   - {fileID: 11400000, guid: 91cc4e7db73c15d4faf1e07d50e5e990, type: 2}
   SpawnPoint: {fileID: 1163869961}
   gameState: 0
   enemiesDoneSpawning: 0
   currentWaveCount: 1
   maxWaveCount: 10
+  autostartNextWave: 0
   tutorialMode: 1
   waveCountDownText: {fileID: 2015734061}
   levelCompleteText: {fileID: 1738038850}
