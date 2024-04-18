@@ -10,6 +10,7 @@ public class centipedeTower : BaseTowerLogic
     // Start is called before the first frame update
     void Start()
     {
+        createOutline();
         enemyTag = "waypoint";
         towerName = "Centipede Mother";
         //Invoke();

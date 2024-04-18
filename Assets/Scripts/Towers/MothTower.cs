@@ -19,6 +19,7 @@ public class MothTower : BaseTowerLogic
     // Start is called before the first frame update
     void Start()
     {
+        createOutline();
         fireRate = 0.3f;
         towerName = "Moth Man";
         transform.GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>().GetMaterials(materials);
