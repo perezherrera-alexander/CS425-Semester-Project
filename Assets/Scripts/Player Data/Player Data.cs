@@ -42,7 +42,7 @@ public class PlayerData : ScriptableObject
         if (completed)
         {
             Morale = MoraleDuringWorld;
-            EvolutionPoints = EvolutionPointsDuringWorld;
+            //EvolutionPoints = EvolutionPointsDuringWorld;
             EnemiesKilled = EnemiesKilledDuringWorld;
         }
     }
