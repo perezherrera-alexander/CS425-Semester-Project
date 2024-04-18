@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using System.IO;
 
 public class MainMenu : MonoBehaviour
 {
@@ -13,7 +14,12 @@ public class MainMenu : MonoBehaviour
     public PlayerData playerData;
     public SaveLoadManager saveLoadManager;
     public GameObject[] TutorialTowers;
+    private string SavePath => $"{Application.persistentDataPath}/RunSave.txt";
+    public GameObject LoadSaveButton;
+    public string temptstringname;
+
     void Start(){
+        if (File.Exists(SavePath)) LoadSaveButton.SetActive(true);
         if(volumeSlider != null) volumeSlider.value = SettingsValues.gameVolume;
         else Debug.Log("Volume Slider is null");
         if(musicSlider != null) musicSlider.value = SettingsValues.musicVolume;
@@ -36,7 +42,22 @@ public class MainMenu : MonoBehaviour
     }
     public void goToScene(string sceneName)
     {
-        SceneManager.LoadScene(sceneName);
+        if (File.Exists(SavePath))
+        {
+            Debug.Log("DO YOU WISH TO DELETE SAVE AND START NEW RUN");
+            temptstringname = sceneName;
+            return;
+        }
+        else
+        {
+            SceneManager.LoadScene(sceneName);
+        }
+    }
+
+    public void DeleteOldSaveStartNewRun()
+    {
+        File.Delete(SavePath);
+        goToScene(temptstringname);
     }
 
     public void quitApplication()

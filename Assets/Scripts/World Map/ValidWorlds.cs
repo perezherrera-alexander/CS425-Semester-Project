@@ -105,19 +105,28 @@ public class ValidWorlds : MonoBehaviour
             }
         }
 
-        // Show all locations of tower unlock points
-        for (int i = 0; i < playerData.LocationOfTowerUnlock.Length; i++)
+        int test = playerData.NumberOfWorldsCompleted + 3;
+        for (int col = 0; col < test; col++)
         {
-            string[] SplitString = playerData.LocationOfTowerUnlock[i].Split(',');
+            for (int row = 0; row < 7; row++)
+            {
+                if (worldMapGenerator.WorldsInUseForMapGeneration[col, row] == true)
+                {
+                    string[] SplitString = playerData.LocationOfTowerUnlock[col].Split(',');
 
-            int col = int.Parse(SplitString[0]);
-            int row = int.Parse(SplitString[1]);
+                    int cols = int.Parse(SplitString[0]);
+                    int rows = int.Parse(SplitString[1]);
 
-            Image buttonImage = WorldButtonsHolder[col, row].GetComponent<Image>();
+                    if (cols < test)
+                    {
+                        Image buttonImage = WorldButtonsHolder[cols, rows].GetComponent<Image>();
 
-            buttonImage.color = Color.blue;
+                        buttonImage.color = Color.blue;
+                    }
+                }
+            }
         }
 
-        saveLoadManager.Save();
+        //saveLoadManager.Save();
     }
 }

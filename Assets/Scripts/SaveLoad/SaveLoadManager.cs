@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class SaveLoadManager : MonoBehaviour
 {
-    private string SavePath => $"{Application.persistentDataPath}/WorldMapSave.txt";
+    private string SavePath => $"{Application.persistentDataPath}/RunSave.txt";
 
     [ContextMenu("Save")]
     public void Save()
