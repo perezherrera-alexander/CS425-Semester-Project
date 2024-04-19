@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3721,6 +3721,7 @@ MonoBehaviour:
   targetPrefab: {fileID: 881478148019456006, guid: dbf417006815c22498f0c3aa82039cb7, type: 3}
   targetPlacement: {fileID: 1798962342}
   panelState: 0
+  placingTarget: 0
 --- !u!114 &1798962342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4099,6 +4100,8 @@ MonoBehaviour:
   playerCamera: {fileID: 1643746015}
   shopLogic: {fileID: 1904874629}
   tutorialMode: 0
+  newMaterial: {fileID: 2100000, guid: fdcc6066488cbc2468595f058554c58d, type: 2}
+  oldMaterial: {fileID: 2100000, guid: bca1ae3215e28f349ac0a14a32463b9e, type: 2}
   towerSaveLoadManager: {fileID: 1798962337}
 --- !u!1 &1993298069
 GameObject:

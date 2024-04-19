@@ -11,6 +11,8 @@ public class TowerPlacement : MonoBehaviour
     private string towerName;
     private TargetingTypes savedTargettingType;
     public bool tutorialMode = false;
+    public Material newMaterial;
+    public Material oldMaterial;
 
     [SerializeField] TowerSaveLoadManager towerSaveLoadManager;
 
@@ -36,6 +38,14 @@ public class TowerPlacement : MonoBehaviour
                 if(Tower.transform.Find("Rotate").GetComponentInChildren<BaseTowerLogic>().rangeFinder != null)
                 {
                     Tower.transform.Find("Rotate").GetComponentInChildren<BaseTowerLogic>().rangeFinder.SetActive(true);
+                    if (HitInfo.collider.CompareTag("Floor"))
+                    {
+                        Tower.transform.Find("Rotate").GetComponentInChildren<BaseTowerLogic>().rangeFinder.GetComponent<MeshRenderer>().material = oldMaterial;
+                    }
+                    else
+                    {
+                        Tower.transform.Find("Rotate").GetComponentInChildren<BaseTowerLogic>().rangeFinder.GetComponent<MeshRenderer>().material = newMaterial;
+                    }
                 }
                 
             }
@@ -44,9 +54,10 @@ public class TowerPlacement : MonoBehaviour
             {
                 CreatePlacementEffect();
                 Tower.GetComponentInParent<BoxCollider>().enabled = true;
-                
+                Tower.transform.Find("Rotate").GetComponent<BaseTowerLogic>().towerFootprint.SetActive(true);
                 //Tower.transform.GetChild(1).GetComponentInChildren<SphereCollider>().enabled = true;
                 Tower.transform.Find("Rotate").GetComponentInChildren<SphereCollider>().enabled = true;
+
 
                 // Call the ActivateTower function of the tower's script
                 Tower.transform.GetComponentInChildren<BaseTowerLogic>().ActivateTower(); // We don't actually need the towername, we can just do it this way

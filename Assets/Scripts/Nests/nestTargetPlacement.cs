@@ -30,8 +30,6 @@ public class nestTargetPlacement : MonoBehaviour
 
             if(Input.GetMouseButtonDown(0) && hitInfo.collider.CompareTag("Floor"))
             {
-                
-
                 target = null;
             }
         }

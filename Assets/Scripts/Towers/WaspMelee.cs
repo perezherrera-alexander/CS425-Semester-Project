@@ -79,7 +79,7 @@ public class WaspMelee : BaseTowerLogic
     public override void MakeSphere()
     {
         proximitySphere = GetComponent<SphereCollider>();
-        proximitySphere.radius = 3.57f;
+        proximitySphere.radius = 6f;
     }
 
     [ContextMenu("Generate ID")]
@@ -102,8 +102,8 @@ public class WaspMelee : BaseTowerLogic
             }
             if (storeTowerUpgradeData.ListOfUpgradesObtained[count - 1] == "Wasp Melee Upgrade 2")
             {
-                targettingRange = 11.5f;
-                proximitySphere.radius = 6.91f;
+                targettingRange = 15f;
+                proximitySphere.radius = 9.01f;
                 rangeFinder.SetActive(false);
                 rangeFinder = secondRange;
                 mats[3] = upgrade2;

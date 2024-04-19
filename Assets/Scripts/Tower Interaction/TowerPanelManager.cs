@@ -195,6 +195,7 @@ public class TowerPanelManager : MonoBehaviour
 
         Debug.Log("Deleting tower through player interaction.");
         Destroy(SelectedTower);
+        PanelState = false;
         Destroy(TowerPanelInstance);
         SelectedTower = null;
     }
