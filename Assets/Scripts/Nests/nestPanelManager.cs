@@ -24,6 +24,7 @@ public class nestPanelManager : MonoBehaviour
 
     public bool panelState = false;
     private Image timer;
+    public bool placingTarget = false;
 
     // Start is called before the first frame update
     void Start()
@@ -127,7 +128,6 @@ public class nestPanelManager : MonoBehaviour
             }
             else
             {
-                
                 targetButton.onClick.AddListener(delegate { moveTarget(nestPanelInstance); });
             }
         }
@@ -141,10 +141,7 @@ public class nestPanelManager : MonoBehaviour
 
     public void moveTarget(GameObject nestInstance)
     {
-        
         targetPlacement.placeTarget(targetPrefab,selectedNest);
-
-
 
     }
 
@@ -167,9 +164,18 @@ public class nestPanelManager : MonoBehaviour
 
     private void deletePanelFunction()
     {
-        panelState = false;
-        turnOffTarget();
-        Destroy(nestPanelInstance);
+        if (targetPlacement.isPlacingTarget)
+        {
+            Debug.Log("Target being placed");
+            return;
+        }
+        else
+        {
+            Debug.Log(placingTarget);
+            panelState = false;
+            turnOffTarget();
+            Destroy(nestPanelInstance);
+        }
     }
 
     private void turnOffTarget()

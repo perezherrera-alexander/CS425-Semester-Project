@@ -337,7 +337,8 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<SphereCollider>())
+
+        if (other.GetComponent<SphereCollider>() != null && other.tag == "Melee")
         {
             if (other.GetComponentInParent<FlameTower>() != null)
             {
@@ -350,7 +351,7 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.GetComponent<SphereCollider>())
+        if (other.GetComponent<SphereCollider>() != null && other.tag == "Melee")
         {
 
             if (other.GetComponentInParent<FlameTower>() != null)
@@ -376,9 +377,6 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
                     float dmgFrame = damage * Time.deltaTime;
                     reduceHealth(dmgFrame);
                 }
-
-
-
 
             }
         }

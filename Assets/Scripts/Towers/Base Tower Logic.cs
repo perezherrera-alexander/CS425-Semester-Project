@@ -13,6 +13,7 @@ public class BaseTowerLogic : MonoBehaviour, Effectable
     public GameObject projectilePrefab;
     public string enemyTag = "Enemy";
     public float outlineThickness = 10.0f;
+    public GameObject towerFootprint;
     [Header("Tower Stats")]
     public int buildCost;
     [TextArea]

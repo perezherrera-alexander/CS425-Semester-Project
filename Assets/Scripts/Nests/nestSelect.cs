@@ -12,17 +12,29 @@ public class nestSelect : MonoBehaviour
     private PauseMenu pauseMenu;
     private ShopLogic shopLogic;
     private TowerPanelManager towerPanel;
+    private TowerPlacement towerPlacement;
+    private nestTargetPlacement targetPlacement;
     // Start is called before the first frame update
     void Start()
     {
+        towerPlacement = FindObjectOfType<TowerPlacement>();
         pauseMenu = FindObjectOfType<PauseMenu>();
         nestPanelManage = FindObjectOfType<nestPanelManager>();
         shopLogic = FindObjectOfType<ShopLogic>();
         towerPanel = FindObjectOfType<TowerPanelManager>();
+        targetPlacement = FindObjectOfType<nestTargetPlacement>();
     }
 
     private void OnMouseDown()
     {
+        if (towerPlacement.IsPlacingTower)
+        {
+            return;
+        }
+        if (targetPlacement.isPlacingTarget)
+        {
+            return;
+        }
         if (pauseMenu.GameIsPaused)
         {
             return;

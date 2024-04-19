@@ -33,7 +33,7 @@ public class meleeTower : BaseTowerLogic
         Invoke();
         MakeSphere();
         attacking = true;
-        fireRate = 0.2f;
+        fireRate = 0.5f;
         curAttackSpeed = fireRate;
         animate = GetComponentInChildren<Animator>();
         AddUpgradeEffects();
