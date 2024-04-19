@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 7286172288791119179}
   - component: {fileID: 6864407576942345977}
   - component: {fileID: 8739378963561040482}
-  - component: {fileID: 9018294377783202207}
+  - component: {fileID: 3388656070693184382}
   m_Layer: 0
   m_Name: Mech
   m_TagString: Enemy
@@ -178,7 +178,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &9018294377783202207
+--- !u!114 &3388656070693184382
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -187,19 +187,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 8376091250487536424}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6213db702bc3f8418e397c3df71eef5, type: 3}
+  m_Script: {fileID: 11500000, guid: 1463f3179deddc4429689a49a6808e6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   effects: []
   objectCollider: {fileID: 0}
-  GoldWorth: 2
+  GoldWorth: 1
   PlayerStatistics: {fileID: 0}
-  particles: {fileID: 41876450650618886, guid: 79e30b8cb3f96b042a9d6f15c150b289, type: 3}
+  particles: {fileID: 5065363750106160447, guid: 6e9dcf273246cca47901c15ebc107d3d, type: 3}
   stunned: {fileID: 189072712425041892, guid: 182388158bfb28a49b1f764932fdc931, type: 3}
-  death: {fileID: 91852219361799126, guid: 3fafa333d81174d4eb041cf0208ea86d, type: 3}
+  death: {fileID: 0}
   model: {fileID: 0}
-  maxHealth: 20
-  health: 20
+  maxHealth: 50
+  health: 50
   goldIncreased: 0
   speed: 10
   slowFactor: 1
@@ -210,6 +210,7 @@ MonoBehaviour:
   target: {fileID: 0}
   waypointindex: 0
   differentStart: 0
+  healthBarPrefab: {fileID: 3210651536386113277, guid: 7508b0ed837685e48a94171f60302a0e, type: 3}
 --- !u!1001 &7413942725307852210
 PrefabInstance:
   m_ObjectHideFlags: 0
