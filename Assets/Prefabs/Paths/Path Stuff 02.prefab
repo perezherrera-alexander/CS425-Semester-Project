@@ -594,6 +594,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sand Road (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4860708021616284448, guid: d041730b86418c1418715edcd2c04a5b, type: 3}
+      propertyPath: m_Size.z
+      value: 1.75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -979,6 +983,10 @@ PrefabInstance:
     - target: {fileID: 2222525755868165773, guid: d041730b86418c1418715edcd2c04a5b, type: 3}
       propertyPath: m_Name
       value: Sand Road (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4860708021616284448, guid: d041730b86418c1418715edcd2c04a5b, type: 3}
+      propertyPath: m_Size.z
+      value: 1.75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4840,6 +4848,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sand Road (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 4860708021616284448, guid: d041730b86418c1418715edcd2c04a5b, type: 3}
+      propertyPath: m_Size.z
+      value: 1.75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5502,6 +5514,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sand Road (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 4860708021616284448, guid: d041730b86418c1418715edcd2c04a5b, type: 3}
+      propertyPath: m_Size.x
+      value: 1.75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6032,6 +6048,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sand Road (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 4860708021616284448, guid: d041730b86418c1418715edcd2c04a5b, type: 3}
+      propertyPath: m_Size.x
+      value: 1.75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6290,6 +6310,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sand Road (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4860708021616284448, guid: d041730b86418c1418715edcd2c04a5b, type: 3}
+      propertyPath: m_Size.x
+      value: 1.75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6421,6 +6445,10 @@ PrefabInstance:
     - target: {fileID: 2222525755868165773, guid: d041730b86418c1418715edcd2c04a5b, type: 3}
       propertyPath: m_Name
       value: Sand Road (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4860708021616284448, guid: d041730b86418c1418715edcd2c04a5b, type: 3}
+      propertyPath: m_Size.z
+      value: 1.75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6717,6 +6745,10 @@ PrefabInstance:
     - target: {fileID: 2222525755868165773, guid: d041730b86418c1418715edcd2c04a5b, type: 3}
       propertyPath: m_Name
       value: Sand Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 4860708021616284448, guid: d041730b86418c1418715edcd2c04a5b, type: 3}
+      propertyPath: m_Size.x
+      value: 1.75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8580,6 +8612,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sand Road (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4860708021616284448, guid: d041730b86418c1418715edcd2c04a5b, type: 3}
+      propertyPath: m_Size.z
+      value: 1.75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8711,6 +8747,10 @@ PrefabInstance:
     - target: {fileID: 2222525755868165773, guid: d041730b86418c1418715edcd2c04a5b, type: 3}
       propertyPath: m_Name
       value: Sand Road (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4860708021616284448, guid: d041730b86418c1418715edcd2c04a5b, type: 3}
+      propertyPath: m_Size.x
+      value: 1.75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9751,8 +9791,37 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6100444214619686035, guid: 9924ced01f25e4b44aa19ba0baf0bc45, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8811612733311487937}
   m_SourcePrefab: {fileID: 100100000, guid: 9924ced01f25e4b44aa19ba0baf0bc45, type: 3}
+--- !u!1 &4326483972341930643 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6100444214619686035, guid: 9924ced01f25e4b44aa19ba0baf0bc45, type: 3}
+  m_PrefabInstance: {fileID: 7540120825805069824}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &8811612733311487937
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4326483972341930643}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.77, y: 1, z: 2.59}
+  m_Center: {x: 0, y: 0, z: 0.47}
 --- !u!4 &8826020835890831169 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1359999955579355457, guid: 9924ced01f25e4b44aa19ba0baf0bc45, type: 3}
@@ -10685,6 +10754,10 @@ PrefabInstance:
     - target: {fileID: 2222525755868165773, guid: d041730b86418c1418715edcd2c04a5b, type: 3}
       propertyPath: m_Name
       value: Sand Road (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4860708021616284448, guid: d041730b86418c1418715edcd2c04a5b, type: 3}
+      propertyPath: m_Size.x
+      value: 1.75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

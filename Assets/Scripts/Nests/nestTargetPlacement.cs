@@ -18,17 +18,17 @@ public class nestTargetPlacement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(target != null)
+        if (target != null)
         {
             Ray cameraRay = playerCam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hitInfo;
 
-            if(Physics.Raycast(cameraRay, out hitInfo, 100f)) 
+            if (Physics.Raycast(cameraRay, out hitInfo, 100f))
             {
                 target.transform.position = hitInfo.point;
             }
 
-            if(Input.GetMouseButtonDown(0) && hitInfo.collider.CompareTag("Floor"))
+            if (Input.GetMouseButtonDown(0) && (hitInfo.collider.CompareTag("Floor") || (hitInfo.collider.CompareTag("Path"))))
             {
                 target = null;
             }
