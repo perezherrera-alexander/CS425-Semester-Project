@@ -181,7 +181,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 3653065466352016189, guid: 63563199ad1208a48be8b489ebd3a3f3, type: 3}
   enemyTag: 
   outlineThickness: 10
-  towerFootprint: {fileID: 0}
+  towerFootprint: {fileID: 3119635321095130851}
   buildCost: 5
   towerDescription: Periodically sends out bees to nearby towers, which provides
     them with an attack speed buff.
@@ -563,6 +563,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 850056849291870357}
     m_Modifications:
     - target: {fileID: 4582588565862794314, guid: 8d9b40f37473e374aa6d5b5d9ccd1485, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4582588565862794314, guid: 8d9b40f37473e374aa6d5b5d9ccd1485, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.020134227
+      objectReference: {fileID: 0}
+    - target: {fileID: 4582588565862794314, guid: 8d9b40f37473e374aa6d5b5d9ccd1485, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4582588565862794314, guid: 8d9b40f37473e374aa6d5b5d9ccd1485, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -615,6 +627,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d9b40f37473e374aa6d5b5d9ccd1485, type: 3}
+--- !u!1 &3119635321095130851 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4862899368612706504, guid: 8d9b40f37473e374aa6d5b5d9ccd1485, type: 3}
+  m_PrefabInstance: {fileID: 7509566551545263659}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6318540350021857889 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4582588565862794314, guid: 8d9b40f37473e374aa6d5b5d9ccd1485, type: 3}

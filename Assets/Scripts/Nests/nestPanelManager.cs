@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 using TMPro;
+using static UnityEngine.GraphicsBuffer;
 //using UnityEditor.AssetImporters;
 
 public class nestPanelManager : MonoBehaviour
@@ -22,9 +23,11 @@ public class nestPanelManager : MonoBehaviour
 
     [SerializeField] public nestTargetPlacement targetPlacement;
 
+    private GameObject newT;
     public bool panelState = false;
     private Image timer;
     public bool placingTarget = false;
+    private int count = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +45,22 @@ public class nestPanelManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+        }
+    }
+
+    private void Update()
+    {
+        if (targetPlacement.isPlacingTarget)
+        {
+
+        }
+        else
+        {
+            if(selectedNest != null && placingTarget)
+            {
+                selectedNest.GetComponentInChildren<baseNests>().changeTarget(newT);
+                placingTarget = false;
+            }
         }
     }
 
@@ -141,8 +160,10 @@ public class nestPanelManager : MonoBehaviour
 
     public void moveTarget(GameObject nestInstance)
     {
-        targetPlacement.placeTarget(targetPrefab,selectedNest);
+        GameObject newTarget = targetPlacement.placeTarget(targetPrefab,selectedNest);
 
+        newT = newTarget;
+        placingTarget = true;
     }
 
     public void activateNest()
@@ -240,5 +261,11 @@ public class nestPanelManager : MonoBehaviour
         timer.fillAmount = 1f;
         timer.enabled = false;
         yield return null;
+    }
+
+    IEnumerator time()
+    {
+        yield return new WaitForSecondsRealtime(2);
+        count++;
     }
 }
