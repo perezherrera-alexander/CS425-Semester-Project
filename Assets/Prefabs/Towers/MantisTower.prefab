@@ -35,6 +35,7 @@ Transform:
   - {fileID: 1512327341499027984}
   - {fileID: 4510583705382871526}
   - {fileID: 2478872080969672672}
+  - {fileID: 4993305181873583112}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &5264168918964825545
@@ -75,6 +76,7 @@ MonoBehaviour:
   nestMenu: {fileID: 0}
   shopLogic: {fileID: 0}
   nestPanel: {fileID: 0}
+  targetPlacement: {fileID: 0}
 --- !u!54 &3689859229407269473
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -207,6 +209,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 0}
   enemyTag: Enemy
   outlineThickness: 10
+  towerFootprint: {fileID: 4156564792721819786}
   buildCost: 6
   towerDescription: A mantis warrior that damages nearby enemies
   towerImage: {fileID: 2800000, guid: 84c44e984f926464080a46dd7bf6e50f, type: 3}
@@ -217,6 +220,7 @@ MonoBehaviour:
   target: {fileID: 0}
   targetingType: 0
   targets: []
+  proximitySphere: {fileID: 0}
   towerName: Mantis Tower
   frozen: {fileID: 9027514048236820043, guid: effb650189dc5714e9e9801b1cfb3991, type: 3}
   curAttackSpeed: 0
@@ -457,6 +461,93 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1664197342355094412, guid: 841478899781e794f80815c4244aee5b, type: 3}
   m_PrefabInstance: {fileID: 8701923872862697761}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8850532720807637058
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 485808280407978274}
+    m_Modifications:
+    - target: {fileID: 4582588565862794314, guid: 8d9b40f37473e374aa6d5b5d9ccd1485, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 4582588565862794314, guid: 8d9b40f37473e374aa6d5b5d9ccd1485, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.08006711
+      objectReference: {fileID: 0}
+    - target: {fileID: 4582588565862794314, guid: 8d9b40f37473e374aa6d5b5d9ccd1485, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 18.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4582588565862794314, guid: 8d9b40f37473e374aa6d5b5d9ccd1485, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4582588565862794314, guid: 8d9b40f37473e374aa6d5b5d9ccd1485, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4582588565862794314, guid: 8d9b40f37473e374aa6d5b5d9ccd1485, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4582588565862794314, guid: 8d9b40f37473e374aa6d5b5d9ccd1485, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4582588565862794314, guid: 8d9b40f37473e374aa6d5b5d9ccd1485, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4582588565862794314, guid: 8d9b40f37473e374aa6d5b5d9ccd1485, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4582588565862794314, guid: 8d9b40f37473e374aa6d5b5d9ccd1485, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4582588565862794314, guid: 8d9b40f37473e374aa6d5b5d9ccd1485, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4582588565862794314, guid: 8d9b40f37473e374aa6d5b5d9ccd1485, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4582588565862794314, guid: 8d9b40f37473e374aa6d5b5d9ccd1485, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4582588565862794314, guid: 8d9b40f37473e374aa6d5b5d9ccd1485, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4862899368612706504, guid: 8d9b40f37473e374aa6d5b5d9ccd1485, type: 3}
+      propertyPath: m_Name
+      value: Cube
+      objectReference: {fileID: 0}
+    - target: {fileID: 4862899368612706504, guid: 8d9b40f37473e374aa6d5b5d9ccd1485, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8d9b40f37473e374aa6d5b5d9ccd1485, type: 3}
+--- !u!1 &4156564792721819786 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4862899368612706504, guid: 8d9b40f37473e374aa6d5b5d9ccd1485, type: 3}
+  m_PrefabInstance: {fileID: 8850532720807637058}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4993305181873583112 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4582588565862794314, guid: 8d9b40f37473e374aa6d5b5d9ccd1485, type: 3}
+  m_PrefabInstance: {fileID: 8850532720807637058}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9145249997374735435
 PrefabInstance:
