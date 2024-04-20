@@ -10,7 +10,10 @@ public class Mech : BaseEnemyLogic
     public Slider healthBarPrefab;
     Slider healthbar;
     public Gradient sliderGradient;
-
+    public bool marker1 = false;
+    public bool marker2 = false;
+    public bool marker3 = false;
+    public float[] waypointDistances;
     public override void Start(){
         if(!differentStart) target = Path.waypoints[0];
         healthbar = Instantiate(healthBarPrefab, this.transform.position, Quaternion.identity);
@@ -26,6 +29,12 @@ public class Mech : BaseEnemyLogic
         //code to deal with the enemy being spawned from another enemy
         
         curSpeed = speed;
+        //calculate the distance of the entire track
+        waypointDistances = new float[Path.waypoints.Length];
+        for (int i = 0; i < Path.waypoints.Length - 1; i++){
+            waypointDistances[i] = Vector3.Distance(Path.waypoints[i].position, Path.waypoints[i + 1].position);
+        }
+        waypointDistances[Path.waypoints.Length - 1] = Vector3.Distance(Path.waypoints[Path.waypoints.Length - 1].position, Path.waypoints[0].position);
     }
 
     // Update is called once per frame
@@ -108,4 +117,8 @@ public class Mech : BaseEnemyLogic
         target = Path.waypoints[waypointindex];
         waypointindex++;
     }
+    public override void knockback(int knockbackForce){
+        //transform.Translate(direction.normalized * force * Time.deltaTime, Space.World);
+    }
 }
+

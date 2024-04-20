@@ -6,6 +6,7 @@ public class EnemyCarrier : BaseEnemyLogic
 {
     //set enemy to Robot1
     public GameObject enemy;
+    public ParticleSystem smoke;
 
     public override void Start(){
 
@@ -45,6 +46,8 @@ public class EnemyCarrier : BaseEnemyLogic
 
             return;
         }
+        //Start progressively playing the smoke effect as the enemy's health decreases
+        //if(health <= some value)
     }
     public override void knockback(int knockbackforce)
     {

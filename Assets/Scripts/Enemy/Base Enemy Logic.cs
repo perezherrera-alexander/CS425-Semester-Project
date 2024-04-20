@@ -27,7 +27,7 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
 
     protected float curSpeed;
     private bool isSlowed = false;
-    // float health = 5;
+    
     // Start is called before the first frame update
     public virtual void Start(){
 
