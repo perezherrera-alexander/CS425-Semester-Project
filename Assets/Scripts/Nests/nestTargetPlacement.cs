@@ -35,12 +35,12 @@ public class nestTargetPlacement : MonoBehaviour
         }
     }
 
-    public void placeTarget(GameObject newTarget, GameObject parentObject)
+    public GameObject placeTarget(GameObject newTarget, GameObject parentObject)
     {
 
         target = GameObject.Instantiate(newTarget, parentObject.transform);
         target.GetComponentInChildren<MeshRenderer>().enabled = true;
-        parentObject.transform.GetComponentInChildren<baseNests>().changeTarget(target);
+        return target;
         
     }
 }

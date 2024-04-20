@@ -115,7 +115,7 @@ public class stingerScript : MonoBehaviour
     public void Circle(float time)
     {
 
-        angle = time * speed;
+        angle = time * 2f;
         var offset = new Vector3(Mathf.Sin(angle), 0, Mathf.Cos(angle)) * 2f;
         transform.position = center + offset;
 

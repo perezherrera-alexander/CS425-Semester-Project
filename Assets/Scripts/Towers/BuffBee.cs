@@ -48,7 +48,14 @@ public class BuffBee : MonoBehaviour
             Destroy(gameObject); 
             return;
         }
-
+        if(target.GetComponent<BaseTowerLogic>() != null)
+        {
+            if(target.GetComponent <BaseTowerLogic>().isBuffed == true) 
+            {
+                Destroy(gameObject);
+                return;
+            }
+        }
         Vector3 dir = target.position - transform.position;
         float distancePerFrame = speed * Time.deltaTime;
         move(dir, distancePerFrame);
