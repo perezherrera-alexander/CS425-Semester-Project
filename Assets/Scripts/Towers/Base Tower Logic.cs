@@ -35,6 +35,7 @@ public class BaseTowerLogic : MonoBehaviour, Effectable
     protected StatusEffects data;
     public ParticleSystem frozen;
     private ParticleSystem stop;
+    public List<GameObject> effects = new List<GameObject>();
 
     public float curAttackSpeed;
     private float currentEffectTime = 0f;
@@ -323,7 +324,8 @@ public class BaseTowerLogic : MonoBehaviour, Effectable
     public void applyEffect(StatusEffects effect)
     {
         this.data = effect;
-        Instantiate(effect.effectParticles, transform);
+        GameObject ob = Instantiate(effect.effectParticles, transform);
+        effects.Add(ob);
     }
 
 
@@ -333,13 +335,22 @@ public class BaseTowerLogic : MonoBehaviour, Effectable
         {
             fireRate = curAttackSpeed;
             isBuffed = false;
-            Destroy(transform.Find("CFX4 Aura Bubble C(Clone)").gameObject);
+            //Destroy(transform.Find("CFX4 Aura Bubble C(Clone)").gameObject);
+            removeParticles();
         }
         data = null;
         currentEffectTime = 0;
         //lastTickTime = 0;
     }
 
+    public void removeParticles()
+    {
+        foreach(GameObject parts in effects)
+        {
+            Destroy(parts);
+        }
+        effects.Clear();
+    }
     public void handleEffect()
     {
         currentEffectTime += Time.deltaTime;
