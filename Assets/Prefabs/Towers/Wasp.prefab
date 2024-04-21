@@ -131,6 +131,7 @@ MonoBehaviour:
   proximitySphere: {fileID: 0}
   towerName: Wasp Tower
   frozen: {fileID: 9027514048236820043, guid: effb650189dc5714e9e9801b1cfb3991, type: 3}
+  effects: []
   curAttackSpeed: 0
   isBuffed: 0
   rangeFinder: {fileID: 2115930405147240775}
@@ -499,6 +500,10 @@ PrefabInstance:
     - target: {fileID: 4862899368612706504, guid: 8d9b40f37473e374aa6d5b5d9ccd1485, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7242612890587111469, guid: 8d9b40f37473e374aa6d5b5d9ccd1485, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

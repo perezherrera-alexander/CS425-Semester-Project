@@ -29,7 +29,7 @@ public class SpiderScript : BaseTowerLogic
     // Update is called once per frame
     void Update()
     {
-
+        audioSource.volume = SettingsValues.gameVolume / 100f;
         if (isActive)
         {
             if(data != null)
@@ -39,7 +39,6 @@ public class SpiderScript : BaseTowerLogic
             Track();
             ListPrune();
         }
-   
     }
 
     public override void Shoot()

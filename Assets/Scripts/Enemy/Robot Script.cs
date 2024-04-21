@@ -54,6 +54,7 @@ public class RobotScript : BaseEnemyLogic
     }
     public override void reduceHealth(float damage)
     {
+        audioSource.volume = (float)SettingsValues.gameVolume / 100.0f;
         health -= damage;
         if (health <= 0)
         {
