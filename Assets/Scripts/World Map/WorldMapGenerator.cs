@@ -19,6 +19,8 @@ public class WorldMapGenerator : MonoBehaviour
     public bool[,] ActiveWorlds;
 
     public bool[,] LocationOfTowerUnlock;
+    public bool[,] LocationOfHealthUnlock;
+    public bool[,] LocationOfMoneyUnlock;
 
     public int NumberOfTowerUnlock = 6;
 
@@ -196,6 +198,8 @@ public class WorldMapGenerator : MonoBehaviour
         if (playerData.NumberOfWorldsCompleted == 1)
         {
             TowerUnlockGeneration();
+            HealthUnlockGeneration();
+            MonneyUnlockGeneration();
         }
     }
 
@@ -237,6 +241,95 @@ public class WorldMapGenerator : MonoBehaviour
                             playerData.TowerUnlockOrder[TowersPlaced] = playerData.TowerPool[towerIndex];
 
                             TowersPlaced++;
+                            row = 7;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private void HealthUnlockGeneration()
+    {
+        int HealthPlaced = 0;
+
+        LocationOfHealthUnlock = new bool[12, 7];
+
+        // List to keep track of which towers have been selected
+        List<int> selectedHealth = new List<int>();
+
+        while (HealthPlaced < NumberOfTowerUnlock)
+        {
+            for (int col = 1; col < 11 && HealthPlaced < NumberOfTowerUnlock; col++)
+            {
+                for (int row = 0; row < 7 && HealthPlaced < NumberOfTowerUnlock; row++)
+                {
+                    // Check if the node is not in use
+                    if (WorldsInUseForMapGeneration[col, row] && ActiveWorlds[col, row] && !LocationOfTowerUnlock[col, row])
+                    {
+                        int count = UnityEngine.Random.Range(0, 6);
+                        if (count == 0 || count == 5)
+                        {
+                            LocationOfHealthUnlock[col, row] = true;
+                            string combineddata = string.Join(",", col, row);
+                            playerData.LocationOfHealthUnlock[HealthPlaced] = combineddata;
+
+                            // Pick a unique tower for this node
+                            int towerIndex;
+                            do
+                            {
+                                towerIndex = UnityEngine.Random.Range(0, 7);
+                            } while (selectedHealth.Contains(towerIndex)); // Ensure uniqueness
+
+                            // Store the selected tower index
+                            selectedHealth.Add(towerIndex);
+
+                            HealthPlaced++;
+                            row = 7;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+    private void MonneyUnlockGeneration()
+    {
+        int MoneyPlaced = 0;
+
+        LocationOfMoneyUnlock = new bool[12, 7];
+
+        // List to keep track of which towers have been selected
+        List<int> selectedMoney = new List<int>();
+
+        while (MoneyPlaced < NumberOfTowerUnlock)
+        {
+            for (int col = 1; col < 11 && MoneyPlaced < NumberOfTowerUnlock; col++)
+            {
+                for (int row = 0; row < 7 && MoneyPlaced < NumberOfTowerUnlock; row++)
+                {
+                    // Check if the node is not in use
+                    if (WorldsInUseForMapGeneration[col, row] && ActiveWorlds[col, row] && !LocationOfTowerUnlock[col, row] && !LocationOfHealthUnlock[col, row])
+                    {
+                        int count = UnityEngine.Random.Range(0, 6);
+                        if (count == 0 || count == 5)
+                        {
+                            LocationOfMoneyUnlock[col, row] = true;
+                            string combineddata = string.Join(",", col, row);
+                            playerData.LocationOfMoneyUnlock[MoneyPlaced] = combineddata;
+
+                            // Pick a unique tower for this node
+                            int towerIndex;
+                            do
+                            {
+                                towerIndex = UnityEngine.Random.Range(0, 7);
+                            } while (selectedMoney.Contains(towerIndex)); // Ensure uniqueness
+
+                            // Store the selected tower index
+                            selectedMoney.Add(towerIndex);
+
+                            MoneyPlaced++;
                             row = 7;
                         }
                     }

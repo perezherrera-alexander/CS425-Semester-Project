@@ -75,6 +75,8 @@ public class ValidWorlds : MonoBehaviour
             var DisabledColor = buttonComponent.colors;
             DisabledColor.disabledColor = Color.white;
             buttonComponent.colors = DisabledColor;
+
+            //roadPath.PathTakenTrail(col, row, i);
         }
 
         // All possible worlds you can visit next are turned yellow
@@ -108,6 +110,7 @@ public class ValidWorlds : MonoBehaviour
             }
         }
 
+        // Turn all nodes with tower unlock locations blue
         int test = playerData.NumberOfWorldsCompleted + 3;
         for (int col = 0; col < test; col++)
         {
@@ -130,6 +133,50 @@ public class ValidWorlds : MonoBehaviour
             }
         }
 
-        //saveLoadManager.Save();
+        // Turn all nodes with Health unlock locations red
+        int Health = playerData.NumberOfWorldsCompleted + 3;
+        for (int col = 0; col < Health; col++)
+        {
+            for (int row = 0; row < 7; row++)
+            {
+                if (worldMapGenerator.WorldsInUseForMapGeneration[col, row] == true)
+                {
+                    string[] SplitString = playerData.LocationOfHealthUnlock[col].Split(',');
+
+                    int cols = int.Parse(SplitString[0]);
+                    int rows = int.Parse(SplitString[1]);
+
+                    if (cols < Health)
+                    {
+                        Image buttonImage = WorldButtonsHolder[cols, rows].GetComponent<Image>();
+
+                        buttonImage.color = Color.red;
+                    }
+                }
+            }
+        }
+
+        // Turn all nodes with Money unlock locations green
+        int Money = playerData.NumberOfWorldsCompleted + 3;
+        for (int col = 0; col < Money; col++)
+        {
+            for (int row = 0; row < 7; row++)
+            {
+                if (worldMapGenerator.WorldsInUseForMapGeneration[col, row] == true)
+                {
+                    string[] SplitString = playerData.LocationOfMoneyUnlock[col].Split(',');
+
+                    int cols = int.Parse(SplitString[0]);
+                    int rows = int.Parse(SplitString[1]);
+
+                    if (cols < Money)
+                    {
+                        Image buttonImage = WorldButtonsHolder[cols, rows].GetComponent<Image>();
+
+                        buttonImage.color = Color.green;
+                    }
+                }
+            }
+        }
     }
 }

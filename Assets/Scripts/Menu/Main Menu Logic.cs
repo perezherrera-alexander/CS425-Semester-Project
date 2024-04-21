@@ -32,6 +32,8 @@ public class MainMenu : MonoBehaviour
         playerData.InitializeTowerPoolArray(20);
         playerData.InitializeTowerUnlockOrderArray(0);
         playerData.InitializeTowerUnlockOrderArray(6);
+        playerData.InitializeRoadPathTakenArray(0);
+        playerData.InitializeRoadPathTakenArray(20);
     }
 
     void Update()

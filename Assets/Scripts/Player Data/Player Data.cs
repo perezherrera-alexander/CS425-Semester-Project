@@ -30,6 +30,14 @@ public class PlayerData : ScriptableObject
     public bool LevelLoaded = false;
     public List<string> PathsVisited = new List<string>();
 
+    public GameObject[] RoadPathTaken;
+
+    public string[] LocationOfHealthUnlock;
+    public int HealthRegen = 10;
+
+    public string[] LocationOfMoneyUnlock;
+    public int MoneyBag = 10;
+
     public void UpdateStats(int morale, int evolutionPoints, int enemiesKilled)
     {
         MoraleDuringWorld = morale;
@@ -66,5 +74,9 @@ public class PlayerData : ScriptableObject
     public void InitializeTowerUnlockOrderArray(int arraySize)
     {
         TowerUnlockOrder = new GameObject[arraySize];
+    }
+    public void InitializeRoadPathTakenArray(int arraySize)
+    {
+        RoadPathTaken = new GameObject[arraySize];
     }
 }
