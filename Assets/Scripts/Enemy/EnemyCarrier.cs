@@ -43,7 +43,6 @@ public class EnemyCarrier : BaseEnemyLogic
 
             //PlayerStatistics.Instance.AddEnemiesKilled();
             
-
             return;
         }
         //Start progressively playing the smoke effect as the enemy's health decreases

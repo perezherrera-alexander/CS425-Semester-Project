@@ -128,7 +128,7 @@ public class stingerScript : MonoBehaviour
         {
 
             //Reduce health of enemy
-            other.GetComponent<BaseEnemyLogic>().reduceHealth(directDamage);
+            //other.GetComponent<BaseEnemyLogic>().reduceHealth(directDamage);
             //stun
             //other.GetComponent<BaseEnemyLogic>().stun(2f);
                 // //Duration of enemy slow
