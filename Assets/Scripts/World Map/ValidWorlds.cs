@@ -10,6 +10,7 @@ public class ValidWorlds : MonoBehaviour
 {
     public PlayerData playerData;
     public SaveLoadManager saveLoadManager;
+    public RoadPath roadPath;
     //public TrackLevelsCompleted trackLevelsCompleted;
 
     //public GameObject InvalidWorldMessage;
@@ -29,6 +30,7 @@ public class ValidWorlds : MonoBehaviour
 
     public void Start()
     {
+        roadPath.StartingWorldPath();
         WorldButtonsHolder = worldMapGenerator.WorldButtons;
 
         WorldsInUseForMapGenerationHolder = worldMapGenerator.WorldsInUseForMapGeneration;
@@ -101,6 +103,7 @@ public class ValidWorlds : MonoBehaviour
 
                     buttonImage.color = Color.yellow;
                     buttonComponent.interactable = true;
+                    roadPath.SetVisibleCurrentRoadPath();
                 }
             }
         }
