@@ -11,9 +11,9 @@ public class PauseMenu : MonoBehaviour
     public bool SettingsStatus = false;
     public GameObject PauseMenuUI;
     public GameObject SettingsMenuUI;
-    public Slider volumeSlider;
-    public Slider musicSlider;
-    public TMP_Dropdown difficultyDropdown;
+    // public Slider volumeSlider;
+    // public Slider musicSlider;
+    // public TMP_Dropdown difficultyDropdown;
     SaveLoadManager saveLoadManager;
     public PlayerData playerData;
 
@@ -21,9 +21,9 @@ public class PauseMenu : MonoBehaviour
     void Start()
     {
         saveLoadManager = GameObject.FindObjectOfType<SaveLoadManager>();
-        volumeSlider.value = SettingsValues.gameVolume;
-        musicSlider.value = SettingsValues.musicVolume;
-        difficultyDropdown.value = SettingsValues.difficulty;
+        // volumeSlider.value = SettingsValues.gameVolume;
+        // musicSlider.value = SettingsValues.musicVolume;
+        // difficultyDropdown.value = SettingsValues.difficulty;
 
     }
 
@@ -40,9 +40,9 @@ public class PauseMenu : MonoBehaviour
                 Pause();
             }
         }
-        SettingsValues.gameVolume = (int)volumeSlider.value;
-        SettingsValues.musicVolume = (int)musicSlider.value;
-        SettingsValues.difficulty = difficultyDropdown.value;
+        // SettingsValues.gameVolume = (int)volumeSlider.value;
+        // SettingsValues.musicVolume = (int)musicSlider.value;
+        // SettingsValues.difficulty = difficultyDropdown.value;
     }
 
     public void Resume ()
