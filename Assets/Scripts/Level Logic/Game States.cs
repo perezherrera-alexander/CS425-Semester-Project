@@ -16,12 +16,16 @@ public enum GameStates
 public enum Modifiers
 {
     None = 0,
-    Money = 1,
-    Morale = 2, // Increase health
+    Money = 1, // Infinite Money
+    Morale = 2, // Used as a Hardcore mode (1 health)
     Range = 4,
     Damage = 8,
     Cooldown = 16,
-    Developer = 32
+    Developer = 32,
+    HalfMorale = 64,
+    DoubleMorale = 128,
+    HalfMoney = 256,
+    DoubleMoney = 512
 }
 
 public enum Generals

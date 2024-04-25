@@ -11,6 +11,11 @@ public class NewLevel : MonoBehaviour
     public Button defaultButton;
     public string nameOfGen = null;
     public TMP_Dropdown difficultyDropdown;
+    public Toggle HalfMoney;
+    public Toggle DoubleMoney;
+    public Toggle HardcoreMode;
+    public Toggle HalfHealth;
+    public Toggle DoubleHealth;
 
     public void Start()
     {
@@ -40,6 +45,12 @@ public class NewLevel : MonoBehaviour
             if(playerData.activeModifier.HasFlag(Modifiers.Morale)) {
                 playerData.Morale = 1;
             }
+            else if(playerData.activeModifier.HasFlag(Modifiers.HalfMorale)) {
+                playerData.Morale = 50;
+            }
+            else if(playerData.activeModifier.HasFlag(Modifiers.DoubleMorale)) {
+                playerData.Morale = 200;
+            }
             playerData.EvolutionPoints = 20;
             if(playerData.activeModifier.HasFlag(Modifiers.Money)) {
                 playerData.EvolutionPoints = 1000;
@@ -59,7 +70,7 @@ public class NewLevel : MonoBehaviour
         // modifierName is passed from the checkboxes
         // Use that name to determine which modifier to apply
         // Modifiers is a bitwise enum, so we use bitwise operations to apply or remove them
-        if(modifierName == "Money") {
+        if(modifierName == "Money") { // Infinite Money
             if(playerData.activeModifier.HasFlag(Modifiers.Money)) {
                 playerData.activeModifier ^= Modifiers.Money;
             }
@@ -67,15 +78,16 @@ public class NewLevel : MonoBehaviour
                 playerData.activeModifier |= Modifiers.Money;
             }
         } 
-        else if(modifierName == "Morale"){
+        else if(modifierName == "Morale"){ // Hardcore mode
             if(playerData.activeModifier.HasFlag(Modifiers.Morale)) {
                 playerData.activeModifier ^= Modifiers.Morale;
             }
             else {
                 playerData.activeModifier |= Modifiers.Morale;
+                CheckForConflicts(Modifiers.Morale);
             }
         }
-        else if(modifierName == "Range"){
+        else if(modifierName == "Range"){ // Not implemented
             if(playerData.activeModifier.HasFlag(Modifiers.Range)) {
                 playerData.activeModifier ^= Modifiers.Range;
             }
@@ -83,7 +95,7 @@ public class NewLevel : MonoBehaviour
                 playerData.activeModifier |= Modifiers.Range;
             }
         }
-        else if(modifierName == "Damage"){
+        else if(modifierName == "Damage"){ // Not implemented
             if(playerData.activeModifier.HasFlag(Modifiers.Damage)) {
                 playerData.activeModifier &= ~Modifiers.Damage;
             }
@@ -91,7 +103,7 @@ public class NewLevel : MonoBehaviour
                 playerData.activeModifier |= Modifiers.Damage;
             }
         }
-        else if(modifierName == "Cooldown"){
+        else if(modifierName == "Cooldown"){ // Not implemented
             if(playerData.activeModifier.HasFlag(Modifiers.Cooldown)) {
                 playerData.activeModifier ^= Modifiers.Cooldown;
             }
@@ -105,6 +117,42 @@ public class NewLevel : MonoBehaviour
             }
             else {
                 playerData.activeModifier |= Modifiers.Developer;
+            }
+        }
+        else if(modifierName == "HalfHealth"){
+            if(playerData.activeModifier.HasFlag(Modifiers.HalfMorale)) {
+                playerData.activeModifier ^= Modifiers.HalfMorale;
+            }
+            else {
+                playerData.activeModifier |= Modifiers.HalfMorale;
+                CheckForConflicts(Modifiers.HalfMorale);
+            }
+        }
+        else if(modifierName == "DoubleHealth"){
+            if(playerData.activeModifier.HasFlag(Modifiers.DoubleMorale)) {
+                playerData.activeModifier ^= Modifiers.DoubleMorale;
+            }
+            else {
+                playerData.activeModifier |= Modifiers.DoubleMorale;
+                CheckForConflicts(Modifiers.DoubleMorale);
+            }
+        }
+        else if(modifierName == "HalfMoney"){
+            if(playerData.activeModifier.HasFlag(Modifiers.HalfMoney)) {
+                playerData.activeModifier ^= Modifiers.HalfMoney;
+            }
+            else {
+                playerData.activeModifier |= Modifiers.HalfMoney;
+                CheckForConflicts(Modifiers.HalfMoney);
+            }
+        }
+        else if(modifierName == "DoubleMoney"){
+            if(playerData.activeModifier.HasFlag(Modifiers.DoubleMoney)) {
+                playerData.activeModifier ^= Modifiers.DoubleMoney;
+            }
+            else {
+                playerData.activeModifier |= Modifiers.DoubleMoney;
+                CheckForConflicts(Modifiers.DoubleMoney);
             }
         }
         else {
@@ -174,5 +222,55 @@ public class NewLevel : MonoBehaviour
     public string getGeneralName()
     {
         return nameOfGen;
+    }
+
+    public void CheckForConflicts(Modifiers modifiers)
+    {
+        if(modifiers == Modifiers.Morale) {
+            //Debug.Log("Checking for conflicts with Hardcore Mode");
+            if(playerData.activeModifier.HasFlag(Modifiers.HalfMorale)) {
+                //playerData.activeModifier ^= Modifiers.HalfMorale;
+                HalfHealth.isOn = false;
+            }
+            if(playerData.activeModifier.HasFlag(Modifiers.DoubleMorale)) {
+                //playerData.activeModifier ^= Modifiers.DoubleMorale;
+                DoubleHealth.isOn = false;
+            }
+        }
+        else if(modifiers == Modifiers.HalfMorale) {
+            //Debug.Log("Checking for conflicts with Half Health Mode");
+            if(playerData.activeModifier.HasFlag(Modifiers.Morale)) {
+                //playerData.activeModifier ^= Modifiers.Morale;
+                HardcoreMode.isOn = false;
+                //Debug.Log("Disabling Hardcore Mode");
+            }
+            if(playerData.activeModifier.HasFlag(Modifiers.DoubleMorale)) {
+                //playerData.activeModifier ^= Modifiers.DoubleMorale;
+                DoubleHealth.isOn = false;
+                //Debug.Log("Disabling Double Health Mode");
+            }
+        }
+        else if(modifiers == Modifiers.DoubleMorale) {
+            //Debug.Log("Checking for conflicts with Double Health Mode");
+            if(playerData.activeModifier.HasFlag(Modifiers.Morale)) {
+                //playerData.activeModifier ^= Modifiers.Morale;
+                HardcoreMode.isOn = false;
+            }
+            if(playerData.activeModifier.HasFlag(Modifiers.HalfMorale)) {
+                //playerData.activeModifier ^= Modifiers.HalfMorale;
+                HalfHealth.isOn = false;
+            }
+        }
+
+        if(modifiers == Modifiers.HalfMoney) {
+            if(playerData.activeModifier.HasFlag(Modifiers.DoubleMoney)) {
+                DoubleMoney.isOn = false;
+            }
+        }
+        else if(modifiers == Modifiers.DoubleMoney) {
+            if(playerData.activeModifier.HasFlag(Modifiers.HalfMoney)) {
+                HalfMoney.isOn = false;
+            }
+        }
     }
 }
