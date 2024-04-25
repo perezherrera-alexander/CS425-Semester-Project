@@ -282,7 +282,7 @@ public class ShopLogic : MonoBehaviour
 
     private bool MoneyCheck(int towerCost)
     {
-        if(playerData.activeModifier == Modifiers.Developer)
+        if(playerData.activeModifier == Modifiers.Developer || playerData.activeModifier == Modifiers.Money)
         {
             return true;
         }
@@ -300,7 +300,7 @@ public class ShopLogic : MonoBehaviour
 
     public void ReverseMoneyCheck(int towerCost)
     {
-        if(playerData.activeModifier != Modifiers.Developer) {
+        if(playerData.activeModifier != Modifiers.Developer && playerData.activeModifier != Modifiers.Money) {
             playerStatistics.AddMoney(towerCost);
         }
         else {

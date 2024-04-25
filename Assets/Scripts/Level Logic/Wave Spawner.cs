@@ -100,16 +100,19 @@ public class WaveSpawner : MonoBehaviour
         switch (SettingsValues.difficulty)
         {
             case 0:
+                //Debug.Log("Difficulty: Easy");
                 waveFormat = waveFormatsEasy[UnityEngine.Random.Range(0, waveFormatsEasy.Count)];
                 break;
             case 1:
+                //Debug.Log("Difficulty: Normal");
                 waveFormat = waveFormatsNormal[UnityEngine.Random.Range(0, waveFormatsNormal.Count)];
                 break;
             case 2:
+                //Debug.Log("Difficulty: Hard");
                 waveFormat = waveFormatsHard[UnityEngine.Random.Range(0, waveFormatsHard.Count)];
                 break;
             default:
-                Debug.Log("Difficulty not set, defaulting to normal");
+                //Debug.Log("Difficulty not set, defaulting to normal");
                 waveFormat = waveFormatsNormal[UnityEngine.Random.Range(0, waveFormatsNormal.Count)];
                 break;
         }
