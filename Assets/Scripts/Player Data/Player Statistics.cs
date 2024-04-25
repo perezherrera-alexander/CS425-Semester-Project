@@ -48,6 +48,14 @@ public class PlayerStatistics : MonoBehaviour, ISaveable
 
     public void AddMoney (int MoneyGained)
     {
+        if(playerData.activeModifier.HasFlag(Modifiers.HalfMoney))
+        {
+            MoneyGained = MoneyGained / 2;
+        }
+        else if(playerData.activeModifier.HasFlag(Modifiers.DoubleMoney))
+        {
+            MoneyGained = MoneyGained * 2;
+        }
         CurrentEvolutionPoints += MoneyGained;
     }
 
