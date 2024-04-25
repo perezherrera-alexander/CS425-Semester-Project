@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class NewLevel : MonoBehaviour
 {
@@ -9,10 +10,12 @@ public class NewLevel : MonoBehaviour
     private bool generalSelected = false;
     public Button defaultButton;
     public string nameOfGen = null;
+    public TMP_Dropdown difficultyDropdown;
 
     public void Start()
     {
         playerData.activeModifier = Modifiers.None;
+        difficultyDropdown.value = SettingsValues.difficulty;
         defaultButton.Select();
         defaultButton.onClick.Invoke();
         int count = 0;
@@ -22,6 +25,11 @@ public class NewLevel : MonoBehaviour
             count++;
         }
     }
+
+    void Update()
+    {
+        SettingsValues.difficulty = difficultyDropdown.value;
+    }
     public void goToScene(string sceneName)
     {
         if(!generalSelected) {
@@ -29,7 +37,13 @@ public class NewLevel : MonoBehaviour
         }
         else{
             playerData.Morale = 100;
+            if(playerData.activeModifier.HasFlag(Modifiers.Morale)) {
+                playerData.Morale = 1;
+            }
             playerData.EvolutionPoints = 20;
+            if(playerData.activeModifier.HasFlag(Modifiers.Money)) {
+                playerData.EvolutionPoints = 1000;
+            }
             playerData.EnemiesKilled = 0;
             playerData.NumberOfWorldsCompleted = 0;
             playerData.CurrentWorld = "0,3";
