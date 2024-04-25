@@ -10,6 +10,8 @@ public class Mech : BaseEnemyLogic
     public Slider healthBarPrefab;
     Slider healthbar;
     public Gradient sliderGradient;
+
+    //These markers are used to determine if the enemy has reached a certain point in the path OR its health is below a certain threshold
     public bool marker1 = false;
     public bool marker2 = false;
     public bool marker3 = false;
