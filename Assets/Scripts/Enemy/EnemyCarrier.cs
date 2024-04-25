@@ -28,14 +28,39 @@ public class EnemyCarrier : BaseEnemyLogic
             // If the enemy is a carrier, spawn 4 Robot1 entities headed towards the current waypoint
             //enemy.GetComponent<EnemyMovement>().waypointindex = waypointindex;
             //PlayerStatistics.Instance.enemiesPresent += 4;
-            for (int i = 0; i < 4; i++)
-            {
-                GameObject troop = Instantiate(enemy, new Vector3(transform.position.x + i * 1.0f, transform.position.y, transform.position.z + i * 1.0f), Quaternion.identity);
-                troop.GetComponent<BaseEnemyLogic>().differentStart = true;
-                troop.GetComponent<BaseEnemyLogic>().waypointindex = waypointindex;
-                //change target aswell
-                troop.GetComponent<BaseEnemyLogic>().target = Path.waypoints[waypointindex];
-            }
+
+            // for (int i = 0; i < 4; i++)
+            // {
+            //     GameObject troop = Instantiate(enemy, new Vector3(transform.position.x + i * 1.0f, transform.position.y, transform.position.z + i * 1.0f), Quaternion.identity);
+            //     troop.GetComponent<BaseEnemyLogic>().differentStart = true;
+            //     troop.GetComponent<BaseEnemyLogic>().waypointindex = waypointindex;
+            //     //change target aswell
+            //     troop.GetComponent<BaseEnemyLogic>().target = Path.waypoints[waypointindex];
+            // }
+
+            //Create 4 troops one by one
+            GameObject troop1 = Instantiate(enemy, new Vector3(transform.position.x + 1.0f, transform.position.y, transform.position.z + 1.0f), Quaternion.identity);
+            troop1.GetComponent<BaseEnemyLogic>().differentStart = true;
+            troop1.GetComponent<BaseEnemyLogic>().waypointindex = waypointindex;
+            troop1.GetComponent<BaseEnemyLogic>().target = Path.waypoints[waypointindex];
+
+            GameObject troop2 = Instantiate(enemy, new Vector3(transform.position.x - 1.0f, transform.position.y, transform.position.z - 1.0f), Quaternion.identity);
+            troop2.GetComponent<BaseEnemyLogic>().differentStart = true;
+            troop2.GetComponent<BaseEnemyLogic>().waypointindex = waypointindex;
+            troop2.GetComponent<BaseEnemyLogic>().target = Path.waypoints[waypointindex];
+
+            GameObject troop3 = Instantiate(enemy, new Vector3(transform.position.x + 1.0f, transform.position.y, transform.position.z - 1.0f), Quaternion.identity);
+            troop3.GetComponent<BaseEnemyLogic>().differentStart = true;
+            troop3.GetComponent<BaseEnemyLogic>().waypointindex = waypointindex;
+            troop3.GetComponent<BaseEnemyLogic>().target = Path.waypoints[waypointindex];
+
+            GameObject troop4 = Instantiate(enemy, new Vector3(transform.position.x - 1.0f, transform.position.y, transform.position.z + 1.0f), Quaternion.identity);
+            troop4.GetComponent<BaseEnemyLogic>().differentStart = true;
+            troop4.GetComponent<BaseEnemyLogic>().waypointindex = waypointindex;
+            troop4.GetComponent<BaseEnemyLogic>().target = Path.waypoints[waypointindex];
+
+            
+            
             //subtract present enemies count by 1
             death.playParts(transform);
             PlayerStatistics.Instance.enemiesPresent--;
