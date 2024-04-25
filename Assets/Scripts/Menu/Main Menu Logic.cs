@@ -8,9 +8,9 @@ public class MainMenu : MonoBehaviour
 {
     public bool SettingsStatus = false;
     public GameObject SettingsMenuUI;
-    public Slider volumeSlider;
-    public Slider musicSlider;
-    public TMP_Dropdown difficultyDropdown;
+    // public Slider volumeSlider;
+    // public Slider musicSlider;
+    // public TMP_Dropdown difficultyDropdown;
     public PlayerData playerData;
     public SaveLoadManager saveLoadManager;
     public GameObject[] TutorialTowers;
@@ -20,12 +20,12 @@ public class MainMenu : MonoBehaviour
 
     void Start(){
         if (File.Exists(SavePath)) LoadSaveButton.SetActive(true);
-        if(volumeSlider != null) volumeSlider.value = SettingsValues.gameVolume;
-        else Debug.Log("Volume Slider is null");
-        if(musicSlider != null) musicSlider.value = SettingsValues.musicVolume;
-        else Debug.Log("Music Slider is null");
-        if(difficultyDropdown != null) difficultyDropdown.value = SettingsValues.difficulty;
-        else Debug.Log("Difficulty Dropdown is null");
+        // if(volumeSlider != null) volumeSlider.value = SettingsValues.gameVolume;
+        // else Debug.Log("Volume Slider is null");
+        // if(musicSlider != null) musicSlider.value = SettingsValues.musicVolume;
+        // else Debug.Log("Music Slider is null");
+        // if(difficultyDropdown != null) difficultyDropdown.value = SettingsValues.difficulty;
+        // else Debug.Log("Difficulty Dropdown is null");
         playerData.InitializeTowersArray(0);
         playerData.InitializeTowersArray(20);
         playerData.InitializeTowerPoolArray(0);
@@ -38,9 +38,9 @@ public class MainMenu : MonoBehaviour
 
     void Update()
     {
-        SettingsValues.gameVolume = (int)volumeSlider.value;
-        SettingsValues.musicVolume = (int)musicSlider.value;
-        SettingsValues.difficulty = difficultyDropdown.value;
+        // SettingsValues.gameVolume = (int)volumeSlider.value;
+        // SettingsValues.musicVolume = (int)musicSlider.value;
+        // SettingsValues.difficulty = difficultyDropdown.value;
     }
     public void goToScene(string sceneName)
     {
