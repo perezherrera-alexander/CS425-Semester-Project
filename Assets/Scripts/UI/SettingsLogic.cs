@@ -6,6 +6,8 @@ using TMPro;
 
 public class SettingsLogic : MonoBehaviour
 {
+    public GameObject PauseMenuUI;
+    public bool OnMainMenu = false;
     [Header("Audio Settings")]
     public Slider volumeSlider;
     public Slider musicSlider;
@@ -89,5 +91,6 @@ public class SettingsLogic : MonoBehaviour
     public void ExitSettings()
     {
         this.gameObject.SetActive(false);
+        if(!OnMainMenu) PauseMenuUI.SetActive(true);
     }
 }
