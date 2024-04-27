@@ -7,6 +7,11 @@ using System.Linq;
 public class FastEnemy : BaseEnemyLogic
 {
     public int maxBoost;
+    public AudioSource audioSource;
+    public AudioClip hitSound1;
+    public AudioClip hitSound2;
+    public AudioClip hitSound3;
+
     public override void Update (){
         healthCheck();
         if(effects.Count > 0)
@@ -38,6 +43,37 @@ public class FastEnemy : BaseEnemyLogic
     //         return;
     //     }
     // }
+        public override void reduceHealth(float damage)
+    {
+        audioSource.volume = (float)SettingsValues.gameVolume / 100.0f;
+        health -= damage;
+        if (health <= 0)
+        {
+            PlayerStatistics.AddMoney(GoldWorth);
+            Destroy(gameObject);
+            //subtract present enemies count by 1
+            PlayerStatistics.Instance.enemiesPresent--;
+            return;
+        }
+        else
+        {
+            //Play a random hit sound
+            System.Random random = new System.Random();
+            switch (random.Next(1, 4))
+            {
+                case 1:
+                    audioSource.PlayOneShot(hitSound1);
+                    break;
+                case 2:
+                    audioSource.PlayOneShot(hitSound2);
+                    break;
+                case 3:
+                    audioSource.PlayOneShot(hitSound3);
+                    break;
+            }
+        }
+    }
+
     // public virtual void handleEffect()
     // {
 

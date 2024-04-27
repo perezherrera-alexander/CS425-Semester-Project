@@ -14,9 +14,19 @@ public class BackgroundMusic : MonoBehaviour
         loopMusic.PlayDelayed(startMusic.clip.length);
     }
 
-    // Update is called once per frame
-//     void Update()
-//     {
+    //Update is called once per frame
+
+    // void Update()
+    // {
+    //     //If the loop music is not playing, play it again
+    //     if (!loopMusic.isPlaying)
+    //     {
+    //         startMusic.volume = (float)SettingsValues.gameVolume / 100.0f;
+    //     }
+    //     else
+    //     {
+    //         loopMusic.volume = (float)SettingsValues.gameVolume / 100.0f;
+    //     }
         
-//     }
+    // }
 }
