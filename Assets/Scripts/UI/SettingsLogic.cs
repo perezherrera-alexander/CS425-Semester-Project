@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Audio;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -9,6 +10,7 @@ public class SettingsLogic : MonoBehaviour
     public PauseMenu pauseMenu;
     public bool OnMainMenu = false;
     [Header("Audio Settings")]
+    [SerializeField] private AudioMixer audioMixer;
     public Slider volumeSlider;
     public Slider musicSlider;
     [Header("Game Settings")]
@@ -54,7 +56,19 @@ public class SettingsLogic : MonoBehaviour
         SettingsValues.gameVolume = (int)volumeSlider.value;
         SettingsValues.musicVolume = (int)musicSlider.value;
         //SettingsValues.difficulty = difficultyDropdown.value;
+        if(SettingsValues.musicVolume == -20){
+            audioMixer.SetFloat("Music", -80);
+        }
+        else{
+            audioMixer.SetFloat("Music", SettingsValues.musicVolume);
+        }
+
     }
+    public void SetMusicVolume(float volume)
+    {
+        //audioMixer.SetFloat("Music", Mathf.Log10(volume) * 20);
+    }
+
 
         public void ResLeft()
     {

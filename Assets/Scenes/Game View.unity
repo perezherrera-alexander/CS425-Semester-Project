@@ -476,7 +476,7 @@ AudioSource:
   m_GameObject: {fileID: 222819310}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -8967088511768872247, guid: aac3cecbdbcfcc34f8fb591d9586cb60, type: 2}
   m_audioClip: {fileID: 8300000, guid: da9cbac040e5b964fb6c8ce65df18b23, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -1954,7 +1954,7 @@ AudioSource:
   m_GameObject: {fileID: 776655479}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -8967088511768872247, guid: aac3cecbdbcfcc34f8fb591d9586cb60, type: 2}
   m_audioClip: {fileID: 8300000, guid: 72192776e6a6f7d45ab10ac771a9fec0, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -2576,7 +2576,7 @@ GameObject:
   - component: {fileID: 1115476683}
   - component: {fileID: 1115476682}
   m_Layer: 0
-  m_Name: Audio
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3139,6 +3139,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2451982454464107384, guid: 920e0e11675b21e44b7a29f8e7caed45, type: 3}
   m_PrefabInstance: {fileID: 1496997556}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1443954298 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6612399480923857827, guid: 920e0e11675b21e44b7a29f8e7caed45, type: 3}
+  m_PrefabInstance: {fileID: 1496997556}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1443954296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4283cc4bb28a4b74fa3cc55bb61ca371, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1496997556
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3271,10 +3282,54 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5284463728344835508, guid: 920e0e11675b21e44b7a29f8e7caed45, type: 3}
+      propertyPath: m_Value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5284463728344835508, guid: 920e0e11675b21e44b7a29f8e7caed45, type: 3}
+      propertyPath: m_MaxValue
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5284463728344835508, guid: 920e0e11675b21e44b7a29f8e7caed45, type: 3}
+      propertyPath: m_MinValue
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5284463728344835508, guid: 920e0e11675b21e44b7a29f8e7caed45, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5284463728344835508, guid: 920e0e11675b21e44b7a29f8e7caed45, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5284463728344835508, guid: 920e0e11675b21e44b7a29f8e7caed45, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1443954298}
+    - target: {fileID: 5284463728344835508, guid: 920e0e11675b21e44b7a29f8e7caed45, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5284463728344835508, guid: 920e0e11675b21e44b7a29f8e7caed45, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetMusicVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 5284463728344835508, guid: 920e0e11675b21e44b7a29f8e7caed45, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SettingsLogic, Scripts
+      objectReference: {fileID: 0}
+    - target: {fileID: 5284463728344835508, guid: 920e0e11675b21e44b7a29f8e7caed45, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6612399480923857827, guid: 920e0e11675b21e44b7a29f8e7caed45, type: 3}
       propertyPath: pauseMenu
       value: 
       objectReference: {fileID: 655933921}
+    - target: {fileID: 6612399480923857827, guid: 920e0e11675b21e44b7a29f8e7caed45, type: 3}
+      propertyPath: audioMixer
+      value: 
+      objectReference: {fileID: 24100000, guid: aac3cecbdbcfcc34f8fb591d9586cb60, type: 2}
     - target: {fileID: 6612399480923857827, guid: 920e0e11675b21e44b7a29f8e7caed45, type: 3}
       propertyPath: PauseMenuUI
       value: 

@@ -3,7 +3,16 @@ guid: 4283cc4bb28a4b74fa3cc55bb61ca371
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - PauseMenuUI: {instanceID: 0}
+  - SettingsMenuUI: {instanceID: 0}
+  - pauseMenu: {instanceID: 0}
+  - audioMixer: {fileID: 24100000, guid: aac3cecbdbcfcc34f8fb591d9586cb60, type: 2}
+  - volumeSlider: {instanceID: 0}
+  - musicSlider: {instanceID: 0}
+  - fullscrenToggle: {instanceID: 0}
+  - vsyncToggle: {instanceID: 0}
+  - resolutionLabel: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
