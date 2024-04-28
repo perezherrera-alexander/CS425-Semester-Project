@@ -13,6 +13,7 @@ public class SettingsLogic : MonoBehaviour
     [SerializeField] private AudioMixer audioMixer;
     public Slider volumeSlider;
     public Slider musicSlider;
+    public Slider sfxSlider;
     [Header("Game Settings")]
     //public TMP_Dropdown difficultyDropdown;
     [Header("Graphics Settings")]
@@ -67,6 +68,12 @@ public class SettingsLogic : MonoBehaviour
         }
         else{
             audioMixer.SetFloat("Master", SettingsValues.gameVolume);
+        }
+        if(SettingsValues.gameVolume == -20){
+            audioMixer.SetFloat("SFX", -80);
+        }
+        else{
+            audioMixer.SetFloat("SFX", SettingsValues.gameVolume);
         }
 
     }
