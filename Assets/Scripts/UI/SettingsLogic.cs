@@ -6,8 +6,6 @@ using TMPro;
 
 public class SettingsLogic : MonoBehaviour
 {
-    public GameObject PauseMenuUI;
-    public GameObject SettingsMenuUI;
     public PauseMenu pauseMenu;
     public bool OnMainMenu = false;
     [Header("Audio Settings")]
