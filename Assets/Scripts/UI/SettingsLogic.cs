@@ -62,6 +62,12 @@ public class SettingsLogic : MonoBehaviour
         else{
             audioMixer.SetFloat("Music", SettingsValues.musicVolume);
         }
+        if(SettingsValues.gameVolume == -20){
+            audioMixer.SetFloat("Master", -80);
+        }
+        else{
+            audioMixer.SetFloat("Master", SettingsValues.gameVolume);
+        }
 
     }
     public void SetMusicVolume(float volume)
