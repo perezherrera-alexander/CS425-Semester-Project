@@ -27,7 +27,7 @@ public class SettingsLogic : MonoBehaviour
         // Set Audio Settings
         volumeSlider.value = SettingsValues.gameVolume;
         musicSlider.value = SettingsValues.musicVolume;
-        //difficultyDropdown.value = SettingsValues.difficulty;
+        sfxSlider.value = SettingsValues.sfxVolume;
 
         fullscrenToggle.isOn = Screen.fullScreen;
         if (QualitySettings.vSyncCount == 0) vsyncToggle.isOn = false;
@@ -54,9 +54,11 @@ public class SettingsLogic : MonoBehaviour
 
     void Update()
     {
+        //Debug.Log("slider value: " + volumeSlider.value);
         SettingsValues.gameVolume = (int)volumeSlider.value;
         SettingsValues.musicVolume = (int)musicSlider.value;
-        //SettingsValues.difficulty = difficultyDropdown.value;
+        SettingsValues.sfxVolume = (int)sfxSlider.value;
+
         if(SettingsValues.musicVolume == -20){
             audioMixer.SetFloat("Music", -80);
         }
@@ -69,11 +71,11 @@ public class SettingsLogic : MonoBehaviour
         else{
             audioMixer.SetFloat("Master", SettingsValues.gameVolume);
         }
-        if(SettingsValues.gameVolume == -20){
+        if(SettingsValues.sfxVolume == -20){
             audioMixer.SetFloat("SFX", -80);
         }
         else{
-            audioMixer.SetFloat("SFX", SettingsValues.gameVolume);
+            audioMixer.SetFloat("SFX", SettingsValues.sfxVolume);
         }
 
     }

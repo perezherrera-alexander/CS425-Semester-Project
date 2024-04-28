@@ -7,5 +7,6 @@ public static class SettingsValues
 {
     public static int gameVolume = 0;
     public static int musicVolume = 0;
+    public static int sfxVolume = 0;
     public static int difficulty = 1;
 }
