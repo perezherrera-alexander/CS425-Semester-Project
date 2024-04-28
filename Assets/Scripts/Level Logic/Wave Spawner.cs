@@ -63,6 +63,7 @@ public class WaveSpawner : MonoBehaviour
     public TextMeshProUGUI levelCompleteText;
     public TextMeshProUGUI beginNextWaveText;
     private bool loadNextLevelOnce = true;
+    public int expectedEnemies = 0;
     void Start()
     {
         levelCompleteText.text = "";

@@ -17,6 +17,23 @@ public class RobotScript : BaseEnemyLogic
     public AudioClip hitSound3;
     public AudioClip hitSound4;
     public AudioClip hitSound5;
+
+    public bool isBaby = false;
+
+    public override void Start(){
+
+        PlayerStatistics = FindObjectOfType<PlayerStatistics>();
+        maxHealth = health;
+
+        if(!isBaby){
+            //increase number of enemies counter by 1
+            PlayerStatistics.Instance.enemiesPresent++;}
+            
+        //code to deal with the enemy being spawned from another enemy
+        if(!differentStart) target = Path.waypoints[0];
+        curSpeed = speed;
+        audioSource.volume = 1;
+    }
     public override void healthCheck()
     {   
         if (health <= 0){
