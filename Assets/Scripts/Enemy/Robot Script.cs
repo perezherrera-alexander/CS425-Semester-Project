@@ -11,7 +11,6 @@ public class RobotScript : BaseEnemyLogic
     public GameObject armR;
     public GameObject head;
 
-    public AudioSource audioSource;
     public AudioClip deathSound;
     public AudioClip hitSound1;
     public AudioClip hitSound2;
@@ -54,7 +53,7 @@ public class RobotScript : BaseEnemyLogic
     }
     public override void reduceHealth(float damage)
     {
-        audioSource.volume = (float)SettingsValues.gameVolume / 100.0f;
+        
         health -= damage;
         if (health <= 0)
         {

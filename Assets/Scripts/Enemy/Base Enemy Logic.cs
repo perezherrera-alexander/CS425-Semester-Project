@@ -27,6 +27,7 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
 
     protected float curSpeed;
     private bool isSlowed = false;
+    public AudioSource audioSource;
     
     // Start is called before the first frame update
     public virtual void Start(){
@@ -39,6 +40,7 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
         //code to deal with the enemy being spawned from another enemy
         if(!differentStart) target = Path.waypoints[0];
         curSpeed = speed;
+        audioSource.volume = 1;
     }
 
     public virtual void reduceHealth(float damage)

@@ -41,6 +41,9 @@ public class BaseTowerLogic : MonoBehaviour, Effectable
     private float currentEffectTime = 0f;
     public bool isBuffed = false;
     public GameObject rangeFinder;
+    public AudioSource audioSource;
+    public AudioClip audioClip;
+    
     void Start()
     {
         Invoke();

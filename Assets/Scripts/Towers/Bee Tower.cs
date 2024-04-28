@@ -20,6 +20,7 @@ public class BeeTower : BaseTowerLogic
         Debug.Log("Targetting Type: " + targetingType);
         curAttackSpeed = fireRate;
         AddUpgradeEffects();
+        audioSource.volume = 1;
     }
 
     void Update()
@@ -49,6 +50,8 @@ public class BeeTower : BaseTowerLogic
         {
 
         }
+        //Play sound
+        audioSource.PlayOneShot(audioClip);
     }
 
     public override void MakeSphere()

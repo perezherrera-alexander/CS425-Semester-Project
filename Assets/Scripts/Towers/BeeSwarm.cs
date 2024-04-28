@@ -11,6 +11,9 @@ public class BeeSwarm : BaseTowerLogic
     private float swarmAmount = 5f;
     public GameObject honeyPot;
 
+  
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +25,7 @@ public class BeeSwarm : BaseTowerLogic
         fireRate = 0.75f;
         curAttackSpeed = fireRate;
         AddUpgradeEffects();
+        audioSource.volume = 1;
     }
 
     // Update is called once per frame
@@ -78,11 +82,13 @@ public class BeeSwarm : BaseTowerLogic
     }
     public override void Shoot()
     {
+        
         foreach (SwarmingBee projectile in projectiles)
         {
             projectile.Seek(target);
         }
         removeFromList();
+        
     }
 
     public void removeFromList()
@@ -95,6 +101,8 @@ public class BeeSwarm : BaseTowerLogic
         GameObject shot = (GameObject)Instantiate(projectilePrefab, locationToFireFrom.position, locationToFireFrom.rotation);
         SwarmingBee bee = shot.GetComponent<SwarmingBee>();
         projectiles.Add(bee);
+        //Play sound
+        audioSource.PlayOneShot(audioClip);
     }
 
     public void deleteSwarmifDeleted()

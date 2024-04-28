@@ -8,6 +8,8 @@ public class BuffingBees : BaseTowerLogic
     public StoreTowerUpgradeData storeTowerUpgradeData;
     public string id;
     public GameObject bag;
+
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +21,7 @@ public class BuffingBees : BaseTowerLogic
         MakeSphere();
         bag.SetActive(false);
         AddUpgradeEffects();
+        audioSource.volume = 1;
     }
 
     // Update is called once per frame
@@ -113,6 +116,9 @@ public class BuffingBees : BaseTowerLogic
         {
             bee.Seek(target);
         }
+
+        //Play sound
+        audioSource.PlayOneShot(audioClip);
     }
 
     [ContextMenu("Generate ID")]

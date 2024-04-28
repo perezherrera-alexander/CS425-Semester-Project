@@ -10,8 +10,7 @@ public class SpiderScript : BaseTowerLogic
     public GameObject upgrade1;
     private Animator animate;
     public string id;
-    public AudioSource audioSource;
-    public AudioClip audioClip;
+
     //private Animator animate;
     // Start is called before the first frame update
     void Start()
@@ -29,7 +28,6 @@ public class SpiderScript : BaseTowerLogic
     // Update is called once per frame
     void Update()
     {
-        audioSource.volume = SettingsValues.gameVolume / 100f;
         if (isActive)
         {
             if(data != null)

@@ -9,12 +9,11 @@ public class ScarabScript : BaseEnemyLogic
     public GameObject head;
     public Color[] colors;
     //audio stuff
-    public AudioSource audioSource;
     public AudioClip hitSound1;
     public AudioClip hitSound2;
     public AudioClip hitSound3;
 
-    public int recoveryRate = 1;
+    public float recoveryRate = 1;
     
     public override void Update (){
         healthCheck();
@@ -45,7 +44,7 @@ public class ScarabScript : BaseEnemyLogic
     }
     public override void reduceHealth(float damage)
     {
-        audioSource.volume = (float)SettingsValues.gameVolume / 100.0f;
+        // audioSource.volume = (float)SettingsValues.gameVolume / 100.0f;
         health -= damage;
         if (health <= 0)
         {

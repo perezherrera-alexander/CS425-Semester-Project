@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class DroneScript : BaseEnemyLogic
 {
-    public AudioSource audioSource;
     public AudioClip hitSound1;
     public AudioClip hitSound2;
     public AudioClip hitSound3;
@@ -54,7 +53,7 @@ public class DroneScript : BaseEnemyLogic
     }
     public override void reduceHealth(float damage)
     {
-        audioSource.volume = (float)SettingsValues.gameVolume / 100.0f;
+        // audioSource.volume = (float)SettingsValues.gameVolume / 100.0f;
         health -= damage;
         if (health <= 0)
         {
