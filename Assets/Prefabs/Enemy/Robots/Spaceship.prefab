@@ -366,10 +366,12 @@ MonoBehaviour:
   waypointindex: 0
   differentStart: 0
   enemy: {fileID: 551818999863198192, guid: 8f7fb77fd254ec34c80ff9c9bf29f297, type: 3}
+  childID: 1
   smoke: {fileID: 0}
   hitSound1: {fileID: 8300000, guid: 1e0309ee919820c47a19997a4a45230a, type: 3}
   hitSound2: {fileID: 8300000, guid: 8fed85375af983640a676ca9b40de87c, type: 3}
   hitSound3: {fileID: 8300000, guid: c69ea2ad90af9c447a6e372038e2968a, type: 3}
+  waveSpawner: {fileID: 0}
 --- !u!54 &-7643235312551232683
 Rigidbody:
   m_ObjectHideFlags: 0

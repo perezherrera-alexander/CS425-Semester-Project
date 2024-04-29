@@ -6,10 +6,12 @@ public class EnemyCarrier : BaseEnemyLogic
 {
     //set enemy to Robot1
     public GameObject enemy;
+    public int childID;
     public ParticleSystem smoke;
     public AudioClip hitSound1;
     public AudioClip hitSound2;
     public AudioClip hitSound3;
+    public WaveSpawner waveSpawner;
 
     public override void Start(){
 
@@ -21,6 +23,8 @@ public class EnemyCarrier : BaseEnemyLogic
         //code to deal with the enemy being spawned from another enemy
         if(!differentStart) target = Path.waypoints[0];
         curSpeed = speed;
+        //find the wave spawner
+        waveSpawner = FindObjectOfType<WaveSpawner>();
     }
     public override void healthCheck()
     {
@@ -28,7 +32,10 @@ public class EnemyCarrier : BaseEnemyLogic
         {
             //PlayerStatistics.AddMoney(GoldWorth);
             //spawn 4 Robot1 entities headed towards the current waypoint
-            spawnChildren();
+            
+            //Tell the wave spawner to spawn Robot entities, send robot ID, waypoint index, and the position of the carrier
+            waveSpawner.SpawnChildren(childID, waypointindex, transform);
+            //waveSpawner.callout();
 
             // If the enemy is a carrier, spawn 4 Robot1 entities headed towards the current waypoint
             //enemy.GetComponent<EnemyMovement>().waypointindex = waypointindex;
@@ -83,7 +90,7 @@ public class EnemyCarrier : BaseEnemyLogic
         //base.knockback();
     }
 
-    public void spawnChildren(){
+    public void spawnBots(){
         for (int i = 0; i < 4; i++)
         {//increase number of enemies counter by 1
             PlayerStatistics.Instance.enemiesPresent+=1;
