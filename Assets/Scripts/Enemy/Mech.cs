@@ -15,6 +15,9 @@ public class Mech : BaseEnemyLogic
     public bool marker1 = false;
     public bool marker2 = false;
     public bool marker3 = false;
+    public int quarterWaypoint = 0;
+    public int halfWaypoint = 0;
+    public int threeQuarterWaypoint = 0;
     public float[] waypointDistances;
     public override void Start(){
         if(!differentStart) target = Path.waypoints[0];
@@ -37,6 +40,22 @@ public class Mech : BaseEnemyLogic
             waypointDistances[i] = Vector3.Distance(Path.waypoints[i].position, Path.waypoints[i + 1].position);
         }
         waypointDistances[Path.waypoints.Length - 1] = Vector3.Distance(Path.waypoints[Path.waypoints.Length - 1].position, Path.waypoints[0].position);
+        //record which waypoints indexes on the track correspond to the 25%, 50%, and 75% marks
+        marker1 = false;
+        marker2 = false;
+        marker3 = false;
+        for (int i = 0; i < Path.waypoints.Length; i++){
+            if (marker1 == false && waypointDistances[i] >= 0.25f * waypointDistances.Sum()){
+                marker1 = true;
+                waypointindex = i;
+            }
+            if (marker2 == false && waypointDistances[i] >= 0.50f * waypointDistances.Sum()){
+                marker2 = true;
+            }
+            if (marker3 == false && waypointDistances[i] >= 0.75f * waypointDistances.Sum()){
+                marker3 = true;
+            }
+        }
     }
 
     // Update is called once per frame
@@ -50,12 +69,10 @@ public class Mech : BaseEnemyLogic
             if (effects.First() != null) handleEffect();
         }
         Vector3 direction = target.position - transform.position;
-        int stun = 1;
-        if (stunTimer > 0){
-            stun = 0;
-            stunTimer -= Time.deltaTime;
-        }
-        transform.Translate(direction.normalized * speed * stun * slowFactor * Time.deltaTime, Space.World);
+        
+
+
+        transform.Translate(direction.normalized * speed * slowFactor * Time.deltaTime, Space.World);
 
         if (Vector3.Distance(transform.position, target.position) <= 0.4f){
             GetNextWaypoint();
@@ -86,12 +103,12 @@ public class Mech : BaseEnemyLogic
         if (health <= 0)
         {
             //audioSource.PlayOneShot(deathSound);
-            //PlayerStatistics.AddMoney(GoldWorth);
+            PlayerStatistics.AddMoney(GoldWorth);
             //death.playParts(transform);
-            //Destroy(this.gameObject);
+            Destroy(this.gameObject);
             //subtract present enemies count by 1
-            //PlayerStatistics.Instance.enemiesPresent--;
-            //return;
+            PlayerStatistics.Instance.enemiesPresent--;
+            return;
 
         }
         else
@@ -121,6 +138,9 @@ public class Mech : BaseEnemyLogic
     }
     public override void knockback(int knockbackForce){
         //transform.Translate(direction.normalized * force * Time.deltaTime, Space.World);
+    }
+    public override void stun(float stunTime){
+        stunTimer = stunTime;
     }
 }
 
