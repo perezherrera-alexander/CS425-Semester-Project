@@ -2,9 +2,11 @@
 Creature Conquest is a 3D tower defense video game developed in the Unity game engine. The game aims to put a new spin on the widely popular tower defense genre by introducing roguelike elements such as permadeath and progression. Players embark on ‘runs’ where they attempt a series of levels. Win or lose, players unlock new towers and upgrades that can be utilized on subsequent runs.
 
 ## Screenshots
-![screenshot](Screenshots/CreatureConquest02.png)
-![screenshot](Screenshots/CreatureConquest01.png)
-![screenshot](Screenshots/CreatureConquest03.png)
+![screenshot](Screenshots/TitleScreen.png)
+![screenshot](Screenshots/Gameplay1.png)
+![screenshot](Screenshots/Gameplay2.png)
+![screenshot](Screenshots/Tutorial.png)
+![screenshot](Screenshots/UpgradeScreen.png)
 
 ## Info
 Created by Team 34 for the course CS 426 - Senior Projects in Computer Science at the University of Nevada, Reno. 
