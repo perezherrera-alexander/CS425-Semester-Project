@@ -60,6 +60,8 @@ public class WaveSpawner : MonoBehaviour
     //private float timeBetweenWavesTimer;
     public bool tutorialMode = false;
     public bool ShowBossForFinalDemo = false;
+    public bool EnemyShowcaseMode = false;
+    public WaveFormat waveInUse;
     [Header("UI")]
     public TextMeshProUGUI waveCountDownText;
     public TextMeshProUGUI levelCompleteText;
@@ -76,6 +78,7 @@ public class WaveSpawner : MonoBehaviour
     void LoadWaveFormat()
     {
         PickWaveFormat();
+        waveInUse = waveFormat;
 
         // Load wave data from waveFormat
         for(int i = 0; i < waveFormat.waveFormations.Length; i++)
