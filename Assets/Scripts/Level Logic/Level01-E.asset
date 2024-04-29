@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8b4759b6ebad4a4eaf1019989fa272b, type: 3}
+  m_Name: Level01-E
+  m_EditorClassIdentifier: 
+  waveFormations:
+  - 1,8,1
+  - 2,4,1
+  - 2,5,1 1,3,0.75
+  - 2,10,1
+  - 6,1,1 1,6,1
+  - 3,5,1
+  - 2,10,1 1,10,0.75
+  - 4,10,1
+  - 7,2,1
