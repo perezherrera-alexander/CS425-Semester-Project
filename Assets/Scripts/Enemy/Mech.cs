@@ -15,11 +15,18 @@ public class Mech : BaseEnemyLogic
     public bool marker1 = false;
     public bool marker2 = false;
     public bool marker3 = false;
-    public int quarterWaypoint = 0;
-    public int halfWaypoint = 0;
-    public int threeQuarterWaypoint = 0;
+    public int quarterWaypointIndex;
+    public int halfWaypointIndex;
+    public int threeQuarterWaypointIndex;
+
+    public int childEnemyID1;
+    public int childEnemyID2;
+    public int childEnemyID3;
+    public WaveSpawner waveSpawner;
+
     public float[] waypointDistances;
     public override void Start(){
+        waveSpawner = FindObjectOfType<WaveSpawner>();
         if(!differentStart) target = Path.waypoints[0];
         healthbar = Instantiate(healthBarPrefab, this.transform.position, Quaternion.identity);
         healthbar.transform.SetParent(GameObject.Find("PlayerInterface").transform);
@@ -30,30 +37,34 @@ public class Mech : BaseEnemyLogic
         health = maxHealth;
 
         //increase number of enemies counter by 1
-        PlayerStatistics.Instance.enemiesPresent++;
+        PlayerStatistics.Instance.enemiesPresent+=13;
         //code to deal with the enemy being spawned from another enemy
         
         curSpeed = speed;
-        //calculate the distance of the entire track
+        //calculate the cumulative distance between waypoints
+        float distance = 0;
         waypointDistances = new float[Path.waypoints.Length];
-        for (int i = 0; i < Path.waypoints.Length - 1; i++){
-            waypointDistances[i] = Vector3.Distance(Path.waypoints[i].position, Path.waypoints[i + 1].position);
+        waypointDistances[0] = 0;
+        for (int i = 1; i < Path.waypoints.Length - 1; i++){
+            distance += Vector3.Distance(Path.waypoints[i].position, Path.waypoints[i + 1].position);
+            waypointDistances[i] = distance;
         }
-        waypointDistances[Path.waypoints.Length - 1] = Vector3.Distance(Path.waypoints[Path.waypoints.Length - 1].position, Path.waypoints[0].position);
         //record which waypoints indexes on the track correspond to the 25%, 50%, and 75% marks
-        marker1 = false;
-        marker2 = false;
-        marker3 = false;
-        for (int i = 0; i < Path.waypoints.Length; i++){
-            if (marker1 == false && waypointDistances[i] >= 0.25f * waypointDistances.Sum()){
-                marker1 = true;
-                waypointindex = i;
+        float quarter = distance / 4;
+        float half = distance / 2;
+        float threeQuarter = distance * 3 / 4;
+        for (int i = 0; i < waypointDistances.Length; i++){
+            if (waypointDistances[i] >= quarter && waypointDistances[i-1] < quarter){
+                quarterWaypointIndex = i;
+                Debug.Log("25% mark is at waypoint " + i);
             }
-            if (marker2 == false && waypointDistances[i] >= 0.50f * waypointDistances.Sum()){
-                marker2 = true;
+            if (waypointDistances[i] >= half && waypointDistances[i-1] < half){
+                halfWaypointIndex = i;
+                Debug.Log("50% mark is at waypoint " + i);
             }
-            if (marker3 == false && waypointDistances[i] >= 0.75f * waypointDistances.Sum()){
-                marker3 = true;
+            if (waypointDistances[i] >= threeQuarter && waypointDistances[i-1] < threeQuarter){
+                threeQuarterWaypointIndex = i;
+                Debug.Log("75% mark is at waypoint " + i);
             }
         }
     }
@@ -70,6 +81,24 @@ public class Mech : BaseEnemyLogic
         }
         Vector3 direction = target.position - transform.position;
         
+        //Check if we've reached the 25% mark
+        if (waypointindex == quarterWaypointIndex && marker1==false){
+            //Debug.Log("25% mark reached");
+            marker1 = true;
+            waveSpawner.SpawnChildren(childEnemyID1, waypointindex, transform);
+        }
+        //Check if we've reached the 50% mark
+        if (waypointindex == halfWaypointIndex && marker2==false){
+            //Debug.Log("50% mark reached");
+            marker2 = true;
+            waveSpawner.SpawnChildren(childEnemyID2, waypointindex, transform);
+        }
+        //Check if we've reached the 75% mark
+        if (waypointindex == threeQuarterWaypointIndex && marker3==false){
+            //Debug.Log("75% mark reached");
+            marker3 = true;
+            waveSpawner.SpawnChildren(childEnemyID3, waypointindex, transform);
+        }
 
 
         transform.Translate(direction.normalized * speed * slowFactor * Time.deltaTime, Space.World);
@@ -82,20 +111,41 @@ public class Mech : BaseEnemyLogic
 
     public override void healthCheck()
     {
-        healthbar.value = health;
-        healthbar.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color = sliderGradient.Evaluate(healthbar.normalizedValue);
         if (health <= 0)
         {
             PlayerStatistics.AddMoney(GoldWorth);
-            death.playParts(transform);
+            //death.playParts(transform);
             //destroy healthbar
             Destroy(healthbar.gameObject);
             //destroy the game object
             Destroy(this.gameObject);
             //subtract present enemies count by 1
-            PlayerStatistics.Instance.enemiesPresent--;
+            //PlayerStatistics.Instance.enemiesPresent--;
             return;
         }
+        healthbar.value = health;
+        healthbar.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color = sliderGradient.Evaluate(healthbar.normalizedValue);
+        //Calculate the percentage of health left
+        float healthPercentage = health / maxHealth;
+        //Check if the enemy has reached the 25% mark
+        if (healthPercentage <= 0.75 && marker1==false){
+            //Debug.Log("25% health mark reached");
+            marker1 = true;
+            waveSpawner.SpawnChildren(childEnemyID1, waypointindex, transform);
+        }
+        //Check if the enemy has reached the 50% mark
+        if (healthPercentage <= 0.5 && marker2==false){
+            //Debug.Log("50% health mark reached");
+            marker2 = true;
+            waveSpawner.SpawnChildren(childEnemyID2, waypointindex, transform);
+        }
+        //Check if the enemy has reached the 75% mark
+        if (healthPercentage <= 0.25 && marker3==false){
+            //Debug.Log("75% health mark reached");
+            marker3 = true;
+            waveSpawner.SpawnChildren(childEnemyID3, waypointindex, transform);
+        }
+
     }
     public override void reduceHealth(float damage)
     {
@@ -105,7 +155,7 @@ public class Mech : BaseEnemyLogic
             //audioSource.PlayOneShot(deathSound);
             PlayerStatistics.AddMoney(GoldWorth);
             //death.playParts(transform);
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
             //subtract present enemies count by 1
             PlayerStatistics.Instance.enemiesPresent--;
             return;

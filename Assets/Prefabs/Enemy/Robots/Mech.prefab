@@ -374,9 +374,13 @@ MonoBehaviour:
   marker1: 0
   marker2: 0
   marker3: 0
-  quarterWaypoint: 0
-  halfWaypoint: 0
-  threeQuarterWaypoint: 0
+  quarterWaypointIndex: 0
+  halfWaypointIndex: 0
+  threeQuarterWaypointIndex: 0
+  childEnemyID1: 1
+  childEnemyID2: 2
+  childEnemyID3: 3
+  waveSpawner: {fileID: 0}
   waypointDistances: []
 --- !u!1001 &7413942725307852210
 PrefabInstance:
