@@ -35,6 +35,11 @@ public class WaveSpawner : MonoBehaviour
     public GameObject enemyF; //Fridge
     public GameObject enemyM; //MiniBoss 1
     public GameObject enemyW; //Boss 1
+    public GameObject childEnemy; //Robot1
+    public GameObject childEnemy2; //Robot2
+    public GameObject childEnemy3; //Robot3
+    public GameObject childEnemy4; //Robot4
+    public GameObject childEnemy5; //Robot5
     
     
     public struct waveFormation
@@ -302,5 +307,94 @@ public class WaveSpawner : MonoBehaviour
         autostartNextWave = !autostartNextWave;
     }
 
-    
+    public void SpawnChildren(int enemyID, int waypointindex, Transform spawnPosition)
+    {
+        GameObject enemy = null;
+        switch (enemyID)
+        {
+            case 1:
+                enemy = childEnemy;
+                break;
+            case 2:
+                enemy = childEnemy2;
+                break;
+            case 3:
+                enemy = childEnemy3;
+                break;
+            case 4:
+                enemy = childEnemy4;
+                break;
+            case 5:
+                enemy = childEnemy5;
+                break;
+            case 6:
+                enemy = enemy6;
+                break;
+            case 7:
+                enemy = enemy7;
+                break;
+            case 8:
+                enemy = enemy8;
+                break;
+            case 9:
+                enemy = enemy9;
+                break;
+            case 10:
+                enemy = enemy10;
+                break;
+            case 11:
+                enemy = enemyS1;
+                break;
+            case 12:
+                enemy = enemyS2;
+                break;
+            case 13:
+                enemy = enemyS3;
+                break;
+            case 14:
+                enemy = enemyD1;
+                break;
+            case 15:
+                enemy = enemyD2;
+                break;
+            case 16:
+                enemy = enemyD3;
+                break;
+            case 17:
+                enemy = enemyC1;
+                break;
+            case 18:
+                enemy = enemyC2;
+                break;
+            case 19:
+                enemy = enemyC3;
+                break;
+            case 20:
+                enemy = enemyF;
+                break;
+            case 21:
+                enemy = enemyM;
+                break;
+            case 22:
+                enemy = enemyW;
+                break;
+        }
+        //spawn 4 Robot1 entities headed towards the current waypoint
+        //each robot will have a different start position
+        for (int i = 0; i < 4; i++)
+        {
+            GameObject troop = Instantiate(enemy, spawnPosition.position + new Vector3(i * 1.0f, 0, i * 1.0f), Quaternion.identity);
+            troop.GetComponent<BaseEnemyLogic>().differentStart = true;
+            //change target aswell
+            troop.GetComponent<BaseEnemyLogic>().target = Path.waypoints[waypointindex];
+            
+            troop.GetComponent<BaseEnemyLogic>().waypointindex = waypointindex;
+
+            
+        }
+    }
+    public void callout()
+    {
+        Debug.Log("Called out");
+    }
 }
