@@ -47,6 +47,7 @@ public class WaveSpawner : MonoBehaviour
     public List<WaveFormat> waveFormatsEasy;
     public List<WaveFormat> waveFormatsNormal;
     public List<WaveFormat> waveFormatsHard;
+    public WaveFormat FinalBossWave;
     private WaveFormat waveFormat;
     private List<List<waveFormation>> waves = new List<List<waveFormation>>(); // List of waves
     public Transform SpawnPoint;
@@ -58,6 +59,7 @@ public class WaveSpawner : MonoBehaviour
     public bool autostartNextWave = false;
     //private float timeBetweenWavesTimer;
     public bool tutorialMode = false;
+    public bool ShowBossForFinalDemo = false;
     [Header("UI")]
     public TextMeshProUGUI waveCountDownText;
     public TextMeshProUGUI levelCompleteText;
@@ -96,6 +98,11 @@ public class WaveSpawner : MonoBehaviour
     {
         if(tutorialMode) {
             waveFormat = waveFormatsEasy[0];
+            return;
+        }
+        if(ShowBossForFinalDemo)
+        {
+            waveFormat = FinalBossWave;
             return;
         }
         switch (SettingsValues.difficulty)
