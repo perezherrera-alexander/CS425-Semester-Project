@@ -3912,6 +3912,7 @@ MonoBehaviour:
   waveFormatsHard:
   - {fileID: 11400000, guid: 7113bdbdf03c2c74cb1e78ad5e0f3fb5, type: 2}
   - {fileID: 11400000, guid: c064c89a70f12624bb4fa9bffea995e4, type: 2}
+  FinalBossWave: {fileID: 0}
   SpawnPoint: {fileID: 1869343153}
   gameState: 0
   enemiesDoneSpawning: 0
@@ -3919,6 +3920,9 @@ MonoBehaviour:
   maxWaveCount: 10
   autostartNextWave: 0
   tutorialMode: 0
+  ShowBossForFinalDemo: 0
+  EnemyShowcaseMode: 0
+  waveInUse: {fileID: 0}
   waveCountDownText: {fileID: 2015734061}
   levelCompleteText: {fileID: 1738038850}
   beginNextWaveText: {fileID: 1826386579}
