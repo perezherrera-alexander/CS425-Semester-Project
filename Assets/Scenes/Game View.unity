@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3150,6 +3150,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4283cc4bb28a4b74fa3cc55bb61ca371, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1443954301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1443954296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5baaf0a8f8821c94fb2a1f007888f0d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: e1562d02-cf02-4170-96b9-455e6e1ff3ec
 --- !u!1001 &1496997556
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3334,6 +3347,10 @@ PrefabInstance:
       propertyPath: PauseMenuUI
       value: 
       objectReference: {fileID: 2100056514}
+    - target: {fileID: 6612399480923857827, guid: 920e0e11675b21e44b7a29f8e7caed45, type: 3}
+      propertyPath: SaveLoadManager
+      value: 
+      objectReference: {fileID: 1798962335}
     - target: {fileID: 8333648303169611430, guid: 920e0e11675b21e44b7a29f8e7caed45, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -3353,7 +3370,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3331843018736886880, guid: 920e0e11675b21e44b7a29f8e7caed45, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1443954301}
   m_SourcePrefab: {fileID: 100100000, guid: 920e0e11675b21e44b7a29f8e7caed45, type: 3}
 --- !u!1 &1611373640
 GameObject:
@@ -3877,6 +3897,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerData: {fileID: 11400000, guid: 5e3cd046013d0654b91f369ecf77ee21, type: 2}
+  SaveLoadManager: {fileID: 1798962335}
   enemy1: {fileID: 8368731085636143380, guid: 1efa8932789fd854fb50e90e40f5c39b, type: 3}
   enemy2: {fileID: 493985169150360010, guid: 8b446b714c3ff954baca0c6386ecfbe7, type: 3}
   enemy3: {fileID: 5512348237283082412, guid: decd8ce85050ec542ac1946a45a530f3, type: 3}
@@ -4029,6 +4050,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: 5e3cd046013d0654b91f369ecf77ee21, type: 2}
+  saveLoadManager: {fileID: 1798962335}
   moraleBar: {fileID: 941001329}
   MaxMorale: 100
   currentMorale: 100

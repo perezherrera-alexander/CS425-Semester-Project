@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerStatistics : MonoBehaviour, ISaveable
 {
     public PlayerData playerData;
+    public SaveLoadManager saveLoadManager;
     // Singleton instance
     public static PlayerStatistics Instance { get; private set; }
     //public HealthBar moraleBar;
@@ -26,6 +27,19 @@ public class PlayerStatistics : MonoBehaviour, ISaveable
             currentMorale = playerData.Morale;
             CurrentEvolutionPoints = playerData.EvolutionPoints;
             Instance = this;
+
+            if (playerData.MoneyBagGrabbed == true)
+            {
+                CurrentEvolutionPoints += playerData.MoneyBag;
+                playerData.MoneyBagGrabbed = false;
+            }
+
+            if (playerData.HealthRegenGrabbed == true)
+            {
+                currentMorale += playerData.HealthRegen;
+                MaxMorale += playerData.HealthRegen;
+                playerData.HealthRegenGrabbed = false;
+            }
         }
         else // Otherwise destroy the existing instance
         {
@@ -115,8 +129,12 @@ public class PlayerStatistics : MonoBehaviour, ISaveable
             Towers = GameObjectConversion.SaveTowerObtained(playerData.Towers, playerData.TowersObtained),
             TowerUnlockOrder = GameObjectConversion.SaveTowerUnlockOrder(playerData.TowerUnlockOrder),
             ActiveGenerals = playerData.activeGeneral,
-            ActiveModifiers = playerData.activeModifier
-            
+            ActiveModifiers = playerData.activeModifier,
+            LocationOfHealthUnlock = playerData.LocationOfHealthUnlock,
+            LocationOfMoneyUnlock = playerData.LocationOfMoneyUnlock,
+            MoneyBagGrabbed = playerData.MoneyBagGrabbed,
+            Saving = playerData.Saving,
+            LevelLoaded = playerData.LevelLoaded
         };
     }
 
@@ -135,6 +153,11 @@ public class PlayerStatistics : MonoBehaviour, ISaveable
         playerData.TowerUnlockOrder = GameObjectConversion.LoadTowerUnlockOrder(saveData.TowerUnlockOrder);
         playerData.activeGeneral = saveData.ActiveGenerals;
         playerData.activeModifier = saveData.ActiveModifiers;
+        playerData.LocationOfHealthUnlock = saveData.LocationOfHealthUnlock;
+        playerData.LocationOfMoneyUnlock = saveData.LocationOfMoneyUnlock;
+        playerData.MoneyBagGrabbed = saveData.MoneyBagGrabbed;
+        playerData.Saving = saveData.Saving;
+        playerData.LevelLoaded = saveData.LevelLoaded;
 }
 
     [Serializable]
@@ -151,6 +174,10 @@ public class PlayerStatistics : MonoBehaviour, ISaveable
         public string[] TowerUnlockOrder;
         public Generals ActiveGenerals;
         public Modifiers ActiveModifiers;
-        
+        public string[] LocationOfHealthUnlock;
+        public string[] LocationOfMoneyUnlock;
+        public bool MoneyBagGrabbed;
+        public bool Saving;
+        public bool LevelLoaded;
     }
 }

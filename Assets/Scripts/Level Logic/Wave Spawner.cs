@@ -6,10 +6,12 @@ using UnityEngine.UI;
 using System;
 using System.Linq;
 using System.Globalization;
+using System.IO;
 
 public class WaveSpawner : MonoBehaviour
 {
     public PlayerData PlayerData;
+    public SaveLoadManager SaveLoadManager;
     [Header("Enemy Prefabs")]
     //every enemy type
     public GameObject enemy1; //Robot1
@@ -42,6 +44,8 @@ public class WaveSpawner : MonoBehaviour
     public GameObject childEnemy5; //Robot5
     
     
+
+    private string SavePath => $"{Application.persistentDataPath}/RunSave.txt";
     public struct waveFormation
     {
         //enemy id, amount of enemies, time between enemy spawns
@@ -89,6 +93,14 @@ public class WaveSpawner : MonoBehaviour
         // Load wave data from waveFormat
         for(int i = 0; i < waveFormat.waveFormations.Length; i++)
         {
+            if (i == 0)
+            {
+                if (PlayerData.Saving == true)
+                {
+                    SaveLoadManager.Save();
+                    PlayerData.Saving = false;
+                }
+            }
             waves.Add(new List<waveFormation>());                               // Add a new list for each wave
             string[] formationsInWave = waveFormat.waveFormations[i].Split(' ');// Split the wave into formations
             for(int j = 0; j < formationsInWave.Length; j++)                    // For each formation in the wave
@@ -309,6 +321,11 @@ public class WaveSpawner : MonoBehaviour
         }
         else if (PlayerData.NumberOfWorldsCompleted == 12)
         {
+            if (File.Exists(SavePath))
+            {
+                File.Delete(SavePath);
+            }
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Main Menu");
             UnityEngine.SceneManagement.SceneManager.LoadScene("End Screen");
         }
     }

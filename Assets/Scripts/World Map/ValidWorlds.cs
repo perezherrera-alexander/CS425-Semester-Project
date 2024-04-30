@@ -41,7 +41,7 @@ public class ValidWorlds : MonoBehaviour
         {
             for (int row = 0; row < 7; row++)
             {
-                if (worldMapGenerator.WorldsInUseForMapGeneration[col, row] == true)
+                if (worldMapGenerator.WorldsInUseForMapGeneration[col, row] == true && col != 12)
                 {
                     Image buttonImage = WorldButtonsHolder[col, row].GetComponent<Image>();
                     Button buttonComponent = WorldButtonsHolder[col, row].GetComponent<Button>();
@@ -58,25 +58,6 @@ public class ValidWorlds : MonoBehaviour
                     buttonComponent.interactable = false;
                 }
             }
-        }
-
-        // All worlds completed nodes are turned black
-        for (int i = 0; i < playerData.NumberOfWorldsCompleted; i++)
-        {
-            string[] SplitString = playerData.WorldsCompleted[i].Split(',');
-
-            int col = int.Parse(SplitString[0]);
-            int row = int.Parse(SplitString[1]);
-
-            Image buttonImages = WorldButtonsHolder[col, row].GetComponent<Image>();
-            Button buttonComponent = WorldButtonsHolder[col, row].GetComponent<Button>();
-            buttonImages.color = Color.black;
-
-            var DisabledColor = buttonComponent.colors;
-            DisabledColor.disabledColor = Color.white;
-            buttonComponent.colors = DisabledColor;
-
-            //roadPath.PathTakenTrail(col, row, i);
         }
 
         // All possible worlds you can visit next are turned yellow
@@ -103,7 +84,7 @@ public class ValidWorlds : MonoBehaviour
                     Image buttonImage = WorldButtonsHolder[newCol, newRow].GetComponent<Image>();
                     Button buttonComponent = WorldButtonsHolder[newCol, newRow].GetComponent<Button>();
 
-                    buttonImage.color = Color.yellow;
+                    buttonImage.color = Color.white;
                     buttonComponent.interactable = true;
                     roadPath.SetVisibleCurrentRoadPath();
                 }
@@ -111,72 +92,106 @@ public class ValidWorlds : MonoBehaviour
         }
 
         // Turn all nodes with tower unlock locations blue
-        int test = playerData.NumberOfWorldsCompleted + 3;
+        int test = Mathf.Min(playerData.NumberOfWorldsCompleted + 3, 12);
         for (int col = 0; col < test; col++)
         {
             for (int row = 0; row < 7; row++)
             {
                 if (worldMapGenerator.WorldsInUseForMapGeneration[col, row] == true)
                 {
-                    string[] SplitString = playerData.LocationOfTowerUnlock[col].Split(',');
-
-                    int cols = int.Parse(SplitString[0]);
-                    int rows = int.Parse(SplitString[1]);
-
-                    if (cols < test)
+                    int count = 0;
+                    while (count < 6)
                     {
-                        Image buttonImage = WorldButtonsHolder[cols, rows].GetComponent<Image>();
+                        string[] SplitString = playerData.LocationOfTowerUnlock[count].Split(',');
 
-                        buttonImage.color = Color.blue;
+                        int cols = int.Parse(SplitString[0]);
+                        int rows = int.Parse(SplitString[1]);
+
+                        if (cols < test)
+                        {
+                            Image buttonImage = WorldButtonsHolder[cols, rows].GetComponent<Image>();
+
+                            buttonImage.color = Color.blue;
+                        }
+                        count++;
                     }
                 }
             }
         }
 
         // Turn all nodes with Health unlock locations red
-        int Health = playerData.NumberOfWorldsCompleted + 3;
+        int Health = Mathf.Min(playerData.NumberOfWorldsCompleted + 3, 12);
         for (int col = 0; col < Health; col++)
         {
             for (int row = 0; row < 7; row++)
             {
                 if (worldMapGenerator.WorldsInUseForMapGeneration[col, row] == true)
                 {
-                    string[] SplitString = playerData.LocationOfHealthUnlock[col].Split(',');
-
-                    int cols = int.Parse(SplitString[0]);
-                    int rows = int.Parse(SplitString[1]);
-
-                    if (cols < Health)
+                    int count = 0;
+                    while (count < 6)
                     {
-                        Image buttonImage = WorldButtonsHolder[cols, rows].GetComponent<Image>();
+                        string[] SplitString = playerData.LocationOfHealthUnlock[count].Split(',');
 
-                        buttonImage.color = Color.red;
+                        int cols = int.Parse(SplitString[0]);
+                        int rows = int.Parse(SplitString[1]);
+
+                        if (cols < Health)
+                        {
+                            Image buttonImage = WorldButtonsHolder[cols, rows].GetComponent<Image>();
+
+                            buttonImage.color = Color.red;
+                        }
+                        count++;
                     }
                 }
             }
         }
 
         // Turn all nodes with Money unlock locations green
-        int Money = playerData.NumberOfWorldsCompleted + 3;
+        int Money = Mathf.Min(playerData.NumberOfWorldsCompleted + 3, 12);
         for (int col = 0; col < Money; col++)
         {
             for (int row = 0; row < 7; row++)
             {
                 if (worldMapGenerator.WorldsInUseForMapGeneration[col, row] == true)
                 {
-                    string[] SplitString = playerData.LocationOfMoneyUnlock[col].Split(',');
-
-                    int cols = int.Parse(SplitString[0]);
-                    int rows = int.Parse(SplitString[1]);
-
-                    if (cols < Money)
+                    int count = 0;
+                    while (count < 6)
                     {
-                        Image buttonImage = WorldButtonsHolder[cols, rows].GetComponent<Image>();
+                        string[] SplitString = playerData.LocationOfMoneyUnlock[count].Split(',');
 
-                        buttonImage.color = Color.green;
+                        int cols = int.Parse(SplitString[0]);
+                        int rows = int.Parse(SplitString[1]);
+
+                        if (cols < Money)
+                        {
+                            Image buttonImage = WorldButtonsHolder[cols, rows].GetComponent<Image>();
+
+                            buttonImage.color = Color.green;
+                        }
+                        count++;
                     }
                 }
             }
+        }
+
+        // All worlds completed nodes are turned black
+        for (int i = 0; i < playerData.NumberOfWorldsCompleted; i++)
+        {
+            string[] SplitString = playerData.WorldsCompleted[i].Split(',');
+
+            int col = int.Parse(SplitString[0]);
+            int row = int.Parse(SplitString[1]);
+
+            Image buttonImages = WorldButtonsHolder[col, row].GetComponent<Image>();
+            Button buttonComponent = WorldButtonsHolder[col, row].GetComponent<Button>();
+            buttonImages.color = Color.black;
+
+            var DisabledColor = buttonComponent.colors;
+            DisabledColor.disabledColor = Color.white;
+            buttonComponent.colors = DisabledColor;
+
+            //roadPath.PathTakenTrail(col, row, i);
         }
     }
 }

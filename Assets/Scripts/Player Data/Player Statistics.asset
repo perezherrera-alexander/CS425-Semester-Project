@@ -18,11 +18,11 @@ MonoBehaviour:
   EvolutionPointsDuringWorld: 20
   EnemiesKilled: 0
   EnemiesKilledDuringWorld: 0
-  NumberOfWorldsCompleted: 2
-  CurrentWorld: 1,3
+  NumberOfWorldsCompleted: 1
+  CurrentWorld: 0,3
   WorldsCompleted:
   - 0,3
-  - 1,3
+  - 
   - 
   - 
   - 
@@ -122,12 +122,12 @@ MonoBehaviour:
   - 
   - 
   LocationOfTowerUnlock:
-  - 3,3
-  - 4,0
+  - 1,2
+  - 2,2
+  - 3,0
+  - 4,3
   - 5,3
-  - 6,4
-  - 7,6
-  - 8,0
+  - 6,1
   TowersObtained: 3
   Towers:
   - {fileID: 9090199576069704506, guid: 43408111086a3e34db3441bd1aa0baab, type: 3}
@@ -172,23 +172,17 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   TowerUnlockOrder:
+  - {fileID: 1779559047980987579, guid: e6d988cee754c7c4db9d4e5088529d64, type: 3}
+  - {fileID: 5375419024465267202, guid: 038281cb77a244742a6c90eadb25957a, type: 3}
   - {fileID: 342585393426448817, guid: 3505d66aedc9c5846b141bb259ef4e91, type: 3}
   - {fileID: 8433493587229939750, guid: 3f9bf1ad1c016644bacaebcec1d930ed, type: 3}
-  - {fileID: 1587570604612605659, guid: 7df61434015697245b3e946ffe96167e, type: 3}
-  - {fileID: 5375419024465267202, guid: 038281cb77a244742a6c90eadb25957a, type: 3}
+  - {fileID: 1071273790937799345, guid: 8a69c412e80b649459dcfa6570d5f355, type: 3}
   - {fileID: 7159842274490414621, guid: 755addfaf130171459f81e3a8a284933, type: 3}
-  - {fileID: 1779559047980987579, guid: e6d988cee754c7c4db9d4e5088529d64, type: 3}
   activeGeneral: 0
   activeModifier: 0
   LevelLoaded: 0
   PathsVisited:
-  - Expedition
   - Desolate
-  - Wonderland
-  - New York City
-  - Forest Edge
-  - Sonora
-  - No Man's Land
   RoadPathTaken:
   - {fileID: 0}
   - {fileID: 0}
@@ -210,3 +204,22 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  LocationOfHealthUnlock:
+  - 2,4
+  - 4,0
+  - 5,4
+  - 6,2
+  - 7,1
+  - 8,3
+  HealthRegenGrabbed: 0
+  HealthRegen: 10
+  LocationOfMoneyUnlock:
+  - 2,3
+  - 3,1
+  - 4,2
+  - 5,0
+  - 6,0
+  - 7,4
+  MoneyBagGrabbed: 0
+  MoneyBag: 10
+  Saving: 0

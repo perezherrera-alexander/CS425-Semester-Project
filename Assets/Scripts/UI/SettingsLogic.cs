@@ -4,9 +4,11 @@ using UnityEngine.Audio;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
-public class SettingsLogic : MonoBehaviour
+public class SettingsLogic : MonoBehaviour, ISaveable
 {
+    public SaveLoadManager SaveLoadManager;
     public PauseMenu pauseMenu;
     public bool OnMainMenu = false;
     [Header("Audio Settings")]
@@ -23,7 +25,8 @@ public class SettingsLogic : MonoBehaviour
     private int selectedResolution;
     public TMP_Text resolutionLabel;
 
-    void Start(){
+    void Start()
+    {
         // Set Audio Settings
         volumeSlider.value = SettingsValues.gameVolume;
         musicSlider.value = SettingsValues.musicVolume;
@@ -34,7 +37,7 @@ public class SettingsLogic : MonoBehaviour
         else vsyncToggle.isOn = true;
 
         bool foundRes = false;
-        for(int i = 0; i < resolutions.Count; i++)
+        for (int i = 0; i < resolutions.Count; i++)
         {
             if (Screen.width == (int)resolutions[i].x && Screen.height == (int)resolutions[i].y)
             {
@@ -59,22 +62,28 @@ public class SettingsLogic : MonoBehaviour
         SettingsValues.musicVolume = (int)musicSlider.value;
         SettingsValues.sfxVolume = (int)sfxSlider.value;
 
-        if(SettingsValues.musicVolume == -20){
+        if (SettingsValues.musicVolume == -20)
+        {
             audioMixer.SetFloat("Music", -80);
         }
-        else{
+        else
+        {
             audioMixer.SetFloat("Music", SettingsValues.musicVolume);
         }
-        if(SettingsValues.gameVolume == -20){
+        if (SettingsValues.gameVolume == -20)
+        {
             audioMixer.SetFloat("Master", -80);
         }
-        else{
+        else
+        {
             audioMixer.SetFloat("Master", SettingsValues.gameVolume);
         }
-        if(SettingsValues.sfxVolume == -20){
+        if (SettingsValues.sfxVolume == -20)
+        {
             audioMixer.SetFloat("SFX", -80);
         }
-        else{
+        else
+        {
             audioMixer.SetFloat("SFX", SettingsValues.sfxVolume);
         }
 
@@ -85,7 +94,7 @@ public class SettingsLogic : MonoBehaviour
     }
 
 
-        public void ResLeft()
+    public void ResLeft()
     {
         selectedResolution--;
         if (selectedResolution < 0) selectedResolution = resolutions.Count - 1;
@@ -120,8 +129,42 @@ public class SettingsLogic : MonoBehaviour
     public void ExitSettings()
     {
         this.gameObject.SetActive(false);
-        if(!OnMainMenu) {
+        if (!OnMainMenu)
+        {
             pauseMenu.ExitSettings();
         }
+    }
+
+    public object CaptureState()
+    {
+        return new SaveData
+        {
+            volumeSlider = volumeSlider,
+            musicSlider = musicSlider,
+            sfxSlider = sfxSlider,
+            fullscrenToggle = fullscrenToggle,
+            vsyncToggle = vsyncToggle
+        };
+    }
+
+    public void RestoreState(object state)
+    {
+        var saveData = (SaveData)state;
+
+        volumeSlider = saveData.volumeSlider;
+        musicSlider = saveData.musicSlider;
+        sfxSlider = saveData.sfxSlider;
+        fullscrenToggle = saveData.fullscrenToggle;
+        vsyncToggle = saveData.vsyncToggle;
+    }
+
+    [Serializable]
+    private struct SaveData
+    {
+        public Slider volumeSlider;
+        public Slider musicSlider;
+        public Slider sfxSlider;
+        public Toggle fullscrenToggle;
+        public Toggle vsyncToggle;
     }
 }

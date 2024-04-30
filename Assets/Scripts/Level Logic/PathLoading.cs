@@ -40,6 +40,7 @@ public class PathLoading : MonoBehaviour, ISaveable
             // Assign one of the prefab paths to the "World Objects" game object
             int pathIndex = LoadRandomLevel();
             LevelChoice = pathIndex;
+            Debug.Log(LevelChoice);
             if(pathIndex == 3)
             {
 

@@ -11,6 +11,7 @@ public class WorldMapGenerator : MonoBehaviour
 {
     public GridLayoutBluePrint grid;
     public PlayerData playerData;
+    public SaveLoadManager saveLoadManager;
 
     public GameObject[,] WorldButtons;
     public bool[,] WorldsInUseForMapGeneration;
@@ -87,6 +88,8 @@ public class WorldMapGenerator : MonoBehaviour
             Debug.Log("Button clicked at: " + col + ", " + row);
 
             string location = col + "," + row;
+
+            // location of tower unlocks
             if (playerData.LocationOfTowerUnlock.Contains(location))
             {
                 // Find the position of the location in the LocationOfTowerUnlock array
@@ -103,6 +106,24 @@ public class WorldMapGenerator : MonoBehaviour
 
                 // Debug output
                 Debug.Log("Tower obtained: " + tower.name);
+            }
+
+            // location of health unlocks
+            if (playerData.LocationOfHealthUnlock.Contains(location))
+            {
+                playerData.Morale += playerData.HealthRegen;
+
+                // Debug output
+                Debug.Log("health obtained: " + playerData.HealthRegen);
+            }
+
+            // location of money unlocks
+            if (playerData.LocationOfMoneyUnlock.Contains(location))
+            {
+                playerData.MoneyBagGrabbed = true;
+
+                // Debug output
+                Debug.Log("health obtained: " + playerData.MoneyBag);
             }
 
 
@@ -135,6 +156,8 @@ public class WorldMapGenerator : MonoBehaviour
         string combineddata = string.Join(",", col, row);
 
         playerData.CurrentWorld = combineddata;
+
+        playerData.Saving = true;
 
         SceneManager.LoadScene("Game View");
     }

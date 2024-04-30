@@ -33,10 +33,14 @@ public class PlayerData : ScriptableObject
     public GameObject[] RoadPathTaken;
 
     public string[] LocationOfHealthUnlock;
+    public bool HealthRegenGrabbed = false;
     public int HealthRegen = 10;
 
     public string[] LocationOfMoneyUnlock;
+    public bool MoneyBagGrabbed = false;
     public int MoneyBag = 10;
+
+    public bool Saving = false;
 
     public void UpdateStats(int morale, int evolutionPoints, int enemiesKilled)
     {
@@ -74,6 +78,14 @@ public class PlayerData : ScriptableObject
     public void InitializeTowerUnlockOrderArray(int arraySize)
     {
         TowerUnlockOrder = new GameObject[arraySize];
+    }
+    public void InitializeHealthUnlockArray(int arraySize)
+    {
+        LocationOfHealthUnlock = new string[arraySize];
+    }
+    public void InitializeMoneyUnlockArray(int arraySize)
+    {
+        LocationOfMoneyUnlock = new string[arraySize];
     }
     public void InitializeRoadPathTakenArray(int arraySize)
     {

@@ -11,13 +11,13 @@ public class SaveLoadManager : MonoBehaviour
     public void Save()
     {
         Debug.Log("I am now saving");
-        var State = LoadFile();
-        CaptureState(State);
         // Delete the old save file if it exists
         if (File.Exists(SavePath))
         {
             File.Delete(SavePath);
         }
+        var State = LoadFile();
+        CaptureState(State);
         // Save the new state
         SaveFile(State);
     }

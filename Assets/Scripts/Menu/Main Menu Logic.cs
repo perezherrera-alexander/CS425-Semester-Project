@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 using System.IO;
+using System.Collections.Generic;
 
 public class MainMenu : MonoBehaviour
 {
@@ -34,6 +35,15 @@ public class MainMenu : MonoBehaviour
         playerData.InitializeTowerUnlockOrderArray(6);
         playerData.InitializeRoadPathTakenArray(0);
         playerData.InitializeRoadPathTakenArray(20);
+        playerData.InitializeTowerUnlockArray(0);
+        playerData.InitializeTowerUnlockArray(6);
+        playerData.InitializeHealthUnlockArray(0);
+        playerData.InitializeHealthUnlockArray(6);
+        playerData.InitializeMoneyUnlockArray(0);
+        playerData.InitializeMoneyUnlockArray(6);
+        playerData.Saving = false;
+        playerData.PathsVisited = new List<string>();
+        playerData.LevelLoaded = false;
     }
 
     void Update()
@@ -44,16 +54,9 @@ public class MainMenu : MonoBehaviour
     }
     public void goToScene(string sceneName)
     {
-        if (File.Exists(SavePath))
-        {
-            Debug.Log("DO YOU WISH TO DELETE SAVE AND START NEW RUN");
-            temptstringname = sceneName;
-            return;
-        }
-        else
-        {
+
             SceneManager.LoadScene(sceneName);
-        }
+
     }
 
     public void DeleteOldSaveStartNewRun()
@@ -86,7 +89,7 @@ public class MainMenu : MonoBehaviour
     {
         Debug.Log("Load World Map Save......");
         SceneManager.sceneLoaded += OnSceneLoaded; // Subscribe to the sceneLoaded event
-        SceneManager.LoadScene("World Map Generation");
+        SceneManager.LoadScene("Game View");
     }
 
     public void LoadTutorialWorld(){
@@ -105,6 +108,7 @@ public class MainMenu : MonoBehaviour
     {
         Debug.Log("Scene loaded");
         saveLoadManager.Load();
+        playerData.LevelLoaded = true;
         SceneManager.sceneLoaded -= OnSceneLoaded; // Unsubscribe to the event to avoid multiple calls
     }
 }
