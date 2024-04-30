@@ -27,6 +27,8 @@ public class MainMenu : MonoBehaviour
         // else Debug.Log("Music Slider is null");
         // if(difficultyDropdown != null) difficultyDropdown.value = SettingsValues.difficulty;
         // else Debug.Log("Difficulty Dropdown is null");
+        playerData.InitializeWorldsCompletedArray(0);
+        playerData.InitializeWorldsCompletedArray(100);
         playerData.InitializeTowersArray(0);
         playerData.InitializeTowersArray(20);
         playerData.InitializeTowerPoolArray(0);

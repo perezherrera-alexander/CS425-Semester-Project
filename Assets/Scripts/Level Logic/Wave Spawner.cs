@@ -311,15 +311,15 @@ public class WaveSpawner : MonoBehaviour
         PlayerData.WorldsCompleted[PlayerData.NumberOfWorldsCompleted] = PlayerData.CurrentWorld;
         PlayerData.NumberOfWorldsCompleted += 1;
         //Debug.Log("Loading Next Level (Go into code and change this to the next level)");
-        if (PlayerData.NumberOfWorldsCompleted < 12)
+        if (PlayerData.NumberOfWorldsCompleted < 6)
         {
             GameObject Path = GameObject.Find("World Objects");
             Path = Path.transform.GetChild(0).gameObject;
             // Remove the word "(Clone)" from the end of the path name
             PlayerData.PathsVisited.Add(Path.name.Substring(0, Path.name.Length - 7));
-            UnityEngine.SceneManagement.SceneManager.LoadScene("World Map Generation");
+            UnityEngine.SceneManagement.SceneManager.LoadScene("World Map Generation Demo");
         }
-        else if (PlayerData.NumberOfWorldsCompleted == 12)
+        else if (PlayerData.NumberOfWorldsCompleted == 6)
         {
             if (File.Exists(SavePath))
             {

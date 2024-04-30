@@ -224,11 +224,27 @@ public class SelectTowerToUpgrade : MonoBehaviour
         playerData.EvolutionPoints = 20;
         playerData.EnemiesKilled = 0;
         playerData.NumberOfWorldsCompleted = 0;
-        playerData.CurrentWorld = "0,3";
+        //playerData.CurrentWorld = "0,3";
+        playerData.CurrentWorld = "0,2";
+        playerData.InitializeWorldsCompletedArray(0);
         playerData.InitializeWorldsCompletedArray(100);
-        playerData.InitializeTowerUnlockArray(6);
+        playerData.InitializeTowersArray(0);
+        playerData.InitializeTowersArray(20);
+        playerData.InitializeTowerPoolArray(0);
+        playerData.InitializeTowerPoolArray(20);
         playerData.InitializeTowerUnlockOrderArray(0);
         playerData.InitializeTowerUnlockOrderArray(6);
+        playerData.InitializeRoadPathTakenArray(0);
+        playerData.InitializeRoadPathTakenArray(20);
+        playerData.InitializeTowerUnlockArray(0);
+        playerData.InitializeTowerUnlockArray(6);
+        playerData.InitializeHealthUnlockArray(0);
+        playerData.InitializeHealthUnlockArray(6);
+        playerData.InitializeMoneyUnlockArray(0);
+        playerData.InitializeMoneyUnlockArray(6);
+        playerData.Saving = false;
+        playerData.PathsVisited = new List<string>();
+        playerData.LevelLoaded = false;
 
         SceneManager.LoadScene("Game View");
     }

@@ -57,7 +57,8 @@ public class NewLevel : MonoBehaviour
             }
             playerData.EnemiesKilled = 0;
             playerData.NumberOfWorldsCompleted = 0;
-            playerData.CurrentWorld = "0,3";
+            //playerData.CurrentWorld = "0,3";
+            playerData.CurrentWorld = "0,2";
             playerData.InitializeWorldsCompletedArray(100);
             playerData.InitializeTowerUnlockArray(6);
             SceneManager.LoadScene(sceneName);
