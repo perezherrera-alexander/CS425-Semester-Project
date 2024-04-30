@@ -53,6 +53,7 @@ public class WaveSpawner : MonoBehaviour
     public List<WaveFormat> waveFormatsNormal;
     public List<WaveFormat> waveFormatsHard;
     public WaveFormat FinalBossWave;
+    public WaveFormat EnemeyShowcaseWave;
     private WaveFormat waveFormat;
     private List<List<waveFormation>> waves = new List<List<waveFormation>>(); // List of waves
     public Transform SpawnPoint;
@@ -111,6 +112,11 @@ public class WaveSpawner : MonoBehaviour
         if(ShowBossForFinalDemo)
         {
             waveFormat = FinalBossWave;
+            return;
+        }
+        if(EnemyShowcaseMode)
+        {
+            waveFormat = EnemeyShowcaseWave;
             return;
         }
         switch (SettingsValues.difficulty)
