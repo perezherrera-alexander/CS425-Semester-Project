@@ -107,6 +107,7 @@ MonoBehaviour:
   maxHealth: 5
   health: 5
   goldIncreased: 0
+  audioSource: {fileID: 4388709415425219200}
   speed: 10
   slowFactor: 1
   slowDownTimer: 0
@@ -116,9 +117,8 @@ MonoBehaviour:
   target: {fileID: 0}
   waypointindex: 0
   differentStart: 0
-  audioSource: {fileID: 4388709415425219200}
   hitSound1: {fileID: 8300000, guid: cb92da7624f549e4abe122ca80465d15, type: 3}
-  hitSound2: {fileID: 8300000, guid: b9932552b723b724f99a0c03930bba26, type: 3}
+  hitSound2: {fileID: 8300000, guid: d0b056685a3d14940b697a6e3a1f686f, type: 3}
   hitSound3: {fileID: 8300000, guid: 8f78af87760ba384385f84f01c399938, type: 3}
 --- !u!1 &8826107745109250090
 GameObject:

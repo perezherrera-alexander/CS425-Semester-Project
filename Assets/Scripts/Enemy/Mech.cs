@@ -22,6 +22,7 @@ public class Mech : BaseEnemyLogic
     public int childEnemyID1;
     public int childEnemyID2;
     public int childEnemyID3;
+    public AudioClip hit;
     public WaveSpawner waveSpawner;
 
     public float[] waypointDistances;
@@ -163,7 +164,8 @@ public class Mech : BaseEnemyLogic
         }
         else
         {
-            //int rand = Random.Range(1, 5);
+            //Play hit sound
+            audioSource.PlayOneShot(hit);
         }
     }
     public override void GetNextWaypoint(){
