@@ -19,6 +19,8 @@ public class MainMenu : MonoBehaviour
     public GameObject LoadSaveButton;
     public string temptstringname;
 
+    public GameObject UI;
+
     void Start(){
         if (File.Exists(SavePath)) LoadSaveButton.SetActive(true);
         // if(volumeSlider != null) volumeSlider.value = SettingsValues.gameVolume;
@@ -56,9 +58,20 @@ public class MainMenu : MonoBehaviour
     }
     public void goToScene(string sceneName)
     {
-
+        temptstringname = sceneName;
+        if (File.Exists(SavePath))
+        {
+            UI.SetActive(true);
+        }
+        else
+        {
             SceneManager.LoadScene(sceneName);
+        }
 
+    }
+    public void HideUI()
+    {
+        UI.SetActive (false);
     }
 
     public void DeleteOldSaveStartNewRun()
