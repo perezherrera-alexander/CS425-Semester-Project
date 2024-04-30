@@ -11,6 +11,7 @@ public class UI_Assistant : MonoBehaviour
         partone = transform.Find("PartOne").GetComponent<PartOne>();
         //enable partone script after 5 seconds
         Invoke("EnablePartOne", 5f);
+        //Application.targetFrameRate = 60;
     }
     private void EnablePartOne(){
         partone.enabled = true;
