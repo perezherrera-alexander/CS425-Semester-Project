@@ -135,4 +135,23 @@ public class EnemyCarrier : BaseEnemyLogic
         }
         Instantiate(particles, transform);
     }
+    public override void GetNextWaypoint(){
+        if (waypointindex >= Path.waypoints.Length){ // Enemy reaches end of path
+            //decrement player health according to
+            float EnemyHealth = getHealth();
+            if(EnemyHealth < 1f)
+            {
+                EnemyHealth = 1f;
+            }
+            int MoraleLost = (int)EnemyHealth;
+            PlayerStatistics.Instance.ReduceMorale(MoraleLost);
+            //subtract present enemies count by 1
+            PlayerStatistics.Instance.enemiesPresent-=5;
+            Destroy(gameObject);
+            return;
+        }
+        transform.LookAt(Path.waypoints[waypointindex]);
+        target = Path.waypoints[waypointindex];
+        waypointindex++;
+    }
 }
