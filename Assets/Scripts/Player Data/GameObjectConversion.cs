@@ -13,6 +13,16 @@ public class GameObjectConversion : MonoBehaviour
     [SerializeField] private GameObject GrassHopperPrefab;
     [SerializeField] private GameObject MothPrefab;
 
+    [SerializeField] private GameObject AttackBeePrefab;
+    [SerializeField] private GameObject BeeSwarmPrefab;
+    [SerializeField] private GameObject BuffingBeePrefab;
+    [SerializeField] private GameObject FlamePrefab;
+    [SerializeField] private GameObject MeleePrefab;
+    [SerializeField] private GameObject MortarAntPrefab;
+    [SerializeField] private GameObject WaspPrefab;
+    [SerializeField] private GameObject WaspMeleePrefab;
+
+
     public GameObject[] LoadTowerArray;
     public string[] SaveTowerArray;
 
@@ -31,6 +41,7 @@ public class GameObjectConversion : MonoBehaviour
             else
             {
                 SaveTowerArray[count] = tower[count].name;
+                Debug.Log(tower[count].name);
             }
             count++;
         }
@@ -52,6 +63,7 @@ public class GameObjectConversion : MonoBehaviour
             else
             {
                 SaveTowerArray[count] = tower[count].name;
+                Debug.Log(tower[count].name);
             }
             count++;
         }
@@ -105,19 +117,36 @@ public class GameObjectConversion : MonoBehaviour
     {
         switch (name)
         {
-            case "Centipede Mother":
+            case "AttackBeeTower":
+                return AttackBeePrefab;
+            case "BeeSwarmTower":
+                return BeeSwarmPrefab;
+            case "BuffingBeeTower":
+                return BuffingBeePrefab;
+            case "FlameTower":
+                return FlamePrefab;
+            case "MeleeTower":
+                return MeleePrefab;
+            case "MortarAnt":
+                return MortarAntPrefab;
+            case "Wasp":
+                return WaspPrefab;
+            case "WaspMelee":
+                return WaspMeleePrefab;
+
+            case "Centipede Tower":
                 return CentipedePrefab;
-            case "Mantis Warrior":
+            case "MantisTower":
                 return MantisPrefab;
-            case "Beetle Buzzer":
+            case "BeetleTower":
                 return BeetlePrefab;
-            case "Stag Staller":
+            case "StagBeetleTower":
                 return StagBeetlePrefab;
-            case "Spider Tower":
+            case "Spider":
                 return SpiderPrefab;
-            case "Grasshopper Lair":
+            case "grassHopperTower":
                 return GrassHopperPrefab;
-            case "Moth Man":
+            case "mothTower":
                 return MothPrefab;
 
             default:

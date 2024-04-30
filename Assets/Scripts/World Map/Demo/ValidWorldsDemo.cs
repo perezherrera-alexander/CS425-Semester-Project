@@ -10,7 +10,7 @@ public class ValidWorldsDemo : MonoBehaviour
 {
     public PlayerData playerData;
     public SaveLoadManager saveLoadManager;
-    //public RoadPath roadPath;
+    public RoadPathDemo roadPath;
     //public TrackLevelsCompleted trackLevelsCompleted;
 
     //public GameObject InvalidWorldMessage;
@@ -30,7 +30,7 @@ public class ValidWorldsDemo : MonoBehaviour
 
     public void Start()
     {
-        //roadPath.StartingWorldPath();
+        roadPath.StartingWorldPath();
         WorldButtonsHolder = worldMapGenerator.WorldButtons;
 
         WorldsInUseForMapGenerationHolder = worldMapGenerator.WorldsInUseForMapGeneration;
@@ -86,7 +86,7 @@ public class ValidWorldsDemo : MonoBehaviour
 
                     buttonImage.color = Color.white;
                     buttonComponent.interactable = true;
-                    //roadPath.SetVisibleCurrentRoadPath();
+                    roadPath.SetVisibleCurrentRoadPath();
                 }
             }
         }
@@ -191,7 +191,7 @@ public class ValidWorldsDemo : MonoBehaviour
             DisabledColor.disabledColor = Color.white;
             buttonComponent.colors = DisabledColor;
 
-            //roadPath.PathTakenTrail(col, row, i);
+            roadPath.PathTakenTrail(col, row, i);
         }
     }
 }
