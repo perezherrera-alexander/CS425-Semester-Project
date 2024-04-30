@@ -327,11 +327,11 @@ MonoBehaviour:
   stunned: {fileID: 189072712425041892, guid: 182388158bfb28a49b1f764932fdc931, type: 3}
   death: {fileID: 0}
   model: {fileID: 0}
-  maxHealth: 50
-  health: 50
+  maxHealth: 100
+  health: 100
   goldIncreased: 0
   audioSource: {fileID: 4021327915192227927}
-  speed: 10
+  speed: 6
   slowFactor: 1
   slowDownTimer: 0
   dotDamage: 0
@@ -377,9 +377,9 @@ MonoBehaviour:
   quarterWaypointIndex: 0
   halfWaypointIndex: 0
   threeQuarterWaypointIndex: 0
-  childEnemyID1: 1
-  childEnemyID2: 2
-  childEnemyID3: 3
+  childEnemyID1: 3
+  childEnemyID2: 4
+  childEnemyID3: 5
   waveSpawner: {fileID: 0}
   waypointDistances: []
 --- !u!1001 &7413942725307852210
