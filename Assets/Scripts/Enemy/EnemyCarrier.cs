@@ -19,7 +19,7 @@ public class EnemyCarrier : BaseEnemyLogic
         maxHealth = health;
 
         //increase number of enemies counter by 1
-        PlayerStatistics.Instance.enemiesPresent+=1;
+        PlayerStatistics.Instance.enemiesPresent+=5;
         //code to deal with the enemy being spawned from another enemy
         if(!differentStart) target = Path.waypoints[0];
         curSpeed = speed;
