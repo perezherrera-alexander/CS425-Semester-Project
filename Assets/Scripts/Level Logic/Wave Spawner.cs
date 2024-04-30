@@ -304,7 +304,7 @@ public class WaveSpawner : MonoBehaviour
         }
         else if (PlayerData.NumberOfWorldsCompleted == 12)
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene("Main Menu");
+            UnityEngine.SceneManagement.SceneManager.LoadScene("End Screen");
         }
     }
 
