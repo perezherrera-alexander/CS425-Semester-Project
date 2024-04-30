@@ -61,7 +61,7 @@ public class PauseMenu : MonoBehaviour
 
     public void LoadSettings()
     {
-        Debug.Log("Loading Settings......");
+        //Debug.Log("Loading Settings......");
         PauseMenuUI.SetActive(false);
         SettingsMenuUI.SetActive(true);
         SettingsStatus = true;
@@ -69,7 +69,7 @@ public class PauseMenu : MonoBehaviour
 
     public void ExitSettings()
     {
-        Debug.Log("Exiting Settings......");
+        //Debug.Log("Exiting Settings......");
         PauseMenuUI.SetActive(true);
         SettingsMenuUI.SetActive(false);
         SettingsStatus = false;
@@ -78,7 +78,7 @@ public class PauseMenu : MonoBehaviour
     public void QuittoMainMenu ()
     {
         Time.timeScale = 1.0f;
-        Debug.Log("Quitting to Main Menu......");
+        //Debug.Log("Quitting to Main Menu......");
         SceneManager.LoadScene("Main Menu");
     }
 
@@ -101,7 +101,7 @@ public class PauseMenu : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log("Scene loaded");
+        //Debug.Log("Scene loaded");
         Time.timeScale = 1.0f;
         GameIsPaused = false;
         saveLoadManager.Load();

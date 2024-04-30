@@ -155,7 +155,7 @@ public class WaveSpawner : MonoBehaviour
                 waveFormat = waveFormatsNormal[UnityEngine.Random.Range(0, waveFormatsNormal.Count)];
                 break;
         }
-        Debug.Log("Difficulty: " + SettingsValues.difficulty);
+        //Debug.Log("Difficulty: " + SettingsValues.difficulty);
     }
 
     void Update()

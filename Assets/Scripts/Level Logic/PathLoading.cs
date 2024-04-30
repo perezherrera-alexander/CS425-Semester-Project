@@ -40,7 +40,7 @@ public class PathLoading : MonoBehaviour, ISaveable
             // Assign one of the prefab paths to the "World Objects" game object
             int pathIndex = LoadRandomLevel();
             LevelChoice = pathIndex;
-            Debug.Log(LevelChoice);
+            //Debug.Log(LevelChoice);
             if(pathIndex == 3)
             {
 
@@ -86,7 +86,7 @@ public class PathLoading : MonoBehaviour, ISaveable
 
     public object CaptureState()
     {
-        Debug.Log(LevelChoice);
+        //Debug.Log(LevelChoice);
         Debug.Log("CaptureState called");
         return new SaveData
         {
@@ -100,8 +100,8 @@ public class PathLoading : MonoBehaviour, ISaveable
         var saveData = (SaveData)state;
 
         LevelChoice = saveData.LevelChoice;
-        Debug.Log(LevelChoice);
-        Debug.Log("Did Restore state even load");
+        //Debug.Log(LevelChoice);
+        //Debug.Log("Did Restore state even load");
     }
 
     private int LoadRandomLevel()

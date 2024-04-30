@@ -20,7 +20,7 @@ public class RoadPathDemo : MonoBehaviour
         string[] SplitString = playerData.CurrentWorld.Split(',');
 
         int cols = int.Parse(SplitString[0]);
-        Debug.Log(cols);
+        //Debug.Log(cols);
         if (cols == 0)
         {
 

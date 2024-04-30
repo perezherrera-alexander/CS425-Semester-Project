@@ -85,7 +85,7 @@ public class WorldMapGeneratorDemo : MonoBehaviour
 
         if (worldNode != null)
         {
-            Debug.Log("Button clicked at: " + col + ", " + row);
+            //Debug.Log("Button clicked at: " + col + ", " + row);
 
             string location = col + "," + row;
 

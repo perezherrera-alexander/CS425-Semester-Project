@@ -41,7 +41,7 @@ public class GameObjectConversion : MonoBehaviour
             else
             {
                 SaveTowerArray[count] = tower[count].name;
-                Debug.Log(tower[count].name);
+                //Debug.Log(tower[count].name);
             }
             count++;
         }
@@ -63,7 +63,7 @@ public class GameObjectConversion : MonoBehaviour
             else
             {
                 SaveTowerArray[count] = tower[count].name;
-                Debug.Log(tower[count].name);
+                //Debug.Log(tower[count].name);
             }
             count++;
         }
