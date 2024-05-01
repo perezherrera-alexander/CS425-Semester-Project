@@ -7,7 +7,7 @@ public class mantisTower : BaseTowerLogic
 {
     public GameObject secondRange;
     public StoreTowerUpgradeData storeTowerUpgradeData;
-    private Animator animate;
+    public Animator animate;
     public string id;
     public float sliceDmg = 0.75f;
     public ParticleSystem holy;
@@ -72,6 +72,7 @@ public class mantisTower : BaseTowerLogic
         var targ = target.GetComponent<BaseEnemyLogic>();
             targ.reduceHealth(sliceDmg);
         
+        audioSource.PlayOneShot(audioClip);
 
     }
 
