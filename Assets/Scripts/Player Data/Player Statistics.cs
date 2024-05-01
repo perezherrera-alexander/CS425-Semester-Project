@@ -57,6 +57,10 @@ public class PlayerStatistics : MonoBehaviour, ISaveable
         int enemiesKilled = GetEnemiesKilled();
 
         playerData.UpdateStats(currentMorale, evolutionPoints, enemiesKilled);
+        if(enemiesPresent<0){
+            enemiesPresent = 0;
+        }
+
 
     }
 
