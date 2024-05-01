@@ -60,10 +60,18 @@ public class ShopLogic : MonoBehaviour
         {
             if(shopIsOpen)
             {
-                ToggleShopUI();
+                ShopHidden();
+            }
+            else
+            {
+                HideShowButton();
             }
         }
         else {
+            if(!shopIsOpen)
+            {
+                openShopButton.SetActive(true);
+            }
             if (Input.GetKeyDown(KeyCode.B))
             {
                 ToggleShopUI();
@@ -148,6 +156,11 @@ public class ShopLogic : MonoBehaviour
         openShopButton.SetActive(true);
         shopPanel.SetActive(false);
         shopIsOpen = false;
+    }
+
+    public void HideShowButton()
+    {
+        openShopButton.SetActive(false);
     }
     
     // Purchase functions written by Edward Martinez

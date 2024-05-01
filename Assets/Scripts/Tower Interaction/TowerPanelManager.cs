@@ -93,7 +93,6 @@ public class TowerPanelManager : MonoBehaviour
 
     private void OpenTowerPanel()
     {
-
         BaseTowerLogic towerScript = SelectedTower.GetComponentInChildren<BaseTowerLogic>();
         Button deleteButton2;
 
@@ -108,7 +107,7 @@ public class TowerPanelManager : MonoBehaviour
         {
             TowerPanelInstance = Instantiate(TowerPanelPrefab) as GameObject;
             TowerPanelInstance.transform.position = SelectedTower.transform.position;
-            
+            TowerPanelInstance.transform.GetChild(0).GetChild(2).GetChild(0).GetComponent<TMP_Dropdown>().value = (int)towerScript.targetingType;
             deleteButton2 = TowerPanelInstance.transform.GetChild(0).GetChild(4).GetChild(0).GetComponent<Button>();
 
 
