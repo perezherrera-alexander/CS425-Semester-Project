@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -180,7 +180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 2b3a0d25d2f258a4b98e60951e125ded, type: 3}
+  m_Texture: {fileID: 2800000, guid: 57fe91785643c424bb9213e7074406ee, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -195,17 +195,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 10031573}
   m_CullTransparentMesh: 1
---- !u!114 &49103802 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5284463728344835508, guid: 920e0e11675b21e44b7a29f8e7caed45, type: 3}
-  m_PrefabInstance: {fileID: 1496997556}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &56287041
 GameObject:
   m_ObjectHideFlags: 0
@@ -817,7 +806,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 79e1fa0eadc06c94ab15646b0043f9b6, type: 3}
+  m_Texture: {fileID: 2800000, guid: 57fe91785643c424bb9213e7074406ee, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -1067,9 +1056,6 @@ MonoBehaviour:
   SettingsStatus: 0
   PauseMenuUI: {fileID: 2100056514}
   SettingsMenuUI: {fileID: 1443954296}
-  volumeSlider: {fileID: 738801598}
-  musicSlider: {fileID: 49103802}
-  difficultyDropdown: {fileID: 1306623350}
   playerData: {fileID: 11400000, guid: e5182c4790afae948a360981dc4d0e9a, type: 2}
 --- !u!114 &655933922
 MonoBehaviour:
@@ -1224,17 +1210,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &738801598 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9123582436850844739, guid: 920e0e11675b21e44b7a29f8e7caed45, type: 3}
-  m_PrefabInstance: {fileID: 1496997556}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &748181950
 GameObject:
   m_ObjectHideFlags: 0
@@ -2155,17 +2130,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1298194995}
   m_CullTransparentMesh: 1
---- !u!114 &1306623350 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8005946791893363241, guid: 920e0e11675b21e44b7a29f8e7caed45, type: 3}
-  m_PrefabInstance: {fileID: 1496997556}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b743370ac3e4ec2a1668f5455a8ef8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1386453005
 GameObject:
   m_ObjectHideFlags: 0
@@ -3005,6 +2969,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerData: {fileID: 11400000, guid: e5182c4790afae948a360981dc4d0e9a, type: 2}
+  SaveLoadManager: {fileID: 0}
   enemy1: {fileID: 8368731085636143380, guid: 1efa8932789fd854fb50e90e40f5c39b, type: 3}
   enemy2: {fileID: 493985169150360010, guid: 8b446b714c3ff954baca0c6386ecfbe7, type: 3}
   enemy3: {fileID: 5512348237283082412, guid: decd8ce85050ec542ac1946a45a530f3, type: 3}
@@ -3027,12 +2992,19 @@ MonoBehaviour:
   enemyF: {fileID: 0}
   enemyM: {fileID: 0}
   enemyW: {fileID: 652428192806326497, guid: 8a4380fe5adb0d14cb16cd9ea54348cd, type: 3}
+  childEnemy: {fileID: 0}
+  childEnemy2: {fileID: 0}
+  childEnemy3: {fileID: 0}
+  childEnemy4: {fileID: 0}
+  childEnemy5: {fileID: 0}
   waveFormatsEasy:
   - {fileID: 11400000, guid: 91cc4e7db73c15d4faf1e07d50e5e990, type: 2}
   waveFormatsNormal:
   - {fileID: 11400000, guid: 91cc4e7db73c15d4faf1e07d50e5e990, type: 2}
   waveFormatsHard:
   - {fileID: 11400000, guid: 91cc4e7db73c15d4faf1e07d50e5e990, type: 2}
+  FinalBossWave: {fileID: 0}
+  EnemyShowcaseWave: {fileID: 0}
   SpawnPoint: {fileID: 1163869961}
   gameState: 0
   enemiesDoneSpawning: 0
@@ -3040,9 +3012,13 @@ MonoBehaviour:
   maxWaveCount: 10
   autostartNextWave: 0
   tutorialMode: 1
+  ShowBossForFinalDemo: 0
+  EnemyShowcaseMode: 0
+  waveInUse: {fileID: 0}
   waveCountDownText: {fileID: 2015734061}
   levelCompleteText: {fileID: 1738038850}
   beginNextWaveText: {fileID: 1826386579}
+  expectedEnemies: 0
 --- !u!4 &1798962333
 Transform:
   m_ObjectHideFlags: 0
@@ -3125,6 +3101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: e5182c4790afae948a360981dc4d0e9a, type: 2}
+  saveLoadManager: {fileID: 0}
   moraleBar: {fileID: 941001329}
   MaxMorale: 100
   currentMorale: 100
@@ -3155,7 +3132,7 @@ MonoBehaviour:
   - Your goal is to prevent enemies from reaching your nest, located near at the
     end of the path (near the center of the screen.) These enemies will begin marching
     from the left side of the screen and follow the path until they reach your nest.
-  - If enemies reach the center next, you will lose Morale. Lose all your morale
+  - If enemies reach the center nest, you will lose Morale. Lose all your morale
     and you will lose the campaign and must start again. You can use the shop to
     purhcase towers to help you defned. Open the shop to the right by clicking the
     DNA icon.
@@ -3177,6 +3154,8 @@ MonoBehaviour:
     which towers you begin with as well as the nest ability. You will also be able
     to unlock new towers depending on which levels you tackle. Your goal is to make
     it across the world map to successfully repel the AI invaders.
+  - 'One more thing: If you''re unhappy with the location of a tower, you can select
+    that tower and delete it for a full refund.'
   - Feel free to complete the rest of the waves if you have not already done so.
     Good Luck!
   tutorialPanelPositions:
@@ -3186,6 +3165,7 @@ MonoBehaviour:
   - {x: 1200, y: -450}
   - {x: 1200, y: -450}
   - {x: 1230, y: -950}
+  - {x: 1200, y: -950}
   - {x: 1200, y: -950}
   - {x: 1200, y: -950}
   - {x: 1200, y: -950}
