@@ -159,4 +159,27 @@ public class FastEnemy : BaseEnemyLogic
     //     }
 
     // }
+    public override void beetleDamage(float damage)
+    {
+        health = (health - damage);
+        Instantiate(particles, transform);
+        //Play a random hit sound every 2 seconds
+        
+        
+        if(Time.time % beetleInterval == 0)
+        {   
+            System.Random random = new System.Random();
+            switch (random.Next(1, 4)){
+                case 1:
+                    audioSource.PlayOneShot(hitSound1);
+                    break;
+                case 2:
+                    audioSource.PlayOneShot(hitSound2);
+                    break;
+                case 3:
+                    audioSource.PlayOneShot(hitSound3);
+                    break;
+            }
+        }
+    }
 }

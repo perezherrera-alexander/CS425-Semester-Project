@@ -194,5 +194,18 @@ public class Mech : BaseEnemyLogic
     public override void stun(float stunTime){
         stunTimer = stunTime;
     }
+    public override void beetleDamage(float damage)
+    {
+        health = (health - damage);
+        Instantiate(particles, transform);
+        //Play a random hit sound every 2 seconds
+        
+        
+        if(Time.time % beetleInterval == 0)
+        {   
+            int random = Random.Range(1, 4);
+            audioSource.PlayOneShot(hit);
+        }
+    }
 }
 

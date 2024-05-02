@@ -15,6 +15,9 @@ public class FridgeBot : BaseEnemyLogic
     public ParticleSystem charge;
     public ParticleSystem fire;
     public ParticleSystem control;
+    public AudioClip hitSound1;
+    public AudioClip hitSound2;
+    public AudioClip hitSound3;
 
     public override void Start()
     {
@@ -102,5 +105,27 @@ public class FridgeBot : BaseEnemyLogic
         }
     }
 
-
+    public override void beetleDamage(float damage)
+    {
+        health = (health - damage);
+        Instantiate(particles, transform);
+        //Play a random hit sound every 2 seconds
+        
+        
+        if(Time.time % beetleInterval == 0)
+        {   
+            int random = Random.Range(1, 4);
+            switch (random){
+                case 1:
+                    audioSource.PlayOneShot(hitSound1);
+                    break;
+                case 2:
+                    audioSource.PlayOneShot(hitSound2);
+                    break;
+                case 3:
+                    audioSource.PlayOneShot(hitSound3);
+                    break;
+            }
+        }
+    }
 }

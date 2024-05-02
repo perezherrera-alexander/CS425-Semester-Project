@@ -21,6 +21,7 @@ public class BeetleScript : BaseTowerLogic
     public Material upgrade2;
     public List<Material> materials;
     public GameObject satellite;
+   
     // Start is called before the first frame update
     void Start()
     {

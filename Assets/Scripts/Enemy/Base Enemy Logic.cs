@@ -28,6 +28,7 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
     protected float curSpeed;
     private bool isSlowed = false;
     public AudioSource audioSource;
+    public float beetleInterval = .25f;
     
     // Start is called before the first frame update
     public virtual void Start(){
@@ -409,6 +410,9 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
         particles.Stop();
 
     }
-
+    public virtual void beetleDamage(float damage){
+        health = (health - 1);
+        Instantiate(particles, transform);
+    }
 }
 

@@ -10,6 +10,9 @@ public class BeetleProjectile : MonoBehaviour
     private Animator animate;
     public float damage = 3f;
     public bool attacking = false;
+    public AudioSource audioSource;
+    public AudioClip attack;   
+
 
     private void Start()
     {
@@ -58,7 +61,13 @@ public class BeetleProjectile : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             float dam = damage * Time.deltaTime;
-            other.GetComponent<BaseEnemyLogic>().reduceHealth(dam);
+            other.GetComponent<BaseEnemyLogic>().beetleDamage(dam);
+            //play attack sound in intervals
+            if (Time.time % 1 > 0.9 && Time.time % 1 < 1)
+            {
+                audioSource.PlayOneShot(attack);
+            }
+
         }
 
     }
