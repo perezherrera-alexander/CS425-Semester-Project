@@ -68,6 +68,7 @@ public class BeetleMelee : BaseTowerLogic
     public override void Shoot()
     {
         animate.SetTrigger("Attack");
+        audioSource.PlayOneShot(audioClip);
         if (toss)
         {
             if (hunger)
