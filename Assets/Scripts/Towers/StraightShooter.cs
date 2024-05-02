@@ -42,6 +42,8 @@ public class StraightShooter : BaseTowerLogic
 
     public override void Shoot()
     {
+        audioSource.PlayOneShot(audioClip);
+
         animate.SetTrigger("attack");
         if (tripleShot)
         {

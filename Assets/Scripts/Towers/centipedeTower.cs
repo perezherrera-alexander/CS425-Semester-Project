@@ -69,6 +69,8 @@ public class centipedeTower : BaseTowerLogic
         animate.SetTrigger("attack");
         GameObject stinger = Instantiate(projectilePrefab, locationToFireFrom.position, locationToFireFrom.rotation);
         CentipedeSeeker seek = stinger.GetComponent<CentipedeSeeker>();
+        audioSource.PlayOneShot(audioClip);
+
     }
 
     public void AddUpgradeEffects()

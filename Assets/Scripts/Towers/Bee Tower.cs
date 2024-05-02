@@ -39,6 +39,7 @@ public class BeeTower : BaseTowerLogic
 
     public override void Shoot()
     {
+
         GameObject stinger = (GameObject)Instantiate(projectilePrefab, locationToFireFrom.position, locationToFireFrom.rotation);
         stingerScript sting = stinger.GetComponent<stingerScript>();
 
