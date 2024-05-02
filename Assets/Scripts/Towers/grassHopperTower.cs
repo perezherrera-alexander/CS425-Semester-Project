@@ -45,6 +45,8 @@ public class grassHopperTower : BaseTowerLogic
         {
             ball.Seek(target);
         }
+        //Play sound
+        audioSource.PlayOneShot(audioClip);
     }
 
     public override void MakeSphere()
