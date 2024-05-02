@@ -30,6 +30,7 @@ public class EnemyCarrier : BaseEnemyLogic
     {
         if (health <= 0)
         {
+            PlayerStatistics.Instance.enemiesPresent--;
             //PlayerStatistics.AddMoney(GoldWorth);
             //spawn 4 Robot1 entities headed towards the current waypoint
             
@@ -39,7 +40,7 @@ public class EnemyCarrier : BaseEnemyLogic
 
             // If the enemy is a carrier, spawn 4 Robot1 entities headed towards the current waypoint
             //enemy.GetComponent<EnemyMovement>().waypointindex = waypointindex;
-            //PlayerStatistics.Instance.enemiesPresent += 4;
+            //PlayerStatistics.Instance.enemiesPresent += 5;
 
             // for (int i = 0; i < 4; i++)
             // {
@@ -137,7 +138,7 @@ public class EnemyCarrier : BaseEnemyLogic
             //PlayerStatistics.AddMoney(GoldWorth);
             //death.playParts(transform);
             //subtract present enemies count by 1
-            PlayerStatistics.Instance.enemiesPresent--;
+            //PlayerStatistics.Instance.enemiesPresent--;
             return;
         }
         else
