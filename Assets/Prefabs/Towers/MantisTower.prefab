@@ -341,7 +341,7 @@ MonoBehaviour:
   towerFootprint: {fileID: 4156564792721819786}
   buildCost: 6
   towerDescription: A mantis warrior that damages nearby enemies
-  towerImage: {fileID: 2800000, guid: 84c44e984f926464080a46dd7bf6e50f, type: 3}
+  towerImage: {fileID: 2800000, guid: 67185b90c09fe174d8c9908926a9a6d6, type: 3}
   targettingRange: 10
   fireRate: 1
   fireCountdown: 0
@@ -360,6 +360,7 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: bb9d08834206d6a48b9656f24a2f4352, type: 3}
   secondRange: {fileID: 3278450410758785048}
   storeTowerUpgradeData: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
+  animate: {fileID: 0}
   id: 
   sliceDmg: 0.75
   holy: {fileID: 6366792309168335411, guid: 94d3d533f95151d4db955d17e8dd1402, type: 3}
