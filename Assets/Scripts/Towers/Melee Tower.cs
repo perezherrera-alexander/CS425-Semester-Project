@@ -106,6 +106,7 @@ public class meleeTower : BaseTowerLogic
             target.GetComponent<BaseEnemyLogic>().stun(1.5f);
         }
         target.GetComponent<BaseEnemyLogic>().reduceHealth(directDamage);
+        audioSource.PlayOneShot(audioClip);
 
 
     }
