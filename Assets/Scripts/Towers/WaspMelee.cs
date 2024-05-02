@@ -69,7 +69,8 @@ public class WaspMelee : BaseTowerLogic
     }
 
     public override void Shoot()
-    {
+    {   
+        audioSource.PlayOneShot(audioClip);
         //animate.SetBool("attack", true);
         animate.SetTrigger("attack");
  
