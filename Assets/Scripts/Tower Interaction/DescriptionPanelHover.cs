@@ -38,6 +38,7 @@ public class DescriptionPanelHover : MonoBehaviour, IPointerEnterHandler, IPoint
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        //Debug.Log("Hovering over " + name + "!");
         isHovering = true;
         descriptionPanel.transform.GetChild(0).gameObject.SetActive(true);
         //descriptionPanel = GameObject.Find(descriptionPanelName);
@@ -45,6 +46,7 @@ public class DescriptionPanelHover : MonoBehaviour, IPointerEnterHandler, IPoint
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        //Debug.Log("No longer hovering over " + name + "!");
         isHovering = false;
         descriptionPanel.transform.GetChild(0).gameObject.SetActive(false);
         //descriptionPanel = null;

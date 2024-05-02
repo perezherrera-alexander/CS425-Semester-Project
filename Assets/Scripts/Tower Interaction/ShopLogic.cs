@@ -156,11 +156,23 @@ public class ShopLogic : MonoBehaviour
         openShopButton.SetActive(true);
         shopPanel.SetActive(false);
         shopIsOpen = false;
+        TurnOffTowerDescriptionPanels();
     }
 
     public void HideShowButton()
     {
         openShopButton.SetActive(false);
+    }
+
+    public void TurnOffTowerDescriptionPanels()
+    {
+        foreach (Transform child in shopPanel.transform)
+        {
+            if (child.name.Contains("Description Panel"))
+            {
+                child.GetChild(0).gameObject.SetActive(false);
+            }
+        }
     }
     
     // Purchase functions written by Edward Martinez
