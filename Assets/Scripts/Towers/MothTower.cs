@@ -43,7 +43,7 @@ public class MothTower : BaseTowerLogic
         }
         else
         {
-
+            Debug.Log("Not on");
         }
 
             

@@ -96,8 +96,9 @@ public class TowerPanelManager : MonoBehaviour
         BaseTowerLogic towerScript = SelectedTower.GetComponentInChildren<BaseTowerLogic>();
         Button deleteButton2;
 
-        if (towerScript.towerName == "Centipede Mother" || towerScript.towerName == "Moth Man")
+        if (towerScript.towerName == "Centipede Mother" || towerScript.towerName == "Moth Man" || towerScript.towerName == "Bee Buffer")
         {
+
             TowerPanelInstance = Instantiate(SpecialTowerPanelPrefab);
             TowerPanelInstance.transform.position = SelectedTower.transform.position;
             deleteButton2 = TowerPanelInstance.transform.GetChild(0).GetChild(3).GetChild(0).GetComponent<Button>();
@@ -105,6 +106,7 @@ public class TowerPanelManager : MonoBehaviour
         }
         else
         {
+
             TowerPanelInstance = Instantiate(TowerPanelPrefab) as GameObject;
             TowerPanelInstance.transform.position = SelectedTower.transform.position;
             TowerPanelInstance.transform.GetChild(0).GetChild(2).GetChild(0).GetComponent<TMP_Dropdown>().value = (int)towerScript.targetingType;
