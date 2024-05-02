@@ -50,6 +50,8 @@ public class FlameTower : BaseTowerLogic
         {
             if (firing == true)
                 firing = false;
+                //Stop playing the audio clip
+                audioSource.Stop();
                 fireA.enabled = false;
                 visual.Stop();
             return;
@@ -71,6 +73,7 @@ public class FlameTower : BaseTowerLogic
         if (!firing){
             firing = true;
             fireA.enabled = true;
+            audioSource.PlayOneShot(audioClip);
             visual.Play();
         }
 
