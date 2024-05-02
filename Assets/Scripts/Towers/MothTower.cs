@@ -54,6 +54,8 @@ public class MothTower : BaseTowerLogic
     public override void Shoot()
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, targettingRange);
+        audioSource.PlayOneShot(audioClip);
+
 
         foreach(Collider c in colliders)
         {
