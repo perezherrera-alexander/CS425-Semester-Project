@@ -46,6 +46,7 @@ public class mortarTower : BaseTowerLogic
         {
             ball.Seek(target);
         }
+        audioSource.PlayOneShot(audioClip);
     }
 
     public override void MakeSphere()

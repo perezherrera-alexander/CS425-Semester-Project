@@ -143,7 +143,7 @@ public class TowerPanelManager : MonoBehaviour
 
         if (dropdown != null)
         {
-            Debug.Log("Listening");
+            //Debug.Log("Listening");
             dropdown.onValueChanged.RemoveListener(TowerTargeting);
             dropdown.onValueChanged.AddListener(TowerTargeting);
         }

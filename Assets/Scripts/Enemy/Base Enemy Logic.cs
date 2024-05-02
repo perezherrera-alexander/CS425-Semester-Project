@@ -378,7 +378,7 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
                 {
                     float damage = other.GetComponent<FlameTower>().getDamage();
                     float dmgFrame = damage * Time.deltaTime;
-                    reduceHealth(dmgFrame);
+                    beetleDamage(dmgFrame);
                 }
 
             }
@@ -393,7 +393,7 @@ public class BaseEnemyLogic : MonoBehaviour, Effectable
             {
                 float damage = other.GetComponentInParent<antNest>().getDamage();
                 float dmgFrame = damage * Time.deltaTime;
-                reduceHealth(dmgFrame);
+                beetleDamage(dmgFrame);
             }
         }
     }
