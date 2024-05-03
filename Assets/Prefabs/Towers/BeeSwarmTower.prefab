@@ -190,7 +190,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 4310586713465477566, guid: ea9475b4f91f7db4a9ecd66ea216618e, type: 3}
-  - {fileID: 2100000, guid: 9c00ecde49bcf2d4096cea4267e3058a, type: 2}
+  - {fileID: 8588245910270914291, guid: c33a8e30e274eef468a6325759d0c710, type: 3}
   - {fileID: -5354028657143720620, guid: ea9475b4f91f7db4a9ecd66ea216618e, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -370,12 +370,12 @@ MonoBehaviour:
   curAttackSpeed: 0
   isBuffed: 0
   rangeFinder: {fileID: 5333855242369379736}
+  audioSource: {fileID: 6812198914095745105}
+  audioClip: {fileID: 8300000, guid: 4aa537130a439df428f8f6db0627c8fb, type: 3}
   storeTowerUpgradeData: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
   id: 
   projectiles: []
   honeyPot: {fileID: 3732602212933777005}
-  audioSource: {fileID: 6812198914095745105}
-  audioClip: {fileID: 8300000, guid: 4aa537130a439df428f8f6db0627c8fb, type: 3}
 --- !u!1 &9099372547338785898
 GameObject:
   m_ObjectHideFlags: 0
@@ -703,7 +703,7 @@ PrefabInstance:
     - target: {fileID: 7091746394599326639, guid: ea9475b4f91f7db4a9ecd66ea216618e, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 9c00ecde49bcf2d4096cea4267e3058a, type: 2}
+      objectReference: {fileID: 8588245910270914291, guid: c33a8e30e274eef468a6325759d0c710, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

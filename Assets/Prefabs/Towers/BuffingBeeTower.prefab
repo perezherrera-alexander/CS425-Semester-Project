@@ -201,11 +201,11 @@ MonoBehaviour:
   curAttackSpeed: 0
   isBuffed: 0
   rangeFinder: {fileID: 6542669783455865957}
+  audioSource: {fileID: 8885821335512124782}
+  audioClip: {fileID: 8300000, guid: 4aa537130a439df428f8f6db0627c8fb, type: 3}
   storeTowerUpgradeData: {fileID: 11400000, guid: ea015f8af0349d548a77bb2cb80cd20b, type: 2}
   id: 
   bag: {fileID: 444288520062213752}
-  audioSource: {fileID: 8885821335512124782}
-  audioClip: {fileID: 8300000, guid: 4aa537130a439df428f8f6db0627c8fb, type: 3}
 --- !u!135 &3134769863241474440
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -837,6 +837,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: honey
       objectReference: {fileID: 0}
+    - target: {fileID: 7091746394599326639, guid: ea9475b4f91f7db4a9ecd66ea216618e, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: -4256205905968823423, guid: c25d937fc7a890a4484ea0393ab53f82, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
