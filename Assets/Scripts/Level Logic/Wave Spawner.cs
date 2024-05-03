@@ -131,7 +131,7 @@ public class WaveSpawner : MonoBehaviour
             waveFormat = EnemyShowcaseWave;
             return;
         }
-        if(PlayerData.NumberOfWorldsCompleted == 11) // Rudimentary way to check if the final level is being played
+        if(PlayerData.NumberOfWorldsCompleted == 5) // Rudimentary way to check if the final level is being played
         {
             waveFormat = FinalBossWave;
             return;
