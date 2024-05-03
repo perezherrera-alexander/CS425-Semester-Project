@@ -16,6 +16,7 @@ public class NewLevel : MonoBehaviour
     public Toggle HardcoreMode;
     public Toggle HalfHealth;
     public Toggle DoubleHealth;
+    private AudioSource audioSource;
 
     public void Start()
     {
@@ -29,6 +30,7 @@ public class NewLevel : MonoBehaviour
             playerData.TowerPool[count] = towers[i];
             count++;
         }
+        audioSource = GameObject.Find("Audio Source").GetComponent<AudioSource>();
     }
 
     void Update()
@@ -61,6 +63,7 @@ public class NewLevel : MonoBehaviour
             playerData.CurrentWorld = "0,2";
             playerData.InitializeWorldsCompletedArray(100);
             playerData.InitializeTowerUnlockArray(6);
+            Destroy(audioSource);
             SceneManager.LoadScene(sceneName);
         }
 

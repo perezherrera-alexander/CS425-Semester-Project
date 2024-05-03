@@ -20,6 +20,7 @@ public class MainMenu : MonoBehaviour
     public string temptstringname;
 
     public GameObject UI;
+    public AudioSource audioSource;
 
     void Start(){
         if (File.Exists(SavePath)) LoadSaveButton.SetActive(true);
@@ -48,6 +49,18 @@ public class MainMenu : MonoBehaviour
         playerData.Saving = false;
         playerData.PathsVisited = new List<string>();
         playerData.LevelLoaded = false;
+
+        // Find any existing Audio Source
+        audioSource = FindObjectOfType<AudioSource>();
+
+        // If more than one Audio Source exists, destroy the new one
+        if (FindObjectsOfType<AudioSource>().Length > 1)
+        {
+            // Destroy the other Audio Source
+            var otherAudioSource = FindObjectsOfType<AudioSource>()[1];
+            Destroy(otherAudioSource.gameObject);
+        }
+        DontDestroyOnLoad(audioSource);
     }
 
     void Update()
@@ -104,6 +117,7 @@ public class MainMenu : MonoBehaviour
     {
         Debug.Log("Load World Map Save......");
         SceneManager.sceneLoaded += OnSceneLoaded; // Subscribe to the sceneLoaded event
+        Destroy(audioSource);
         SceneManager.LoadScene("Game View");
     }
 
@@ -115,6 +129,7 @@ public class MainMenu : MonoBehaviour
         playerData.activeGeneral = Generals.Bee;
         //generalSelected = true;
         //nameOfGen = generalName;
+        Destroy(audioSource);
         SceneManager.LoadScene("Tutorial World");
         
     }
